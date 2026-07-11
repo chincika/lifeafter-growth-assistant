@@ -1,0 +1,21 @@
+appId: io.github.chincika.lifeafter-growth-assistant
+productName: 明日之后养成助手
+asar: true
+directories:
+  output: release
+files:
+  - out/**/*
+  - package.json
+win:
+  executableName: LifeAfterGrowthAssistant
+  target:
+    - nsis
+    - portable
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: 明日之后养成助手
+portable:
+  artifactName: 明日之后养成助手-${version}-portable.${ext}
+artifactName: 明日之后养成助手-${version}-setup.${ext}

@@ -1,0 +1,172 @@
+:root {
+  color-scheme: light dark;
+  font-family:
+    "Microsoft YaHei UI", "PingFang SC", system-ui, -apple-system, sans-serif;
+  background: #0b1220;
+  color: #e5edf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 960px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 80% 10%, rgb(35 72 91 / 35%), transparent 34rem),
+    #0b1220;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px 20px;
+  border-right: 1px solid rgb(148 163 184 / 16%);
+  background: rgb(8 15 28 / 88%);
+}
+
+.brand {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.brand-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 13px;
+  background: #50c2a7;
+  color: #071812;
+  font-weight: 900;
+}
+
+.brand h1,
+.brand p,
+.placeholder-card h2,
+.placeholder-card p {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 17px;
+}
+
+.brand p {
+  margin-top: 5px;
+  color: #8fa4bf;
+  font-size: 12px;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 7px;
+}
+
+.nav-item {
+  padding: 11px 14px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #aebed2;
+  text-align: left;
+  cursor: default;
+}
+
+.nav-item.active {
+  border-color: rgb(80 194 167 / 26%);
+  background: rgb(80 194 167 / 12%);
+  color: #b8f5e6;
+}
+
+.privacy-note {
+  margin-top: auto;
+  color: #71849d;
+  font-size: 12px;
+}
+
+.workspace {
+  display: grid;
+  padding: 40px;
+  place-items: center;
+}
+
+.placeholder-card {
+  width: min(720px, 100%);
+  padding: 44px;
+  border: 1px solid rgb(148 163 184 / 18%);
+  border-radius: 22px;
+  background: rgb(15 25 42 / 82%);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 24%);
+}
+
+.eyebrow {
+  color: #50c2a7;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.placeholder-card h2 {
+  margin-top: 12px;
+  font-size: 36px;
+}
+
+.placeholder-card p {
+  margin-top: 12px;
+  color: #98aac1;
+  line-height: 1.7;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    background: #eef3f6;
+    color: #172231;
+  }
+
+  .app-shell {
+    background:
+      radial-gradient(circle at 80% 10%, rgb(77 177 158 / 18%), transparent 34rem),
+      #eef3f6;
+  }
+
+  .sidebar {
+    border-right-color: rgb(51 65 85 / 12%);
+    background: rgb(247 250 252 / 92%);
+  }
+
+  .brand p,
+  .privacy-note,
+  .placeholder-card p {
+    color: #607188;
+  }
+
+  .nav-item {
+    color: #52657c;
+  }
+
+  .nav-item.active {
+    color: #126a5a;
+  }
+
+  .placeholder-card {
+    border-color: rgb(51 65 85 / 12%);
+    background: rgb(255 255 255 / 82%);
+    box-shadow: 0 24px 80px rgb(52 74 91 / 12%);
+  }
+}

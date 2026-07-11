@@ -1,0 +1,34 @@
+{
+  "name": "@lifeafter-assistant/desktop",
+  "version": "0.0.0",
+  "description": "明日之后养成助手 Windows 客户端",
+  "author": "Evebreeze",
+  "private": true,
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "check": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest",
+    "test:run": "vitest run --passWithNoTests",
+    "pack:dir": "pnpm build && electron-builder --dir",
+    "dist:installer": "pnpm build && electron-builder --win nsis --x64",
+    "dist:portable": "pnpm build && electron-builder --win portable --x64"
+  },
+  "dependencies": {
+    "@lifeafter-assistant/core": "workspace:*",
+    "@lifeafter-assistant/data-schema": "workspace:*",
+    "@lifeafter-assistant/ui": "workspace:*",
+    "vue": "^3.5.0",
+    "vue-i18n": "^11.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.0",
+    "electron-vite": "^5.0.0",
+    "vite": "^7.3.6",
+    "vue-tsc": "^3.3.0"
+  }
+}

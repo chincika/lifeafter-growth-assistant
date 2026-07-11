@@ -5,7 +5,7 @@
 ## 技术方向
 
 - UI：Vue 3、TypeScript、Vite。
-- Windows 容器：Electron。
+- Windows 容器：Electron，使用 electron-vite 构建。
 - 未来 Android 容器：Capacitor；不纳入当前交付。
 - 仓库：pnpm workspace monorepo。
 - 数据库：SQLite，具体驱动在原型验证后确定。
@@ -72,6 +72,6 @@ flowchart LR
 ## 待验证决策
 
 - SQLite 驱动在 Electron 打包、便携模式和未来 Android 适配中的组合。
-- 安装器与便携包的具体制作工具。
+- 安装器与便携包使用 electron-builder；NSIS 安装版与 portable 单文件已完成骨架验证。
 - 无签名条件下客户端更新的安全确认与用户体验。
 - GitHub 数据发布使用 Releases、静态分支，或二者结合。

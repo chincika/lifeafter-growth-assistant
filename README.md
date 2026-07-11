@@ -21,6 +21,7 @@
 - [架构方案](docs/architecture.md)
 - [旧版功能清单](docs/legacy-inventory.md)
 - [地摊与纳米计算审计](docs/audits/market-and-nano.md)
+- [Windows 桌面运行时基线](docs/desktop-runtime.md)
 
 ## 开源协议
 
