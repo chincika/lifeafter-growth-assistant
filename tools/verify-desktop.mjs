@@ -47,13 +47,14 @@ await send("Runtime.enable");
 await new Promise((resolve) => setTimeout(resolve, 1_000));
 
 const evaluation = await send("Runtime.evaluate", {
-  expression: `({
+  expression: `(async () => ({
     title: document.title,
     text: document.body.innerText,
     csp: document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content,
-    runtime: window.desktopApi?.getRuntimeInfo(),
+    runtime: await window.desktopApi?.getRuntimeInfo(),
     nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
-  })`,
+  }))()`,
+  awaitPromise: true,
   returnByValue: true,
 });
 

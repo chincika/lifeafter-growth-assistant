@@ -1,7 +1,13 @@
-import { app, BrowserWindow, dialog, shell } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import { mkdirSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
+
+import {
+  migrateDatabase,
+  openDatabase,
+  type SqliteDatabase,
+} from "@lifeafter-assistant/database";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
 const portableDirectory = process.env.PORTABLE_EXECUTABLE_DIR;
@@ -12,6 +18,7 @@ const dataRoot = portableDirectory
 
 if (portableDirectory || testDataDirectory) app.setPath("userData", dataRoot);
 app.setAppUserModelId(APP_ID);
+let database: SqliteDatabase | undefined;
 
 function assertWritableDataRoot(): void {
   try {
@@ -38,6 +45,33 @@ function isTrustedExternalUrl(rawUrl: string): boolean {
   } catch {
     return false;
   }
+}
+
+function isTrustedRendererUrl(rawUrl: string): boolean {
+  try {
+    const url = new URL(rawUrl);
+    if (url.protocol === "file:") return true;
+    return (
+      process.env.ELECTRON_RENDERER_URL !== undefined &&
+      url.origin === new URL(process.env.ELECTRON_RENDERER_URL).origin
+    );
+  } catch {
+    return false;
+  }
+}
+
+function registerIpcHandlers(databaseVersion: number): void {
+  ipcMain.handle("runtime:get-info", (event) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "")) {
+      throw new Error("Rejected IPC request from an untrusted renderer");
+    }
+    return {
+      platform: process.platform,
+      portable: Boolean(portableDirectory),
+      appVersion: app.getVersion(),
+      databaseVersion,
+    };
+  });
 }
 
 function createWindow(): BrowserWindow {
@@ -80,6 +114,9 @@ function createWindow(): BrowserWindow {
 
 app.whenReady().then(() => {
   assertWritableDataRoot();
+  database = openDatabase(join(dataRoot, "assistant.sqlite"));
+  const databaseVersion = migrateDatabase(database);
+  registerIpcHandlers(databaseVersion);
   createWindow();
 
   app.on("activate", () => {
@@ -89,4 +126,9 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
+});
+
+app.on("before-quit", () => {
+  database?.close();
+  database = undefined;
 });

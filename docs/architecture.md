@@ -8,7 +8,7 @@
 - Windows 容器：Electron，使用 electron-vite 构建。
 - 未来 Android 容器：Capacitor；不纳入当前交付。
 - 仓库：pnpm workspace monorepo。
-- 数据库：SQLite，具体驱动在原型验证后确定。
+- 数据库：SQLite；Windows 使用 Electron 所含 Node 24 的内置 `node:sqlite`，未来 Android 使用平台适配器执行同一逻辑 schema。
 - 数据契约：版本化 schema、稳定实体 ID、结构校验与校验和。
 - 测试：计算规则单元测试、数据库迁移测试、组件测试和桌面端端到端测试。
 - 基础运行环境：Node.js 24、pnpm 11 workspace。

@@ -1,16 +1,15 @@
-import { contextBridge } from "electron";
+import { contextBridge, ipcRenderer } from "electron";
 
 export interface DesktopRuntimeInfo {
   platform: NodeJS.Platform;
   portable: boolean;
+  appVersion: string;
+  databaseVersion: number;
 }
 
 const desktopApi = Object.freeze({
-  getRuntimeInfo(): DesktopRuntimeInfo {
-    return {
-      platform: process.platform,
-      portable: Boolean(process.env.PORTABLE_EXECUTABLE_DIR),
-    };
+  async getRuntimeInfo(): Promise<DesktopRuntimeInfo> {
+    return ipcRenderer.invoke("runtime:get-info") as Promise<DesktopRuntimeInfo>;
   },
 });
 
