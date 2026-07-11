@@ -68,6 +68,12 @@ importers:
 
   packages/database: {}
 
+  packages/migration:
+    dependencies:
+      zod:
+        specifier: ^4.0.0
+        version: 4.4.3
+
   packages/ui:
     dependencies:
       vue:

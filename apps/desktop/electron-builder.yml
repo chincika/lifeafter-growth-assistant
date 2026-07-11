@@ -6,6 +6,9 @@ directories:
 files:
   - out/**/*
   - package.json
+extraResources:
+  - from: ../../content/base
+    to: content/base
 win:
   executableName: LifeAfterGrowthAssistant
   target:

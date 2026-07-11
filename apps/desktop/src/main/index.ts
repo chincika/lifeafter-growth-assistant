@@ -1,5 +1,5 @@
 import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
-import { mkdirSync, unlinkSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
 
@@ -8,6 +8,7 @@ import {
   openDatabase,
   type SqliteDatabase,
 } from "@lifeafter-assistant/database";
+import { marketCatalogSchema, nanoCatalogSchema } from "@lifeafter-assistant/data-schema";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
 const portableDirectory = process.env.PORTABLE_EXECUTABLE_DIR;
@@ -19,6 +20,88 @@ const dataRoot = portableDirectory
 if (portableDirectory || testDataDirectory) app.setPath("userData", dataRoot);
 app.setAppUserModelId(APP_ID);
 let database: SqliteDatabase | undefined;
+
+function bundledContentDirectory(): string {
+  return app.isPackaged
+    ? join(process.resourcesPath, "content", "base")
+    : join(app.getAppPath(), "..", "..", "content", "base");
+}
+
+function installBundledContent(target: SqliteDatabase): void {
+  const directory = bundledContentDirectory();
+  const market = marketCatalogSchema.parse(
+    JSON.parse(readFileSync(join(directory, "market-items.json"), "utf8")),
+  );
+  const nano = nanoCatalogSchema.parse(
+    JSON.parse(readFileSync(join(directory, "nano-items.json"), "utf8")),
+  );
+  const installed = target
+    .prepare("SELECT 1 FROM content_releases WHERE version = ?")
+    .get(market.contentVersion);
+  if (installed) return;
+
+  const insert = target.prepare(`
+    INSERT INTO public_entities(id, entity_type, name, payload_json, content_version, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?)
+    ON CONFLICT(id) DO UPDATE SET
+      entity_type = excluded.entity_type,
+      name = excluded.name,
+      payload_json = excluded.payload_json,
+      content_version = excluded.content_version,
+      updated_at = excluded.updated_at
+  `);
+  const now = new Date().toISOString();
+  const nanoById = new Map(nano.items.map((item) => [item.itemId, item]));
+  target.exec("BEGIN IMMEDIATE");
+  try {
+    for (const item of market.items) {
+      insert.run(
+        item.id,
+        "market-item",
+        item.name,
+        JSON.stringify({ ...item, nano: nanoById.get(item.id) ?? null }),
+        market.contentVersion,
+        now,
+      );
+    }
+    target
+      .prepare(
+        "INSERT INTO content_releases(version, applied_at, manifest_sha256) VALUES (?, ?, ?)",
+      )
+      .run(market.contentVersion, now, "0".repeat(64));
+    target.exec("COMMIT");
+  } catch (error) {
+    target.exec("ROLLBACK");
+    throw error;
+  }
+}
+
+function listMarketItems(target: SqliteDatabase) {
+  return target
+    .prepare(`
+      SELECT p.id, p.name, p.payload_json AS payloadJson,
+             u.market_price AS marketPrice, COALESCE(u.focused, 0) AS focused
+      FROM public_entities p
+      LEFT JOIN user_item_state u ON u.entity_id = p.id
+      WHERE p.entity_type = 'market-item'
+      ORDER BY p.name COLLATE NOCASE
+    `)
+    .all()
+    .map((row) => {
+      const value = row as Record<string, unknown>;
+      const payload = JSON.parse(String(value.payloadJson)) as Record<string, unknown>;
+      return {
+        id: String(value.id),
+        name: String(value.name),
+        category: String(payload.category),
+        level: Number(payload.level),
+        marketPrice: value.marketPrice === null ? null : Number(value.marketPrice),
+        focused: Boolean(value.focused),
+        hasRecipe: Array.isArray(payload.recipe) && payload.recipe.length > 0,
+        hasNano: payload.nano !== null,
+      };
+    });
+}
 
 function assertWritableDataRoot(): void {
   try {
@@ -72,6 +155,32 @@ function registerIpcHandlers(databaseVersion: number): void {
       databaseVersion,
     };
   });
+  ipcMain.handle("market:list-items", (event) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) {
+      throw new Error("Rejected market request");
+    }
+    return listMarketItems(database);
+  });
+  ipcMain.handle(
+    "market:set-item-state",
+    (event, input: { id: string; marketPrice: number | null; focused: boolean }) => {
+      if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) {
+        throw new Error("Rejected market update");
+      }
+      if (!/^[a-z0-9][a-z0-9._-]{2,127}$/.test(input.id)) throw new Error("Invalid item ID");
+      if (input.marketPrice !== null && (!Number.isInteger(input.marketPrice) || input.marketPrice < 0)) {
+        throw new Error("Invalid market price");
+      }
+      database.prepare(`
+        INSERT INTO user_item_state(entity_id, market_price, focused, updated_at)
+        VALUES (?, ?, ?, ?)
+        ON CONFLICT(entity_id) DO UPDATE SET
+          market_price = excluded.market_price,
+          focused = excluded.focused,
+          updated_at = excluded.updated_at
+      `).run(input.id, input.marketPrice, input.focused ? 1 : 0, new Date().toISOString());
+    },
+  );
 }
 
 function createWindow(): BrowserWindow {
@@ -116,12 +225,18 @@ app.whenReady().then(() => {
   assertWritableDataRoot();
   database = openDatabase(join(dataRoot, "assistant.sqlite"));
   const databaseVersion = migrateDatabase(database);
+  installBundledContent(database);
   registerIpcHandlers(databaseVersion);
   createWindow();
 
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+}).catch((error) => {
+  mkdirSync(dataRoot, { recursive: true });
+  writeFileSync(join(dataRoot, "startup-error.log"), String(error), "utf8");
+  dialog.showErrorBox("启动失败", `程序无法启动：\n${String(error)}`);
+  app.exit(1);
 });
 
 app.on("window-all-closed", () => {

@@ -38,6 +38,19 @@ export const migrations: readonly Migration[] = [
         updated_at TEXT NOT NULL
       ) STRICT;
 
+      CREATE TABLE user_recipe_choices (
+        product_entity_id TEXT NOT NULL,
+        ingredient_entity_id TEXT NOT NULL,
+        acquisition_mode TEXT NOT NULL CHECK(
+          acquisition_mode IN ('craft', 'purchase')
+        ),
+        quantity_override REAL CHECK(
+          quantity_override IS NULL OR quantity_override > 0
+        ),
+        updated_at TEXT NOT NULL,
+        PRIMARY KEY (product_entity_id, ingredient_entity_id)
+      ) STRICT;
+
       CREATE TABLE user_entities (
         id TEXT PRIMARY KEY,
         entity_type TEXT NOT NULL,

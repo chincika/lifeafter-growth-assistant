@@ -47,13 +47,22 @@ await send("Runtime.enable");
 await new Promise((resolve) => setTimeout(resolve, 1_000));
 
 const evaluation = await send("Runtime.evaluate", {
-  expression: `(async () => ({
-    title: document.title,
-    text: document.body.innerText,
-    csp: document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content,
-    runtime: await window.desktopApi?.getRuntimeInfo(),
-    nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
-  }))()`,
+  expression: `(async () => {
+    const before = await window.desktopApi?.listMarketItems();
+    const target = before?.[0];
+    if (target) await window.desktopApi.setMarketItemState({ id: target.id, marketPrice: 123, focused: true });
+    const after = await window.desktopApi?.listMarketItems();
+    const persisted = after?.find((item) => item.id === target?.id);
+    return {
+      title: document.title,
+      text: document.body.innerText,
+      csp: document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content,
+      runtime: await window.desktopApi?.getRuntimeInfo(),
+      marketItemCount: after?.length,
+      statePersisted: persisted?.marketPrice === 123 && persisted?.focused === true,
+      nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
+    };
+  })()`,
   awaitPromise: true,
   returnByValue: true,
 });
@@ -73,4 +82,9 @@ if (!result.runtime || result.runtime.platform !== "win32") {
   throw new Error("Preload bridge is unavailable");
 }
 if (result.nodeExposed) throw new Error("Node globals are exposed to the renderer");
+if (result.marketItemCount !== 458) throw new Error("Bundled market data was not loaded");
+if (!result.statePersisted) throw new Error("Personal item state was not persisted");
+if (!result.text.includes("458") || !result.text.includes("石纹蜂窝板")) {
+  throw new Error("Market data was not rendered");
+}
 if (runtimeErrors.length > 0) throw new Error("Renderer raised runtime exceptions");

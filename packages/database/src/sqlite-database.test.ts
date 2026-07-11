@@ -33,6 +33,7 @@ describe("database migrations", () => {
       "settings",
       "user_entities",
       "user_item_state",
+      "user_recipe_choices",
     ]);
   });
 
