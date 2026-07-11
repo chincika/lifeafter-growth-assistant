@@ -68,11 +68,59 @@ const evaluation = await send("Runtime.evaluate", {
       button.click(); await new Promise((resolve) => setTimeout(resolve, 20));
       growthPages.push({ name: button.textContent?.trim(), text: document.querySelector('.growth-page')?.textContent?.slice(0, 300) });
     }
+    growthButtons.find((button) => button.textContent?.trim() === '专研 / 升星')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const researchAttributesCollapsed = document.querySelector('.collapsible-table')?.open === false;
+    growthButtons.find((button) => button.textContent?.trim() === '专精')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const masterySelect = document.querySelector('.growth-controls select');
+    const evolutionOption = [...(masterySelect?.options ?? [])].find((option) => option.textContent?.includes('蛛酶步枪'));
+    if (masterySelect && evolutionOption) {
+      masterySelect.value = evolutionOption.value;
+      masterySelect.dispatchEvent(new Event('change', { bubbles: true }));
+      await new Promise((resolve) => setTimeout(resolve, 30));
+    }
+    const evolutionMasteryRendered = document.querySelector('.result-cards')?.textContent?.includes('精确期望点击');
+    const masteryAttributeComparison = document.querySelector('.attribute-comparison')?.textContent;
+    growthButtons.find((button) => button.textContent?.trim() === '腰带芯片')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    document.querySelector('.chip-list button')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const chipRange = document.querySelector('.chip-detail input[type="range"]');
+    if (chipRange) { chipRange.value = '12'; chipRange.dispatchEvent(new Event('input', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
+    const beltDescription = document.querySelector('.chip-detail p:last-of-type')?.textContent;
+    document.querySelector('.compare-action')?.click();
+    document.querySelectorAll('.chip-list button')[1]?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    document.querySelector('.compare-action')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const comparedChipCount = document.querySelectorAll('.chip-comparison article').length;
+    growthButtons.find((button) => button.textContent?.trim() === '人类基因')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const geneNodePlanner = document.querySelector('.node-planner')?.textContent;
     growthButtons.find((button) => button.textContent?.trim() === '图谱养成')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
+    const graphTypeSelect = document.querySelector('.growth-controls select');
+    if (graphTypeSelect) { graphTypeSelect.value = '1'; graphTypeSelect.dispatchEvent(new Event('change', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
     document.querySelector('.equipment-catalog article')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     const graphRecipePlanner = document.querySelector('.graph-recipe-planner')?.textContent;
+    const graphContributionBeforeSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
+    document.querySelector('.skin-selector input')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const graphContributionAfterSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
+    document.querySelector('.graph-recipe-planner .compare-action')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const configuredGraphRecipeCount = document.querySelectorAll('.configured-recipes article').length;
+    const graphSearch = document.querySelector('.growth-controls input[placeholder]');
+    if (graphSearch) { graphSearch.value = '火焰喷射器'; graphSearch.dispatchEvent(new Event('input', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
+    document.querySelector('.equipment-catalog article')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const fireInputs = document.querySelectorAll('.graph-recipe-planner .growth-controls input[type="number"]');
+    if (fireInputs[0]) { fireInputs[0].value = '4'; fireInputs[0].dispatchEvent(new Event('input', { bubbles: true })); }
+    if (fireInputs[2]) { fireInputs[2].value = '20'; fireInputs[2].dispatchEvent(new Event('input', { bubbles: true })); }
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const fireThrowerContribution = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
     const planId = await window.desktopApi.saveGrowthPlan({ name: '自动测试养成方案', module: 'research', payload: { from: 0, to: 30 } });
     const growthPlanPersisted = (await window.desktopApi.listGrowthPlans()).some((plan) => plan.id === planId && plan.payload.to === 30);
     await window.desktopApi.deleteGrowthPlan(planId);
@@ -89,12 +137,33 @@ const evaluation = await send("Runtime.evaluate", {
       statePersisted: persisted?.marketPrice === 123 && persisted?.focused === true,
       recipeChoicePersisted: persistedRecipe?.acquisitionMode === 'purchase',
       growthPages,
+      researchAttributesCollapsed,
+      evolutionMasteryRendered,
+      masteryAttributeComparison,
+      beltDescription,
+      comparedChipCount,
+      geneNodePlanner,
       graphRecipePlanner,
+      graphSkinContributionIncreased: graphContributionAfterSkin > graphContributionBeforeSkin,
+      configuredGraphRecipeCount,
+      fireThrowerContribution,
       growthPlanPersisted,
       nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
     };
   })()`,
   awaitPromise: true,
+  returnByValue: true,
+});
+
+await send("Emulation.setDeviceMetricsOverride", {
+  width: 600,
+  height: 900,
+  deviceScaleFactor: 1,
+  mobile: false,
+});
+await new Promise((resolve) => setTimeout(resolve, 100));
+const responsiveEvaluation = await send("Runtime.evaluate", {
+  expression: `(() => { const page = document.querySelector('.growth-workspace'); return page ? page.scrollWidth <= page.clientWidth + 1 : false; })()`,
   returnByValue: true,
 });
 
@@ -104,7 +173,11 @@ if (evaluation.exceptionDetails) {
   throw new Error(JSON.stringify(evaluation.exceptionDetails));
 }
 
-const result = { ...evaluation.result.value, runtimeErrors };
+const result = {
+  ...evaluation.result.value,
+  responsiveGrowthLayout: responsiveEvaluation.result.value,
+  runtimeErrors,
+};
 console.log(
   JSON.stringify(
     { ...result, text: undefined, textPreview: result.text.slice(0, 500) },
@@ -121,6 +194,8 @@ if (!result.runtime || result.runtime.platform !== "win32") {
 }
 if (result.nodeExposed)
   throw new Error("Node globals are exposed to the renderer");
+if (!result.responsiveGrowthLayout)
+  throw new Error("Growth workspace overflowed at compact width");
 if (result.marketItemCount !== 459)
   throw new Error("Bundled or custom market data was not loaded");
 if (result.initialFirstItem !== "木头")
@@ -140,6 +215,29 @@ if (
   throw new Error("Growth modules did not render");
 if (!result.graphRecipePlanner?.includes("配方精通规划"))
   throw new Error("Graph recipe planner did not render");
+if (!result.graphSkinContributionIncreased)
+  throw new Error("Graph skin contribution was not calculated");
+if (result.configuredGraphRecipeCount !== 1)
+  throw new Error("Graph recipe portfolio was not saved");
+if (result.fireThrowerContribution !== 355)
+  throw new Error(
+    "Fire thrower special graph progression table was not applied",
+  );
+if (!result.researchAttributesCollapsed)
+  throw new Error("Research attributes should be collapsed by default");
+if (!result.evolutionMasteryRendered)
+  throw new Error("Evolution mastery failed to render");
+if (!result.masteryAttributeComparison?.includes("目标 Lv 35"))
+  throw new Error("Mastery attribute comparison did not render");
+if (
+  !result.beltDescription?.includes("27.0%") ||
+  result.beltDescription.includes("数值")
+)
+  throw new Error("Belt chip placeholders were not resolved");
+if (result.comparedChipCount !== 2)
+  throw new Error("Belt chip comparison did not render two chips");
+if (!result.geneNodePlanner?.includes("规划单个基因节点"))
+  throw new Error("Gene node planner did not render");
 if (!result.growthPlanPersisted)
   throw new Error("Growth plan was not persisted");
 if (!result.marketRendered) {

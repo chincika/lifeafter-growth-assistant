@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 import {
   calculateExpectedGeneClicks,
   calculateProgressionCosts,
@@ -132,6 +132,13 @@ const bonus1 = ref(15),
 const simulationSeed = ref("lifeafter-plan-1"),
   researchSimulation = ref<SimulationResult | null>(null),
   geneSimulation = ref<SimulationResult | null>(null);
+const progressionInputError = computed(() => {
+  const probability = bonus1.value + bonus4.value + bonus9.value;
+  if (probability > 100)
+    return "三项暴击概率合计不能超过 100%。请降低其中一项后重新计算。";
+  if (from.value >= to.value) return "目标等级必须高于当前等级。";
+  return "";
+});
 const researchLevels = computed(
   () =>
     (progression.value[researchKind.value === "version" ? "m" : "n"] ??
@@ -171,6 +178,17 @@ const starRows = computed(
       consumables: Material[];
     }>,
 );
+const starFrom = ref(0),
+  starTo = ref(5);
+const starResult = computed(() => {
+  const materials: Record<string, number> = {};
+  if (starFrom.value < 0 || starTo.value > 5 || starFrom.value >= starTo.value)
+    return materials;
+  for (const row of starRows.value.slice(starFrom.value, starTo.value))
+    for (const item of row.consumables)
+      materials[item.name] = (materials[item.name] ?? 0) + item.num;
+  return materials;
+});
 const researchEquipment = [
   "帽子",
   "护盾",
@@ -235,6 +253,38 @@ const masteryEquipment = [
 const masteryEquipmentIndex = ref(0),
   masteryFrom = ref(0),
   masteryTo = ref(35);
+const masteryAttributeKeys = ["o", "x", "A", "y", "r", "t", "u", "v", "w"];
+const masteryAttributeKey = computed(() => {
+  if (masteryEquipmentIndex.value < masteryAttributeKeys.length)
+    return masteryAttributeKeys[masteryEquipmentIndex.value]!;
+  const name = masteryEquipment[masteryEquipmentIndex.value] ?? "";
+  if (name.includes("盾牌")) return "t";
+  if (name.includes("刀") || name.includes("锋刃")) return "r";
+  if (name.includes("炮")) return "u";
+  if (name.includes("狙击")) return "v";
+  if (name.includes("双枪")) return "y";
+  if (name.includes("电磁") || name.includes("弓")) return "w";
+  if (name.includes("霰弹")) return "x";
+  return "A";
+});
+const masteryAttributes = computed(
+  () =>
+    (progression.value[masteryAttributeKey.value] ?? []) as AttributeLevel[],
+);
+function parseAttributes(row: AttributeLevel | undefined) {
+  if (!row) return [] as string[];
+  try {
+    return JSON.parse(row.attr) as string[];
+  } catch {
+    return [];
+  }
+}
+const masteryCurrentAttributes = computed(() =>
+  parseAttributes(masteryAttributes.value[masteryFrom.value]),
+);
+const masteryTargetAttributes = computed(() =>
+  parseAttributes(masteryAttributes.value[masteryTo.value]),
+);
 const evolutionOverrideKeys = [
   "C",
   "D",
@@ -253,7 +303,12 @@ const evolutionOverrideKeys = [
 const masteryBase = computed(() => {
   if (masteryEquipmentIndex.value < 9)
     return (progression.value.V ?? []) as ProgressLevel[];
-  const base = structuredClone((progression.value.B ?? []) as ProgressLevel[]);
+  const base = ((progression.value.B ?? []) as ProgressLevel[]).map(
+    (level) => ({
+      ...level,
+      consumables: level.consumables.map((item) => ({ ...item })),
+    }),
+  );
   const overrides = (progression.value[
     evolutionOverrideKeys[masteryEquipmentIndex.value - 9]!
   ] ?? []) as ProgressLevel[];
@@ -272,6 +327,10 @@ const masteryBase = computed(() => {
 const equipmentUnitPrice = ref(0),
   bookUnitPrice = ref(12500),
   materialUnitPrice = ref(0);
+const masteryPrices = reactive<Record<string, number>>({
+  小黄书: 12500,
+  金条: 1,
+});
 const masteryResult = computed(() => {
   try {
     return calculateProgressionCosts(
@@ -300,23 +359,32 @@ const masteryResult = computed(() => {
     return emptyProgression;
   }
 });
+const masteryInputError = computed(() => {
+  if (bonus1.value + bonus4.value + bonus9.value > 100)
+    return "三项暴击概率合计不能超过 100%。";
+  if (masteryFrom.value >= masteryTo.value)
+    return "目标专精等级必须高于当前专精等级。";
+  return "";
+});
+const masteryMaterialNames = computed(() =>
+  Object.keys(masteryResult.value.expectedMaterials),
+);
+function masteryPrice(name: string) {
+  if (Number.isFinite(masteryPrices[name])) return masteryPrices[name]!;
+  if (name === "小黄书") return bookUnitPrice.value;
+  if (name === "金条") return 1;
+  return name.includes("枪") ||
+    name.includes("刀") ||
+    name.includes("盾") ||
+    name.includes("甲") ||
+    name.includes("弓") ||
+    name.includes("炮")
+    ? equipmentUnitPrice.value
+    : materialUnitPrice.value;
+}
 const masteryGoldCost = computed(() =>
   Object.entries(masteryResult.value.expectedMaterials).reduce(
-    (sum, [name, amount]) =>
-      sum +
-      amount *
-        (name === "小黄书"
-          ? bookUnitPrice.value
-          : name === "金条"
-            ? 1
-            : name.includes("枪") ||
-                name.includes("刀") ||
-                name.includes("盾") ||
-                name.includes("甲") ||
-                name.includes("弓") ||
-                name.includes("炮")
-              ? equipmentUnitPrice.value
-              : materialUnitPrice.value),
+    (sum, [name, amount]) => sum + amount * masteryPrice(name),
     0,
   ),
 );
@@ -338,6 +406,11 @@ const accessoryResult = computed(() => {
     return { levels: 0, total: 0 };
   }
 });
+const accessoryInputError = computed(() =>
+  accessoryFrom.value >= accessoryTo.value
+    ? "目标配件等级必须高于当前等级。"
+    : "",
+);
 
 const beltCosts = [10, 15, 20, 30, 40, 55, 70, 90, 110, 130, 150];
 const beltFrom = ref(1),
@@ -351,6 +424,9 @@ const beltResult = computed(() => {
     return { levels: 0, total: 0 };
   }
 });
+const beltInputError = computed(() =>
+  beltFrom.value >= beltTo.value ? "目标芯片星级必须高于当前星级。" : "",
+);
 const beltChips = computed(() =>
   (
     (belt.value[beltType.value === "attack" ? "a" : "d"] ?? []) as BeltChip[]
@@ -358,9 +434,35 @@ const beltChips = computed(() =>
 );
 const selectedChip = ref<BeltChip | null>(null),
   chipLevel = ref(1);
+const comparedChips = ref<BeltChip[]>([]);
+watch(
+  () => [beltType.value, props.content] as const,
+  () => {
+    selectedChip.value = beltChips.value[0] ?? null;
+  },
+  { immediate: true },
+);
 const chipLevelText = computed(
   () => selectedChip.value?.[`attr_${chipLevel.value}`] as string[] | undefined,
 );
+function resolveChipDescription(chip: BeltChip, level: number) {
+  let description = chip.attr ?? "";
+  const values = (chip[`attr_${level}`] as string[] | undefined) ?? [];
+  for (const [index, value] of values.entries())
+    description = description.replace(`#${index + 1}#`, value);
+  return cleanHtml(description);
+}
+const chipDescription = computed(() =>
+  selectedChip.value
+    ? resolveChipDescription(selectedChip.value, chipLevel.value)
+    : "",
+);
+function addComparedChip() {
+  const chip = selectedChip.value;
+  if (!chip || comparedChips.value.some((item) => item.name === chip.name))
+    return;
+  comparedChips.value = [...comparedChips.value.slice(-1), chip];
+}
 
 const graphTypes = ["头盔", "轻型", "重型", "冷兵器", "护甲", "护盾", "无人机"];
 const graphKeys = ["ye_0", "he_0", "ze_0", "be_0", "ke_0", "je_0", "we_0"];
@@ -385,6 +487,9 @@ const graphCurrent = computed(
 const graphTarget = computed(
   () => graphLevels.value[Math.max(0, graphTo.value - 1)],
 );
+const graphInputError = computed(() =>
+  graphFrom.value > graphTo.value ? "目标图谱等级不能低于当前等级。" : "",
+);
 const graphEquipmentQuery = ref("");
 const graphEquipment = computed(() =>
   (
@@ -400,11 +505,17 @@ const graphEquipment = computed(() =>
   ).filter((item) => item.name.includes(graphEquipmentQuery.value.trim())),
 );
 type GraphEquipment = (typeof graphEquipment.value)[number];
+type GraphRecipeState = {
+  star: number;
+  research: number;
+  mastery: number;
+  skins: string[];
+};
 const selectedGraphEquipment = ref<GraphEquipment | null>(null);
 const graphRecipeStar = ref(0),
   graphRecipeResearch = ref(0),
   graphRecipeMastery = ref(0),
-  graphRecipeSkins = ref(0);
+  graphSelectedSkins = ref<string[]>([]);
 const graphStarTables = computed(() => (graph.value.Ce_0 ?? []) as number[][]);
 const graphResearchTables = computed(
   () => (graph.value.Ue_0 ?? []) as number[][],
@@ -412,50 +523,93 @@ const graphResearchTables = computed(
 const graphMasteryTables = computed(
   () => (graph.value.Ee_0 ?? []) as number[][],
 );
+const graphPortfolio = reactive<Record<string, GraphRecipeState>>({});
 function tableValue(table: number[] | undefined, level: number) {
   return table?.[Math.max(0, Math.min(level, (table?.length ?? 1) - 1))] ?? 0;
+}
+function calculateGraphContribution(
+  item: GraphEquipment,
+  state: GraphRecipeState,
+) {
+  const init = item.init_value;
+  let starIndex = (
+    { 40: 0, 45: 1, 50: 2, 55: 3, 60: 4, 65: 5 } as Record<number, number>
+  )[init];
+  let researchIndex = (
+    { 40: 0, 45: 1, 50: 2, 55: 3, 60: 4, 65: 5 } as Record<number, number>
+  )[init];
+  let masteryIndex = ({ 45: 0, 55: 1, 60: 2, 65: 3 } as Record<number, number>)[
+    init
+  ];
+  if (item.name === "火焰喷射器") {
+    starIndex = 6;
+    researchIndex = 6;
+    masteryIndex = 4;
+  }
+  const base =
+    item.max_star && item.max_star >= 3 && starIndex !== undefined
+      ? tableValue(graphStarTables.value[starIndex], state.star)
+      : init;
+  const levelValue =
+    item.max_zj && item.max_zj > 0 && masteryIndex !== undefined
+      ? tableValue(graphMasteryTables.value[masteryIndex], state.mastery)
+      : researchIndex !== undefined
+        ? tableValue(graphResearchTables.value[researchIndex], state.research)
+        : 0;
+  const skinValue = (item.skin ?? [])
+    .filter((skin) => state.skins.includes(skin.name))
+    .reduce((sum, skin) => sum + (skin.value ?? 0), 0);
+  return base + levelValue + skinValue;
 }
 const graphRecipeContribution = computed(() => {
   const item = selectedGraphEquipment.value;
   if (!item) return 0;
-  const init = item.init_value;
-  const starIndex = (
-    { 40: 0, 45: 1, 50: 2, 55: 3, 60: 4, 65: 5 } as Record<number, number>
-  )[init];
-  const researchIndex = (
-    { 40: 0, 45: 1, 50: 2, 55: 3, 60: 4, 65: 5 } as Record<number, number>
-  )[init];
-  const masteryIndex = (
-    { 45: 0, 55: 1, 60: 2, 65: 3 } as Record<number, number>
-  )[init];
-  const base =
-    item.max_star && item.max_star >= 3 && starIndex !== undefined
-      ? tableValue(graphStarTables.value[starIndex], graphRecipeStar.value)
-      : init;
-  const levelValue =
-    item.max_zj && item.max_zj > 0 && masteryIndex !== undefined
-      ? tableValue(
-          graphMasteryTables.value[masteryIndex],
-          graphRecipeMastery.value,
-        )
-      : researchIndex !== undefined
-        ? tableValue(
-            graphResearchTables.value[researchIndex],
-            graphRecipeResearch.value,
-          )
-        : 0;
-  const skinValue = (item.skin ?? [])
-    .slice(0, graphRecipeSkins.value)
-    .reduce((sum, skin) => sum + (skin.value ?? 0), 0);
-  return base + levelValue + skinValue;
+  return calculateGraphContribution(item, {
+    star: graphRecipeStar.value,
+    research: graphRecipeResearch.value,
+    mastery: graphRecipeMastery.value,
+    skins: graphSelectedSkins.value,
+  });
 });
+const graphPortfolioItems = computed(() => {
+  const all = (graph.value[graphEquipmentKeys[graphType.value]!] ??
+    []) as GraphEquipment[];
+  return all
+    .filter((item) => graphPortfolio[item.name])
+    .map((item) => ({
+      item,
+      state: graphPortfolio[item.name]!,
+      contribution: calculateGraphContribution(
+        item,
+        graphPortfolio[item.name]!,
+      ),
+    }));
+});
+const graphPortfolioContribution = computed(() =>
+  graphPortfolioItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
+);
+function saveGraphRecipe() {
+  const item = selectedGraphEquipment.value;
+  if (!item) return;
+  graphPortfolio[item.name] = {
+    star: graphRecipeStar.value,
+    research: graphRecipeResearch.value,
+    mastery: graphRecipeMastery.value,
+    skins: [...graphSelectedSkins.value],
+  };
+}
 function selectGraphEquipment(item: GraphEquipment) {
   selectedGraphEquipment.value = item;
-  graphRecipeStar.value = 0;
-  graphRecipeResearch.value = 0;
-  graphRecipeMastery.value = 0;
-  graphRecipeSkins.value = 0;
+  const saved = graphPortfolio[item.name];
+  graphRecipeStar.value = saved?.star ?? 0;
+  graphRecipeResearch.value = saved?.research ?? 0;
+  graphRecipeMastery.value = saved?.mastery ?? 0;
+  graphSelectedSkins.value = [...(saved?.skins ?? [])];
 }
+watch(graphType, () => {
+  selectedGraphEquipment.value = null;
+  graphEquipmentQuery.value = "";
+});
 
 const humanKeys = ["E_0", "N_0", "T_0", "U_0", "z_0", "B_0", "V_0"],
   halfKeys = ["Zt_0", "el_0", "al_0", "tl_0", "ll_0", "nl_0", "sl_0"];
@@ -497,8 +651,92 @@ const geneExpected = computed(() => {
     return 0;
   }
 });
+const geneInputError = computed(() =>
+  activeGene2.value + activeGene4.value > 100
+    ? "2倍与4倍概率合计不能超过 100%。"
+    : "",
+);
 const geneCapsules = ref(9999),
   geneSerum = ref(999999);
+const geneTierIndex = ref(1),
+  geneNodeIndex = ref(0),
+  geneStageFrom = ref(0),
+  geneStageTo = ref(1),
+  geneStageProgress = ref(0),
+  geneStageActivated = ref(false);
+const selectedGeneTier = computed(() => geneTiers.value[geneTierIndex.value]);
+const selectedGeneNode = computed(
+  () => selectedGeneTier.value?.attr_section[geneNodeIndex.value],
+);
+watch(active, (module) => {
+  if (module === "human" || module === "half") {
+    geneTierIndex.value = 1;
+    geneNodeIndex.value = 0;
+    geneStageFrom.value = 0;
+    geneStageTo.value = 1;
+    geneStageProgress.value = 0;
+    geneStageActivated.value = false;
+  }
+});
+watch(geneTierIndex, () => {
+  geneNodeIndex.value = 0;
+  geneStageFrom.value = 0;
+  geneStageTo.value = Math.min(
+    1,
+    selectedGeneTier.value?.attr_section_consumables.length ?? 1,
+  );
+  geneStageProgress.value = 0;
+  geneStageActivated.value = false;
+});
+watch(geneStageFrom, (stage) => {
+  if (geneStageTo.value <= stage) geneStageTo.value = stage + 1;
+  geneStageProgress.value = 0;
+  geneStageActivated.value = false;
+});
+const geneNodePlan = computed(() => {
+  const tier = selectedGeneTier.value,
+    node = selectedGeneNode.value;
+  const materials: Record<string, number> = {};
+  let expectedClicks = 0,
+    deterministicClicks = 0;
+  if (!tier || !node || geneStageFrom.value >= geneStageTo.value)
+    return { materials, expectedClicks, deterministicClicks };
+  const end = Math.min(geneStageTo.value, tier.attr_section_consumables.length);
+  for (
+    let stageIndex = geneStageFrom.value;
+    stageIndex < end;
+    stageIndex += 1
+  ) {
+    const stage = tier.attr_section_consumables[stageIndex]!;
+    const isCurrent = stageIndex === geneStageFrom.value;
+    const activated = isCurrent && geneStageActivated.value;
+    const currentProgress = isCurrent
+      ? Math.max(0, geneStageProgress.value)
+      : 0;
+    let progressAfterActivation = currentProgress;
+    if (!activated) {
+      materials[stage.active.cond.name] =
+        (materials[stage.active.cond.name] ?? 0) + stage.active.cond.num;
+      progressAfterActivation += stage.active.score;
+      deterministicClicks += 1;
+      expectedClicks += 1;
+    }
+    const remainingUnits = Math.ceil(
+      Math.max(0, node.single_bar_score - progressAfterActivation) /
+        stage.single.score,
+    );
+    const clicks = calculateExpectedGeneClicks(
+      remainingUnits,
+      activeGene2.value,
+      activeGene4.value,
+    );
+    deterministicClicks += remainingUnits;
+    expectedClicks += clicks;
+    materials[stage.single.cond.name] =
+      (materials[stage.single.cond.name] ?? 0) + clicks * stage.single.cond.num;
+  }
+  return { materials, expectedClicks, deterministicClicks };
+});
 const geneTierTotals = computed(() =>
   geneTiers.value.map((tier) => {
     const materials: Record<string, number> = {};
@@ -579,6 +817,9 @@ const reformResult = computed(() => {
     gold: result.gold * factor,
   };
 });
+const reformInputError = computed(() =>
+  reformFrom.value >= reformTo.value ? "目标改造阶段必须高于当前阶段。" : "",
+);
 function format(value: number) {
   return new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 2 }).format(
     value,
@@ -638,6 +879,8 @@ function snapshot(): Record<string, unknown> {
     to: to.value,
     researchKind: researchKind.value,
     researchEquipmentIndex: researchEquipmentIndex.value,
+    starFrom: starFrom.value,
+    starTo: starTo.value,
     bonus1: bonus1.value,
     bonus4: bonus4.value,
     bonus9: bonus9.value,
@@ -648,12 +891,14 @@ function snapshot(): Record<string, unknown> {
     equipmentUnitPrice: equipmentUnitPrice.value,
     bookUnitPrice: bookUnitPrice.value,
     materialUnitPrice: materialUnitPrice.value,
+    masteryPrices: { ...masteryPrices },
     accessoryFrom: accessoryFrom.value,
     accessoryTo: accessoryTo.value,
     beltFrom: beltFrom.value,
     beltTo: beltTo.value,
     beltType: beltType.value,
     selectedChipName: selectedChip.value?.name,
+    comparedChipNames: comparedChips.value.map((chip) => chip.name),
     chipLevel: chipLevel.value,
     graphType: graphType.value,
     graphFrom: graphFrom.value,
@@ -662,7 +907,13 @@ function snapshot(): Record<string, unknown> {
     graphRecipeStar: graphRecipeStar.value,
     graphRecipeResearch: graphRecipeResearch.value,
     graphRecipeMastery: graphRecipeMastery.value,
-    graphRecipeSkins: graphRecipeSkins.value,
+    graphSelectedSkins: [...graphSelectedSkins.value],
+    graphPortfolio: Object.fromEntries(
+      Object.entries(graphPortfolio).map(([name, state]) => [
+        name,
+        { ...state, skins: [...state.skins] },
+      ]),
+    ),
     geneProgress: geneProgress.value,
     gene2: humanGene2.value,
     gene4: humanGene4.value,
@@ -670,6 +921,12 @@ function snapshot(): Record<string, unknown> {
     halfGene4: halfGene4.value,
     geneCapsules: geneCapsules.value,
     geneSerum: geneSerum.value,
+    geneTierIndex: geneTierIndex.value,
+    geneNodeIndex: geneNodeIndex.value,
+    geneStageFrom: geneStageFrom.value,
+    geneStageTo: geneStageTo.value,
+    geneStageProgress: geneStageProgress.value,
+    geneStageActivated: geneStageActivated.value,
     reformFrom: reformFrom.value,
     reformTo: reformTo.value,
     balanced: balanced.value,
@@ -687,6 +944,8 @@ function applyPlan(plan: GrowthPlan) {
     from,
     to,
     researchEquipmentIndex,
+    starFrom,
+    starTo,
     bonus1,
     bonus4,
     bonus9,
@@ -707,7 +966,6 @@ function applyPlan(plan: GrowthPlan) {
     graphRecipeStar,
     graphRecipeResearch,
     graphRecipeMastery,
-    graphRecipeSkins,
     geneProgress,
     gene2: humanGene2,
     gene4: humanGene4,
@@ -715,6 +973,11 @@ function applyPlan(plan: GrowthPlan) {
     halfGene4,
     geneCapsules,
     geneSerum,
+    geneTierIndex,
+    geneNodeIndex,
+    geneStageFrom,
+    geneStageTo,
+    geneStageProgress,
     reformFrom,
     reformTo,
   };
@@ -725,19 +988,57 @@ function applyPlan(plan: GrowthPlan) {
   if (p.beltType === "attack" || p.beltType === "defense")
     beltType.value = p.beltType;
   if (typeof p.balanced === "boolean") balanced.value = p.balanced;
+  if (typeof p.geneStageActivated === "boolean")
+    geneStageActivated.value = p.geneStageActivated;
   if (typeof p.simulationSeed === "string")
     simulationSeed.value = p.simulationSeed;
+  if (p.masteryPrices && typeof p.masteryPrices === "object")
+    Object.assign(masteryPrices, p.masteryPrices);
   if (typeof p.selectedChipName === "string")
     selectedChip.value =
       (
         (belt.value[beltType.value === "attack" ? "a" : "d"] ??
           []) as BeltChip[]
       ).find((chip) => chip.name === p.selectedChipName) ?? null;
+  if (Array.isArray(p.comparedChipNames)) {
+    const chips = [
+      ...((belt.value.a ?? []) as BeltChip[]),
+      ...((belt.value.d ?? []) as BeltChip[]),
+    ];
+    comparedChips.value = p.comparedChipNames
+      .flatMap((name) =>
+        typeof name === "string"
+          ? chips.filter((chip) => chip.name === name)
+          : [],
+      )
+      .slice(0, 2);
+  }
   if (typeof p.selectedGraphEquipmentName === "string")
     selectedGraphEquipment.value =
       graphEquipment.value.find(
         (item) => item.name === p.selectedGraphEquipmentName,
       ) ?? null;
+  if (Array.isArray(p.graphSelectedSkins))
+    graphSelectedSkins.value = p.graphSelectedSkins.filter(
+      (name): name is string => typeof name === "string",
+    );
+  if (p.graphPortfolio && typeof p.graphPortfolio === "object") {
+    for (const key of Object.keys(graphPortfolio)) delete graphPortfolio[key];
+    for (const [name, value] of Object.entries(p.graphPortfolio))
+      if (value && typeof value === "object") {
+        const state = value as Partial<GraphRecipeState>;
+        graphPortfolio[name] = {
+          star: Number(state.star) || 0,
+          research: Number(state.research) || 0,
+          mastery: Number(state.mastery) || 0,
+          skins: Array.isArray(state.skins)
+            ? state.skins.filter(
+                (skin): skin is string => typeof skin === "string",
+              )
+            : [],
+        };
+      }
+  }
 }
 </script>
 
@@ -803,7 +1104,19 @@ function applyPlan(plan: GrowthPlan) {
             min="0"
             max="29" /></label
         ><label
-          >目标等级<input v-model.number="to" type="number" min="1" max="30"
+          >目标等级<input
+            v-model.number="to"
+            type="number"
+            min="1"
+            max="30" /></label
+        ><label
+          >当前星级<input
+            v-model.number="starFrom"
+            type="number"
+            min="0"
+            max="4" /></label
+        ><label
+          >目标星级<input v-model.number="starTo" type="number" min="1" max="5"
         /></label>
       </section>
       <section class="probability-controls">
@@ -833,6 +1146,9 @@ function applyPlan(plan: GrowthPlan) {
           />%</label
         ><span>无暴击 {{ 100 - bonus1 - bonus4 - bonus9 }}%</span>
       </section>
+      <p v-if="progressionInputError" class="input-error" role="alert">
+        {{ progressionInputError }}
+      </p>
       <section class="simulation-bar">
         <label>模拟种子<input v-model="simulationSeed" /></label
         ><button @click="runResearchSimulation">运行可复现模拟</button
@@ -861,10 +1177,14 @@ function applyPlan(plan: GrowthPlan) {
           <span>期望{{ name }}</span
           ><strong>{{ format(value) }}</strong>
         </article>
+        <article v-for="(value, name) in starResult" :key="`star-${name}`">
+          <span>升星所需{{ name }}</span
+          ><strong>{{ format(value) }}</strong>
+        </article>
       </div>
       <div class="growth-columns">
-        <section class="data-table">
-          <h3>等级属性</h3>
+        <details class="data-table collapsible-table">
+          <summary>等级属性（按需展开）</summary>
           <div
             v-for="row in researchAttributes.slice(from, to + 1)"
             :key="row.level"
@@ -872,7 +1192,7 @@ function applyPlan(plan: GrowthPlan) {
             <strong>Lv {{ row.level }}</strong
             ><span>{{ JSON.parse(row.attr).join(" · ") }}</span>
           </div>
-        </section>
+        </details>
         <section class="data-table">
           <h3>升星消耗</h3>
           <div v-for="row in starRows" :key="row.level">
@@ -928,10 +1248,26 @@ function applyPlan(plan: GrowthPlan) {
             min="0"
         /></label>
       </section>
+      <p v-if="masteryInputError" class="input-error" role="alert">
+        {{ masteryInputError }}
+      </p>
       <p class="growth-note">
         关键等级 3、8、13、18、23、28、33
         按原规则禁止暴击；缺失和估算条目保留原版标注。
       </p>
+      <details class="material-price-editor">
+        <summary>按材料设置单价（用于准确估算金币成本）</summary>
+        <div class="price-grid">
+          <label v-for="name in masteryMaterialNames" :key="name"
+            >{{ name
+            }}<input
+              v-model.number="masteryPrices[name]"
+              type="number"
+              min="0"
+              :placeholder="String(masteryPrice(name))"
+          /></label>
+        </div>
+      </details>
       <div class="result-cards">
         <article>
           <span>无暴击点击</span
@@ -953,8 +1289,27 @@ function applyPlan(plan: GrowthPlan) {
           ><strong>{{ format(value) }}</strong>
         </article>
       </div>
-      <section class="data-table">
-        <h3>{{ masteryEquipment[masteryEquipmentIndex] }}逐级消耗</h3>
+      <details class="attribute-comparison">
+        <summary>查看专精属性变化</summary>
+        <div>
+          <section>
+            <strong>当前 Lv {{ masteryFrom }}</strong
+            ><span v-for="item in masteryCurrentAttributes" :key="item">{{
+              item
+            }}</span>
+          </section>
+          <section>
+            <strong>目标 Lv {{ masteryTo }}</strong
+            ><span v-for="item in masteryTargetAttributes" :key="item">{{
+              item
+            }}</span>
+          </section>
+        </div>
+      </details>
+      <details class="data-table collapsible-table">
+        <summary>
+          {{ masteryEquipment[masteryEquipmentIndex] }}逐级消耗（按需展开）
+        </summary>
         <div
           v-for="row in masteryBase.slice(masteryFrom, masteryTo)"
           :key="row.level"
@@ -970,7 +1325,7 @@ function applyPlan(plan: GrowthPlan) {
             · 金条 {{ row.goldbar }}</span
           >
         </div>
-      </section>
+      </details>
     </div>
 
     <div v-else-if="active === 'accessory'" class="growth-page">
@@ -989,6 +1344,9 @@ function applyPlan(plan: GrowthPlan) {
             max="20"
         /></label>
       </section>
+      <p v-if="accessoryInputError" class="input-error" role="alert">
+        {{ accessoryInputError }}
+      </p>
       <div class="result-cards">
         <article>
           <span>提升等级</span><strong>{{ accessoryResult.levels }}</strong>
@@ -998,8 +1356,8 @@ function applyPlan(plan: GrowthPlan) {
           ><strong>{{ format(accessoryResult.total) }}</strong>
         </article>
       </div>
-      <section class="data-table">
-        <h3>完整等级表</h3>
+      <details class="data-table collapsible-table">
+        <summary>完整等级表（按需展开）</summary>
         <div v-for="(cost, i) in accessoryCosts" :key="i">
           <strong>Lv {{ i + 1 }} → {{ i + 2 }}</strong
           ><span
@@ -1009,7 +1367,7 @@ function applyPlan(plan: GrowthPlan) {
             }}</span
           >
         </div>
-      </section>
+      </details>
     </div>
 
     <div v-else-if="active === 'belt'" class="growth-page">
@@ -1035,6 +1393,9 @@ function applyPlan(plan: GrowthPlan) {
           >搜索芯片<input v-model="chipQuery" placeholder="芯片名称"
         /></label>
       </section>
+      <p v-if="beltInputError" class="input-error" role="alert">
+        {{ beltInputError }}
+      </p>
       <div class="result-cards">
         <article>
           <span>升星所需元件</span><strong>{{ beltResult.total }}</strong>
@@ -1066,14 +1427,36 @@ function applyPlan(plan: GrowthPlan) {
                 max="12"
               /><strong>{{ chipLevel }} 星</strong></label
             >
-            <p>{{ cleanHtml(selectedChip.attr) }}</p>
-            <ul>
-              <li v-for="text in chipLevelText" :key="text">{{ text }}</li>
-            </ul></template
+            <p>{{ chipDescription }}</p>
+            <button class="compare-action" @click="addComparedChip">
+              加入芯片对比
+            </button></template
           >
           <p v-else>选择芯片查看1至12星完整效果。</p>
         </section>
       </div>
+      <section v-if="comparedChips.length" class="chip-comparison">
+        <header>
+          <h3>芯片效果对比 · {{ chipLevel }}星</h3>
+          <button @click="comparedChips = []">清空</button>
+        </header>
+        <div>
+          <article v-for="chip in comparedChips" :key="chip.name">
+            <strong>{{ chip.name }}</strong
+            ><span>{{ chip.type }} · {{ chip.level }}</span>
+            <p>{{ resolveChipDescription(chip, chipLevel) }}</p>
+            <button
+              @click="
+                comparedChips = comparedChips.filter(
+                  (item) => item.name !== chip.name,
+                )
+              "
+            >
+              移除
+            </button>
+          </article>
+        </div>
+      </section>
     </div>
 
     <div v-else-if="active === 'graph'" class="growth-page">
@@ -1102,6 +1485,9 @@ function applyPlan(plan: GrowthPlan) {
             placeholder="装备或涂装"
         /></label>
       </section>
+      <p v-if="graphInputError" class="input-error" role="alert">
+        {{ graphInputError }}
+      </p>
       <div class="result-cards">
         <article>
           <span>当前精通度</span><strong>{{ graphCurrent?.exp }}</strong>
@@ -1119,8 +1505,8 @@ function applyPlan(plan: GrowthPlan) {
           <span>本类配方</span><strong>{{ graphEquipment.length }}</strong>
         </article>
       </div>
-      <section class="data-table">
-        <h3>{{ graphTypes[graphType] }}完整属性</h3>
+      <details class="data-table collapsible-table">
+        <summary>{{ graphTypes[graphType] }}完整属性（按需展开）</summary>
         <div v-for="row in graphLevels" :key="row.id">
           <strong>Lv {{ row.id }} · 精通 {{ row.exp }}</strong
           ><span>{{
@@ -1132,7 +1518,7 @@ function applyPlan(plan: GrowthPlan) {
               .join(" · ")
           }}</span>
         </div>
-      </section>
+      </details>
       <section
         v-if="selectedGraphEquipment"
         class="chip-detail graph-recipe-planner"
@@ -1160,30 +1546,56 @@ function applyPlan(plan: GrowthPlan) {
               min="0"
               :max="selectedGraphEquipment.max_zj"
           /></label>
-          <label v-if="selectedGraphEquipment.skin?.length"
-            >已收集涂装<input
-              v-model.number="graphRecipeSkins"
-              type="number"
-              min="0"
-              :max="selectedGraphEquipment.skin.length"
-          /></label>
         </div>
+        <fieldset
+          v-if="selectedGraphEquipment.skin?.length"
+          class="skin-selector"
+        >
+          <legend>选择实际已收集涂装</legend>
+          <label v-for="skin in selectedGraphEquipment.skin" :key="skin.name"
+            ><input
+              v-model="graphSelectedSkins"
+              type="checkbox"
+              :value="skin.name"
+            />{{ skin.name }}（{{ skin.value ?? 0 }}精通）</label
+          >
+        </fieldset>
         <div class="result-cards">
           <article>
             <span>当前配方精通度</span
             ><strong>{{ graphRecipeContribution }}</strong>
           </article>
           <article>
+            <span>已保存图谱总精通</span
+            ><strong>{{ graphPortfolioContribution }}</strong>
+          </article>
+          <article>
             <span>距图谱目标尚差</span
             ><strong>{{
-              Math.max(0, (graphTarget?.exp ?? 0) - graphRecipeContribution)
+              Math.max(0, (graphTarget?.exp ?? 0) - graphPortfolioContribution)
             }}</strong>
           </article>
         </div>
+        <button class="compare-action" @click="saveGraphRecipe">
+          保存到当前图谱
+        </button>
         <p class="growth-note">
-          精通度严格按原版的初始值、升星表、专研/专精表及涂装收集值计算。涂装按资料顺序计入，可在下方核对具体数值。
+          精通度严格按原版的初始值、升星表、专研/专精表及具体涂装收集值计算。保存后会计入当前图谱总精通。
         </p>
       </section>
+      <details v-if="graphPortfolioItems.length" class="configured-recipes">
+        <summary>已配置配方（{{ graphPortfolioItems.length }}）</summary>
+        <div>
+          <article v-for="entry in graphPortfolioItems" :key="entry.item.name">
+            <button @click="selectGraphEquipment(entry.item)">
+              <strong>{{ entry.item.name }}</strong
+              ><span>{{ entry.contribution }}精通</span></button
+            ><button @click="delete graphPortfolio[entry.item.name]">
+              移除
+            </button>
+          </article>
+        </div>
+      </details>
       <section class="equipment-catalog">
         <h3>{{ graphTypes[graphType] }}配方与涂装资料</h3>
         <article
@@ -1234,6 +1646,9 @@ function applyPlan(plan: GrowthPlan) {
           >现有血清<input v-model.number="geneSerum" type="number" min="0"
         /></label>
       </section>
+      <p v-if="geneInputError" class="input-error" role="alert">
+        {{ geneInputError }}
+      </p>
       <section class="simulation-bar">
         <label>模拟种子<input v-model="simulationSeed" /></label
         ><button @click="runGeneSimulation">运行可复现模拟</button
@@ -1246,6 +1661,83 @@ function applyPlan(plan: GrowthPlan) {
           }}</span
         >
       </section>
+      <details class="node-planner">
+        <summary>规划单个基因节点</summary>
+        <div class="growth-controls">
+          <label
+            >潜能阶段<select v-model.number="geneTierIndex">
+              <option
+                v-for="(tier, index) in geneTiers"
+                :key="tier.type"
+                :value="index"
+              >
+                {{ tier.type }}
+              </option>
+            </select></label
+          >
+          <label
+            >属性节点<select v-model.number="geneNodeIndex">
+              <option
+                v-for="(node, index) in selectedGeneTier?.attr_section"
+                :key="node.id"
+                :value="index"
+              >
+                {{ node.name }}
+              </option>
+            </select></label
+          >
+          <label
+            >当前段<select v-model.number="geneStageFrom">
+              <option
+                v-for="(_, index) in selectedGeneTier?.attr_section_consumables"
+                :key="index"
+                :value="index"
+              >
+                第 {{ index + 1 }} 段
+              </option>
+            </select></label
+          >
+          <label
+            >目标段<select v-model.number="geneStageTo">
+              <option
+                v-for="(_, index) in selectedGeneTier?.attr_section_consumables"
+                :key="index"
+                :value="index + 1"
+                :disabled="index < geneStageFrom"
+              >
+                点满至第 {{ index + 1 }} 段
+              </option>
+            </select></label
+          >
+          <label
+            >当前段进度<input
+              v-model.number="geneStageProgress"
+              type="number"
+              min="0"
+              :max="selectedGeneNode?.single_bar_score ?? 0"
+          /></label>
+          <label class="check-label"
+            ><input
+              v-model="geneStageActivated"
+              type="checkbox"
+            />当前段已激活</label
+          >
+        </div>
+        <div class="result-cards">
+          <article>
+            <span>无暴击点击预算</span
+            ><strong>{{ format(geneNodePlan.deterministicClicks) }}</strong>
+          </article>
+          <article>
+            <span>精确期望点击</span
+            ><strong>{{ format(geneNodePlan.expectedClicks) }}</strong>
+          </article>
+          <article v-for="(amount, name) in geneNodePlan.materials" :key="name">
+            <span>预计{{ name }}</span
+            ><strong>{{ format(amount) }}</strong>
+          </article>
+        </div>
+      </details>
       <div class="result-cards">
         <article>
           <span>单段精确期望点击</span
@@ -1272,12 +1764,14 @@ function applyPlan(plan: GrowthPlan) {
           <span>无暴击概率</span><strong>{{ 100 - gene2 - gene4 }}%</strong>
         </article>
       </div>
-      <section
+      <details
         v-for="(tierRow, tierIndex) in geneTierTotals"
         :key="tierRow.tier.type"
-        class="gene-tier"
+        class="gene-tier collapsible-tier"
       >
-        <h3>{{ tierRow.tier.type }}</h3>
+        <summary>
+          {{ tierRow.tier.type }} · 预计 {{ format(tierRow.expectedClicks) }} 次
+        </summary>
         <p class="growth-note">
           本级点满预计 {{ format(tierRow.expectedClicks) }} 次 ·
           {{
@@ -1331,7 +1825,7 @@ function applyPlan(plan: GrowthPlan) {
             }}
           </p>
         </details>
-      </section>
+      </details>
     </div>
 
     <div v-else class="growth-page">
@@ -1355,6 +1849,9 @@ function applyPlan(plan: GrowthPlan) {
           />武器、护甲、头盔均衡提升（×3）</label
         >
       </section>
+      <p v-if="reformInputError" class="input-error" role="alert">
+        {{ reformInputError }}
+      </p>
       <p class="growth-note">
         采用原项目保守估计：不计约0.4%～0.5%的改造暴击，包含每阶段工艺晋级点击。
       </p>
@@ -1373,8 +1870,8 @@ function applyPlan(plan: GrowthPlan) {
           <span>金条</span><strong>{{ format(reformResult.gold) }}</strong>
         </article>
       </div>
-      <section class="data-table">
-        <h3>完整工艺阶段表（{{ reformRows.length }}项）</h3>
+      <details class="data-table collapsible-table">
+        <summary>完整工艺阶段表（{{ reformRows.length }}项，按需展开）</summary>
         <div v-for="(row, i) in reformRows" :key="i">
           <strong>{{ row.level.join(" / ") }}</strong
           ><span
@@ -1382,7 +1879,7 @@ function applyPlan(plan: GrowthPlan) {
             {{ row.nano }} / 金条 {{ row.goldbar }}</span
           >
         </div>
-      </section>
+      </details>
     </div>
   </section>
 </template>
