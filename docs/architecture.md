@@ -11,6 +11,7 @@
 - 数据库：SQLite，具体驱动在原型验证后确定。
 - 数据契约：版本化 schema、稳定实体 ID、结构校验与校验和。
 - 测试：计算规则单元测试、数据库迁移测试、组件测试和桌面端端到端测试。
+- 基础运行环境：Node.js 24、pnpm 11 workspace。
 
 选择 Vue 3 + TypeScript 是因为它适合高密度工具界面，具有正式的 TypeScript 支持，并可让 Electron 与未来 Capacitor 共享绝大部分 UI 和业务代码。
 

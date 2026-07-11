@@ -20,6 +20,7 @@
 - [产品决策](docs/product-decisions.md)
 - [架构方案](docs/architecture.md)
 - [旧版功能清单](docs/legacy-inventory.md)
+- [地摊与纳米计算审计](docs/audits/market-and-nano.md)
 
 ## 开源协议
 
