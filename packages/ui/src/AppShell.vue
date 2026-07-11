@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import GrowthWorkspace from "./GrowthWorkspace.vue";
 
 export interface MarketItemSummary {
   id: string; name: string; category: string; resourceType: number; level: number;
   couponCost: number; marketPrice: number | null; focused: boolean; hasRecipe: boolean; hasNano: boolean;
   recipe: Array<{ ingredientId: string; quantity: number; acquisitionMode: "craft" | "purchase" }>;
 }
-const props = defineProps<{ items: MarketItemSummary[]; loading: boolean; error: string }>();
+const props = defineProps<{ items: MarketItemSummary[]; loading: boolean; error: string; growthContent: Record<string, unknown>; growthPlans: Array<{ id: string; name: string; planType: string; payload: Record<string, unknown>; updatedAt: string }> }>();
 const emit = defineEmits<{
   updateItemState: [input: { id: string; marketPrice: number | null; focused: boolean }];
   updateRecipeChoice: [input: { productId: string; ingredientId: string; acquisitionMode: "craft" | "purchase" }];
   addCustomItem: [input: { name: string; resourceType: number; level: number; marketPrice: number | null; couponCost: number; ingredients: Array<{ ingredientId: string; quantity: number; acquisitionMode: "craft" | "purchase" }> }];
+  saveGrowthPlan: [input: { id?: string; name: string; module: string; payload: Record<string, unknown> }];
+  deleteGrowthPlan: [id: string];
 }>();
 const { t } = useI18n();
 const active = ref("market");
@@ -110,6 +113,7 @@ function submitCustom() {
           </article><section v-if="expandedId===item.id && item.recipe.length" class="recipe-panel"><header><strong>{{ item.name }}的直接材料</strong><span>“制作”会继续展开配方；“购买”使用该材料的个人售价计入金币成本。</span></header><div class="recipe-list"><article v-for="ingredient in item.recipe" :key="ingredient.ingredientId"><div><strong>{{ index.get(ingredient.ingredientId)?.name }}</strong><small>× {{ ingredient.quantity }}</small></div><select :value="ingredient.acquisitionMode" @change="setAcquisitionMode(item.id,ingredient.ingredientId,$event)"><option value="craft">制作 / 兑换</option><option value="purchase">直接购买</option></select><input class="price-input" type="number" min="0" step="1" :value="index.get(ingredient.ingredientId)?.marketPrice??''" placeholder="材料售价" @change="index.get(ingredient.ingredientId)&&setPrice(index.get(ingredient.ingredientId)!,$event)"></article></div></section></template></div><p v-if="!visibleItems.length" class="state-message">没有匹配结果</p>
         </section>
       </template>
+      <GrowthWorkspace v-else-if="active==='progression'" :content="growthContent" :plans="growthPlans" @save-plan="emit('saveGrowthPlan',$event)" @delete-plan="emit('deleteGrowthPlan',$event)" />
       <section v-else class="placeholder-card"><span class="eyebrow">模块重构中</span><h2>{{ t(`navigation.${active}`) }}</h2><p>该模块将在后续里程碑接入。</p></section>
     </main>
     <div v-if="showAddProduct" class="modal-backdrop" @click.self="showAddProduct=false"><form class="product-modal" @submit.prevent="submitCustom"><header><div><span class="eyebrow">本地自定义资料</span><h2>添加产品</h2></div><button type="button" class="close-button" @click="showAddProduct=false">×</button></header><div class="form-grid"><label>产品名称<input v-model.trim="custom.name" maxlength="200" required placeholder="例如：自定义半成品"></label><label>分类<select v-model.number="custom.resourceType"><option v-for="(name,i) in categoryNames" :key="name" :value="i">{{ name }}</option></select></label><label>等级<input v-model.number="custom.level" type="number" min="0" max="1000" required></label><label>我的售价<input v-model.number="custom.marketPrice" type="number" min="0" step="1" placeholder="可暂不填写"></label><label>采集券成本<input v-model.number="custom.couponCost" type="number" min="0" step="1" required></label></div><section class="material-editor"><header><strong>配方材料</strong><button type="button" @click="addIngredient">＋ 添加材料</button></header><p v-if="!custom.ingredients.length">没有配方材料时，将按原材料计算。</p><article v-for="(ingredient,i) in custom.ingredients" :key="i"><select v-model="ingredient.ingredientId"><option v-for="item in items" :key="item.id" :value="item.id">{{ item.name }} · Lv {{ item.level }}</option></select><input v-model.number="ingredient.quantity" type="number" min="0.000001" step="any" aria-label="材料数量"><select v-model="ingredient.acquisitionMode"><option value="craft">制作 / 兑换</option><option value="purchase">直接购买</option></select><button type="button" class="remove-button" @click="custom.ingredients.splice(i,1)">删除</button></article></section><p v-if="addError" class="form-error">{{ addError }}</p><footer><button type="button" class="secondary-button" @click="showAddProduct=false">取消</button><button type="submit" class="primary-button">保存产品</button></footer></form></div>

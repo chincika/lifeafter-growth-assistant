@@ -17,9 +17,11 @@ const Root = {
     const items = ref<Awaited<ReturnType<typeof window.desktopApi.listMarketItems>>>([]);
     const loading = ref(true);
     const error = ref("");
+    const growthContent = ref<Record<string, unknown>>({});
+    const growthPlans = ref<Awaited<ReturnType<typeof window.desktopApi.listGrowthPlans>>>([]);
     onMounted(async () => {
       try {
-        items.value = await window.desktopApi.listMarketItems();
+        [items.value, growthContent.value, growthPlans.value] = await Promise.all([window.desktopApi.listMarketItems(), window.desktopApi.getGrowthContent(), window.desktopApi.listGrowthPlans()]);
       } catch (reason) {
         error.value = reason instanceof Error ? reason.message : String(reason);
       } finally {
@@ -48,13 +50,19 @@ const Root = {
         error.value = reason instanceof Error ? reason.message : String(reason);
       }
     }
+    async function saveGrowthPlan(input: Parameters<typeof window.desktopApi.saveGrowthPlan>[0]) { await window.desktopApi.saveGrowthPlan(input); growthPlans.value = await window.desktopApi.listGrowthPlans(); }
+    async function deleteGrowthPlan(id: string) { await window.desktopApi.deleteGrowthPlan(id); growthPlans.value = await window.desktopApi.listGrowthPlans(); }
     return () => h(AppShell, {
       items: items.value,
       loading: loading.value,
       error: error.value,
+      growthContent: growthContent.value,
+      growthPlans: growthPlans.value,
       onUpdateItemState: updateItemState,
       onUpdateRecipeChoice: updateRecipeChoice,
       onAddCustomItem: addCustomItem,
+      onSaveGrowthPlan: saveGrowthPlan,
+      onDeleteGrowthPlan: deleteGrowthPlan,
     });
   },
 };

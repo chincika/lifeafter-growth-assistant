@@ -14,6 +14,7 @@
     "test:run": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@lifeafter-assistant/core": "workspace:*",
     "vue": "^3.5.0",
     "vue-i18n": "^11.4.0"
   },

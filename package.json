@@ -10,10 +10,13 @@
     "build": "pnpm -r build",
     "check": "pnpm -r check",
     "test": "pnpm -r test",
-    "test:run": "pnpm -r test:run"
+    "test:run": "pnpm -r test:run",
+    "audit:growth": "node tools/audit-growth-content.mjs"
   },
   "devDependencies": {
+    "@babel/parser": "^8.0.4",
     "@types/node": "^24.0.0",
+    "prettier": "3.6.2",
     "typescript": "^5.9.0",
     "vitest": "^3.2.0"
   }

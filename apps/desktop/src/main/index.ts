@@ -188,6 +188,35 @@ function registerIpcHandlers(databaseVersion: number): void {
     }
     return listMarketItems(database);
   });
+  ipcMain.handle("growth:get-content", (event) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "")) throw new Error("Rejected growth request");
+    const directory = join(bundledContentDirectory(), "growth");
+    const files = ["progression-legacy.json", "belt-legacy.json", "reference-legacy.json", "gene-legacy.json", "static-growth-legacy.json", "graph-legacy.json"];
+    return Object.fromEntries(files.map((file) => [file.replace("-legacy.json", ""), JSON.parse(readFileSync(join(directory, file), "utf8"))]));
+  });
+  ipcMain.handle("growth:list-plans", (event) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) throw new Error("Rejected growth plan request");
+    return database.prepare("SELECT id,name,plan_type AS planType,payload_json AS payloadJson,updated_at AS updatedAt FROM saved_plans WHERE plan_type LIKE 'growth:%' ORDER BY updated_at DESC").all().map((row) => {
+      const value = row as Record<string, unknown>;
+      return { id: String(value.id), name: String(value.name), planType: String(value.planType), payload: JSON.parse(String(value.payloadJson)), updatedAt: String(value.updatedAt) };
+    });
+  });
+  ipcMain.handle("growth:save-plan", (event, input: { id?: string; name: string; module: string; payload: unknown }) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) throw new Error("Rejected growth plan save");
+    const name = input.name.trim();
+    if (!name || name.length > 200 || !/^[a-z-]{3,30}$/.test(input.module)) throw new Error("方案名称或模块无效");
+    const payloadJson = JSON.stringify(input.payload);
+    if (payloadJson.length > 1_000_000) throw new Error("方案数据过大");
+    const id = input.id && /^[a-z0-9._-]{3,127}$/.test(input.id) ? input.id : `plan.growth.${randomUUID()}`;
+    const now = new Date().toISOString();
+    database.prepare(`INSERT INTO saved_plans(id,plan_type,name,payload_json,created_at,updated_at) VALUES (?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET name=excluded.name,payload_json=excluded.payload_json,updated_at=excluded.updated_at`).run(id, `growth:${input.module}`, name, payloadJson, now, now);
+    return id;
+  });
+  ipcMain.handle("growth:delete-plan", (event, id: string) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database || !/^plan\.growth\.[a-z0-9-]+$/.test(id)) throw new Error("Rejected growth plan deletion");
+    database.prepare("DELETE FROM saved_plans WHERE id=? AND plan_type LIKE 'growth:%'").run(id);
+  });
   ipcMain.handle(
     "market:set-item-state",
     (event, input: { id: string; marketPrice: number | null; focused: boolean }) => {

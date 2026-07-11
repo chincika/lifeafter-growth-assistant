@@ -24,6 +24,7 @@ export interface MarketItemSummary {
   hasRecipe: boolean;
   hasNano: boolean;
 }
+export interface GrowthPlan { id: string; name: string; planType: string; payload: Record<string, unknown>; updatedAt: string }
 
 const desktopApi = Object.freeze({
   async getRuntimeInfo(): Promise<DesktopRuntimeInfo> {
@@ -32,6 +33,12 @@ const desktopApi = Object.freeze({
   async listMarketItems(): Promise<MarketItemSummary[]> {
     return ipcRenderer.invoke("market:list-items") as Promise<MarketItemSummary[]>;
   },
+  async getGrowthContent(): Promise<Record<string, unknown>> {
+    return ipcRenderer.invoke("growth:get-content") as Promise<Record<string, unknown>>;
+  },
+  async listGrowthPlans(): Promise<GrowthPlan[]> { return ipcRenderer.invoke("growth:list-plans") as Promise<GrowthPlan[]>; },
+  async saveGrowthPlan(input: { id?: string; name: string; module: string; payload: Record<string, unknown> }): Promise<string> { return ipcRenderer.invoke("growth:save-plan", input) as Promise<string>; },
+  async deleteGrowthPlan(id: string): Promise<void> { await ipcRenderer.invoke("growth:delete-plan", id); },
   async setMarketItemState(input: {
     id: string;
     marketPrice: number | null;

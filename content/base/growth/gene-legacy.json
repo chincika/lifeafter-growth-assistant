@@ -1,0 +1,4042 @@
+{
+  "schemaVersion": 1,
+  "declarations": {
+    "M_0": "data:image/svg+xml,%3c?xml%20version='1.0'%20standalone='no'?%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg%20t='1683275477458'%20class='icon'%20viewBox='0%200%201024%201024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20p-id='7446'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20width='16'%20height='16'%3e%3cpath%20d='M944.5%20376.6c3.6-8.7%205.7-18.1%206.1-27.9%200-1.1%200-2.1%200.1-3.2v-1l-1.7-184c-0.4-45.3-37.3-81.8-82.5-81.8h-0.8c-41%200.4-74.7%2030.5-80.8%2069.8-9.8-7.1-19.9-13.8-30.3-20.1-102.5-62.1-223.1-80.6-339.5-52C298.8%20104.8%20200.5%20177%20138.4%20279.5S57.8%20502.6%2086.4%20619s100.7%20214.7%20203.2%20276.8c71%2043%20150.7%2065.1%20231.7%2065.1%2035.9%200%2072-4.3%20107.8-13.1C745.5%20919.2%20843.8%20847%20905.9%20744.5c23.6-39%2011.2-89.8-27.8-113.4-39-23.6-89.8-11.2-113.4%2027.8-81%20133.7-255.7%20176.6-389.5%2095.6-64.8-39.2-110.4-101.4-128.5-174.9-18.1-73.6-6.4-149.7%2032.9-214.5%2080.1-132.1%20251.6-175.6%20384.7-98.4-36.3%209-63.1%2041.9-62.7%2080.9%200.4%2045.3%2037.3%2081.8%2082.5%2081.8h0.8l184-1.7c31.3-0.3%2058.5-18%2072.2-43.9%201.2-2.2%202.2-4.5%203.2-6.8%200.1-0.1%200.2-0.3%200.2-0.4z'%20fill='%23666666'%20p-id='7447'%3e%3c/path%3e%3c/svg%3e",
+    "E_0": {
+      "type": "基础潜能",
+      "attr_section": [],
+      "score_attr": [],
+      "attr_section_consumables": [],
+      "key_section": {
+        "name": "强效血清",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "limit_score": 0,
+            "description": "血清扩散器生效范围提升 10% ，在自己和友方血清范围内时，受感染者伤害降低 3%。"
+          }
+        ]
+      }
+    },
+    "N_0": {
+      "type": "初级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 2,
+          "name": "药效提升",
+          "attr": "药物回复效果提升",
+          "single_bar_score": 100,
+          "single_bar_value": 0.05,
+          "percentage": true
+        },
+        {
+          "id": 3,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 4,
+          "name": "健康强化",
+          "attr": "健康下降速度降低",
+          "single_bar_score": 100,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 5,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 100,
+          "single_bar_value": 0.4,
+          "percentage": false
+        },
+        {
+          "id": 6,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 100,
+          "single_bar_value": 0.4,
+          "percentage": false
+        },
+        {
+          "id": 7,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 8,
+          "name": "暴伤加成",
+          "attr": "暴击伤害加成",
+          "single_bar_score": 100,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 9,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 10,
+          "name": "暴伤减免",
+          "attr": "暴击伤害减免",
+          "single_bar_score": 100,
+          "single_bar_value": 0.04,
+          "percentage": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 450,
+          "attrs": [
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 1200,
+          "attrs": [
+            {
+              "attr": "护甲值",
+              "value": 1
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 1800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 3000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 1
+            },
+            "score": 10
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 1
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 2
+            },
+            "score": 10
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 2
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 10
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 4
+            },
+            "score": 10
+          }
+        }
+      ],
+      "key_section": {
+        "name": "团结一致",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 2
+            },
+            "limit_score": 450,
+            "description": "提升 1.0% 伤害加成和伤害减免，150 范围内每有一个友方额外提升 1.0% 伤害加成和伤害减免，最多叠加 2 次。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "limit_score": 1200,
+            "description": "提升 1.5% 伤害加成和伤害减免，150 范围内每有一个友方额外提升 1.5% 伤害加成和伤害减免，最多叠加 2 次。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 8
+            },
+            "limit_score": 1800,
+            "description": "提升 2.0% 伤害加成和伤害减免，150 范围内每有一个友方额外提升 2.0% 伤害加成和伤害减免，最多叠加 2 次。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 15
+            },
+            "limit_score": 2400,
+            "description": "提升 2.5% 伤害加成和伤害减免，175 范围内每有一个友方额外提升 2.5% 伤害加成和伤害减免，最多叠加 2 次。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 20
+            },
+            "limit_score": 3000,
+            "description": "提升 2.5% 伤害加成和伤害减免，200 范围内每有一个友方额外提升 2.5% 伤害加成和伤害减免，最多叠加 3 次。"
+          }
+        ]
+      }
+    },
+    "T_0": {
+      "type": "中级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "快速换弹",
+          "attr": "换弹速度提升",
+          "single_bar_score": 150,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 2,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 150,
+          "single_bar_value": 60,
+          "percentage": false
+        },
+        {
+          "id": 3,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 4,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 5,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 150,
+          "single_bar_value": 0.5,
+          "percentage": false
+        },
+        {
+          "id": 6,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 150,
+          "single_bar_value": 0.5,
+          "percentage": false
+        },
+        {
+          "id": 7,
+          "name": "伤害减免",
+          "attr": "伤害减免",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 8,
+          "name": "伤害加成",
+          "attr": "伤害加成",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true
+        },
+        {
+          "id": 9,
+          "name": "射速强化",
+          "attr": "射速提升",
+          "single_bar_score": 150,
+          "single_bar_value": 0.025,
+          "percentage": true
+        },
+        {
+          "id": 10,
+          "name": "人型怪压制",
+          "attr": "对人型怪伤害提升",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 1200,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 3600,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.03
+            }
+          ]
+        },
+        {
+          "limit_score": 4800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 6000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 3
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 3
+            },
+            "score": 15
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 5
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 6
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 7
+            },
+            "score": 12
+          }
+        }
+      ],
+      "key_section": {
+        "name": "武器精通",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "limit_score": 1200,
+            "description": "使用枪械时暴击率提升 1.5%<br/>使用冷兵器攻击会降低目标 1 点护甲，持续 2 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "limit_score": 2400,
+            "description": "使用枪械时暴击率提升 3.0%<br/>使用冷兵器攻击会降低目标 1 点护甲，持续 3 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 10
+            },
+            "limit_score": 3600,
+            "description": "使用枪械时暴击率提升 4.5%<br/>使用冷兵器或副武器攻击时，降低目标 1 点护甲，持续 3 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 20
+            },
+            "limit_score": 4800,
+            "description": "使用枪械时暴击率提升 6.0%<br/>使用冷兵器或副武器攻击时，降低目标 2 点护甲，持续 3 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 30
+            },
+            "limit_score": 6000,
+            "description": "使用枪械时暴击率提升 6.0%，若使用突击步枪将额外提升 6% 的暴击率<br/>使用冷兵器或副武器攻击时，降低目标 2 点护甲，持续 5 秒"
+          }
+        ]
+      }
+    },
+    "U_0": {
+      "type": "高级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 70,
+          "percentage": false
+        },
+        {
+          "id": 2,
+          "name": "人型怪抵抗",
+          "attr": "受人型怪伤害降低",
+          "single_bar_score": 200,
+          "single_bar_value": 0.02,
+          "percentage": true
+        },
+        {
+          "id": 3,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 4,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 5,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false
+        },
+        {
+          "id": 6,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false
+        },
+        {
+          "id": 7,
+          "name": "伤害加成",
+          "attr": "伤害加成",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 8,
+          "name": "伤害减免",
+          "attr": "伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 9,
+          "name": "爆炸强化",
+          "attr": "爆炸伤害增加",
+          "single_bar_score": 200,
+          "single_bar_value": 0.025,
+          "percentage": true
+        },
+        {
+          "id": 10,
+          "name": "血清回复",
+          "attr": "受血清回复提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.03,
+          "percentage": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            }
+          ]
+        },
+        {
+          "limit_score": 6000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害加成",
+              "value": 0.03
+            }
+          ]
+        },
+        {
+          "limit_score": 8000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 10000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "伤害加成",
+              "value": 0.08
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 5
+            },
+            "score": 16
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 2
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 7
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 2
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 9
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 11
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 12
+            },
+            "score": 12
+          }
+        }
+      ],
+      "key_section": {
+        "name": "乘胜追击",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "limit_score": 2000,
+            "description": "攻击生命值百分比低于自身的单位时，暴击率增加 3%<br/>升至满级将额外提升 8% 伤害"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 10
+            },
+            "limit_score": 4000,
+            "description": "攻击生命值百分比低于自身的单位时，暴击率增加 6%<br/>升至满级将额外提升 8% 伤害"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 20
+            },
+            "limit_score": 6000,
+            "description": "攻击生命值百分比低于自身的单位时，暴击率增加 9%<br/>升至满级将额外提升 8% 伤害"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 30
+            },
+            "limit_score": 8000,
+            "description": "攻击生命值百分比低于自身的单位时，暴击率增加 12%<br/>升至满级将额外提升 8% 伤害"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 50
+            },
+            "limit_score": 10000,
+            "description": "攻击生命值百分比低于自身的单位时，暴击率增加 12%，伤害提升 8%"
+          }
+        ]
+      }
+    },
+    "z_0": {
+      "type": "特级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 2,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 3,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 4,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 5,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false
+        },
+        {
+          "id": 6,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false
+        },
+        {
+          "id": 7,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 70,
+          "percentage": false
+        },
+        {
+          "id": 8,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 9,
+          "name": "爆炸防护",
+          "attr": "爆炸伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.025,
+          "percentage": true
+        },
+        {
+          "id": 10,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            }
+          ]
+        },
+        {
+          "limit_score": 6000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.03
+            }
+          ]
+        },
+        {
+          "limit_score": 8000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 10000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.08
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 9
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 9
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 11
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 13
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 15
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 17
+            },
+            "score": 12
+          }
+        }
+      ],
+      "key_section": {
+        "name": "过载充能",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "limit_score": 2000,
+            "description": "战斗状态下使用配件技能会获得 300 护盾值并在 5 秒内提升 1.0 点护甲值（该效果每 90 秒仅生效一次，可突破护盾上限，超过上限的部分将在 5 秒后失效）"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 12
+            },
+            "limit_score": 4000,
+            "description": "战斗状态下使用配件技能会获得 450 护盾值并在 5 秒内提升 1.0 点护甲值（该效果每 90 秒仅生效一次，可突破护盾上限，超过上限的部分将在 5 秒后失效）<br/>150 范围内每个队友会使得护甲值额外提升 0.2 ，最多额外提升 0.4 点"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 24
+            },
+            "limit_score": 6000,
+            "description": "战斗状态下使用配件技能会获得 600 护盾值并在 5 秒内提升 1.0 点护甲值（该效果每 80 秒仅生效一次，可突破护盾上限，超过上限的部分将在 5 秒后失效）<br/>150 范围内每个队友会使得护甲值额外提升 0.3 ，最多额外提升 0.6 点"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 35
+            },
+            "limit_score": 8000,
+            "description": "战斗状态下使用配件技能会获得 800 护盾值并在 5 秒内提升 1.5 点护甲值（该效果每 70 秒仅生效一次，可突破护盾上限，超过上限的部分将在 5 秒后失效）<br/>150 范围内每个队友会使得护甲值额外提升 0.4 ，最多额外提升 0.8 点"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 55
+            },
+            "limit_score": 10000,
+            "description": "战斗状态下使用配件技能会获得 1100 护盾值并在 5 秒内提升 2.0 点护甲值（该效果每 60 秒仅生效一次，可突破护盾上限，超过上限的部分将在 5 秒后失效）<br/>150 范围内每个队友会使得护甲值额外提升 0.5 ，最多额外提升 1.0 点"
+          }
+        ]
+      }
+    },
+    "B_0": {
+      "type": "超级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false
+        },
+        {
+          "id": 2,
+          "name": "氨基酸强化",
+          "attr": "血清基础回血提升",
+          "single_bar_score": 200,
+          "single_bar_value": 2,
+          "percentage": false
+        },
+        {
+          "id": 3,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false
+        },
+        {
+          "id": 4,
+          "name": "凝固剂强化",
+          "attr": "血清基础回盾提升",
+          "single_bar_score": 200,
+          "single_bar_value": 2,
+          "percentage": false
+        },
+        {
+          "id": 5,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 6,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 7,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 8,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 9,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 10,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 7200,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.03
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 9600,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 12000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.08
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 15
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 15
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 17
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 19
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 19
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 21
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 21
+            },
+            "score": 10
+          }
+        }
+      ],
+      "key_section": {
+        "name": "协同作战",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "limit_score": 2400,
+            "description": "使用冷兵器时会提升自身和 200 范围内友军 2% 的伤害减免；使用枪械时会提升自身和 200 范围内友军 2% 的伤害加成（多个效果叠加时只生效最高级）。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 12
+            },
+            "limit_score": 4800,
+            "description": "使用冷兵器时会提升自身和 200 范围内友军 4% 的伤害减免；使用枪械时会提升自身和 200 范围内友军 4% 的伤害加成（多个效果叠加时只生效最高级）。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 25
+            },
+            "limit_score": 7200,
+            "description": "使用冷兵器时会提升自身和 200 范围内友军 6% 的伤害减免；使用枪械时会提升自身和 200 范围内友军 6% 的伤害加成（多个效果叠加时只生效最高级）。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 40
+            },
+            "limit_score": 9600,
+            "description": "使用冷兵器时会提升自身和 200 范围内友军 8% 的伤害减免；使用枪械时会提升自身和 200 范围内友军 8% 的伤害加成（多个效果叠加时只生效最高级）。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 60
+            },
+            "limit_score": 12000,
+            "description": "使用冷兵器时会提升自身和 200 范围内友军 10% 的伤害减免；使用枪械时会提升自身和 200 范围内友军 10% 的伤害加成（多个效果叠加时只生效最高级）。"
+          }
+        ]
+      }
+    },
+    "V_0": {
+      "type": "究级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "氨基酸强化",
+          "attr": "血清基础回血提升",
+          "single_bar_score": 200,
+          "single_bar_value": 2,
+          "percentage": false
+        },
+        {
+          "id": 2,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false
+        },
+        {
+          "id": 3,
+          "name": "凝固剂强化",
+          "attr": "血清基础回盾提升",
+          "single_bar_score": 200,
+          "single_bar_value": 2,
+          "percentage": false
+        },
+        {
+          "id": 4,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false
+        },
+        {
+          "id": 5,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 6,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true
+        },
+        {
+          "id": 7,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 8,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 9,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        },
+        {
+          "id": 10,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 7200,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "免暴率",
+              "value": 0.03
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 9600,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "免暴率",
+              "value": 0.05
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 12000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "免暴率",
+              "value": 0.08
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 20
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 20
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 24
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 28
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 32
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 7
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 36
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 7
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 40
+            },
+            "score": 10
+          }
+        }
+      ],
+      "key_section": {
+        "name": "电能迸发",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 8
+            },
+            "limit_score": 2400,
+            "description": "每拥有 10% 护盾值提升 0.2% 伤害加成和伤害减免。<br/>【过载充能】后 5 秒内枪械射击有 30% 概率不消化弹药，冷兵器挥砍角度提升 10% 且消耗体力降低 30%"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 15
+            },
+            "limit_score": 4800,
+            "description": "每拥有 10% 护盾值提升 0.4% 伤害加成和伤害减免。<br/>【过载充能】后 5 秒内枪械射击有 40% 概率不消化弹药，冷兵器挥砍角度提升 10% 且消耗体力降低 40%"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 30
+            },
+            "limit_score": 7200,
+            "description": "每拥有 10% 护盾值提升 0.6% 伤害加成和伤害减免。<br/>【过载充能】后 5 秒内枪械射击有 50% 概率不消化弹药，冷兵器挥砍角度提升 10% 且消耗体力降低 50%"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 45
+            },
+            "limit_score": 9600,
+            "description": "每拥有 10% 护盾值提升 0.8% 伤害加成和伤害减免。<br/>【过载充能】后 5 秒内枪械射击有 60% 概率不消化弹药，冷兵器挥砍角度提升 10% 且消耗体力降低 60%"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 65
+            },
+            "limit_score": 12000,
+            "description": "每拥有 10% 护盾值提升 1.0% 伤害加成和伤害减免。<br/>【过载充能】后 5 秒内枪械射击有 70% 概率不消化弹药，冷兵器挥砍角度提升 10% 且消耗体力降低 70%"
+          }
+        ]
+      }
+    },
+    "e_0": [
+      {
+        "attr": "攻击力",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护甲值",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "血量上限提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护盾上限提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "暴击率",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "免暴率",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "近程伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "近程伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "远程伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "远程伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "爆炸伤害增加",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "爆炸伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "换弹速度提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "射速提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "药物回复效果提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "健康下降速度降低",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "对人型怪伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "受人型怪伤害降低",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "受血清回复提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "血清基础回血提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "血清基础回盾提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      }
+    ],
+    "e_1": [
+      {
+        "attr": "攻击力",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护甲值",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "免暴率",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      }
+    ],
+    "Zt_0": {
+      "type": "基础潜能",
+      "attr_section": [],
+      "score_attr": [],
+      "attr_section_consumables": [],
+      "key_section": {
+        "name": "沸腾液体",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "limit_score": 0,
+            "description": "在平静状态下，若再生活力已满，则再生活力回复的 10% 会转化为护盾回复和生命回复。"
+          }
+        ]
+      }
+    },
+    "el_0": {
+      "type": "初级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 2,
+          "name": "再生伤害",
+          "attr": "再生伤害系数",
+          "single_bar_score": 100,
+          "single_bar_value": 0.012,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 3,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 4,
+          "name": "感染者压制",
+          "attr": "对感染者伤害提升",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 5,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 100,
+          "single_bar_value": 0.4,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 6,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 100,
+          "single_bar_value": 0.4,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 7,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 8,
+          "name": "暴伤加成",
+          "attr": "暴击伤害加成",
+          "single_bar_score": 100,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 9,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 100,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 10,
+          "name": "共生回复",
+          "attr": "共生回复比例",
+          "single_bar_score": 100,
+          "single_bar_value": 0.05,
+          "percentage": true,
+          "human": false
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 450,
+          "attrs": [
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 1200,
+          "attrs": [
+            {
+              "attr": "护甲值",
+              "value": 1
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 1800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 3000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "暴击伤害加成",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 1
+            },
+            "score": 10
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 1
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 2
+            },
+            "score": 10
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 2
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 10
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 4
+            },
+            "score": 10
+          }
+        }
+      ],
+      "key_section": {
+        "name": "腐蚀攻击",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 2
+            },
+            "limit_score": 450,
+            "description": "攻击被孢子附身的敌人有 20% 概率无视其 1 点护甲和 3% 的伤害减免"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "limit_score": 1200,
+            "description": "攻击被孢子附身的敌人有 25% 概率无视其 1 点护甲和 6% 的伤害减免"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 8
+            },
+            "limit_score": 1800,
+            "description": "攻击被孢子附身的敌人有 25% 概率无视其 1 点护甲和 10% 的伤害减免"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 15
+            },
+            "limit_score": 2400,
+            "description": "攻击被孢子附身的敌人有 30% 概率无视其 2 点护甲和 10% 的伤害减免"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 20
+            },
+            "limit_score": 3000,
+            "description": "攻击被孢子附身的敌人有 30% 概率无视其 2 点护甲和 10% 的伤害减免<br/>对处于再生花苞阶段的敌人触发概率翻倍"
+          }
+        ]
+      }
+    },
+    "al_0": {
+      "type": "中级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "高效活力",
+          "attr": "再生活力消耗降低",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 2,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 150,
+          "single_bar_value": 60,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 3,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 4,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 5,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 150,
+          "single_bar_value": 0.5,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 6,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 150,
+          "single_bar_value": 0.5,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 7,
+          "name": "伤害减免",
+          "attr": "伤害减免",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 8,
+          "name": "伤害加成",
+          "attr": "伤害加成",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 9,
+          "name": "活力提升",
+          "attr": "再生活力上限",
+          "single_bar_score": 150,
+          "single_bar_value": 150,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 10,
+          "name": "人型怪压制",
+          "attr": "对人型怪伤害提升",
+          "single_bar_score": 150,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 1200,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 3600,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.03
+            }
+          ]
+        },
+        {
+          "limit_score": 4800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 6000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 3
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 3
+            },
+            "score": 15
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 5
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 6
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 1
+            },
+            "score": 15
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 7
+            },
+            "score": 12
+          }
+        }
+      ],
+      "key_section": {
+        "name": "再生",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "limit_score": 1200,
+            "description": "重伤状态下可以使用【再生回复】，解除重伤并回复 120 生命值。冷却时间 120 秒<br/>解除重伤后每秒恢复 30 生命值，持续 4 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "limit_score": 2400,
+            "description": "重伤状态下可以使用【再生回复】，解除重伤并回复 200 生命值。冷却时间 120 秒<br/>解除重伤后每秒恢复 40 生命值，持续 4 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 10
+            },
+            "limit_score": 3600,
+            "description": "重伤状态下可以使用【再生回复】，解除重伤并回复 300 生命值。冷却时间 120 秒<br/>解除重伤后每秒恢复 50 生命值，持续 4 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 20
+            },
+            "limit_score": 4800,
+            "description": "重伤状态下可以使用【再生回复】，解除重伤并回复 300 生命值。冷却时间 120 秒<br/>解除重伤后每秒恢复 100 生命值，持续 4 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 30
+            },
+            "limit_score": 6000,
+            "description": "重伤状态下可以使用【再生回复】，解除重伤并回复 400 生命值。冷却时间 90 秒<br/>解除重伤后每秒恢复 100 生命值，持续 4 秒。使用后会移除重伤后的虚弱状态。"
+          }
+        ]
+      }
+    },
+    "tl_0": {
+      "type": "高级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 70,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 2,
+          "name": "再生怪抵抗",
+          "attr": "受再生怪伤害降低",
+          "single_bar_score": 200,
+          "single_bar_value": 0.02,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 3,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 4,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 5,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 6,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 7,
+          "name": "伤害加成",
+          "attr": "伤害加成",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 8,
+          "name": "伤害减免",
+          "attr": "伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 9,
+          "name": "爆炸强化",
+          "attr": "爆炸伤害增加",
+          "single_bar_score": 200,
+          "single_bar_value": 0.025,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 10,
+          "name": "孢子回复",
+          "attr": "受孢子回复提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": false
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            }
+          ]
+        },
+        {
+          "limit_score": 6000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害加成",
+              "value": 0.03
+            }
+          ]
+        },
+        {
+          "limit_score": 8000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害加成",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 10000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "伤害加成",
+              "value": 0.08
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 5
+            },
+            "score": 16
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 2
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 7
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 2
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 9
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 11
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 12
+            },
+            "score": 12
+          }
+        }
+      ],
+      "key_section": {
+        "name": "活性孢子",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "limit_score": 2000,
+            "description": "拾取和使用储存的孢子后获得 3% 的伤害加成和伤害减免，持续 4 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 10
+            },
+            "limit_score": 4000,
+            "description": "拾取和使用储存的孢子后获得 4% 的伤害加成和伤害减免，持续 4 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 20
+            },
+            "limit_score": 6000,
+            "description": "拾取和使用储存的孢子后获得 5% 的伤害加成和伤害减免，持续 6 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 30
+            },
+            "limit_score": 8000,
+            "description": "拾取和使用储存的孢子后获得 6% 的伤害加成和伤害减免，持续 8 秒"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 50
+            },
+            "limit_score": 10000,
+            "description": "拾取和使用储存的孢子后获得 8% 的伤害加成和伤害减免，持续 8 秒<br/>在持续时间内再次拾取孢子会延长 8 秒的持续时间"
+          }
+        ]
+      }
+    },
+    "ll_0": {
+      "type": "特级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 2,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 3,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 4,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 5,
+          "name": "攻击强化",
+          "attr": "攻击力",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 6,
+          "name": "护甲强化",
+          "attr": "护甲值",
+          "single_bar_score": 200,
+          "single_bar_value": 0.6,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 7,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 70,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 8,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 9,
+          "name": "孢子回复",
+          "attr": "受孢子回复提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.03,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 10,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            }
+          ]
+        },
+        {
+          "limit_score": 6000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.03
+            }
+          ]
+        },
+        {
+          "limit_score": 8000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 10000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.08
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 9
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 9
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 11
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 3
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 13
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 15
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 17
+            },
+            "score": 12
+          }
+        }
+      ],
+      "key_section": {
+        "name": "异化孢子",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "limit_score": 2000,
+            "description": "每 90 秒会生成并储存 1 个异化孢子，异化孢子额外提升 100 生命回复。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 12
+            },
+            "limit_score": 4000,
+            "description": "每 90 秒会生成并储存 1 个异化孢子，异化孢子额外提升 100 生命回复。吸收异化孢子后 3 秒内移速加成将提升至 25%，若在战斗状态下会强化 8 秒内下 1 次跳跃。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 24
+            },
+            "limit_score": 6000,
+            "description": "每 90 秒会生成并储存 1 个异化孢子，异化孢子额外提升 150 生命回复。吸收异化孢子后 3 秒内移速加成将提升至 30%，若在战斗状态下会强化 8 秒内下 1 次跳跃。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 35
+            },
+            "limit_score": 8000,
+            "description": "每 75 秒会生成并储存 1 个异化孢子，异化孢子额外提升 200 生命回复。吸收异化孢子后 3 秒内移速加成将提升至 40%，若在战斗状态下会强化 8 秒内下 1 次跳跃。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 55
+            },
+            "limit_score": 10000,
+            "description": "每 60 秒会生成并储存 1 个异化孢子，异化孢子额外提升 240 生命回复。吸收异化孢子后 3 秒内移速加成将提升至 45%，若在战斗状态下会强化 8 秒内下 2 次跳跃。"
+          }
+        ]
+      }
+    },
+    "nl_0": {
+      "type": "超级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 2,
+          "name": "生命回复",
+          "attr": "孢子基础回血提升",
+          "single_bar_score": 200,
+          "single_bar_value": 8,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 3,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 4,
+          "name": "护盾回复",
+          "attr": "孢子基础回盾提升",
+          "single_bar_score": 200,
+          "single_bar_value": 8,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 5,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 6,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 7,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 8,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 9,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 10,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 7200,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.03
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 9600,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.05
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 12000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "伤害减免",
+              "value": 0.08
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 15
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 15
+            },
+            "score": 12
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 17
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 4
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 19
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 19
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 21
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 21
+            },
+            "score": 10
+          }
+        }
+      ],
+      "key_section": {
+        "name": "活力充盈",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "limit_score": 2000,
+            "description": "再生活力高于 50% 时，射速提升 2.5%，奔跑气力消耗降低 5%<br/>升至满级将额外提升 10% 暴击率"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 12
+            },
+            "limit_score": 4000,
+            "description": "再生活力高于 50% 时，射速提升 5.0%，奔跑气力消耗降低 10%<br/>升至满级将额外提升 10% 暴击率"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 25
+            },
+            "limit_score": 6000,
+            "description": "再生活力高于 50% 时，射速提升 7.5%，奔跑气力消耗降低 15%<br/>升至满级将额外提升 10% 暴击率"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 40
+            },
+            "limit_score": 8000,
+            "description": "再生活力高于 50% 时，射速提升 10%，奔跑气力消耗降低 20%<br/>升至满级将额外提升 10% 暴击率"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 60
+            },
+            "limit_score": 10000,
+            "description": "再生活力高于 50% 时，射速提升 10%，暴击率提升 10%，奔跑气力消耗降低 20%"
+          }
+        ]
+      }
+    },
+    "sl_0": {
+      "type": "究级潜能",
+      "attr_section": [
+        {
+          "id": 1,
+          "name": "生命回复",
+          "attr": "孢子基础回血提升",
+          "single_bar_score": 200,
+          "single_bar_value": 8,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 2,
+          "name": "生命强化",
+          "attr": "血量上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 3,
+          "name": "护盾回复",
+          "attr": "孢子基础回盾提升",
+          "single_bar_score": 200,
+          "single_bar_value": 8,
+          "percentage": false,
+          "human": false
+        },
+        {
+          "id": 4,
+          "name": "护盾强化",
+          "attr": "护盾上限提升",
+          "single_bar_score": 200,
+          "single_bar_value": 75,
+          "percentage": false,
+          "human": true
+        },
+        {
+          "id": 5,
+          "name": "暴击抵抗",
+          "attr": "免暴率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 6,
+          "name": "暴击强化",
+          "attr": "暴击率",
+          "single_bar_score": 200,
+          "single_bar_value": 0.035,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 7,
+          "name": "近战防御",
+          "attr": "近程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 8,
+          "name": "近战强化",
+          "attr": "近程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": true
+        },
+        {
+          "id": 9,
+          "name": "远攻防御",
+          "attr": "远程伤害减免",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": false
+        },
+        {
+          "id": 10,
+          "name": "远攻强化",
+          "attr": "远程伤害提升",
+          "single_bar_score": 200,
+          "single_bar_value": 0.04,
+          "percentage": true,
+          "human": true
+        }
+      ],
+      "score_attr": [
+        {
+          "limit_score": 2400,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 0.5
+            },
+            {
+              "attr": "护甲值",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "limit_score": 4800,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 1
+            },
+            {
+              "attr": "护甲值",
+              "value": 1.5
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 7200,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 2
+            },
+            {
+              "attr": "护甲值",
+              "value": 2
+            },
+            {
+              "attr": "免暴率",
+              "value": 0.03
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 9600,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 3
+            },
+            {
+              "attr": "护甲值",
+              "value": 3
+            },
+            {
+              "attr": "免暴率",
+              "value": 0.05
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        },
+        {
+          "limit_score": 12000,
+          "attrs": [
+            {
+              "attr": "攻击力",
+              "value": 4
+            },
+            {
+              "attr": "护甲值",
+              "value": 4
+            },
+            {
+              "attr": "免暴率",
+              "value": 0.08
+            },
+            {
+              "attr": "暴击伤害减免",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "attr_section_consumables": [
+        {
+          "active": {
+            "cond": {
+              "name": "血清",
+              "num": 20
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 20
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 5
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 24
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 28
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 6
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 32
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 7
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 36
+            },
+            "score": 10
+          }
+        },
+        {
+          "active": {
+            "cond": {
+              "name": "胶囊",
+              "num": 7
+            },
+            "score": 20
+          },
+          "single": {
+            "cond": {
+              "name": "血清",
+              "num": 40
+            },
+            "score": 10
+          }
+        }
+      ],
+      "key_section": {
+        "name": "执战不息",
+        "attr": [
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 8
+            },
+            "limit_score": 2400,
+            "description": "每造成或承受 1000 点伤害提升自身 0.4% 的伤害加成，最多叠加 10 次（脱战后每秒减少 2 层）。<br/>使用异化孢子将解除并在 3 秒内免疫减速和紊乱效果。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 15
+            },
+            "limit_score": 4800,
+            "description": "每造成或承受 1000 点伤害提升自身 0.5% 的伤害加成和 0.5% 的控制时长减免，最多叠加 10 次（脱战后每秒减少 2 层）。<br/>使用异化孢子将解除并在 3 秒内免疫减速和紊乱效果。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 30
+            },
+            "limit_score": 7200,
+            "description": "每造成或承受 1000 点伤害提升自身 0.6% 的伤害加成和 1.0% 的控制时长减免，最多叠加 10 次（脱战后每秒减少 2 层）。<br/>使用异化孢子将解除并在 3 秒内免疫减速和紊乱效果。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 45
+            },
+            "limit_score": 9600,
+            "description": "每造成或承受 1000 点伤害提升自身 0.8% 的伤害加成和 1.5% 的控制时长减免，最多叠加 10 次（脱战后每秒减少 2 层）。<br/>使用异化孢子将解除并在 3 秒内免疫减速和紊乱效果。"
+          },
+          {
+            "consumables": {
+              "name": "胶囊",
+              "num": 65
+            },
+            "limit_score": 12000,
+            "description": "每造成或承受 1000 点伤害提升自身 1.0% 的伤害加成和 2.0% 的控制时长减免，最多叠加 10 次（脱战后每秒减少 2 层）。<br/>使用异化孢子将解除并在 3 秒内免疫减速和紊乱效果。"
+          }
+        ]
+      }
+    },
+    "e_2": [
+      {
+        "attr": "攻击力",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护甲值",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "血量上限提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护盾上限提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "暴击率",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "免暴率",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "近程伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "近程伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "远程伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "远程伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "爆炸伤害增加",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "再生活力上限",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "再生活力消耗降低",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "对人型怪伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "对感染者伤害提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "受再生怪伤害降低",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "受孢子回复提升",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "孢子基础回血提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "孢子基础回盾提升",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "再生伤害系数",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "共生回复比例",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      }
+    ],
+    "e_3": [
+      {
+        "attr": "攻击力",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护甲值",
+        "current": 0,
+        "total": 0,
+        "percentage": false
+      },
+      {
+        "attr": "伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害加成",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害减免",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      },
+      {
+        "attr": "免暴率",
+        "current": 0,
+        "total": 0,
+        "percentage": true
+      }
+    ],
+    "o_0": [
+      {
+        "human_ref": [
+          243,
+          796,
+          2297,
+          3252,
+          7162,
+          0
+        ],
+        "half_ref": [
+          232,
+          730,
+          2282,
+          3373,
+          6919,
+          0
+        ]
+      },
+      {
+        "human_ref": [
+          233,
+          859,
+          2407,
+          3607,
+          6704,
+          0
+        ],
+        "half_ref": [
+          244,
+          776,
+          2025,
+          3476,
+          6387,
+          0
+        ]
+      }
+    ]
+  }
+}
