@@ -51,15 +51,21 @@ const evaluation = await send("Runtime.evaluate", {
     const before = await window.desktopApi?.listMarketItems();
     const target = before?.[0];
     if (target) await window.desktopApi.setMarketItemState({ id: target.id, marketPrice: 123, focused: true });
+    const recipeTarget = before?.find((item) => item.recipe.length > 0);
+    const recipeIngredient = recipeTarget?.recipe[0];
+    if (recipeTarget && recipeIngredient) await window.desktopApi.setRecipeChoice({ productId: recipeTarget.id, ingredientId: recipeIngredient.ingredientId, acquisitionMode: 'purchase' });
     const after = await window.desktopApi?.listMarketItems();
     const persisted = after?.find((item) => item.id === target?.id);
+    const persistedRecipe = after?.find((item) => item.id === recipeTarget?.id)?.recipe[0];
     return {
       title: document.title,
       text: document.body.innerText,
       csp: document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content,
       runtime: await window.desktopApi?.getRuntimeInfo(),
       marketItemCount: after?.length,
+      firstMarketItem: after?.[0]?.name,
       statePersisted: persisted?.marketPrice === 123 && persisted?.focused === true,
+      recipeChoicePersisted: persistedRecipe?.acquisitionMode === 'purchase',
       nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
     };
   })()`,
@@ -74,7 +80,7 @@ if (evaluation.exceptionDetails) {
 }
 
 const result = { ...evaluation.result.value, runtimeErrors };
-console.log(JSON.stringify(result, null, 2));
+console.log(JSON.stringify({ ...result, text: undefined, textPreview: result.text.slice(0, 500) }, null, 2));
 
 if (!result.text.includes("明日之后养成助手")) throw new Error("Expected UI text is missing");
 if (!result.csp) throw new Error("Content Security Policy is missing");
@@ -83,7 +89,9 @@ if (!result.runtime || result.runtime.platform !== "win32") {
 }
 if (result.nodeExposed) throw new Error("Node globals are exposed to the renderer");
 if (result.marketItemCount !== 458) throw new Error("Bundled market data was not loaded");
+if (result.firstMarketItem !== "木头") throw new Error("Market data is not sorted by legacy type and level");
 if (!result.statePersisted) throw new Error("Personal item state was not persisted");
+if (!result.recipeChoicePersisted) throw new Error("Recipe acquisition mode was not persisted");
 if (!result.text.includes("458") || !result.text.includes("石纹蜂窝板")) {
   throw new Error("Market data was not rendered");
 }

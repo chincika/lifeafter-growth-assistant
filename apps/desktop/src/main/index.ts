@@ -77,6 +77,12 @@ function installBundledContent(target: SqliteDatabase): void {
 }
 
 function listMarketItems(target: SqliteDatabase) {
+  const recipeChoices = new Map(
+    target.prepare("SELECT product_entity_id, ingredient_entity_id, acquisition_mode FROM user_recipe_choices").all().map((row) => {
+      const value = row as Record<string, unknown>;
+      return [`${value.product_entity_id}:${value.ingredient_entity_id}`, String(value.acquisition_mode)] as const;
+    }),
+  );
   return target
     .prepare(`
       SELECT p.id, p.name, p.payload_json AS payloadJson,
@@ -84,7 +90,10 @@ function listMarketItems(target: SqliteDatabase) {
       FROM public_entities p
       LEFT JOIN user_item_state u ON u.entity_id = p.id
       WHERE p.entity_type = 'market-item'
-      ORDER BY p.name COLLATE NOCASE
+      ORDER BY
+        CAST(json_extract(p.payload_json, '$.legacyType') AS INTEGER),
+        CAST(json_extract(p.payload_json, '$.level') AS INTEGER),
+        CAST(json_extract(p.payload_json, '$.sortOrder') AS INTEGER)
     `)
     .all()
     .map((row) => {
@@ -94,7 +103,19 @@ function listMarketItems(target: SqliteDatabase) {
         id: String(value.id),
         name: String(value.name),
         category: String(payload.category),
+        resourceType: Number(payload.legacyType),
         level: Number(payload.level),
+        couponCost: Number(payload.couponCost),
+        recipe: (Array.isArray(payload.recipe) ? payload.recipe : []).map((entry) => {
+          const ingredient = entry as Record<string, unknown>;
+          const ingredientId = String(ingredient.ingredientId);
+          const defaultMode = String(ingredient.defaultAcquisitionMode);
+          return {
+            ingredientId,
+            quantity: Number(ingredient.quantity),
+            acquisitionMode: recipeChoices.get(`${value.id}:${ingredientId}`) ?? defaultMode,
+          };
+        }),
         marketPrice: value.marketPrice === null ? null : Number(value.marketPrice),
         focused: Boolean(value.focused),
         hasRecipe: Array.isArray(payload.recipe) && payload.recipe.length > 0,
@@ -179,6 +200,21 @@ function registerIpcHandlers(databaseVersion: number): void {
           focused = excluded.focused,
           updated_at = excluded.updated_at
       `).run(input.id, input.marketPrice, input.focused ? 1 : 0, new Date().toISOString());
+    },
+  );
+  ipcMain.handle(
+    "market:set-recipe-choice",
+    (event, input: { productId: string; ingredientId: string; acquisitionMode: string }) => {
+      if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) throw new Error("Rejected recipe update");
+      const validId = /^[a-z0-9][a-z0-9._-]{2,127}$/;
+      if (!validId.test(input.productId) || !validId.test(input.ingredientId)) throw new Error("Invalid recipe ID");
+      if (input.acquisitionMode !== "craft" && input.acquisitionMode !== "purchase") throw new Error("Invalid acquisition mode");
+      database.prepare(`
+        INSERT INTO user_recipe_choices(product_entity_id, ingredient_entity_id, acquisition_mode, updated_at)
+        VALUES (?, ?, ?, ?)
+        ON CONFLICT(product_entity_id, ingredient_entity_id) DO UPDATE SET
+          acquisition_mode = excluded.acquisition_mode, updated_at = excluded.updated_at
+      `).run(input.productId, input.ingredientId, input.acquisitionMode, new Date().toISOString());
     },
   );
 }

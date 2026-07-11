@@ -34,11 +34,18 @@ const Root = {
         item.focused = input.focused;
       }
     }
+    async function updateRecipeChoice(input: { productId: string; ingredientId: string; acquisitionMode: "craft" | "purchase" }) {
+      await window.desktopApi.setRecipeChoice(input);
+      const product = items.value.find((item) => item.id === input.productId);
+      const ingredient = product?.recipe.find((entry) => entry.ingredientId === input.ingredientId);
+      if (ingredient) ingredient.acquisitionMode = input.acquisitionMode;
+    }
     return () => h(AppShell, {
       items: items.value,
       loading: loading.value,
       error: error.value,
       onUpdateItemState: updateItemState,
+      onUpdateRecipeChoice: updateRecipeChoice,
     });
   },
 };

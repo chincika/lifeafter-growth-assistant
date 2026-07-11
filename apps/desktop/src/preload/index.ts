@@ -11,7 +11,14 @@ export interface MarketItemSummary {
   id: string;
   name: string;
   category: string;
+  resourceType: number;
   level: number;
+  couponCost: number;
+  recipe: Array<{
+    ingredientId: string;
+    quantity: number;
+    acquisitionMode: "craft" | "purchase";
+  }>;
   marketPrice: number | null;
   focused: boolean;
   hasRecipe: boolean;
@@ -31,6 +38,9 @@ const desktopApi = Object.freeze({
     focused: boolean;
   }): Promise<void> {
     await ipcRenderer.invoke("market:set-item-state", input);
+  },
+  async setRecipeChoice(input: { productId: string; ingredientId: string; acquisitionMode: "craft" | "purchase" }): Promise<void> {
+    await ipcRenderer.invoke("market:set-recipe-choice", input);
   },
 });
 

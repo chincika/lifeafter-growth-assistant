@@ -51,11 +51,13 @@ const knownIssues = [];
 
 const marketCatalog = marketCatalogSchema.parse({
   schemaVersion: 1,
-  contentVersion: "2026.07.11.1",
-  items: legacyItems.map((item) => ({
+  contentVersion: "2026.07.11.2",
+  items: legacyItems.map((item, sortOrder) => ({
     id: itemIdByName.get(item.name),
     name: item.name,
     category: categoryByLegacyType[item.resType],
+    legacyType: item.resType,
+    sortOrder,
     level: item.resLevel,
     couponCost: item.coupon,
     legacyAliases: [item.name],
@@ -83,7 +85,7 @@ const marketCatalog = marketCatalogSchema.parse({
 
 const nanoCatalog = nanoCatalogSchema.parse({
   schemaVersion: 1,
-  contentVersion: "2026.07.11.1",
+  contentVersion: "2026.07.11.2",
   items: (legacy.nano ?? []).map((item) => ({
     itemId: itemIdByName.get(item.name),
     nano1: { min: item.nami_1_min, max: item.nami_1_max, average: item.nami_1_avg },

@@ -33,6 +33,8 @@ export const marketItemSchema = z
     id: stableIdSchema,
     name: z.string().trim().min(1).max(200),
     category: marketCategorySchema,
+    legacyType: z.number().int().min(0).max(100),
+    sortOrder: z.number().int().nonnegative(),
     level: z.number().int().min(0).max(1_000),
     couponCost: z.number().int().nonnegative(),
     legacyAliases: z.array(z.string().trim().min(1).max(200)).max(20).default([]),

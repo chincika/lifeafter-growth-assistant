@@ -1,11 +1,13 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026.07.11.1",
+  "contentVersion": "2026.07.11.2",
   "items": [
     {
       "id": "item.legacy.3915f9fdd0acc2b1e844",
       "name": "木头",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 0,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -17,6 +19,8 @@
       "id": "item.legacy.4fad23d4ce66a22ef88e",
       "name": "小树枝",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 1,
       "level": 1,
       "couponCost": 26,
       "legacyAliases": [
@@ -28,6 +32,8 @@
       "id": "item.legacy.e9d4ee01fe81e90649f1",
       "name": "硬木藤蔓",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 2,
       "level": 1,
       "couponCost": 60,
       "legacyAliases": [
@@ -39,6 +45,8 @@
       "id": "item.legacy.098c86592808994c927b",
       "name": "树脂",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 3,
       "level": 2,
       "couponCost": 29,
       "legacyAliases": [
@@ -50,6 +58,8 @@
       "id": "item.legacy.4e90448e828ef7d1828c",
       "name": "木心",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 4,
       "level": 2,
       "couponCost": 63,
       "legacyAliases": [
@@ -61,6 +71,8 @@
       "id": "item.legacy.600ab6d414027cc96d76",
       "name": "小枝芽",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 5,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -72,6 +84,8 @@
       "id": "item.legacy.c4af127587d4fae7f6c0",
       "name": "老柏木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 6,
       "level": 3,
       "couponCost": 34,
       "legacyAliases": [
@@ -83,6 +97,8 @@
       "id": "item.legacy.d3b99ed9af5acb42dfde",
       "name": "柏树叶",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 7,
       "level": 3,
       "couponCost": 72,
       "legacyAliases": [
@@ -94,6 +110,8 @@
       "id": "item.legacy.e4b04678a387d979154a",
       "name": "龟裂韧皮",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 8,
       "level": 3,
       "couponCost": 35,
       "legacyAliases": [
@@ -105,6 +123,8 @@
       "id": "item.legacy.fc1deccdea8b1348b8ba",
       "name": "树油",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 9,
       "level": 3,
       "couponCost": 0,
       "legacyAliases": [
@@ -116,6 +136,8 @@
       "id": "item.legacy.6e1ae3646a5aa998cfbb",
       "name": "黄杨木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 10,
       "level": 4,
       "couponCost": 39,
       "legacyAliases": [
@@ -127,6 +149,8 @@
       "id": "item.legacy.e1628a9b05f9df446773",
       "name": "阔树叶",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 11,
       "level": 4,
       "couponCost": 144,
       "legacyAliases": [
@@ -138,6 +162,8 @@
       "id": "item.legacy.646b5a52798ef781603b",
       "name": "老橡木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 12,
       "level": 5,
       "couponCost": 46,
       "legacyAliases": [
@@ -149,6 +175,8 @@
       "id": "item.legacy.ac0f6f65d130107cad0e",
       "name": "铁桦残根",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 13,
       "level": 5,
       "couponCost": 146,
       "legacyAliases": [
@@ -160,6 +188,8 @@
       "id": "item.legacy.0fc01d94b3e5506126b3",
       "name": "红杉木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 14,
       "level": 6,
       "couponCost": 51,
       "legacyAliases": [
@@ -171,6 +201,8 @@
       "id": "item.legacy.d189f266752e9c0375e5",
       "name": "杉叶",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 15,
       "level": 6,
       "couponCost": 162,
       "legacyAliases": [
@@ -182,6 +214,8 @@
       "id": "item.legacy.9811de9769da7928810e",
       "name": "楠木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 16,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -193,6 +227,8 @@
       "id": "item.legacy.6a43a18448314d5232e8",
       "name": "松果",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 17,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -204,6 +240,8 @@
       "id": "item.legacy.4298008506c52a52171e",
       "name": "榆树叶",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 18,
       "level": 7,
       "couponCost": 56,
       "legacyAliases": [
@@ -215,6 +253,8 @@
       "id": "item.legacy.69ebcde9752620cca56e",
       "name": "榆树皮",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 19,
       "level": 7,
       "couponCost": 178,
       "legacyAliases": [
@@ -226,6 +266,8 @@
       "id": "item.legacy.bf678909da68b86bb744",
       "name": "樟木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 20,
       "level": 8,
       "couponCost": 61,
       "legacyAliases": [
@@ -237,6 +279,8 @@
       "id": "item.legacy.9b2d62cbfa43b55414d3",
       "name": "樟树叶",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 21,
       "level": 8,
       "couponCost": 194,
       "legacyAliases": [
@@ -248,6 +292,8 @@
       "id": "item.legacy.f91aa9a7ec42245ddd36",
       "name": "草木灰",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 22,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -259,6 +305,8 @@
       "id": "item.legacy.f6c0f44a8808f52e3dc5",
       "name": "白桦木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 23,
       "level": 9,
       "couponCost": 67,
       "legacyAliases": [
@@ -270,6 +318,8 @@
       "id": "item.legacy.78d08194244f988e862f",
       "name": "桦树皮",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 24,
       "level": 9,
       "couponCost": 210,
       "legacyAliases": [
@@ -281,6 +331,8 @@
       "id": "item.legacy.e18bfad2c9a590546ceb",
       "name": "桐树",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 25,
       "level": 10,
       "couponCost": 69,
       "legacyAliases": [
@@ -292,6 +344,8 @@
       "id": "item.legacy.232acabfc89cc036b9a7",
       "name": "桐油",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 26,
       "level": 10,
       "couponCost": 218,
       "legacyAliases": [
@@ -303,6 +357,8 @@
       "id": "item.legacy.eb97193a652030578a3b",
       "name": "梧桐木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 27,
       "level": 11,
       "couponCost": 70,
       "legacyAliases": [
@@ -314,6 +370,8 @@
       "id": "item.legacy.2c641b950665a8ebd11e",
       "name": "梧桐花",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 28,
       "level": 11,
       "couponCost": 222,
       "legacyAliases": [
@@ -325,6 +383,8 @@
       "id": "item.legacy.6948925c471de42966eb",
       "name": "桃木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 29,
       "level": 12,
       "couponCost": 72,
       "legacyAliases": [
@@ -336,6 +396,8 @@
       "id": "item.legacy.f5c627b7d0bffafff264",
       "name": "桃花",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 30,
       "level": 12,
       "couponCost": 226,
       "legacyAliases": [
@@ -347,6 +409,8 @@
       "id": "item.legacy.9f0651f1f92ff02156ab",
       "name": "红珊瑚",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 31,
       "level": 13,
       "couponCost": 72,
       "legacyAliases": [
@@ -358,6 +422,8 @@
       "id": "item.legacy.a3cf934b6c63ce9564fd",
       "name": "气泡珊瑚",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 32,
       "level": 13,
       "couponCost": 226,
       "legacyAliases": [
@@ -369,6 +435,8 @@
       "id": "item.legacy.4aaf3de0965c13dcf431",
       "name": "胡桃木",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 33,
       "level": 14,
       "couponCost": 72,
       "legacyAliases": [
@@ -380,6 +448,8 @@
       "id": "item.legacy.0876c31d4ab9c5a340f5",
       "name": "胡桃叶",
       "category": "wood",
+      "legacyType": 0,
+      "sortOrder": 34,
       "level": 14,
       "couponCost": 226,
       "legacyAliases": [
@@ -391,6 +461,8 @@
       "id": "item.legacy.a1aca9fd68a97328d974",
       "name": "石头",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 35,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -402,6 +474,8 @@
       "id": "item.legacy.590d39a561f249ca1447",
       "name": "铁矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 36,
       "level": 1,
       "couponCost": 30,
       "legacyAliases": [
@@ -413,6 +487,8 @@
       "id": "item.legacy.96e81d6689a38b743f2b",
       "name": "燧石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 37,
       "level": 1,
       "couponCost": 70,
       "legacyAliases": [
@@ -424,6 +500,8 @@
       "id": "item.legacy.dafc7722f03ddd08e23a",
       "name": "锡矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 38,
       "level": 2,
       "couponCost": 44,
       "legacyAliases": [
@@ -435,6 +513,8 @@
       "id": "item.legacy.8f515df8107f53363f3c",
       "name": "硫磺",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 39,
       "level": 2,
       "couponCost": 72,
       "legacyAliases": [
@@ -446,6 +526,8 @@
       "id": "item.legacy.2792602e1d0c9577a2aa",
       "name": "硝石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 40,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -457,6 +539,8 @@
       "id": "item.legacy.36f6fb8a8bb2991ca8b2",
       "name": "铝矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 41,
       "level": 3,
       "couponCost": 39,
       "legacyAliases": [
@@ -468,6 +552,8 @@
       "id": "item.legacy.ba6a80bafb56438696f6",
       "name": "蓝晶石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 42,
       "level": 3,
       "couponCost": 87,
       "legacyAliases": [
@@ -479,6 +565,8 @@
       "id": "item.legacy.ba6170df9b5e7d56eaec",
       "name": "孔雀石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 43,
       "level": 3,
       "couponCost": 40,
       "legacyAliases": [
@@ -490,6 +578,8 @@
       "id": "item.legacy.1850770283a80719db68",
       "name": "铜矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 44,
       "level": 4,
       "couponCost": 48,
       "legacyAliases": [
@@ -501,6 +591,8 @@
       "id": "item.legacy.d64c2cadcc420aafcc06",
       "name": "硅晶矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 45,
       "level": 4,
       "couponCost": 144,
       "legacyAliases": [
@@ -512,6 +604,8 @@
       "id": "item.legacy.06927d85a95cfbfb8759",
       "name": "方铅矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 46,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -523,6 +617,8 @@
       "id": "item.legacy.dbd4b5c8b82fb7abc710",
       "name": "银矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 47,
       "level": 5,
       "couponCost": 53,
       "legacyAliases": [
@@ -534,6 +630,8 @@
       "id": "item.legacy.c7d0ca409df389ed5097",
       "name": "深红银矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 48,
       "level": 5,
       "couponCost": 172,
       "legacyAliases": [
@@ -545,6 +643,8 @@
       "id": "item.legacy.6b764a13c668c92efb26",
       "name": "金矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 49,
       "level": 6,
       "couponCost": 59,
       "legacyAliases": [
@@ -556,6 +656,8 @@
       "id": "item.legacy.5d7eb4afae5ba1ee1e87",
       "name": "稀土矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 50,
       "level": 6,
       "couponCost": 191,
       "legacyAliases": [
@@ -567,6 +669,8 @@
       "id": "item.legacy.5e1fe2236f6412ca6a17",
       "name": "水银",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 51,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -578,6 +682,8 @@
       "id": "item.legacy.a25468a081be4b7bde75",
       "name": "尖晶石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 52,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -589,6 +695,8 @@
       "id": "item.legacy.a56bd3c1386f4399bdce",
       "name": "锥纹石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 53,
       "level": 7,
       "couponCost": 65,
       "legacyAliases": [
@@ -600,6 +708,8 @@
       "id": "item.legacy.36646559ae36413fbeb9",
       "name": "黄铁矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 54,
       "level": 7,
       "couponCost": 210,
       "legacyAliases": [
@@ -611,6 +721,8 @@
       "id": "item.legacy.856e28fd0a03ba2c3e29",
       "name": "火山岩",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 55,
       "level": 8,
       "couponCost": 70,
       "legacyAliases": [
@@ -622,6 +734,8 @@
       "id": "item.legacy.c358e70f5b53e4e0b569",
       "name": "斑铜矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 56,
       "level": 8,
       "couponCost": 229,
       "legacyAliases": [
@@ -633,6 +747,8 @@
       "id": "item.legacy.7dec35dc4d0366efd55a",
       "name": "火山灰",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 57,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -644,6 +760,8 @@
       "id": "item.legacy.b739c1f3c1d83e0dad89",
       "name": "磷矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 58,
       "level": 9,
       "couponCost": 76,
       "legacyAliases": [
@@ -655,6 +773,8 @@
       "id": "item.legacy.084f8d1195a929b95153",
       "name": "磷灰石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 59,
       "level": 9,
       "couponCost": 249,
       "legacyAliases": [
@@ -666,6 +786,8 @@
       "id": "item.legacy.bfa99804307d7e766c53",
       "name": "白铅矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 60,
       "level": 10,
       "couponCost": 79,
       "legacyAliases": [
@@ -677,6 +799,8 @@
       "id": "item.legacy.890117f655f3692ba983",
       "name": "重晶石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 61,
       "level": 10,
       "couponCost": 258,
       "legacyAliases": [
@@ -688,6 +812,8 @@
       "id": "item.legacy.7c2a619313f61a9acceb",
       "name": "锰矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 62,
       "level": 11,
       "couponCost": 81,
       "legacyAliases": [
@@ -699,6 +825,8 @@
       "id": "item.legacy.2cf6f1b7247330819344",
       "name": "萤石",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 63,
       "level": 11,
       "couponCost": 263,
       "legacyAliases": [
@@ -710,6 +838,8 @@
       "id": "item.legacy.8e983c02db124ac1c489",
       "name": "锌矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 64,
       "level": 12,
       "couponCost": 82,
       "legacyAliases": [
@@ -721,6 +851,8 @@
       "id": "item.legacy.c9909e3c9e8223b38fbe",
       "name": "菱锌矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 65,
       "level": 12,
       "couponCost": 268,
       "legacyAliases": [
@@ -732,6 +864,8 @@
       "id": "item.legacy.1342bef47b1cd42d5468",
       "name": "镍矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 66,
       "level": 13,
       "couponCost": 82,
       "legacyAliases": [
@@ -743,6 +877,8 @@
       "id": "item.legacy.d4e8bf5d9cc01f72bb57",
       "name": "热液矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 67,
       "level": 13,
       "couponCost": 268,
       "legacyAliases": [
@@ -754,6 +890,8 @@
       "id": "item.legacy.185cf7b29406fbc94c2c",
       "name": "镁矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 68,
       "level": 14,
       "couponCost": 82,
       "legacyAliases": [
@@ -765,6 +903,8 @@
       "id": "item.legacy.12f2035b14860442a05b",
       "name": "菱镁矿",
       "category": "stone",
+      "legacyType": 1,
+      "sortOrder": 69,
       "level": 14,
       "couponCost": 268,
       "legacyAliases": [
@@ -776,6 +916,8 @@
       "id": "item.legacy.2461475506683975f517",
       "name": "麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 70,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -787,6 +929,8 @@
       "id": "item.legacy.7b71f6eec5a957c9dff2",
       "name": "植物根茎",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 71,
       "level": 1,
       "couponCost": 36,
       "legacyAliases": [
@@ -798,6 +942,8 @@
       "id": "item.legacy.393782ae360daaa6625e",
       "name": "麻茎秆",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 72,
       "level": 2,
       "couponCost": 39,
       "legacyAliases": [
@@ -809,6 +955,8 @@
       "id": "item.legacy.f06d31c8ed4e47a60f0c",
       "name": "麻茎皮",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 73,
       "level": 2,
       "couponCost": 96,
       "legacyAliases": [
@@ -820,6 +968,8 @@
       "id": "item.legacy.9b240484af8cb6f0cbe5",
       "name": "麻籽",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 74,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -831,6 +981,8 @@
       "id": "item.legacy.b89e4b2d81dea8366dda",
       "name": "亚麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 75,
       "level": 3,
       "couponCost": 48,
       "legacyAliases": [
@@ -842,6 +994,8 @@
       "id": "item.legacy.09b237313448baac6953",
       "name": "亚麻花瓣",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 76,
       "level": 3,
       "couponCost": 108,
       "legacyAliases": [
@@ -853,6 +1007,8 @@
       "id": "item.legacy.b1774ced36e12accab26",
       "name": "红麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 77,
       "level": 3,
       "couponCost": 45,
       "legacyAliases": [
@@ -864,6 +1020,8 @@
       "id": "item.legacy.d406f12561bc9a20b5aa",
       "name": "黄麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 78,
       "level": 4,
       "couponCost": 53,
       "legacyAliases": [
@@ -875,6 +1033,8 @@
       "id": "item.legacy.34ee98fa394b0fe06f7b",
       "name": "黄麻秆",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 79,
       "level": 4,
       "couponCost": 144,
       "legacyAliases": [
@@ -886,6 +1046,8 @@
       "id": "item.legacy.29dd83e7a9ad2d27a2bd",
       "name": "剑麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 80,
       "level": 5,
       "couponCost": 61,
       "legacyAliases": [
@@ -897,6 +1059,8 @@
       "id": "item.legacy.03845537e0bef47ce0a3",
       "name": "海麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 81,
       "level": 5,
       "couponCost": 135,
       "legacyAliases": [
@@ -908,6 +1072,8 @@
       "id": "item.legacy.c24ea9ee609f2604e1ae",
       "name": "红麻皮",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 82,
       "level": 5,
       "couponCost": 206,
       "legacyAliases": [
@@ -919,6 +1085,8 @@
       "id": "item.legacy.eae79405ba4f3c03e7af",
       "name": "苎麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 83,
       "level": 6,
       "couponCost": 68,
       "legacyAliases": [
@@ -930,6 +1098,8 @@
       "id": "item.legacy.3bdef6e25aede7ec3b39",
       "name": "苎麻皮",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 84,
       "level": 6,
       "couponCost": 229,
       "legacyAliases": [
@@ -941,6 +1111,8 @@
       "id": "item.legacy.3c99e4037e25f2fcde17",
       "name": "蛇麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 85,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -952,6 +1124,8 @@
       "id": "item.legacy.63809ec2871518eb8d0c",
       "name": "青麻茎",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 86,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -963,6 +1137,8 @@
       "id": "item.legacy.6277ce1a3200cb8cee03",
       "name": "罗布麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 87,
       "level": 7,
       "couponCost": 74,
       "legacyAliases": [
@@ -974,6 +1150,8 @@
       "id": "item.legacy.a15644446d4b106a5046",
       "name": "白麻茎",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 88,
       "level": 7,
       "couponCost": 252,
       "legacyAliases": [
@@ -985,6 +1163,8 @@
       "id": "item.legacy.1d9be96e6df941aa766c",
       "name": "升麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 89,
       "level": 8,
       "couponCost": 81,
       "legacyAliases": [
@@ -996,6 +1176,8 @@
       "id": "item.legacy.cf6bcb60c24b1d6694a2",
       "name": "升麻茎",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 90,
       "level": 8,
       "couponCost": 275,
       "legacyAliases": [
@@ -1007,6 +1189,8 @@
       "id": "item.legacy.a6dfedde2d0048752ab8",
       "name": "荨麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 91,
       "level": 9,
       "couponCost": 88,
       "legacyAliases": [
@@ -1018,6 +1202,8 @@
       "id": "item.legacy.099f637cf4d79d011521",
       "name": "荨麻茎",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 92,
       "level": 9,
       "couponCost": 298,
       "legacyAliases": [
@@ -1029,6 +1215,8 @@
       "id": "item.legacy.d9f0ec42a5bfe5ab6a93",
       "name": "山油麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 93,
       "level": 10,
       "couponCost": 91,
       "legacyAliases": [
@@ -1040,6 +1228,8 @@
       "id": "item.legacy.9bf208bde7a6c83c3cfa",
       "name": "油麻籽",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 94,
       "level": 10,
       "couponCost": 309,
       "legacyAliases": [
@@ -1051,6 +1241,8 @@
       "id": "item.legacy.362a4367e4eaf94f341b",
       "name": "蕉麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 95,
       "level": 11,
       "couponCost": 93,
       "legacyAliases": [
@@ -1062,6 +1254,8 @@
       "id": "item.legacy.ce1634079087268af72c",
       "name": "蕉麻茎",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 96,
       "level": 11,
       "couponCost": 315,
       "legacyAliases": [
@@ -1073,6 +1267,8 @@
       "id": "item.legacy.6afea412a6f784f7d73a",
       "name": "汉麻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 97,
       "level": 12,
       "couponCost": 95,
       "legacyAliases": [
@@ -1084,6 +1280,8 @@
       "id": "item.legacy.676242f2daf6d5d940bc",
       "name": "汉麻秆芯",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 98,
       "level": 12,
       "couponCost": 321,
       "legacyAliases": [
@@ -1095,6 +1293,8 @@
       "id": "item.legacy.fc85355366e951643d80",
       "name": "巨藻叶",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 99,
       "level": 13,
       "couponCost": 95,
       "legacyAliases": [
@@ -1106,6 +1306,8 @@
       "id": "item.legacy.b77876c37d6bcb803335",
       "name": "巨藻气囊",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 100,
       "level": 13,
       "couponCost": 321,
       "legacyAliases": [
@@ -1117,6 +1319,8 @@
       "id": "item.legacy.d35699f8acee30175e97",
       "name": "苘麻",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 101,
       "level": 14,
       "couponCost": 95,
       "legacyAliases": [
@@ -1128,6 +1332,8 @@
       "id": "item.legacy.cd3bc0af2d97a8f59bee",
       "name": "苘麻子",
       "category": "hemp",
+      "legacyType": 2,
+      "sortOrder": 102,
       "level": 14,
       "couponCost": 321,
       "legacyAliases": [
@@ -1139,6 +1345,8 @@
       "id": "item.legacy.3ca3c3637d8979e06989",
       "name": "骨头",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 103,
       "level": 1,
       "couponCost": 50,
       "legacyAliases": [
@@ -1150,6 +1358,8 @@
       "id": "item.legacy.2bf920eac3503df4067e",
       "name": "兽皮",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 104,
       "level": 1,
       "couponCost": 60,
       "legacyAliases": [
@@ -1161,6 +1371,8 @@
       "id": "item.legacy.8e3039eac77018f03462",
       "name": "爪子",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 105,
       "level": 2,
       "couponCost": 29,
       "legacyAliases": [
@@ -1172,6 +1384,8 @@
       "id": "item.legacy.1a5a229eaf85359c7a53",
       "name": "兽筋",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 106,
       "level": 2,
       "couponCost": 36,
       "legacyAliases": [
@@ -1183,6 +1397,8 @@
       "id": "item.legacy.7c6dbfaf488f0a856701",
       "name": "油脂",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 107,
       "level": 3,
       "couponCost": 36,
       "legacyAliases": [
@@ -1194,6 +1410,8 @@
       "id": "item.legacy.732bb7767d1861c081ca",
       "name": "兽角",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 108,
       "level": 3,
       "couponCost": 48,
       "legacyAliases": [
@@ -1205,6 +1423,8 @@
       "id": "item.legacy.4457f8d11bf3c190e174",
       "name": "硬甲皮",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 109,
       "level": 3,
       "couponCost": 40,
       "legacyAliases": [
@@ -1216,6 +1436,8 @@
       "id": "item.legacy.175a692ef4148b52d46f",
       "name": "兽牙",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 110,
       "level": 4,
       "couponCost": 48,
       "legacyAliases": [
@@ -1227,6 +1449,8 @@
       "id": "item.legacy.8fa458f81c73fb45ffdd",
       "name": "兽毛",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 111,
       "level": 4,
       "couponCost": 108,
       "legacyAliases": [
@@ -1238,6 +1462,8 @@
       "id": "item.legacy.ce35ded645d2ea8ab16c",
       "name": "兽血",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 112,
       "level": 5,
       "couponCost": 54,
       "legacyAliases": [
@@ -1249,6 +1475,8 @@
       "id": "item.legacy.b33e88ce95c00dc0421a",
       "name": "硬甲尾",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 113,
       "level": 5,
       "couponCost": 118,
       "legacyAliases": [
@@ -1260,6 +1488,8 @@
       "id": "item.legacy.cc0e95d79e4cd6557cad",
       "name": "珍珠",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 114,
       "level": 5,
       "couponCost": 0,
       "legacyAliases": [
@@ -1271,6 +1501,8 @@
       "id": "item.legacy.5c1eb183f2d809ad135d",
       "name": "禽羽",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 115,
       "level": 5,
       "couponCost": 0,
       "legacyAliases": [
@@ -1282,6 +1514,8 @@
       "id": "item.legacy.bbb4534e48481f789771",
       "name": "兽蹄",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 116,
       "level": 6,
       "couponCost": 54,
       "legacyAliases": [
@@ -1293,6 +1527,8 @@
       "id": "item.legacy.5a92c6396f8933e13f1a",
       "name": "兽脊",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 117,
       "level": 6,
       "couponCost": 132,
       "legacyAliases": [
@@ -1304,6 +1540,8 @@
       "id": "item.legacy.78cce135a5b064e981c2",
       "name": "兽尾",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 118,
       "level": 7,
       "couponCost": 66,
       "legacyAliases": [
@@ -1315,6 +1553,8 @@
       "id": "item.legacy.a409ea54df6bbc661259",
       "name": "鳞片",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 119,
       "level": 7,
       "couponCost": 145,
       "legacyAliases": [
@@ -1326,6 +1566,8 @@
       "id": "item.legacy.d0f604897602b579a549",
       "name": "背鳍",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 120,
       "level": 8,
       "couponCost": 72,
       "legacyAliases": [
@@ -1337,6 +1579,8 @@
       "id": "item.legacy.77014484fb8c4e02021f",
       "name": "兽茸",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 121,
       "level": 8,
       "couponCost": 158,
       "legacyAliases": [
@@ -1348,6 +1592,8 @@
       "id": "item.legacy.5b4bcfd4847b770b3e2e",
       "name": "骨刺",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 122,
       "level": 9,
       "couponCost": 78,
       "legacyAliases": [
@@ -1359,6 +1605,8 @@
       "id": "item.legacy.67fbbfa8bd524df247b8",
       "name": "触手",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 123,
       "level": 9,
       "couponCost": 171,
       "legacyAliases": [
@@ -1370,6 +1618,8 @@
       "id": "item.legacy.178cab47f78e464f40c4",
       "name": "灰兔毛",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 124,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1381,6 +1631,8 @@
       "id": "item.legacy.8b13288823839ce19e72",
       "name": "白兔毛",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 125,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1392,6 +1644,8 @@
       "id": "item.legacy.5bb078cf5ef9d135fd2b",
       "name": "软壳",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 126,
       "level": 10,
       "couponCost": 81,
       "legacyAliases": [
@@ -1403,6 +1657,8 @@
       "id": "item.legacy.b50459c7eb181419f508",
       "name": "硬甲钳",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 127,
       "level": 10,
       "couponCost": 178,
       "legacyAliases": [
@@ -1414,6 +1670,8 @@
       "id": "item.legacy.81db199dd90806fe3a9a",
       "name": "触角",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 128,
       "level": 11,
       "couponCost": 83,
       "legacyAliases": [
@@ -1425,6 +1683,8 @@
       "id": "item.legacy.daa2ab9e892a1b41a490",
       "name": "兽腺",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 129,
       "level": 11,
       "couponCost": 181,
       "legacyAliases": [
@@ -1436,6 +1696,8 @@
       "id": "item.legacy.0e6ddbf0f0ce3df042e1",
       "name": "倒刺",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 130,
       "level": 12,
       "couponCost": 84,
       "legacyAliases": [
@@ -1447,6 +1709,8 @@
       "id": "item.legacy.2cee6eeb80202c913fb4",
       "name": "尖牙",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 131,
       "level": 12,
       "couponCost": 184,
       "legacyAliases": [
@@ -1458,6 +1722,8 @@
       "id": "item.legacy.1efb084ac8417708bee8",
       "name": "吸盘",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 132,
       "level": 13,
       "couponCost": 84,
       "legacyAliases": [
@@ -1469,6 +1735,8 @@
       "id": "item.legacy.4018d93a7f2d216b857b",
       "name": "墨囊",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 133,
       "level": 13,
       "couponCost": 184,
       "legacyAliases": [
@@ -1480,6 +1748,8 @@
       "id": "item.legacy.d180589d9c88ca603e97",
       "name": "绒毛",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 134,
       "level": 14,
       "couponCost": 84,
       "legacyAliases": [
@@ -1491,6 +1761,8 @@
       "id": "item.legacy.910c593b4c46926b3d7d",
       "name": "胸骨",
       "category": "animal",
+      "legacyType": 3,
+      "sortOrder": 135,
       "level": 14,
       "couponCost": 184,
       "legacyAliases": [
@@ -1502,6 +1774,8 @@
       "id": "item.legacy.362c02f9f24a908a5ae9",
       "name": "薄膜面料",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 136,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1513,6 +1787,8 @@
       "id": "item.legacy.c230d7eeeabf31b8799f",
       "name": "高分子涂层",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 137,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1524,6 +1800,8 @@
       "id": "item.legacy.5bb9d02399c0975820e0",
       "name": "战术护木",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 138,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1535,6 +1813,8 @@
       "id": "item.legacy.5f25bf1e23b7f041e9c2",
       "name": "防弹陶瓷",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 139,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1546,6 +1826,8 @@
       "id": "item.legacy.1a126c0ac0a11e54ea10",
       "name": "休眠虫卵",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 140,
       "level": 3,
       "couponCost": 0,
       "legacyAliases": [
@@ -1557,6 +1839,8 @@
       "id": "item.legacy.7089a930deb7ccfa6874",
       "name": "锐利蜂刺",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 141,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -1568,6 +1852,8 @@
       "id": "item.legacy.da34db6202e3ab8c5b57",
       "name": "柔性丝茧",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 142,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -1579,6 +1865,8 @@
       "id": "item.legacy.5b2dbed93e097fdc104f",
       "name": "达氏腺体",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 143,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -1590,6 +1878,8 @@
       "id": "item.legacy.8bdbf20da2963fc592dd",
       "name": "菊石化石",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 144,
       "level": 13,
       "couponCost": 0,
       "legacyAliases": [
@@ -1601,6 +1891,8 @@
       "id": "item.legacy.d81dfd344890de625dad",
       "name": "麻绳",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 145,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1612,6 +1904,8 @@
       "id": "item.legacy.2d225ee8502227243834",
       "name": "胶带",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 146,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1623,6 +1917,8 @@
       "id": "item.legacy.2932d52b08a39ae01b31",
       "name": "胶水",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 147,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1634,6 +1930,8 @@
       "id": "item.legacy.3834c3795643a792e1a0",
       "name": "钉子",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 148,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1645,6 +1943,8 @@
       "id": "item.legacy.7bde30e300e916d04091",
       "name": "钨棒",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 149,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1656,6 +1956,8 @@
       "id": "item.legacy.49a15da5f60be31e3b6a",
       "name": "砂岩",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 150,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1667,6 +1969,8 @@
       "id": "item.legacy.e02f5c9dae0ec0335a74",
       "name": "花岗岩",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 151,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1678,6 +1982,8 @@
       "id": "item.legacy.1cf9f76e181da84d9b14",
       "name": "玻璃",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 152,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1689,6 +1995,8 @@
       "id": "item.legacy.35db984cdcf4b0bd7a5d",
       "name": "钢筋",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 153,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1700,6 +2008,8 @@
       "id": "item.legacy.2702789cebd3f7af1b4c",
       "name": "毛线",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 154,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1711,6 +2021,8 @@
       "id": "item.legacy.0e625ad668907a3365f2",
       "name": "玻璃纤维",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 155,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1722,6 +2034,8 @@
       "id": "item.legacy.c3593acdb477141e61c1",
       "name": "石英砂",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 156,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1733,6 +2047,8 @@
       "id": "item.legacy.a7b4a1978915cd80b5bd",
       "name": "蚕丝",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 157,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1744,6 +2060,8 @@
       "id": "item.legacy.05bdee4081456b01feae",
       "name": "生橡胶",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 158,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1755,6 +2073,8 @@
       "id": "item.legacy.e2b112fe06b06ad14032",
       "name": "流纹岩",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 159,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1766,6 +2086,8 @@
       "id": "item.legacy.6b9fd388542ec5dd3fc3",
       "name": "芳纶纤维",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 160,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1777,6 +2099,8 @@
       "id": "item.legacy.f75cee077e488ad1d58b",
       "name": "高强钢",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 161,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1788,6 +2112,8 @@
       "id": "item.legacy.94d50c8a84a7d311d356",
       "name": "大团兔毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 162,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1799,6 +2125,8 @@
       "id": "item.legacy.06ca8abda6d104425627",
       "name": "彩白短兔毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 163,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1810,6 +2138,8 @@
       "id": "item.legacy.b189c33a4c3e6e5b3a25",
       "name": "星空短兔毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 164,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1821,6 +2151,8 @@
       "id": "item.legacy.9615d338ab8448f94647",
       "name": "大片羊毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 165,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1832,6 +2164,8 @@
       "id": "item.legacy.99175597dcfa940a5045",
       "name": "彩白羊毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 166,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1843,6 +2177,8 @@
       "id": "item.legacy.30231eb9fc063d20d968",
       "name": "星空羊毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 167,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1854,6 +2190,8 @@
       "id": "item.legacy.6bdeb77ea943dcce4796",
       "name": "坚硬猪鬃",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 168,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1865,6 +2203,8 @@
       "id": "item.legacy.64b8c8513e9bd26ad59a",
       "name": "彩白猪鬃",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 169,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1876,6 +2216,8 @@
       "id": "item.legacy.27cbd7d9aa8e5ba42adf",
       "name": "星空猪鬃",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 170,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1887,6 +2229,8 @@
       "id": "item.legacy.d9bc2e4c250d8c874120",
       "name": "柔软鸭毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 171,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1898,6 +2242,8 @@
       "id": "item.legacy.6406eab8ace1bf0d7fcb",
       "name": "彩白鸭毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 172,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1909,6 +2255,8 @@
       "id": "item.legacy.e73539e7af8dfc0c1d13",
       "name": "星空鸭毛",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 173,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1920,6 +2268,8 @@
       "id": "item.legacy.83c0e14b2c094d967202",
       "name": "保暖鹅绒",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 174,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1931,6 +2281,8 @@
       "id": "item.legacy.9d3818a8af59766fc743",
       "name": "彩白鹅绒",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 175,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1942,6 +2294,8 @@
       "id": "item.legacy.31ceb8140717d1d022de",
       "name": "星空鹅绒",
       "category": "special",
+      "legacyType": 4,
+      "sortOrder": 176,
       "level": 0,
       "couponCost": 0,
       "legacyAliases": [
@@ -1953,6 +2307,8 @@
       "id": "item.legacy.d2a630796af7f6636956",
       "name": "丘脑抑制剂",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 177,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -1990,6 +2346,8 @@
       "id": "item.legacy.4b8ca2ed6c7c485edff5",
       "name": "生铁",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 178,
       "level": 1,
       "couponCost": 164,
       "legacyAliases": [
@@ -2012,6 +2370,8 @@
       "id": "item.legacy.4ca43dc3988d31f2550a",
       "name": "六角钉",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 179,
       "level": 1,
       "couponCost": 668,
       "legacyAliases": [
@@ -2039,6 +2399,8 @@
       "id": "item.legacy.ea9f209c395361a32103",
       "name": "黑火药",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 180,
       "level": 1,
       "couponCost": 140,
       "legacyAliases": [
@@ -2066,6 +2428,8 @@
       "id": "item.legacy.e9be798bd8aa4789846f",
       "name": "粗布条",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 181,
       "level": 1,
       "couponCost": 72,
       "legacyAliases": [
@@ -2088,6 +2452,8 @@
       "id": "item.legacy.28ff34fd665d4db711b7",
       "name": "铁铸件",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 182,
       "level": 2,
       "couponCost": 548,
       "legacyAliases": [
@@ -2115,6 +2481,8 @@
       "id": "item.legacy.8cbc3317fa1f55268aa9",
       "name": "螺钉",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 183,
       "level": 2,
       "couponCost": 692,
       "legacyAliases": [
@@ -2147,6 +2515,8 @@
       "id": "item.legacy.eff2323d0593dd05e60f",
       "name": "布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 184,
       "level": 2,
       "couponCost": 168,
       "legacyAliases": [
@@ -2169,6 +2539,8 @@
       "id": "item.legacy.2a3e43663c49587762bc",
       "name": "塑料",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 185,
       "level": 2,
       "couponCost": 478,
       "legacyAliases": [
@@ -2201,6 +2573,8 @@
       "id": "item.legacy.95570209a98776bbc48f",
       "name": "硬铝合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 186,
       "level": 3,
       "couponCost": 721,
       "legacyAliases": [
@@ -2233,6 +2607,8 @@
       "id": "item.legacy.ea6db24efe9c9791fe3e",
       "name": "无烟火药",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 187,
       "level": 3,
       "couponCost": 401,
       "legacyAliases": [
@@ -2260,6 +2636,8 @@
       "id": "item.legacy.37577cafcab959433eec",
       "name": "尼龙布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 188,
       "level": 3,
       "couponCost": 612,
       "legacyAliases": [
@@ -2287,6 +2665,8 @@
       "id": "item.legacy.fbd902626ab0ec85dba2",
       "name": "钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 189,
       "level": 4,
       "couponCost": 328,
       "legacyAliases": [
@@ -2314,6 +2694,8 @@
       "id": "item.legacy.a05119e80bc4e95db19c",
       "name": "钢管",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 190,
       "level": 4,
       "couponCost": 786,
       "legacyAliases": [
@@ -2346,6 +2728,8 @@
       "id": "item.legacy.a1cd9a7cd44f86b22424",
       "name": "涤纶布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 191,
       "level": 4,
       "couponCost": 303,
       "legacyAliases": [
@@ -2378,6 +2762,8 @@
       "id": "item.legacy.578a853e50569a9ae966",
       "name": "皮革",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 192,
       "level": 4,
       "couponCost": 219,
       "legacyAliases": [
@@ -2410,6 +2796,8 @@
       "id": "item.legacy.df1a091f6dc1f6bdb835",
       "name": "弹簧",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 193,
       "level": 5,
       "couponCost": 1158,
       "legacyAliases": [
@@ -2447,6 +2835,8 @@
       "id": "item.legacy.657f019f2a36a672d4ac",
       "name": "工程塑料",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 194,
       "level": 5,
       "couponCost": 1436,
       "legacyAliases": [
@@ -2484,6 +2874,8 @@
       "id": "item.legacy.e07cdb80c2824ef6ec7c",
       "name": "呢绒布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 195,
       "level": 5,
       "couponCost": 689,
       "legacyAliases": [
@@ -2521,6 +2913,8 @@
       "id": "item.legacy.6b1e939de59c05bd6992",
       "name": "缝纫线",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 196,
       "level": 5,
       "couponCost": 183,
       "legacyAliases": [
@@ -2558,6 +2952,8 @@
       "id": "item.legacy.5752a489ba399c163f70",
       "name": "武器零件",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 197,
       "level": 6,
       "couponCost": 1512,
       "legacyAliases": [
@@ -2595,6 +2991,8 @@
       "id": "item.legacy.3b824f51af8b932fa4c5",
       "name": "钛合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 198,
       "level": 6,
       "couponCost": 2143,
       "legacyAliases": [
@@ -2632,6 +3030,8 @@
       "id": "item.legacy.7a4b015c61267ee0a014",
       "name": "纤维布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 199,
       "level": 6,
       "couponCost": 708,
       "legacyAliases": [
@@ -2669,6 +3069,8 @@
       "id": "item.legacy.6f9a2bc08018eae604ee",
       "name": "玻璃钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 200,
       "level": 6,
       "couponCost": 631,
       "legacyAliases": [
@@ -2706,6 +3108,8 @@
       "id": "item.legacy.ad9468e94a7f546d60f5",
       "name": "汞齐",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 201,
       "level": 6,
       "couponCost": 2298,
       "legacyAliases": [
@@ -2743,6 +3147,8 @@
       "id": "item.legacy.9f43cfa4e6685a199eca",
       "name": "低温钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 202,
       "level": 6,
       "couponCost": 656,
       "legacyAliases": [
@@ -2780,6 +3186,8 @@
       "id": "item.legacy.794a1c447172b6626c15",
       "name": "法兰绒",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 203,
       "level": 6,
       "couponCost": 2033,
       "legacyAliases": [
@@ -2817,6 +3225,8 @@
       "id": "item.legacy.56ee491f6f0949d921f7",
       "name": "无机硅胶",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 204,
       "level": 6,
       "couponCost": 1932,
       "legacyAliases": [
@@ -2854,6 +3264,8 @@
       "id": "item.legacy.810ff208760d6809bfdb",
       "name": "高温合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 205,
       "level": 7,
       "couponCost": 784,
       "legacyAliases": [
@@ -2886,6 +3298,8 @@
       "id": "item.legacy.fe9c21c44178ce3834a8",
       "name": "锦纶布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 206,
       "level": 7,
       "couponCost": 1426,
       "legacyAliases": [
@@ -2918,6 +3332,8 @@
       "id": "item.legacy.4974fecd45f1b463e5e4",
       "name": "中碳钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 207,
       "level": 7,
       "couponCost": 840,
       "legacyAliases": [
@@ -2950,6 +3366,8 @@
       "id": "item.legacy.cdb158c909003bfe14ba",
       "name": "混纺材料",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 208,
       "level": 7,
       "couponCost": 586,
       "legacyAliases": [
@@ -2982,6 +3400,8 @@
       "id": "item.legacy.6a00e98629e8bfd2bc53",
       "name": "建筑涂料",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 209,
       "level": 5,
       "couponCost": 976,
       "legacyAliases": [
@@ -3019,6 +3439,8 @@
       "id": "item.legacy.1ce93adfb419b4c24900",
       "name": "石纹蜂窝板",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 210,
       "level": 6,
       "couponCost": 1340,
       "legacyAliases": [
@@ -3051,6 +3473,8 @@
       "id": "item.legacy.0a9ccc0cf4ecd753645a",
       "name": "榫卯接口",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 211,
       "level": 6,
       "couponCost": 909,
       "legacyAliases": [
@@ -3088,6 +3512,8 @@
       "id": "item.legacy.907b8a000b24b07facb4",
       "name": "混凝土",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 212,
       "level": 7,
       "couponCost": 992,
       "legacyAliases": [
@@ -3120,6 +3546,8 @@
       "id": "item.legacy.1d54289b6e3a5e7e981a",
       "name": "软磁合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 213,
       "level": 8,
       "couponCost": 1889,
       "legacyAliases": [
@@ -3152,6 +3580,8 @@
       "id": "item.legacy.d8eef9381aa52e39eae9",
       "name": "专用铸铁",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 214,
       "level": 8,
       "couponCost": 474,
       "legacyAliases": [
@@ -3189,6 +3619,8 @@
       "id": "item.legacy.699a6c21e8dd0ad6208c",
       "name": "平纹布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 215,
       "level": 8,
       "couponCost": 1649,
       "legacyAliases": [
@@ -3221,6 +3653,8 @@
       "id": "item.legacy.887b4415a92cb48ffb7a",
       "name": "纳米纤维",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 216,
       "level": 8,
       "couponCost": 432,
       "legacyAliases": [
@@ -3258,6 +3692,8 @@
       "id": "item.legacy.468e03ba1cfea68a25df",
       "name": "刚性陶瓷",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 217,
       "level": 8,
       "couponCost": 1403,
       "legacyAliases": [
@@ -3295,6 +3731,8 @@
       "id": "item.legacy.89a23556ebcf3cba8509",
       "name": "电阻合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 218,
       "level": 9,
       "couponCost": 3564,
       "legacyAliases": [
@@ -3332,6 +3770,8 @@
       "id": "item.legacy.d40073f60010ac2b5b0d",
       "name": "碳素精钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 219,
       "level": 9,
       "couponCost": 2292,
       "legacyAliases": [
@@ -3359,6 +3799,8 @@
       "id": "item.legacy.cc7d8cbb8522f9dfe0f6",
       "name": "涂层布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 220,
       "level": 9,
       "couponCost": 2392,
       "legacyAliases": [
@@ -3396,6 +3838,8 @@
       "id": "item.legacy.7d3692f75842afa15d64",
       "name": "静电纺丝",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 221,
       "level": 9,
       "couponCost": 1596,
       "legacyAliases": [
@@ -3423,6 +3867,8 @@
       "id": "item.legacy.6161dae7690041783294",
       "name": "钢塑复合管",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 222,
       "level": 9,
       "couponCost": 1300,
       "legacyAliases": [
@@ -3450,6 +3896,8 @@
       "id": "item.legacy.5bcc811d6d51e52334d3",
       "name": "非晶合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 223,
       "level": 10,
       "couponCost": 3686,
       "legacyAliases": [
@@ -3487,6 +3935,8 @@
       "id": "item.legacy.afbe2a21f8727c0ef557",
       "name": "耐候钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 224,
       "level": 10,
       "couponCost": 2368,
       "legacyAliases": [
@@ -3514,6 +3964,8 @@
       "id": "item.legacy.343b3787b988d4ac9938",
       "name": "珊瑚绒",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 225,
       "level": 10,
       "couponCost": 2482,
       "legacyAliases": [
@@ -3546,6 +3998,8 @@
       "id": "item.legacy.f74462a05c59e4b4f567",
       "name": "仿生甲片",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 226,
       "level": 10,
       "couponCost": 1660,
       "legacyAliases": [
@@ -3578,6 +4032,8 @@
       "id": "item.legacy.272b5e53b2fd5907dd13",
       "name": "金属线材",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 227,
       "level": 10,
       "couponCost": 1349,
       "legacyAliases": [
@@ -3610,6 +4066,8 @@
       "id": "item.legacy.3a96b5d47104193f814c",
       "name": "锰硅合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 228,
       "level": 11,
       "couponCost": 3758,
       "legacyAliases": [
@@ -3647,6 +4105,8 @@
       "id": "item.legacy.a0ba5899993dc4fab0d3",
       "name": "球扁钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 229,
       "level": 11,
       "couponCost": 1375,
       "legacyAliases": [
@@ -3674,6 +4134,8 @@
       "id": "item.legacy.4ae90f838e6bbbf1355c",
       "name": "蕉麻布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 230,
       "level": 11,
       "couponCost": 2542,
       "legacyAliases": [
@@ -3711,6 +4173,8 @@
       "id": "item.legacy.480ca935e4331571de34",
       "name": "莱卡纤维",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 231,
       "level": 11,
       "couponCost": 2404,
       "legacyAliases": [
@@ -3743,6 +4207,8 @@
       "id": "item.legacy.194202401bfa72682204",
       "name": "高锰合金管",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 232,
       "level": 11,
       "couponCost": 1696,
       "legacyAliases": [
@@ -3775,6 +4241,8 @@
       "id": "item.legacy.e698d9165f69cce9f240",
       "name": "锌铝合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 233,
       "level": 12,
       "couponCost": 3836,
       "legacyAliases": [
@@ -3812,6 +4280,8 @@
       "id": "item.legacy.c6cdd99cdb140fd7698b",
       "name": "结构钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 234,
       "level": 12,
       "couponCost": 1720,
       "legacyAliases": [
@@ -3839,6 +4309,8 @@
       "id": "item.legacy.ab25d65832a567575992",
       "name": "汉麻布",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 235,
       "level": 12,
       "couponCost": 3448,
       "legacyAliases": [
@@ -3876,6 +4348,8 @@
       "id": "item.legacy.5f34d9c8a43b1e032849",
       "name": "乙纶纤维",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 236,
       "level": 12,
       "couponCost": 1401,
       "legacyAliases": [
@@ -3908,6 +4382,8 @@
       "id": "item.legacy.6f4c256610b22f1f4431",
       "name": "记忆合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 237,
       "level": 12,
       "couponCost": 1884,
       "legacyAliases": [
@@ -3940,6 +4416,8 @@
       "id": "item.legacy.773033ad1b745041b791",
       "name": "镍钛合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 238,
       "level": 13,
       "couponCost": 3836,
       "legacyAliases": [
@@ -3977,6 +4455,8 @@
       "id": "item.legacy.9e5477d14852fa7624fa",
       "name": "高硅钢",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 239,
       "level": 13,
       "couponCost": 1720,
       "legacyAliases": [
@@ -4004,6 +4484,8 @@
       "id": "item.legacy.02480f3414916dbe9635",
       "name": "海藻绵",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 240,
       "level": 13,
       "couponCost": 3448,
       "legacyAliases": [
@@ -4041,6 +4523,8 @@
       "id": "item.legacy.5451d6bdee149e2980fa",
       "name": "高分子纤维",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 241,
       "level": 13,
       "couponCost": 1496,
       "legacyAliases": [
@@ -4073,6 +4557,8 @@
       "id": "item.legacy.5823cb82fdaf9cf4415e",
       "name": "太阳能板",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 242,
       "level": 13,
       "couponCost": 1720,
       "legacyAliases": [
@@ -4105,6 +4591,8 @@
       "id": "item.legacy.51bb98eef78a31d213a4",
       "name": "镁合金",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 243,
       "level": 14,
       "couponCost": 3836,
       "legacyAliases": [
@@ -4142,6 +4630,8 @@
       "id": "item.legacy.9443cc60b6e01f980542",
       "name": "航空板材",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 244,
       "level": 14,
       "couponCost": 1720,
       "legacyAliases": [
@@ -4169,6 +4659,8 @@
       "id": "item.legacy.485f8d5a6ba7d5dd6af9",
       "name": "蜂窝绒",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 245,
       "level": 14,
       "couponCost": 3448,
       "legacyAliases": [
@@ -4206,6 +4698,8 @@
       "id": "item.legacy.874de42122c105d34fbf",
       "name": "织物涂层",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 246,
       "level": 14,
       "couponCost": 1496,
       "legacyAliases": [
@@ -4238,6 +4732,8 @@
       "id": "item.legacy.bdfbe2a72e65fc14cea3",
       "name": "全钢框架",
       "category": "semi-finished",
+      "legacyType": 5,
+      "sortOrder": 247,
       "level": 14,
       "couponCost": 1720,
       "legacyAliases": [
@@ -4270,6 +4766,8 @@
       "id": "item.legacy.5b4c1097132f61f084a1",
       "name": "白衣天使",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 248,
       "level": 3,
       "couponCost": 5876,
       "legacyAliases": [
@@ -4307,6 +4805,8 @@
       "id": "item.legacy.574fd85180d2d86be6ba",
       "name": "防暴外套",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 249,
       "level": 3,
       "couponCost": 4635,
       "legacyAliases": [
@@ -4339,6 +4839,8 @@
       "id": "item.legacy.b61bfc3ab0c74d9b8855",
       "name": "眼镜蛇",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 250,
       "level": 4,
       "couponCost": 5566,
       "legacyAliases": [
@@ -4376,6 +4878,8 @@
       "id": "item.legacy.a06eb0655aad941ad487",
       "name": "黑色恶魔",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 251,
       "level": 4,
       "couponCost": 4284,
       "legacyAliases": [
@@ -4413,6 +4917,8 @@
       "id": "item.legacy.05ea707e3e7491114b8f",
       "name": "重型武装",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 252,
       "level": 6,
       "couponCost": 15684,
       "legacyAliases": [
@@ -4450,6 +4956,8 @@
       "id": "item.legacy.becb5b8f828ea79cb7ec",
       "name": "蓝色强袭铠",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 253,
       "level": 6,
       "couponCost": 7080,
       "legacyAliases": [
@@ -4487,6 +4995,8 @@
       "id": "item.legacy.5fc6bbcc022ad4128baa",
       "name": "暗夜铠甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 254,
       "level": 7,
       "couponCost": 27450,
       "legacyAliases": [
@@ -4524,6 +5034,8 @@
       "id": "item.legacy.bfaf27349e1a703ec7f1",
       "name": "暗夜谍影",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 255,
       "level": 7,
       "couponCost": 38680,
       "legacyAliases": [
@@ -4561,6 +5073,8 @@
       "id": "item.legacy.4c63707f8d9e2c181bed",
       "name": "夜幕铁甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 256,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -4598,6 +5112,8 @@
       "id": "item.legacy.326450d5ef995df8a2e4",
       "name": "黑曜战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 257,
       "level": 8,
       "couponCost": 32980,
       "legacyAliases": [
@@ -4635,6 +5151,8 @@
       "id": "item.legacy.f7db334830ed2538ad5b",
       "name": "银驹战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 258,
       "level": 9,
       "couponCost": 19136,
       "legacyAliases": [
@@ -4672,6 +5190,8 @@
       "id": "item.legacy.c0a0c0c86d0dd6c636c1",
       "name": "狼袭战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 259,
       "level": 10,
       "couponCost": 19856,
       "legacyAliases": [
@@ -4709,6 +5229,8 @@
       "id": "item.legacy.f5956df1dea80206ae0a",
       "name": "猎鹰战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 260,
       "level": 11,
       "couponCost": 20336,
       "legacyAliases": [
@@ -4746,6 +5268,8 @@
       "id": "item.legacy.3d862cdc08488689ee28",
       "name": "火凤战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 261,
       "level": 12,
       "couponCost": 31032,
       "legacyAliases": [
@@ -4783,6 +5307,8 @@
       "id": "item.legacy.cd0c8695c5528c7606fb",
       "name": "极夜战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 262,
       "level": 13,
       "couponCost": 31032,
       "legacyAliases": [
@@ -4820,6 +5346,8 @@
       "id": "item.legacy.bf39ffb61e99d9a39bf9",
       "name": "深海战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 263,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -4857,6 +5385,8 @@
       "id": "item.legacy.ef8d6f474906f21cd845",
       "name": "斗牛战甲",
       "category": "armor",
+      "legacyType": 6,
+      "sortOrder": 264,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -4894,6 +5424,8 @@
       "id": "item.legacy.bdc31c9bcfcd1a28f330",
       "name": "守望者护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 265,
       "level": 3,
       "couponCost": 19066,
       "legacyAliases": [
@@ -4931,6 +5463,8 @@
       "id": "item.legacy.a42eb1d0f564f1365669",
       "name": "1级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 266,
       "level": 3,
       "couponCost": 1767,
       "legacyAliases": [
@@ -4963,6 +5497,8 @@
       "id": "item.legacy.3395ce83b70524d45620",
       "name": "1级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 267,
       "level": 3,
       "couponCost": 1767,
       "legacyAliases": [
@@ -4995,6 +5531,8 @@
       "id": "item.legacy.b98b4f6daf0f3b2853e6",
       "name": "1级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 268,
       "level": 3,
       "couponCost": 1767,
       "legacyAliases": [
@@ -5027,6 +5565,8 @@
       "id": "item.legacy.de65e22d072466ed2952",
       "name": "2级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 269,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -5064,6 +5604,8 @@
       "id": "item.legacy.0b481acfd518aa8cd0e5",
       "name": "2级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 270,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -5101,6 +5643,8 @@
       "id": "item.legacy.9470038ce65f6c8f8662",
       "name": "2级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 271,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -5138,6 +5682,8 @@
       "id": "item.legacy.bd0ce717b06ca49d925c",
       "name": "3级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 272,
       "level": 6,
       "couponCost": 7080,
       "legacyAliases": [
@@ -5175,6 +5721,8 @@
       "id": "item.legacy.9b06b528885498b024b8",
       "name": "3级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 273,
       "level": 6,
       "couponCost": 7080,
       "legacyAliases": [
@@ -5212,6 +5760,8 @@
       "id": "item.legacy.a9e2392caf540e80456f",
       "name": "3级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 274,
       "level": 6,
       "couponCost": 7080,
       "legacyAliases": [
@@ -5249,6 +5799,8 @@
       "id": "item.legacy.7d85379f01d114cba50b",
       "name": "4级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 275,
       "level": 7,
       "couponCost": 14260,
       "legacyAliases": [
@@ -5286,6 +5838,8 @@
       "id": "item.legacy.6d22e668544e6a49ff1f",
       "name": "4级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 276,
       "level": 7,
       "couponCost": 14260,
       "legacyAliases": [
@@ -5323,6 +5877,8 @@
       "id": "item.legacy.2c340d24415946f03952",
       "name": "4级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 277,
       "level": 7,
       "couponCost": 14260,
       "legacyAliases": [
@@ -5360,6 +5916,8 @@
       "id": "item.legacy.fb019389566da518b0c9",
       "name": "5级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 278,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -5397,6 +5955,8 @@
       "id": "item.legacy.cf1f0be86bbb5870e707",
       "name": "5级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 279,
       "level": 7,
       "couponCost": 7840,
       "legacyAliases": [
@@ -5434,6 +5994,8 @@
       "id": "item.legacy.33ca3e199ae6c8e12335",
       "name": "5级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 280,
       "level": 7,
       "couponCost": 14260,
       "legacyAliases": [
@@ -5471,6 +6033,8 @@
       "id": "item.legacy.16b873f30c1139295c38",
       "name": "6级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 281,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -5508,6 +6072,8 @@
       "id": "item.legacy.f172928e7dd9cceb016d",
       "name": "6级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 282,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -5545,6 +6111,8 @@
       "id": "item.legacy.67d74bde972c8efcd8b0",
       "name": "6级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 283,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -5582,6 +6150,8 @@
       "id": "item.legacy.b60b52d66bceb3e44082",
       "name": "7级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 284,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -5619,6 +6189,8 @@
       "id": "item.legacy.049985058a365dd30a04",
       "name": "7级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 285,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -5656,6 +6228,8 @@
       "id": "item.legacy.4e84bd5de263ab55dfd1",
       "name": "7级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 286,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -5693,6 +6267,8 @@
       "id": "item.legacy.a795e5f0698b73a08e42",
       "name": "8级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 287,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -5730,6 +6306,8 @@
       "id": "item.legacy.1a5596aae239916fb5fb",
       "name": "8级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 288,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -5767,6 +6345,8 @@
       "id": "item.legacy.2178f03d262517ec167f",
       "name": "8级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 289,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -5804,6 +6384,8 @@
       "id": "item.legacy.d815fc2c8fa4217c75b6",
       "name": "9级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 290,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -5841,6 +6423,8 @@
       "id": "item.legacy.a6d088e23d76a23a7e73",
       "name": "9级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 291,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -5878,6 +6462,8 @@
       "id": "item.legacy.539e562eacceaef2604d",
       "name": "9级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 292,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -5915,6 +6501,8 @@
       "id": "item.legacy.e894f9ea69bb43ca38da",
       "name": "10级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 293,
       "level": 13,
       "couponCost": 0,
       "legacyAliases": [
@@ -5952,6 +6540,8 @@
       "id": "item.legacy.a4cfef8656434c3ddd34",
       "name": "10级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 294,
       "level": 13,
       "couponCost": 0,
       "legacyAliases": [
@@ -5989,6 +6579,8 @@
       "id": "item.legacy.bf08f6a61656139fa9aa",
       "name": "10级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 295,
       "level": 13,
       "couponCost": 0,
       "legacyAliases": [
@@ -6026,6 +6618,8 @@
       "id": "item.legacy.e11f9ba697245b53dbc0",
       "name": "11级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 296,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6063,6 +6657,8 @@
       "id": "item.legacy.0e14a77b2ebb0870bbcd",
       "name": "11级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 297,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6100,6 +6696,8 @@
       "id": "item.legacy.d1e3a135d4514d9b7e0a",
       "name": "11级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 298,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6137,6 +6735,8 @@
       "id": "item.legacy.b10cdc31c53de817bc6b",
       "name": "12级基础护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 299,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6174,6 +6774,8 @@
       "id": "item.legacy.34db63c8062112bd4daf",
       "name": "12级蔚蓝护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 300,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6211,6 +6813,8 @@
       "id": "item.legacy.e46462edac14a4342f10",
       "name": "12级磺骨护盾",
       "category": "shield",
+      "legacyType": 7,
+      "sortOrder": 301,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6248,6 +6852,8 @@
       "id": "item.legacy.0d4e4c27c2d90fd8f37f",
       "name": "银犀战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 302,
       "level": 3,
       "couponCost": 18954,
       "legacyAliases": [
@@ -6285,6 +6891,8 @@
       "id": "item.legacy.d280231d86f2564f28c6",
       "name": "防暴面罩",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 303,
       "level": 3,
       "couponCost": 6531,
       "legacyAliases": [
@@ -6317,6 +6925,8 @@
       "id": "item.legacy.8d83b7d76afa90ce4427",
       "name": "科技先锋",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 304,
       "level": 4,
       "couponCost": 3445,
       "legacyAliases": [
@@ -6354,6 +6964,8 @@
       "id": "item.legacy.8db6e5abeb88c258408b",
       "name": "强袭头盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 305,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -6391,6 +7003,8 @@
       "id": "item.legacy.2958e6ac09aab8e9e506",
       "name": "终结战场",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 306,
       "level": 7,
       "couponCost": 7840,
       "legacyAliases": [
@@ -6423,6 +7037,8 @@
       "id": "item.legacy.18e2983fdd5aa50db334",
       "name": "武装通讯器",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 307,
       "level": 7,
       "couponCost": 14260,
       "legacyAliases": [
@@ -6460,6 +7076,8 @@
       "id": "item.legacy.093ba670fe595ae7f407",
       "name": "天马战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 308,
       "level": 9,
       "couponCost": 9894,
       "legacyAliases": [
@@ -6497,6 +7115,8 @@
       "id": "item.legacy.22784230bd62fc25c5a0",
       "name": "狼袭战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 309,
       "level": 10,
       "couponCost": 11960,
       "legacyAliases": [
@@ -6534,6 +7154,8 @@
       "id": "item.legacy.3752f549ca2bc541dd69",
       "name": "猎鹰战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 310,
       "level": 11,
       "couponCost": 12410,
       "legacyAliases": [
@@ -6571,6 +7193,8 @@
       "id": "item.legacy.c8fc86fedaa5b3147b86",
       "name": "火凤战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 311,
       "level": 12,
       "couponCost": 12710,
       "legacyAliases": [
@@ -6608,6 +7232,8 @@
       "id": "item.legacy.f9489bf95ccab5fa9a41",
       "name": "极夜战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 312,
       "level": 13,
       "couponCost": 17240,
       "legacyAliases": [
@@ -6645,6 +7271,8 @@
       "id": "item.legacy.c2a8ecd35b49993c8ed1",
       "name": "深海战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 313,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6682,6 +7310,8 @@
       "id": "item.legacy.9b4ce7d0df5d5c09a8bf",
       "name": "斗牛战盔",
       "category": "hat",
+      "legacyType": 8,
+      "sortOrder": 314,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -6719,6 +7349,8 @@
       "id": "item.legacy.a80d9bb63fd4d6a2c717",
       "name": "斩马刀",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 315,
       "level": 3,
       "couponCost": 15408,
       "legacyAliases": [
@@ -6756,6 +7388,8 @@
       "id": "item.legacy.693f8617d943a282bc12",
       "name": "仿生猎鲨锋刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 316,
       "level": 6,
       "couponCost": 50354,
       "legacyAliases": [
@@ -6793,6 +7427,8 @@
       "id": "item.legacy.96d04b1b29eabefeb259",
       "name": "仿生猎兽锋刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 317,
       "level": 6,
       "couponCost": 50354,
       "legacyAliases": [
@@ -6830,6 +7466,8 @@
       "id": "item.legacy.add779cba26f721c9c72",
       "name": "长刀",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 318,
       "level": 4,
       "couponCost": 8950,
       "legacyAliases": [
@@ -6867,6 +7505,8 @@
       "id": "item.legacy.12ebc575dd3b8455853c",
       "name": "电击棍",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 319,
       "level": 6,
       "couponCost": 40314,
       "legacyAliases": [
@@ -6904,6 +7544,8 @@
       "id": "item.legacy.ac49d79255765a36602c",
       "name": "锯齿刀",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 320,
       "level": 7,
       "couponCost": 24472,
       "legacyAliases": [
@@ -6941,6 +7583,8 @@
       "id": "item.legacy.6d9fe3bfbe29ba7b23a6",
       "name": "切割之刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 321,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -6978,6 +7622,8 @@
       "id": "item.legacy.47e7e1393e7a65687c2b",
       "name": "双刃战斧",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 322,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -7015,6 +7661,8 @@
       "id": "item.legacy.2a14ea14cee80da5078d",
       "name": "奇袭之刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 323,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -7052,6 +7700,8 @@
       "id": "item.legacy.ea3d0d52b4f6e7d7bbf6",
       "name": "合金锯刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 324,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -7089,6 +7739,8 @@
       "id": "item.legacy.a3b7fed9aa0e2e80850b",
       "name": "精钢阔刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 325,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -7126,6 +7778,8 @@
       "id": "item.legacy.b39f1bfc71f2abf44b7c",
       "name": "裂空之刃",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 326,
       "level": 13,
       "couponCost": 34524,
       "legacyAliases": [
@@ -7163,6 +7817,8 @@
       "id": "item.legacy.9b93c80d3a779a98e51a",
       "name": "合金战斧",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 327,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -7200,6 +7856,8 @@
       "id": "item.legacy.0a1c9dce8de3b75523e6",
       "name": "熔岩长刀",
       "category": "blade",
+      "legacyType": 9,
+      "sortOrder": 328,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -7237,6 +7895,8 @@
       "id": "item.legacy.4908c17e53ea4548705a",
       "name": "破潮弓",
       "category": "bow",
+      "legacyType": 10,
+      "sortOrder": 329,
       "level": 1,
       "couponCost": 0,
       "legacyAliases": [
@@ -7274,6 +7934,8 @@
       "id": "item.legacy.14209ad16a4736383d91",
       "name": "雷托霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 330,
       "level": 1,
       "couponCost": 17808,
       "legacyAliases": [
@@ -7311,6 +7973,8 @@
       "id": "item.legacy.689cb7ad75d054ce80f4",
       "name": "仿生巨蛇霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 331,
       "level": 6,
       "couponCost": 24192,
       "legacyAliases": [
@@ -7348,6 +8012,8 @@
       "id": "item.legacy.7229153919c8643a9b28",
       "name": "仿生瞬豹霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 332,
       "level": 6,
       "couponCost": 24192,
       "legacyAliases": [
@@ -7385,6 +8051,8 @@
       "id": "item.legacy.6a4761620231db43b6cb",
       "name": "590M霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 333,
       "level": 2,
       "couponCost": 14584,
       "legacyAliases": [
@@ -7412,6 +8080,8 @@
       "id": "item.legacy.924fd70a62bd37eeef91",
       "name": "KSG霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 334,
       "level": 6,
       "couponCost": 15120,
       "legacyAliases": [
@@ -7449,6 +8119,8 @@
       "id": "item.legacy.a9ed4eadc1a331dcdc5e",
       "name": "红点霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 335,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -7486,6 +8158,8 @@
       "id": "item.legacy.4dfb8c37aa6a68ccb086",
       "name": "转轮霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 336,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -7523,6 +8197,8 @@
       "id": "item.legacy.856a1a166a6d8612f8a9",
       "name": "萨姆战术霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 337,
       "level": 13,
       "couponCost": 34524,
       "legacyAliases": [
@@ -7560,6 +8236,8 @@
       "id": "item.legacy.51be47598f4e4a781730",
       "name": "哨兵战术霰弹枪",
       "category": "shotgun",
+      "legacyType": 11,
+      "sortOrder": 338,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -7597,6 +8275,8 @@
       "id": "item.legacy.8dbf3358a88c91a0bc9b",
       "name": "短管榴弹冲锋枪",
       "category": "smg",
+      "legacyType": 12,
+      "sortOrder": 339,
       "level": 6,
       "couponCost": 27858,
       "legacyAliases": [
@@ -7634,6 +8314,8 @@
       "id": "item.legacy.efd2b38cc2158f6065a9",
       "name": "仿生蛛酶步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 340,
       "level": 6,
       "couponCost": 16632,
       "legacyAliases": [
@@ -7671,6 +8353,8 @@
       "id": "item.legacy.091a8c5eaefbaa5d682f",
       "name": "仿生蛛螯步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 341,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -7708,6 +8392,8 @@
       "id": "item.legacy.35a43707e3f62343ff09",
       "name": "AK47突击步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 342,
       "level": 3,
       "couponCost": 1640,
       "legacyAliases": [
@@ -7740,6 +8426,8 @@
       "id": "item.legacy.a7094973b75ec1b2c989",
       "name": "塔沃尔突击步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 343,
       "level": 4,
       "couponCost": 10837,
       "legacyAliases": [
@@ -7777,6 +8465,8 @@
       "id": "item.legacy.7c4b08f6fb90a3d76412",
       "name": "M416突击步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 344,
       "level": 4,
       "couponCost": 6948,
       "legacyAliases": [
@@ -7814,6 +8504,8 @@
       "id": "item.legacy.928ecb35822c41677274",
       "name": "A2榴弹突击枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 345,
       "level": 6,
       "couponCost": 15120,
       "legacyAliases": [
@@ -7851,6 +8543,8 @@
       "id": "item.legacy.d981941575e67331ec21",
       "name": "G36C突击枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 346,
       "level": 7,
       "couponCost": 24472,
       "legacyAliases": [
@@ -7888,6 +8582,8 @@
       "id": "item.legacy.0725519b3d05173144ba",
       "name": "AN94突榴枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 347,
       "level": 7,
       "couponCost": 24472,
       "legacyAliases": [
@@ -7925,6 +8621,8 @@
       "id": "item.legacy.5d9b40710eab165bb45e",
       "name": "电弧突击步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 348,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -7962,6 +8660,8 @@
       "id": "item.legacy.af046eb80b24d623add3",
       "name": "FAMAS突击枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 349,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -7999,6 +8699,8 @@
       "id": "item.legacy.1fd62d8aef1227589cac",
       "name": "AUG突击步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 350,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -8036,6 +8738,8 @@
       "id": "item.legacy.9a6992f592e1d8b5c203",
       "name": "斯卡突击步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 351,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -8073,6 +8777,8 @@
       "id": "item.legacy.55d389ecaab7537b6abd",
       "name": "G3式自动步枪",
       "category": "assault-rifle",
+      "legacyType": 13,
+      "sortOrder": 352,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -8110,6 +8816,8 @@
       "id": "item.legacy.8ef662e4d4b2f3ec0d09",
       "name": "保卫者狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 353,
       "level": 2,
       "couponCost": 17808,
       "legacyAliases": [
@@ -8147,6 +8855,8 @@
       "id": "item.legacy.012152a1edb5f5da928b",
       "name": "仿生蝎尾狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 354,
       "level": 6,
       "couponCost": 24192,
       "legacyAliases": [
@@ -8184,6 +8894,8 @@
       "id": "item.legacy.a813494b9956c90203cc",
       "name": "仿生游隼狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 355,
       "level": 6,
       "couponCost": 24192,
       "legacyAliases": [
@@ -8221,6 +8933,8 @@
       "id": "item.legacy.179a6f26c85c0f065dda",
       "name": "莫辛纳甘狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 356,
       "level": 3,
       "couponCost": 5792,
       "legacyAliases": [
@@ -8253,6 +8967,8 @@
       "id": "item.legacy.2a8f6c4e21157ad5d5c6",
       "name": "M24狙击步枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 357,
       "level": 3,
       "couponCost": 7613,
       "legacyAliases": [
@@ -8285,6 +9001,8 @@
       "id": "item.legacy.b5fcd0ffad9d2627ab01",
       "name": "AS50狙击步枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 358,
       "level": 4,
       "couponCost": 5047,
       "legacyAliases": [
@@ -8322,6 +9040,8 @@
       "id": "item.legacy.a221a30f82cf9f219046",
       "name": "AWM狙击步枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 359,
       "level": 6,
       "couponCost": 15120,
       "legacyAliases": [
@@ -8359,6 +9079,8 @@
       "id": "item.legacy.06ef4ccfbafcef4fb90a",
       "name": "DSR狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 360,
       "level": 7,
       "couponCost": 24472,
       "legacyAliases": [
@@ -8396,6 +9118,8 @@
       "id": "item.legacy.d2a95871b49a59770c84",
       "name": "SVD狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 361,
       "level": 7,
       "couponCost": 7840,
       "legacyAliases": [
@@ -8433,6 +9157,8 @@
       "id": "item.legacy.d0f85db35d0a7c3540ae",
       "name": "R93狙击步枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 362,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -8470,6 +9196,8 @@
       "id": "item.legacy.f5e5571ef9d01ec51b15",
       "name": "巴雷特狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 363,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -8507,6 +9235,8 @@
       "id": "item.legacy.fea35c456bd85e61375a",
       "name": "TAC-50狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 364,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -8544,6 +9274,8 @@
       "id": "item.legacy.ef8d8a4899d51aef94a7",
       "name": "尤里卡狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 365,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -8581,6 +9313,8 @@
       "id": "item.legacy.abb6164cda604b4d2ebf",
       "name": "斯泰尔狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 366,
       "level": 13,
       "couponCost": 65556,
       "legacyAliases": [
@@ -8618,6 +9352,8 @@
       "id": "item.legacy.49c57959ea65c99da1d0",
       "name": "斯通纳狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 367,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -8655,6 +9391,8 @@
       "id": "item.legacy.3c2c41ba02bd2d4f9bcb",
       "name": "RX5狙击枪",
       "category": "sniper-rifle",
+      "legacyType": 14,
+      "sortOrder": 368,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -8692,6 +9430,8 @@
       "id": "item.legacy.daad5dc82c5eebd12467",
       "name": "仿生深潜重炮",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 369,
       "level": 6,
       "couponCost": 38627,
       "legacyAliases": [
@@ -8729,6 +9469,8 @@
       "id": "item.legacy.8317c28b82a2a6c7369d",
       "name": "仿生深潜火箭筒",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 370,
       "level": 6,
       "couponCost": 38627,
       "legacyAliases": [
@@ -8766,6 +9508,8 @@
       "id": "item.legacy.6ea24cf6b7a9b7cbf703",
       "name": "土制火炮",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 371,
       "level": 3,
       "couponCost": 1640,
       "legacyAliases": [
@@ -8798,6 +9542,8 @@
       "id": "item.legacy.1a14b3532e85da175f23",
       "name": "赤狐榴弹枪",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 372,
       "level": 4,
       "couponCost": 5790,
       "legacyAliases": [
@@ -8835,6 +9581,8 @@
       "id": "item.legacy.9713c5c5160667f49467",
       "name": "制导式火箭筒",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 373,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -8872,6 +9620,8 @@
       "id": "item.legacy.78f5b2cd83cd2939f9a8",
       "name": "QLB06榴弹炮",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 374,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -8909,6 +9659,8 @@
       "id": "item.legacy.bbd608d3bcb480a8f11c",
       "name": "XM25榴弹炮",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 375,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -8946,6 +9698,8 @@
       "id": "item.legacy.cdcb7cedd817c3b51b3e",
       "name": "转轮榴弹炮",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 376,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -8983,6 +9737,8 @@
       "id": "item.legacy.4af2954bd459e969f76d",
       "name": "电能榴弹炮",
       "category": "grenade-launcher",
+      "legacyType": 15,
+      "sortOrder": 377,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -9020,6 +9776,8 @@
       "id": "item.legacy.87f748c749ecd0dfbc7b",
       "name": "火焰喷射器",
       "category": "flamethrower",
+      "legacyType": 16,
+      "sortOrder": 378,
       "level": 1,
       "couponCost": 17808,
       "legacyAliases": [
@@ -9057,6 +9815,8 @@
       "id": "item.legacy.2b8637ac9b064bb27d09",
       "name": "仿生菌焰喷火器",
       "category": "flamethrower",
+      "legacyType": 16,
+      "sortOrder": 379,
       "level": 6,
       "couponCost": 31686,
       "legacyAliases": [
@@ -9094,6 +9854,8 @@
       "id": "item.legacy.2cbc376118a41d3f0a56",
       "name": "左轮手枪",
       "category": "pistol",
+      "legacyType": 17,
+      "sortOrder": 380,
       "level": 1,
       "couponCost": 17808,
       "legacyAliases": [
@@ -9131,6 +9893,8 @@
       "id": "item.legacy.7845da4a8847ac33b24f",
       "name": "蝶影双枪",
       "category": "pistol",
+      "legacyType": 17,
+      "sortOrder": 381,
       "level": 2,
       "couponCost": 35300,
       "legacyAliases": [
@@ -9168,6 +9932,8 @@
       "id": "item.legacy.f1ff941d2d8e46f6f6b8",
       "name": "蝶影左轮手枪",
       "category": "pistol",
+      "legacyType": 17,
+      "sortOrder": 382,
       "level": 2,
       "couponCost": 35300,
       "legacyAliases": [
@@ -9205,6 +9971,8 @@
       "id": "item.legacy.44eb240c9a39e429e48d",
       "name": "Z5左轮手枪",
       "category": "pistol",
+      "legacyType": 17,
+      "sortOrder": 383,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -9242,6 +10010,8 @@
       "id": "item.legacy.f5a3eab10829e94a7d2b",
       "name": "奥托手枪",
       "category": "pistol",
+      "legacyType": 17,
+      "sortOrder": 384,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -9279,6 +10049,8 @@
       "id": "item.legacy.a8007d0cf3f9553fff22",
       "name": "沙鹰双枪",
       "category": "pistol",
+      "legacyType": 17,
+      "sortOrder": 385,
       "level": 14,
       "couponCost": 0,
       "legacyAliases": [
@@ -9316,6 +10088,8 @@
       "id": "item.legacy.7ae444af2103b089b754",
       "name": "全钢盾牌",
       "category": "melee-shield",
+      "legacyType": 18,
+      "sortOrder": 386,
       "level": 1,
       "couponCost": 15408,
       "legacyAliases": [
@@ -9353,6 +10127,8 @@
       "id": "item.legacy.33acb100eec5f20096b1",
       "name": "合金盾牌",
       "category": "melee-shield",
+      "legacyType": 18,
+      "sortOrder": 387,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -9390,6 +10166,8 @@
       "id": "item.legacy.37a26a4a9308c8920f9f",
       "name": "弧光电磁机枪",
       "category": "electromagnetic-gun",
+      "legacyType": 19,
+      "sortOrder": 388,
       "level": 1,
       "couponCost": 17808,
       "legacyAliases": [
@@ -9427,6 +10205,8 @@
       "id": "item.legacy.b07c20b9602abde4f642",
       "name": "EM-1电磁机枪",
       "category": "electromagnetic-gun",
+      "legacyType": 19,
+      "sortOrder": 389,
       "level": 4,
       "couponCost": 5047,
       "legacyAliases": [
@@ -9464,6 +10244,8 @@
       "id": "item.legacy.dbcc9c19105b418aa66f",
       "name": "EM-2电磁机枪",
       "category": "electromagnetic-gun",
+      "legacyType": 19,
+      "sortOrder": 390,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -9501,6 +10283,8 @@
       "id": "item.legacy.888d9baea45e1ce3196e",
       "name": "EM-3电磁机枪",
       "category": "electromagnetic-gun",
+      "legacyType": 19,
+      "sortOrder": 391,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -9538,6 +10322,8 @@
       "id": "item.legacy.2691b7d4bca537980e3f",
       "name": "EM-4电磁机枪",
       "category": "electromagnetic-gun",
+      "legacyType": 19,
+      "sortOrder": 392,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -9575,6 +10361,8 @@
       "id": "item.legacy.7fbab4583bf4619b862d",
       "name": "多纳尔电磁机枪",
       "category": "electromagnetic-gun",
+      "legacyType": 19,
+      "sortOrder": 393,
       "level": 13,
       "couponCost": 34524,
       "legacyAliases": [
@@ -9612,6 +10400,8 @@
       "id": "item.legacy.80d9ba192eb13984509c",
       "name": "基础能力核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 394,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -9649,6 +10439,8 @@
       "id": "item.legacy.03a95c3e415b99718732",
       "name": "基础发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 395,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -9686,6 +10478,8 @@
       "id": "item.legacy.38f163d38a24b11f7646",
       "name": "基础结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 396,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -9723,6 +10517,8 @@
       "id": "item.legacy.b4d0d4203d92146e8326",
       "name": "基础导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 397,
       "level": 2,
       "couponCost": 0,
       "legacyAliases": [
@@ -9760,6 +10556,8 @@
       "id": "item.legacy.433d21ac96b2fc723611",
       "name": "中级能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 398,
       "level": 3,
       "couponCost": 0,
       "legacyAliases": [
@@ -9797,6 +10595,8 @@
       "id": "item.legacy.3ab44a7852a1bc108a2b",
       "name": "中级发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 399,
       "level": 3,
       "couponCost": 0,
       "legacyAliases": [
@@ -9834,6 +10634,8 @@
       "id": "item.legacy.c63b183b5f09a578bf57",
       "name": "中级结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 400,
       "level": 3,
       "couponCost": 0,
       "legacyAliases": [
@@ -9871,6 +10673,8 @@
       "id": "item.legacy.5095a0389bdac869a696",
       "name": "中级导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 401,
       "level": 3,
       "couponCost": 0,
       "legacyAliases": [
@@ -9908,6 +10712,8 @@
       "id": "item.legacy.5971205574e3961769de",
       "name": "高级能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 402,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -9945,6 +10751,8 @@
       "id": "item.legacy.20166d435c305652d9cd",
       "name": "高级发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 403,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -9982,6 +10790,8 @@
       "id": "item.legacy.7a5a6824a5285e6fde2d",
       "name": "高级结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 404,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -10019,6 +10829,8 @@
       "id": "item.legacy.8b7c4a529a1ce8466d8d",
       "name": "高级导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 405,
       "level": 4,
       "couponCost": 0,
       "legacyAliases": [
@@ -10056,6 +10868,8 @@
       "id": "item.legacy.1cf1ffd7c3f2d0b8d5aa",
       "name": "特级能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 406,
       "level": 5,
       "couponCost": 0,
       "legacyAliases": [
@@ -10093,6 +10907,8 @@
       "id": "item.legacy.c479bee7d15cb20414bd",
       "name": "特级发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 407,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -10130,6 +10946,8 @@
       "id": "item.legacy.337e0360bcb69493094c",
       "name": "特级结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 408,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -10167,6 +10985,8 @@
       "id": "item.legacy.0d85cbc5b022b7f5bee2",
       "name": "特级导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 409,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -10204,6 +11024,8 @@
       "id": "item.legacy.ed8e5f86ae2d66d8d63f",
       "name": "超级能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 410,
       "level": 6,
       "couponCost": 0,
       "legacyAliases": [
@@ -10241,6 +11063,8 @@
       "id": "item.legacy.c6931c6c0600fcbde6a4",
       "name": "超级导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 411,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -10278,6 +11102,8 @@
       "id": "item.legacy.083b745020e4d50ad779",
       "name": "超级发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 412,
       "level": 7,
       "couponCost": 0,
       "legacyAliases": [
@@ -10315,6 +11141,8 @@
       "id": "item.legacy.6a7abf72f88c62f0070e",
       "name": "超级结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 413,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -10352,6 +11180,8 @@
       "id": "item.legacy.8ebab7b674e88bcd90eb",
       "name": "究极能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 414,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -10389,6 +11219,8 @@
       "id": "item.legacy.36b3a2b33aa93511b235",
       "name": "究极发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 415,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -10426,6 +11258,8 @@
       "id": "item.legacy.26b1ea46e9f76aeb05f0",
       "name": "究极结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 416,
       "level": 8,
       "couponCost": 0,
       "legacyAliases": [
@@ -10463,6 +11297,8 @@
       "id": "item.legacy.aa90f9df5d4b37d92580",
       "name": "究极导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 417,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -10500,6 +11336,8 @@
       "id": "item.legacy.ce632a39121bd90622d3",
       "name": "钛1能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 418,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -10537,6 +11375,8 @@
       "id": "item.legacy.fd440828ed423e36358a",
       "name": "钛1发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 419,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -10574,6 +11414,8 @@
       "id": "item.legacy.9d255054874d95a4d561",
       "name": "钛1结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 420,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -10611,6 +11453,8 @@
       "id": "item.legacy.eb1780142f210759435b",
       "name": "钛1导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 421,
       "level": 9,
       "couponCost": 0,
       "legacyAliases": [
@@ -10648,6 +11492,8 @@
       "id": "item.legacy.7cdb48313117cd2beef1",
       "name": "钛2能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 422,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -10685,6 +11531,8 @@
       "id": "item.legacy.75bb704c184cc57cbf7c",
       "name": "钛2发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 423,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -10722,6 +11570,8 @@
       "id": "item.legacy.1e3c805b323d316ec497",
       "name": "钛2结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 424,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -10759,6 +11609,8 @@
       "id": "item.legacy.07a1cd4d809b77bf9ea6",
       "name": "钛2导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 425,
       "level": 10,
       "couponCost": 0,
       "legacyAliases": [
@@ -10796,6 +11648,8 @@
       "id": "item.legacy.0f66472d7b8689726f0c",
       "name": "钛3能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 426,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -10833,6 +11687,8 @@
       "id": "item.legacy.8cf40f1fcf2450d74d40",
       "name": "钛3发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 427,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -10870,6 +11726,8 @@
       "id": "item.legacy.a76379d6a3f576376579",
       "name": "钛3结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 428,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -10907,6 +11765,8 @@
       "id": "item.legacy.54f2511a4c71958a1e8b",
       "name": "钛3导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 429,
       "level": 11,
       "couponCost": 0,
       "legacyAliases": [
@@ -10944,6 +11804,8 @@
       "id": "item.legacy.7e8fda0aa83cb343491f",
       "name": "铬钛能量核心",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 430,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -10981,6 +11843,8 @@
       "id": "item.legacy.c0ab5ad748ce297a8238",
       "name": "铬钛发动机",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 431,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -11018,6 +11882,8 @@
       "id": "item.legacy.803e79be42a148124ed9",
       "name": "铬钛结构框架",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 432,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -11055,6 +11921,8 @@
       "id": "item.legacy.42802d66d0e1ca400a84",
       "name": "铬钛导航仪",
       "category": "drone",
+      "legacyType": 20,
+      "sortOrder": 433,
       "level": 12,
       "couponCost": 0,
       "legacyAliases": [
@@ -11092,6 +11960,8 @@
       "id": "item.legacy.031a39282e17836c479f",
       "name": "裂解涂膜-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 434,
       "level": 0,
       "couponCost": 892,
       "legacyAliases": [
@@ -11124,6 +11994,8 @@
       "id": "item.legacy.c1a31b29183a8d043ba9",
       "name": "裂解涂膜-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 435,
       "level": 0,
       "couponCost": 678,
       "legacyAliases": [
@@ -11156,6 +12028,8 @@
       "id": "item.legacy.f963ae8db9e3ed042ccc",
       "name": "裂解涂膜-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 436,
       "level": 0,
       "couponCost": 1248,
       "legacyAliases": [
@@ -11188,6 +12062,8 @@
       "id": "item.legacy.ff591122e1821a93e873",
       "name": "滞能涂膜-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 437,
       "level": 0,
       "couponCost": 892,
       "legacyAliases": [
@@ -11220,6 +12096,8 @@
       "id": "item.legacy.1395b3920bfa4a4ff390",
       "name": "滞能涂膜-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 438,
       "level": 0,
       "couponCost": 678,
       "legacyAliases": [
@@ -11252,6 +12130,8 @@
       "id": "item.legacy.3b0b84eded1ea494ca63",
       "name": "滞能涂膜-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 439,
       "level": 0,
       "couponCost": 1248,
       "legacyAliases": [
@@ -11284,6 +12164,8 @@
       "id": "item.legacy.6b859be08928e2c63987",
       "name": "超压涂膜-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 440,
       "level": 0,
       "couponCost": 892,
       "legacyAliases": [
@@ -11316,6 +12198,8 @@
       "id": "item.legacy.d416c39eeb622ba4f841",
       "name": "超压涂膜-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 441,
       "level": 0,
       "couponCost": 678,
       "legacyAliases": [
@@ -11348,6 +12232,8 @@
       "id": "item.legacy.3d96bc778a6de94e0d99",
       "name": "超压涂膜-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 442,
       "level": 0,
       "couponCost": 1248,
       "legacyAliases": [
@@ -11380,6 +12266,8 @@
       "id": "item.legacy.0d85bfa9aa2b759a01ed",
       "name": "穿透涂膜-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 443,
       "level": 0,
       "couponCost": 892,
       "legacyAliases": [
@@ -11412,6 +12300,8 @@
       "id": "item.legacy.a13fd41e1cf397d5a009",
       "name": "穿透涂膜-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 444,
       "level": 0,
       "couponCost": 678,
       "legacyAliases": [
@@ -11444,6 +12334,8 @@
       "id": "item.legacy.86cb9aa140b467f33620",
       "name": "穿透涂膜-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 445,
       "level": 0,
       "couponCost": 1248,
       "legacyAliases": [
@@ -11476,6 +12368,8 @@
       "id": "item.legacy.bb4964765ad43948815f",
       "name": "坚韧护剂-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 446,
       "level": 0,
       "couponCost": 792,
       "legacyAliases": [
@@ -11508,6 +12402,8 @@
       "id": "item.legacy.44457ace3bbf49b7d340",
       "name": "坚韧护剂-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 447,
       "level": 0,
       "couponCost": 578,
       "legacyAliases": [
@@ -11540,6 +12436,8 @@
       "id": "item.legacy.508236480a3b773f9a9f",
       "name": "坚韧护剂-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 448,
       "level": 0,
       "couponCost": 648,
       "legacyAliases": [
@@ -11572,6 +12470,8 @@
       "id": "item.legacy.1a132f956be3739f79e2",
       "name": "稳固护剂-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 449,
       "level": 0,
       "couponCost": 792,
       "legacyAliases": [
@@ -11604,6 +12504,8 @@
       "id": "item.legacy.64a914d45a513f4b7c5e",
       "name": "稳固护剂-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 450,
       "level": 0,
       "couponCost": 578,
       "legacyAliases": [
@@ -11636,6 +12538,8 @@
       "id": "item.legacy.8bbda05da2caf44468d1",
       "name": "稳固护剂-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 451,
       "level": 0,
       "couponCost": 648,
       "legacyAliases": [
@@ -11668,6 +12572,8 @@
       "id": "item.legacy.83b2ca8798296953f89b",
       "name": "缓冲护剂-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 452,
       "level": 0,
       "couponCost": 792,
       "legacyAliases": [
@@ -11700,6 +12606,8 @@
       "id": "item.legacy.270e7cc0ea399317b103",
       "name": "缓冲护剂-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 453,
       "level": 0,
       "couponCost": 578,
       "legacyAliases": [
@@ -11732,6 +12640,8 @@
       "id": "item.legacy.8e1be0c63a5e0debc43d",
       "name": "缓冲护剂-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 454,
       "level": 0,
       "couponCost": 648,
       "legacyAliases": [
@@ -11764,6 +12674,8 @@
       "id": "item.legacy.ada007a65e82d19a7286",
       "name": "护心护剂-等级1",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 455,
       "level": 0,
       "couponCost": 792,
       "legacyAliases": [
@@ -11796,6 +12708,8 @@
       "id": "item.legacy.addf0f425e783282968d",
       "name": "护心护剂-等级2",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 456,
       "level": 0,
       "couponCost": 578,
       "legacyAliases": [
@@ -11828,6 +12742,8 @@
       "id": "item.legacy.1e972f3b908a08295809",
       "name": "护心护剂-等级3",
       "category": "consumable",
+      "legacyType": 21,
+      "sortOrder": 457,
       "level": 0,
       "couponCost": 648,
       "legacyAliases": [
