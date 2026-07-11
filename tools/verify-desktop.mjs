@@ -49,11 +49,13 @@ await new Promise((resolve) => setTimeout(resolve, 1_000));
 const evaluation = await send("Runtime.evaluate", {
   expression: `(async () => {
     const before = await window.desktopApi?.listMarketItems();
-    const target = before?.[0];
+    const initialFirstItem = before?.[0]?.name;
+    const target = before?.[10];
     if (target) await window.desktopApi.setMarketItemState({ id: target.id, marketPrice: 123, focused: true });
     const recipeTarget = before?.find((item) => item.recipe.length > 0);
     const recipeIngredient = recipeTarget?.recipe[0];
     if (recipeTarget && recipeIngredient) await window.desktopApi.setRecipeChoice({ productId: recipeTarget.id, ingredientId: recipeIngredient.ingredientId, acquisitionMode: 'purchase' });
+    if (before?.[0]) await window.desktopApi.addCustomMarketItem({ name: '自动测试产品', resourceType: 5, level: 3, marketPrice: 1000, couponCost: 0, ingredients: [{ ingredientId: before[0].id, quantity: 2, acquisitionMode: 'craft' }] });
     const after = await window.desktopApi?.listMarketItems();
     const persisted = after?.find((item) => item.id === target?.id);
     const persistedRecipe = after?.find((item) => item.id === recipeTarget?.id)?.recipe[0];
@@ -63,7 +65,9 @@ const evaluation = await send("Runtime.evaluate", {
       csp: document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content,
       runtime: await window.desktopApi?.getRuntimeInfo(),
       marketItemCount: after?.length,
-      firstMarketItem: after?.[0]?.name,
+      initialFirstItem,
+      focusedFirst: after?.[0]?.id === target?.id,
+      customItemCreated: after?.some((item) => item.name === '自动测试产品' && item.recipe.length === 1),
       statePersisted: persisted?.marketPrice === 123 && persisted?.focused === true,
       recipeChoicePersisted: persistedRecipe?.acquisitionMode === 'purchase',
       nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
@@ -88,8 +92,10 @@ if (!result.runtime || result.runtime.platform !== "win32") {
   throw new Error("Preload bridge is unavailable");
 }
 if (result.nodeExposed) throw new Error("Node globals are exposed to the renderer");
-if (result.marketItemCount !== 458) throw new Error("Bundled market data was not loaded");
-if (result.firstMarketItem !== "木头") throw new Error("Market data is not sorted by legacy type and level");
+if (result.marketItemCount !== 459) throw new Error("Bundled or custom market data was not loaded");
+if (result.initialFirstItem !== "木头") throw new Error("Market data is not sorted by legacy type and level");
+if (!result.focusedFirst) throw new Error("Focused market item was not moved to the top");
+if (!result.customItemCreated) throw new Error("Custom market item was not persisted");
 if (!result.statePersisted) throw new Error("Personal item state was not persisted");
 if (!result.recipeChoicePersisted) throw new Error("Recipe acquisition mode was not persisted");
 if (!result.text.includes("458") || !result.text.includes("石纹蜂窝板")) {

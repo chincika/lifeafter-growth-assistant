@@ -85,12 +85,18 @@ function listMarketItems(target: SqliteDatabase) {
   );
   return target
     .prepare(`
+      WITH all_market_entities AS (
+        SELECT id, entity_type, name, payload_json FROM public_entities
+        UNION ALL
+        SELECT id, entity_type, name, payload_json FROM user_entities
+      )
       SELECT p.id, p.name, p.payload_json AS payloadJson,
              u.market_price AS marketPrice, COALESCE(u.focused, 0) AS focused
-      FROM public_entities p
+      FROM all_market_entities p
       LEFT JOIN user_item_state u ON u.entity_id = p.id
       WHERE p.entity_type = 'market-item'
       ORDER BY
+        COALESCE(u.focused, 0) DESC,
         CAST(json_extract(p.payload_json, '$.legacyType') AS INTEGER),
         CAST(json_extract(p.payload_json, '$.level') AS INTEGER),
         CAST(json_extract(p.payload_json, '$.sortOrder') AS INTEGER)
@@ -202,6 +208,49 @@ function registerIpcHandlers(databaseVersion: number): void {
       `).run(input.id, input.marketPrice, input.focused ? 1 : 0, new Date().toISOString());
     },
   );
+  ipcMain.handle("market:add-custom-item", (event, input: {
+    name: string; resourceType: number; level: number; marketPrice: number | null; couponCost: number;
+    ingredients: Array<{ ingredientId: string; quantity: number; acquisitionMode: "craft" | "purchase" }>;
+  }) => {
+    if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) throw new Error("Rejected custom item");
+    const name = input.name.trim();
+    if (!name || name.length > 200) throw new Error("产品名称无效");
+    if (!Number.isInteger(input.resourceType) || input.resourceType < 0 || input.resourceType > 21) throw new Error("产品分类无效");
+    if (!Number.isInteger(input.level) || input.level < 0 || input.level > 1000) throw new Error("产品等级无效");
+    if (!Number.isInteger(input.couponCost) || input.couponCost < 0) throw new Error("采集券成本无效");
+    if (input.marketPrice !== null && (!Number.isInteger(input.marketPrice) || input.marketPrice < 0)) throw new Error("售价无效");
+    if (!Array.isArray(input.ingredients) || input.ingredients.length > 100) throw new Error("材料数量无效");
+    const duplicate = database.prepare(`
+      SELECT 1 FROM public_entities WHERE entity_type='market-item' AND name=?
+      UNION ALL SELECT 1 FROM user_entities WHERE entity_type='market-item' AND name=? LIMIT 1
+    `).get(name, name);
+    if (duplicate) throw new Error(`产品“${name}”已经存在`);
+    const validId = /^[a-z0-9][a-z0-9._-]{2,127}$/;
+    const seen = new Set<string>();
+    const recipe = input.ingredients.map((ingredient) => {
+      if (!validId.test(ingredient.ingredientId) || seen.has(ingredient.ingredientId)) throw new Error("材料重复或无效");
+      seen.add(ingredient.ingredientId);
+      if (!Number.isFinite(ingredient.quantity) || ingredient.quantity <= 0) throw new Error("材料数量必须大于零");
+      if (ingredient.acquisitionMode !== "craft" && ingredient.acquisitionMode !== "purchase") throw new Error("材料获取方式无效");
+      const exists = database!.prepare(`
+        SELECT 1 FROM public_entities WHERE id=? AND entity_type='market-item'
+        UNION ALL SELECT 1 FROM user_entities WHERE id=? AND entity_type='market-item' LIMIT 1
+      `).get(ingredient.ingredientId, ingredient.ingredientId);
+      if (!exists) throw new Error("材料不存在");
+      return { ingredientId: ingredient.ingredientId, quantity: ingredient.quantity, acquisitionMode: ingredient.acquisitionMode };
+    });
+    const categories = ["wood","stone","hemp","animal","special","semi-finished","armor","shield","hat","blade","bow","shotgun","smg","assault-rifle","sniper-rifle","grenade-launcher","flamethrower","pistol","melee-shield","electromagnetic-gun","drone","consumable"];
+    const id = `user.item.${randomUUID()}`;
+    const now = new Date().toISOString();
+    const payload = { id, name, category: categories[input.resourceType], legacyType: input.resourceType, sortOrder: 2_000_000_000, level: input.level, couponCost: input.couponCost, legacyAliases: [], recipe: recipe.map((entry) => ({ ingredientId: entry.ingredientId, quantity: entry.quantity, defaultAcquisitionMode: entry.acquisitionMode })), custom: true };
+    database.exec("BEGIN IMMEDIATE");
+    try {
+      database.prepare("INSERT INTO user_entities(id,entity_type,name,payload_json,created_at,updated_at) VALUES (?, 'market-item', ?, ?, ?, ?)").run(id, name, JSON.stringify(payload), now, now);
+      database.prepare("INSERT INTO user_item_state(entity_id,market_price,focused,updated_at) VALUES (?,?,0,?)").run(id, input.marketPrice, now);
+      database.exec("COMMIT");
+    } catch (error) { database.exec("ROLLBACK"); throw error; }
+    return id;
+  });
   ipcMain.handle(
     "market:set-recipe-choice",
     (event, input: { productId: string; ingredientId: string; acquisitionMode: string }) => {

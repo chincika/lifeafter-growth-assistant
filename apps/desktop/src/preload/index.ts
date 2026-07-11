@@ -42,6 +42,12 @@ const desktopApi = Object.freeze({
   async setRecipeChoice(input: { productId: string; ingredientId: string; acquisitionMode: "craft" | "purchase" }): Promise<void> {
     await ipcRenderer.invoke("market:set-recipe-choice", input);
   },
+  async addCustomMarketItem(input: {
+    name: string; resourceType: number; level: number; marketPrice: number | null; couponCost: number;
+    ingredients: Array<{ ingredientId: string; quantity: number; acquisitionMode: "craft" | "purchase" }>;
+  }): Promise<string> {
+    return ipcRenderer.invoke("market:add-custom-item", input) as Promise<string>;
+  },
 });
 
 contextBridge.exposeInMainWorld("desktopApi", desktopApi);

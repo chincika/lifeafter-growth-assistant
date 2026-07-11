@@ -40,12 +40,21 @@ const Root = {
       const ingredient = product?.recipe.find((entry) => entry.ingredientId === input.ingredientId);
       if (ingredient) ingredient.acquisitionMode = input.acquisitionMode;
     }
+    async function addCustomItem(input: Parameters<typeof window.desktopApi.addCustomMarketItem>[0]) {
+      try {
+        await window.desktopApi.addCustomMarketItem(input);
+        items.value = await window.desktopApi.listMarketItems();
+      } catch (reason) {
+        error.value = reason instanceof Error ? reason.message : String(reason);
+      }
+    }
     return () => h(AppShell, {
       items: items.value,
       loading: loading.value,
       error: error.value,
       onUpdateItemState: updateItemState,
       onUpdateRecipeChoice: updateRecipeChoice,
+      onAddCustomItem: addCustomItem,
     });
   },
 };
