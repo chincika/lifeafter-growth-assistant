@@ -87,7 +87,8 @@ const evaluation = await send("Runtime.evaluate", {
       masterySelect.dispatchEvent(new Event('change', { bubbles: true }));
       await new Promise((resolve) => setTimeout(resolve, 30));
     }
-    const evolutionMasteryRendered = document.querySelector('.result-cards')?.textContent?.includes('精确期望点击');
+    const evolutionMasteryRendered = document.querySelector('.result-cards')?.textContent?.includes('完整所需进度');
+    const evolutionMasteryText = document.querySelector('.growth-page')?.textContent;
     const masteryAttributeComparison = document.querySelector('.attribute-comparison')?.textContent;
     growthButtons.find((button) => button.textContent?.trim() === '腰带芯片')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
@@ -157,6 +158,7 @@ const evaluation = await send("Runtime.evaluate", {
       growthPages,
       researchAttributesCollapsed,
       evolutionMasteryRendered,
+      evolutionMasteryText,
       version80MasteryText,
       version145MasteryText,
       masteryAttributeComparison,
@@ -255,6 +257,13 @@ if (!result.researchAttributesCollapsed)
   throw new Error("Research attributes should be collapsed by default");
 if (!result.evolutionMasteryRendered)
   throw new Error("Evolution mastery failed to render");
+if (
+  !result.evolutionMasteryText?.includes("战术护木 60") ||
+  !result.evolutionMasteryText?.includes("金条 48,000")
+)
+  throw new Error(
+    "Evolution mastery did not multiply each material and gold cost by required progress",
+  );
 if (
   !result.version80MasteryText?.includes("特种电阻") ||
   result.version80MasteryText?.includes("光纤模块")

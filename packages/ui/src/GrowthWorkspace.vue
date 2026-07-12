@@ -389,25 +389,19 @@ const masteryResult = computed(() => {
             金条: level.goldbar ?? 0,
           },
         })),
-      {
-        bonus1Percent: bonus1.value,
-        bonus4Percent: bonus4.value,
-        bonus9Percent: bonus9.value,
-      },
+      { bonus1Percent: 0, bonus4Percent: 0, bonus9Percent: 0 },
     );
   } catch {
     return emptyProgression;
   }
 });
 const masteryInputError = computed(() => {
-  if (bonus1.value + bonus4.value + bonus9.value > 100)
-    return "三项暴击概率合计不能超过 100%。";
   if (masteryFrom.value >= masteryTo.value)
     return "目标专精等级必须高于当前专精等级。";
   return "";
 });
 const masteryMaterialNames = computed(() =>
-  Object.keys(masteryResult.value.expectedMaterials),
+  Object.keys(masteryResult.value.deterministicMaterials),
 );
 function masteryPrice(name: string) {
   if (Number.isFinite(masteryPrices[name])) return masteryPrices[name]!;
@@ -423,7 +417,7 @@ function masteryPrice(name: string) {
     : materialUnitPrice.value;
 }
 const masteryGoldCost = computed(() =>
-  Object.entries(masteryResult.value.expectedMaterials).reduce(
+  Object.entries(masteryResult.value.deterministicMaterials).reduce(
     (sum, [name, amount]) => sum + amount * masteryPrice(name),
     0,
   ),
@@ -1660,8 +1654,9 @@ function applyPlan(plan: GrowthPlan) {
         {{ masteryInputError }}
       </p>
       <p class="growth-note">
-        关键等级 3、8、13、18、23、28、33
-        按原规则禁止暴击；缺失和估算条目保留原版标注。
+        本页固定提供完整无暴击预算：每 1
+        点进度都会消耗一整套本级材料和本级金条。例如进度 60、单次 1 个半成品及
+        800 金条，即合计 60 个半成品和 48,000 金条。关键等级同样按原表完整计入。
       </p>
       <details class="material-price-editor">
         <summary>按材料设置单价（用于准确估算金币成本）</summary>
@@ -1678,22 +1673,18 @@ function applyPlan(plan: GrowthPlan) {
       </details>
       <div class="result-cards">
         <article>
-          <span>无暴击点击</span
+          <span>完整所需进度</span
           ><strong>{{ format(masteryResult.deterministicClicks) }}</strong>
         </article>
         <article>
-          <span>精确期望点击</span
-          ><strong>{{ format(masteryResult.expectedClicks) }}</strong>
-        </article>
-        <article>
-          <span>预计金币成本</span
+          <span>完整预算折合金条</span
           ><strong>{{ format(masteryGoldCost) }}</strong>
         </article>
         <article
-          v-for="(value, name) in masteryResult.expectedMaterials"
+          v-for="(value, name) in masteryResult.deterministicMaterials"
           :key="name"
         >
-          <span>期望{{ name }}</span
+          <span>共需{{ name }}</span
           ><strong>{{ format(value) }}</strong>
         </article>
       </div>
@@ -1724,13 +1715,18 @@ function applyPlan(plan: GrowthPlan) {
         >
           <strong>Lv {{ row.level }}</strong
           ><span
-            >进度 {{ row.times }} ·
+            >本级进度 {{ row.times }} · 合计
             {{
+              row.consumables
+                .map((item) => `${item.name} ${format(item.num * row.times)}`)
+                .join(" · ")
+            }}
+            · 金条 {{ format((row.goldbar ?? 0) * row.times) }}（每点消耗：{{
               row.consumables
                 .map((item) => `${item.name} ${item.num}`)
                 .join(" · ")
             }}
-            · 金条 {{ row.goldbar }}</span
+            · 金条 {{ row.goldbar ?? 0 }}）</span
           >
         </div>
       </details>
