@@ -74,6 +74,13 @@ const evaluation = await send("Runtime.evaluate", {
     growthButtons.find((button) => button.textContent?.trim() === '专精')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     const masterySelect = document.querySelector('.growth-controls select');
+    const versionLevelSelect = document.querySelectorAll('.growth-controls select')[1];
+    if (versionLevelSelect) { versionLevelSelect.value = '0'; versionLevelSelect.dispatchEvent(new Event('change', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 30)); }
+    const version80MasteryText = document.querySelector('.growth-page')?.textContent;
+    if (versionLevelSelect) { versionLevelSelect.value = '7'; versionLevelSelect.dispatchEvent(new Event('change', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
+    const masteryTargetInput = document.querySelectorAll('.growth-controls input[type="number"]')[1];
+    if (masteryTargetInput) { masteryTargetInput.value = '35'; masteryTargetInput.dispatchEvent(new Event('input', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 30)); }
+    const version145MasteryText = document.querySelector('.growth-page')?.textContent;
     const evolutionOption = [...(masterySelect?.options ?? [])].find((option) => option.textContent?.includes('蛛酶步枪'));
     if (masterySelect && evolutionOption) {
       masterySelect.value = evolutionOption.value;
@@ -111,6 +118,17 @@ const evaluation = await send("Runtime.evaluate", {
     const graphContributionAfterSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
     document.querySelector('.graph-recipe-planner .compare-action')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
+    [...document.querySelectorAll('.graph-mode-switch button')].find((button) => button.textContent?.includes('复制当前'))?.click();
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    document.querySelector('.equipment-catalog article')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const targetInputs = document.querySelectorAll('.graph-recipe-planner .growth-controls input[type="number"]');
+    if (targetInputs[0]) { targetInputs[0].value = '1'; targetInputs[0].dispatchEvent(new Event('input', { bubbles: true })); }
+    if (targetInputs[1]) { targetInputs[1].value = '1'; targetInputs[1].dispatchEvent(new Event('input', { bubbles: true })); }
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    document.querySelector('.graph-recipe-planner .compare-action')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    const graphUpgradeCostText = document.querySelector('.material-price-editor')?.textContent;
     const configuredGraphRecipeCount = document.querySelectorAll('.configured-recipes article').length;
     const graphSearch = document.querySelector('.growth-controls input[placeholder]');
     if (graphSearch) { graphSearch.value = '火焰喷射器'; graphSearch.dispatchEvent(new Event('input', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
@@ -139,6 +157,8 @@ const evaluation = await send("Runtime.evaluate", {
       growthPages,
       researchAttributesCollapsed,
       evolutionMasteryRendered,
+      version80MasteryText,
+      version145MasteryText,
       masteryAttributeComparison,
       beltDescription,
       comparedChipCount,
@@ -146,6 +166,7 @@ const evaluation = await send("Runtime.evaluate", {
       graphRecipePlanner,
       graphSkinContributionIncreased: graphContributionAfterSkin > graphContributionBeforeSkin,
       configuredGraphRecipeCount,
+      graphUpgradeCostText,
       fireThrowerContribution,
       growthPlanPersisted,
       nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
@@ -219,6 +240,13 @@ if (!result.graphSkinContributionIncreased)
   throw new Error("Graph skin contribution was not calculated");
 if (result.configuredGraphRecipeCount !== 1)
   throw new Error("Graph recipe portfolio was not saved");
+if (
+  !result.graphUpgradeCostText?.includes("配方残页") ||
+  !result.graphUpgradeCostText?.includes("纳米")
+)
+  throw new Error(
+    "Graph upgrade costs did not include star and research materials",
+  );
 if (result.fireThrowerContribution !== 355)
   throw new Error(
     "Fire thrower special graph progression table was not applied",
@@ -227,6 +255,18 @@ if (!result.researchAttributesCollapsed)
   throw new Error("Research attributes should be collapsed by default");
 if (!result.evolutionMasteryRendered)
   throw new Error("Evolution mastery failed to render");
+if (
+  !result.version80MasteryText?.includes("特种电阻") ||
+  result.version80MasteryText?.includes("光纤模块")
+)
+  throw new Error("80-level version mastery materials are incorrect");
+if (
+  !result.version145MasteryText?.includes("航空板材") ||
+  !result.version145MasteryText?.includes("全钢框架")
+)
+  throw new Error(
+    "145-level version mastery material replacements are incorrect",
+  );
 if (!result.masteryAttributeComparison?.includes("目标 Lv 35"))
   throw new Error("Mastery attribute comparison did not render");
 if (

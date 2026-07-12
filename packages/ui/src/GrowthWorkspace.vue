@@ -253,6 +253,21 @@ const masteryEquipment = [
 const masteryEquipmentIndex = ref(0),
   masteryFrom = ref(0),
   masteryTo = ref(35);
+const masteryVersionLevels = [80, 90, 100, 110, 120, 130, 140, 145];
+const masteryVersionCaps = [5, 10, 15, 20, 25, 30, 35, 35];
+const masteryVersionCostKeys = ["P", "Q", "R", "S", "T", "U", "V"];
+const masteryVersionLevelIndex = ref(7);
+const masteryLevelCap = computed(() =>
+  masteryEquipmentIndex.value < 9
+    ? masteryVersionCaps[masteryVersionLevelIndex.value]!
+    : 35,
+);
+watch([masteryEquipmentIndex, masteryVersionLevelIndex], () => {
+  if (masteryTo.value > masteryLevelCap.value)
+    masteryTo.value = masteryLevelCap.value;
+  if (masteryFrom.value >= masteryTo.value)
+    masteryFrom.value = Math.max(0, masteryTo.value - 1);
+});
 const masteryAttributeKeys = ["o", "x", "A", "y", "r", "t", "u", "v", "w"];
 const masteryAttributeKey = computed(() => {
   if (masteryEquipmentIndex.value < masteryAttributeKeys.length)
@@ -301,8 +316,33 @@ const evolutionOverrideKeys = [
   "O",
 ];
 const masteryBase = computed(() => {
-  if (masteryEquipmentIndex.value < 9)
-    return (progression.value.V ?? []) as ProgressLevel[];
+  if (masteryEquipmentIndex.value < 9) {
+    const cap = masteryLevelCap.value;
+    const key =
+      masteryVersionCostKeys[
+        Math.min(
+          masteryVersionLevelIndex.value,
+          masteryVersionCostKeys.length - 1,
+        )
+      ]!;
+    const source = ((progression.value[key] ?? []) as ProgressLevel[]).map(
+      (level) => ({
+        ...level,
+        consumables: level.consumables.map((item) => ({ ...item })),
+      }),
+    );
+    if (masteryVersionLevelIndex.value === 7) {
+      const replacements: Record<string, string> = {
+        高硅钢: "航空板材",
+        高分子纤维: "织物涂层",
+        太阳能板: "全钢框架",
+      };
+      for (const level of source)
+        for (const material of level.consumables)
+          material.name = replacements[material.name] ?? material.name;
+    }
+    return source.slice(0, cap);
+  }
   const base = ((progression.value.B ?? []) as ProgressLevel[]).map(
     (level) => ({
       ...level,
@@ -502,7 +542,13 @@ const graphEquipment = computed(() =>
       max_zj?: number;
       skin?: Array<{ name: string; value?: number }>;
     }>
-  ).filter((item) => item.name.includes(graphEquipmentQuery.value.trim())),
+  ).filter((item) => {
+    const query = graphEquipmentQuery.value.trim();
+    return (
+      item.name.includes(query) ||
+      (item.skin ?? []).some((skin) => skin.name.includes(query))
+    );
+  }),
 );
 type GraphEquipment = (typeof graphEquipment.value)[number];
 type GraphRecipeState = {
@@ -523,7 +569,14 @@ const graphResearchTables = computed(
 const graphMasteryTables = computed(
   () => (graph.value.Ee_0 ?? []) as number[][],
 );
-const graphPortfolio = reactive<Record<string, GraphRecipeState>>({});
+const graphPortfolioMode = ref<"current" | "target">("current");
+const graphCurrentPortfolio = reactive<Record<string, GraphRecipeState>>({});
+const graphTargetPortfolio = reactive<Record<string, GraphRecipeState>>({});
+const activeGraphPortfolio = computed(() =>
+  graphPortfolioMode.value === "current"
+    ? graphCurrentPortfolio
+    : graphTargetPortfolio,
+);
 function tableValue(table: number[] | undefined, level: number) {
   return table?.[Math.max(0, Math.min(level, (table?.length ?? 1) - 1))] ?? 0;
 }
@@ -551,7 +604,10 @@ function calculateGraphContribution(
       ? tableValue(graphStarTables.value[starIndex], state.star)
       : init;
   const levelValue =
-    item.max_zj && item.max_zj > 0 && masteryIndex !== undefined
+    item.max_zj &&
+    item.max_zj > 0 &&
+    state.mastery > 0 &&
+    masteryIndex !== undefined
       ? tableValue(graphMasteryTables.value[masteryIndex], state.mastery)
       : researchIndex !== undefined
         ? tableValue(graphResearchTables.value[researchIndex], state.research)
@@ -575,23 +631,106 @@ const graphPortfolioItems = computed(() => {
   const all = (graph.value[graphEquipmentKeys[graphType.value]!] ??
     []) as GraphEquipment[];
   return all
-    .filter((item) => graphPortfolio[item.name])
+    .filter((item) => activeGraphPortfolio.value[item.name])
     .map((item) => ({
       item,
-      state: graphPortfolio[item.name]!,
+      state: activeGraphPortfolio.value[item.name]!,
       contribution: calculateGraphContribution(
         item,
-        graphPortfolio[item.name]!,
+        activeGraphPortfolio.value[item.name]!,
       ),
     }));
 });
 const graphPortfolioContribution = computed(() =>
   graphPortfolioItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
 );
+function graphEntries(portfolio: Record<string, GraphRecipeState>) {
+  const all = (graph.value[graphEquipmentKeys[graphType.value]!] ??
+    []) as GraphEquipment[];
+  return all
+    .filter((item) => portfolio[item.name])
+    .map((item) => ({
+      item,
+      state: portfolio[item.name]!,
+      contribution: calculateGraphContribution(item, portfolio[item.name]!),
+    }));
+}
+const graphCurrentItems = computed(() => graphEntries(graphCurrentPortfolio));
+const graphTargetItems = computed(() => graphEntries(graphTargetPortfolio));
+const graphCurrentContribution = computed(() =>
+  graphCurrentItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
+);
+const graphTargetContribution = computed(() =>
+  graphTargetItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
+);
+function graphLevelFromScore(score: number) {
+  let level = 1;
+  for (const row of graphLevels.value) if (score >= row.exp) level = row.id;
+  return level;
+}
+const graphCurrentPortfolioLevel = computed(() =>
+  graphLevelFromScore(graphCurrentContribution.value),
+);
+const graphTargetPortfolioLevel = computed(() =>
+  graphLevelFromScore(graphTargetContribution.value),
+);
+const graphAllTypeSummary = computed(() =>
+  graphTypes.map((name, index) => {
+    const items = (graph.value[graphEquipmentKeys[index]!] ??
+      []) as GraphEquipment[];
+    const levels = (graph.value[graphKeys[index]!] ?? []) as GraphLevel[];
+    const score = (portfolio: Record<string, GraphRecipeState>) =>
+      items.reduce(
+        (sum, item) =>
+          portfolio[item.name]
+            ? sum + calculateGraphContribution(item, portfolio[item.name]!)
+            : sum,
+        0,
+      );
+    const level = (value: number) =>
+      levels.reduce((result, row) => (value >= row.exp ? row.id : result), 1);
+    const current = score(graphCurrentPortfolio),
+      target = score(graphTargetPortfolio);
+    return {
+      name,
+      current,
+      target,
+      currentLevel: level(current),
+      targetLevel: level(target),
+    };
+  }),
+);
+function clearActiveGraphCategory() {
+  const names = new Set(
+    (
+      (graph.value[graphEquipmentKeys[graphType.value]!] ??
+        []) as GraphEquipment[]
+    ).map((item) => item.name),
+  );
+  for (const name of Object.keys(activeGraphPortfolio.value))
+    if (names.has(name)) delete activeGraphPortfolio.value[name];
+  selectedGraphEquipment.value = null;
+}
+function fillActiveGraphCategory(includeLocked: boolean) {
+  const items = (graph.value[graphEquipmentKeys[graphType.value]!] ??
+    []) as GraphEquipment[];
+  for (const item of items) {
+    if (!includeLocked && !activeGraphPortfolio.value[item.name]) continue;
+    activeGraphPortfolio.value[item.name] = {
+      star: item.max_star ?? 0,
+      research: item.max_zy ?? 0,
+      mastery: item.max_zj ?? 0,
+      skins: includeLocked
+        ? (item.skin ?? []).map((skin) => skin.name)
+        : [...(activeGraphPortfolio.value[item.name]?.skins ?? [])],
+    };
+  }
+  selectedGraphEquipment.value = null;
+}
 function saveGraphRecipe() {
   const item = selectedGraphEquipment.value;
   if (!item) return;
-  graphPortfolio[item.name] = {
+  activeGraphPortfolio.value[item.name] = {
     star: graphRecipeStar.value,
     research: graphRecipeResearch.value,
     mastery: graphRecipeMastery.value,
@@ -600,12 +739,248 @@ function saveGraphRecipe() {
 }
 function selectGraphEquipment(item: GraphEquipment) {
   selectedGraphEquipment.value = item;
-  const saved = graphPortfolio[item.name];
+  const saved = activeGraphPortfolio.value[item.name];
   graphRecipeStar.value = saved?.star ?? 0;
   graphRecipeResearch.value = saved?.research ?? 0;
   graphRecipeMastery.value = saved?.mastery ?? 0;
   graphSelectedSkins.value = [...(saved?.skins ?? [])];
 }
+function copyCurrentGraphToTarget() {
+  for (const key of Object.keys(graphTargetPortfolio))
+    delete graphTargetPortfolio[key];
+  for (const [name, state] of Object.entries(graphCurrentPortfolio))
+    graphTargetPortfolio[name] = { ...state, skins: [...state.skins] };
+  graphPortfolioMode.value = "target";
+  selectedGraphEquipment.value = null;
+}
+const graphGachaNames = new Set([
+  "特级护目镜",
+  "银犀战盔",
+  "开拓者突击枪",
+  "95式突击步枪",
+  "左轮手枪",
+  "火焰喷射器",
+  "弧光电磁机枪",
+  "雷托霰弹枪",
+  "蝶影双枪",
+  "蝶影左轮手枪",
+  "仿生蛛酶步枪",
+  "仿生蛛螯步枪",
+  "菌焰喷火器",
+  "仿生巨蛇霰弹",
+  "仿生瞬豹霰弹枪",
+  "竞技用反曲弓",
+  "碳素蜘蛛弓",
+  "破潮弓",
+  "强袭榴弹炮",
+  "保卫者狙击枪",
+  "仿生深潜重炮",
+  "仿生深潜火箭筒",
+  "仿生蝎尾狙击",
+  "仿生游隼狙击",
+  "全钢盾牌",
+  "斩马刀",
+  "仿生猎鲨锋刃",
+  "仿生猎兽锋刃",
+  "深红战甲",
+  "进阶基础护盾",
+  "进阶蔚蓝护盾",
+  "进阶磺骨护盾",
+  "守望者护盾",
+]);
+const graphMasteryOverrides: Record<string, { key: string; cap: number }> = {
+  深红战甲: { key: "W", cap: 20 },
+  火焰喷射器: { key: "Y", cap: 20 },
+  "95式突击步枪": { key: "X", cap: 20 },
+  左轮手枪: { key: "Z", cap: 35 },
+  竞技用反曲弓: { key: "_", cap: 20 },
+  碳素蜘蛛弓: { key: "$", cap: 20 },
+  强袭榴弹炮: { key: "a0", cap: 20 },
+  雷托霰弹枪: { key: "C", cap: 35 },
+  仿生巨蛇霰弹: { key: "D", cap: 35 },
+  仿生蛛酶步枪: { key: "E", cap: 35 },
+  蝶影双枪: { key: "F", cap: 35 },
+  斩马刀: { key: "G", cap: 35 },
+  仿生猎鲨锋刃: { key: "H", cap: 35 },
+  全钢盾牌: { key: "I", cap: 35 },
+  菌焰喷火器: { key: "J", cap: 35 },
+  仿生深潜重炮: { key: "K", cap: 35 },
+  保卫者狙击枪: { key: "L", cap: 35 },
+  仿生蝎尾狙击: { key: "M", cap: 35 },
+  弧光电磁机枪: { key: "N", cap: 35 },
+  破潮弓: { key: "O", cap: 35 },
+};
+function graphMasteryLevels(item: GraphEquipment) {
+  const special = graphMasteryOverrides[item.name];
+  if (special) {
+    const base = ((progression.value.B ?? []) as ProgressLevel[]).map(
+      (level) => ({
+        ...level,
+        consumables: level.consumables.map((material) => ({ ...material })),
+      }),
+    );
+    for (const override of (progression.value[special.key] ??
+      []) as ProgressLevel[]) {
+      const row = base[override.level - 1];
+      if (row) {
+        row.times = override.times;
+        row.consumables = override.consumables.map((material) => ({
+          ...material,
+        }));
+      }
+    }
+    if (item.name === "全钢盾牌")
+      for (const row of base)
+        if (![3, 8, 13, 18, 23, 28, 33].includes(row.level)) row.times *= 0.6;
+    return base.slice(0, special.cap);
+  }
+  const levelIndex = masteryVersionLevels.indexOf(item.level ?? 145);
+  const safeIndex = levelIndex >= 0 ? levelIndex : 7;
+  const key =
+    masteryVersionCostKeys[
+      Math.min(safeIndex, masteryVersionCostKeys.length - 1)
+    ]!;
+  const levels = ((progression.value[key] ?? []) as ProgressLevel[]).map(
+    (row) => ({
+      ...row,
+      consumables: row.consumables.map((material) => ({ ...material })),
+    }),
+  );
+  if (safeIndex === 7) {
+    const replacements: Record<string, string> = {
+      高硅钢: "航空板材",
+      高分子纤维: "织物涂层",
+      太阳能板: "全钢框架",
+    };
+    for (const row of levels)
+      for (const material of row.consumables)
+        material.name = replacements[material.name] ?? material.name;
+  }
+  return levels.slice(0, masteryVersionCaps[safeIndex]!);
+}
+type GraphUpgradeCost = {
+  deterministicClicks: number;
+  expectedClicks: number;
+  materials: Record<string, number>;
+  errors: string[];
+};
+const graphUpgradeCost = computed<GraphUpgradeCost>(() => {
+  const result: GraphUpgradeCost = {
+    deterministicClicks: 0,
+    expectedClicks: 0,
+    materials: {},
+    errors: [],
+  };
+  const addMaterial = (name: string, amount: number) => {
+    result.materials[name] = (result.materials[name] ?? 0) + amount;
+  };
+  for (const equipmentKey of graphEquipmentKeys) {
+    const all = (graph.value[equipmentKey] ?? []) as GraphEquipment[];
+    for (const item of all) {
+      const current = graphCurrentPortfolio[item.name] ?? {
+        star: 0,
+        research: 0,
+        mastery: 0,
+        skins: [],
+      };
+      const target = graphTargetPortfolio[item.name];
+      if (!target) {
+        if (graphCurrentPortfolio[item.name])
+          result.errors.push(`${item.name}未保留在目标图谱中`);
+        continue;
+      }
+      if (
+        target.star < current.star ||
+        target.research < current.research ||
+        target.mastery < current.mastery ||
+        current.skins.some((skin) => !target.skins.includes(skin))
+      ) {
+        result.errors.push(`${item.name}存在降级设置`);
+        continue;
+      }
+      for (const row of starRows.value.slice(current.star, target.star))
+        for (const material of row.consumables)
+          addMaterial(material.name, material.num);
+      const researchRows = (progression.value[
+        graphGachaNames.has(item.name) ? "n" : "m"
+      ] ?? []) as ProgressLevel[];
+      const researchCost = calculateProgressionCosts(
+        researchRows.slice(current.research, target.research).map((row) => ({
+          progress: row.times,
+          materialsPerClick: Object.fromEntries(
+            row.consumables.map((material) => [material.name, material.num]),
+          ),
+        })),
+        {
+          bonus1Percent: bonus1.value,
+          bonus4Percent: bonus4.value,
+          bonus9Percent: bonus9.value,
+        },
+      );
+      result.deterministicClicks += researchCost.deterministicClicks;
+      result.expectedClicks += researchCost.expectedClicks;
+      for (const [name, amount] of Object.entries(
+        researchCost.expectedMaterials,
+      ))
+        addMaterial(name, amount);
+      const researchDungeonMaterial = graphGachaNames.has(item.name)
+        ? "合金螺母"
+        : (item.level ?? 145) >= 140
+          ? "光纤模块"
+          : (item.level ?? 145) >= 130
+            ? "集成电路"
+            : (item.level ?? 145) >= 120
+              ? "合金轴承"
+              : (item.level ?? 145) >= 110
+                ? "固态电容"
+                : "特种电阻";
+      if (researchCost.expectedClicks > 0)
+        addMaterial(researchDungeonMaterial, researchCost.expectedClicks);
+      const masteryRows = graphMasteryLevels(item);
+      const masteryCost = calculateProgressionCosts(
+        masteryRows.slice(current.mastery, target.mastery).map((row) => ({
+          progress: row.times,
+          criticalAllowed: ![3, 8, 13, 18, 23, 28, 33].includes(row.level),
+          materialsPerClick: {
+            ...Object.fromEntries(
+              row.consumables.map((material) => [material.name, material.num]),
+            ),
+            金条: row.goldbar ?? 0,
+          },
+        })),
+        {
+          bonus1Percent: bonus1.value,
+          bonus4Percent: bonus4.value,
+          bonus9Percent: bonus9.value,
+        },
+      );
+      result.deterministicClicks += masteryCost.deterministicClicks;
+      result.expectedClicks += masteryCost.expectedClicks;
+      for (const [name, amount] of Object.entries(
+        masteryCost.expectedMaterials,
+      ))
+        addMaterial(name, amount);
+    }
+  }
+  return result;
+});
+const graphPrices = reactive<Record<string, number>>({
+  小黄书: 12500,
+  金条: 1,
+});
+function graphMaterialPrice(name: string) {
+  if (Number.isFinite(graphPrices[name])) return graphPrices[name]!;
+  const bundled = (
+    (graph.value.e_0 ?? []) as Array<{ name: string; price: number }>
+  ).find((item) => item.name === name)?.price;
+  return bundled ?? masteryPrice(name);
+}
+const graphUpgradeGoldValue = computed(() =>
+  Object.entries(graphUpgradeCost.value.materials).reduce(
+    (sum, [name, amount]) => sum + amount * graphMaterialPrice(name),
+    0,
+  ),
+);
 watch(graphType, () => {
   selectedGraphEquipment.value = null;
   graphEquipmentQuery.value = "";
@@ -886,6 +1261,7 @@ function snapshot(): Record<string, unknown> {
     bonus9: bonus9.value,
     simulationSeed: simulationSeed.value,
     masteryEquipmentIndex: masteryEquipmentIndex.value,
+    masteryVersionLevelIndex: masteryVersionLevelIndex.value,
     masteryFrom: masteryFrom.value,
     masteryTo: masteryTo.value,
     equipmentUnitPrice: equipmentUnitPrice.value,
@@ -908,12 +1284,20 @@ function snapshot(): Record<string, unknown> {
     graphRecipeResearch: graphRecipeResearch.value,
     graphRecipeMastery: graphRecipeMastery.value,
     graphSelectedSkins: [...graphSelectedSkins.value],
-    graphPortfolio: Object.fromEntries(
-      Object.entries(graphPortfolio).map(([name, state]) => [
+    graphPortfolioMode: graphPortfolioMode.value,
+    graphCurrentPortfolio: Object.fromEntries(
+      Object.entries(graphCurrentPortfolio).map(([name, state]) => [
         name,
         { ...state, skins: [...state.skins] },
       ]),
     ),
+    graphTargetPortfolio: Object.fromEntries(
+      Object.entries(graphTargetPortfolio).map(([name, state]) => [
+        name,
+        { ...state, skins: [...state.skins] },
+      ]),
+    ),
+    graphPrices: { ...graphPrices },
     geneProgress: geneProgress.value,
     gene2: humanGene2.value,
     gene4: humanGene4.value,
@@ -950,6 +1334,7 @@ function applyPlan(plan: GrowthPlan) {
     bonus4,
     bonus9,
     masteryEquipmentIndex,
+    masteryVersionLevelIndex,
     masteryFrom,
     masteryTo,
     equipmentUnitPrice,
@@ -1022,12 +1407,16 @@ function applyPlan(plan: GrowthPlan) {
     graphSelectedSkins.value = p.graphSelectedSkins.filter(
       (name): name is string => typeof name === "string",
     );
-  if (p.graphPortfolio && typeof p.graphPortfolio === "object") {
-    for (const key of Object.keys(graphPortfolio)) delete graphPortfolio[key];
-    for (const [name, value] of Object.entries(p.graphPortfolio))
+  const restoreGraphPortfolio = (
+    target: Record<string, GraphRecipeState>,
+    source: unknown,
+  ) => {
+    for (const key of Object.keys(target)) delete target[key];
+    if (!source || typeof source !== "object") return;
+    for (const [name, value] of Object.entries(source))
       if (value && typeof value === "object") {
         const state = value as Partial<GraphRecipeState>;
-        graphPortfolio[name] = {
+        target[name] = {
           star: Number(state.star) || 0,
           research: Number(state.research) || 0,
           mastery: Number(state.mastery) || 0,
@@ -1038,7 +1427,16 @@ function applyPlan(plan: GrowthPlan) {
             : [],
         };
       }
-  }
+  };
+  restoreGraphPortfolio(graphCurrentPortfolio, p.graphCurrentPortfolio);
+  restoreGraphPortfolio(
+    graphTargetPortfolio,
+    p.graphTargetPortfolio ?? p.graphPortfolio,
+  );
+  if (p.graphPortfolioMode === "current" || p.graphPortfolioMode === "target")
+    graphPortfolioMode.value = p.graphPortfolioMode;
+  if (p.graphPrices && typeof p.graphPrices === "object")
+    Object.assign(graphPrices, p.graphPrices);
 }
 </script>
 
@@ -1219,18 +1617,28 @@ function applyPlan(plan: GrowthPlan) {
               {{ name }}
             </option>
           </select></label
+        ><label v-if="masteryEquipmentIndex < 9"
+          >版本装备等级<select v-model.number="masteryVersionLevelIndex">
+            <option
+              v-for="(level, index) in masteryVersionLevels"
+              :key="level"
+              :value="index"
+            >
+              {{ level }}级（专精上限 {{ masteryVersionCaps[index] }}）
+            </option>
+          </select></label
         ><label
           >当前专精<input
             v-model.number="masteryFrom"
             type="number"
             min="0"
-            max="34" /></label
+            :max="Math.max(0, masteryLevelCap - 1)" /></label
         ><label
           >目标专精<input
             v-model.number="masteryTo"
             type="number"
             min="1"
-            max="35" /></label
+            :max="masteryLevelCap" /></label
         ><label
           >装备单价<input
             v-model.number="equipmentUnitPrice"
@@ -1460,6 +1868,30 @@ function applyPlan(plan: GrowthPlan) {
     </div>
 
     <div v-else-if="active === 'graph'" class="growth-page">
+      <section class="graph-mode-switch">
+        <button
+          :class="{ active: graphPortfolioMode === 'current' }"
+          @click="
+            graphPortfolioMode = 'current';
+            selectedGraphEquipment = null;
+          "
+        >
+          ① 当前图谱
+        </button>
+        <button
+          :class="{ active: graphPortfolioMode === 'target' }"
+          @click="
+            graphPortfolioMode = 'target';
+            selectedGraphEquipment = null;
+          "
+        >
+          ② 目标图谱
+        </button>
+        <button @click="copyCurrentGraphToTarget">复制当前 → 目标</button>
+        <button @click="fillActiveGraphCategory(false)">拉满已保存配方</button>
+        <button @click="fillActiveGraphCategory(true)">本类全部拉满</button>
+        <button @click="clearActiveGraphCategory">清空当前分类</button>
+      </section>
       <section class="growth-controls">
         <label
           >图谱<select v-model.number="graphType">
@@ -1468,43 +1900,79 @@ function applyPlan(plan: GrowthPlan) {
             </option>
           </select></label
         ><label
-          >当前等级<input
-            v-model.number="graphFrom"
-            type="number"
-            min="1"
-            max="9" /></label
-        ><label
-          >目标等级<input
-            v-model.number="graphTo"
-            type="number"
-            min="1"
-            max="9" /></label
-        ><label
           >搜索配方<input
             v-model="graphEquipmentQuery"
             placeholder="装备或涂装"
         /></label>
       </section>
-      <p v-if="graphInputError" class="input-error" role="alert">
-        {{ graphInputError }}
+      <p
+        v-for="error in graphUpgradeCost.errors"
+        :key="error"
+        class="input-error"
+        role="alert"
+      >
+        {{ error }}
       </p>
       <div class="result-cards">
         <article>
-          <span>当前精通度</span><strong>{{ graphCurrent?.exp }}</strong>
+          <span>当前图谱</span
+          ><strong
+            >Lv {{ graphCurrentPortfolioLevel }} ·
+            {{ format(graphCurrentContribution) }}精通</strong
+          >
         </article>
         <article>
-          <span>目标精通度</span><strong>{{ graphTarget?.exp }}</strong>
+          <span>目标图谱</span
+          ><strong
+            >Lv {{ graphTargetPortfolioLevel }} ·
+            {{ format(graphTargetContribution) }}精通</strong
+          >
         </article>
         <article>
-          <span>还需精通度</span
+          <span>新增精通度</span
           ><strong>{{
-            Math.max(0, (graphTarget?.exp ?? 0) - (graphCurrent?.exp ?? 0))
+            format(graphTargetContribution - graphCurrentContribution)
           }}</strong>
         </article>
         <article>
-          <span>本类配方</span><strong>{{ graphEquipment.length }}</strong>
+          <span>升级期望点击</span
+          ><strong>{{ format(graphUpgradeCost.expectedClicks) }}</strong>
+        </article>
+        <article>
+          <span>按单价估算金条</span
+          ><strong>{{ format(graphUpgradeGoldValue) }}</strong>
         </article>
       </div>
+      <details class="graph-overview">
+        <summary>查看七类图谱当前 → 目标总览</summary>
+        <div>
+          <article v-for="row in graphAllTypeSummary" :key="row.name">
+            <strong>{{ row.name }}</strong
+            ><span>Lv {{ row.currentLevel }} · {{ format(row.current) }}</span
+            ><b>→</b
+            ><span>Lv {{ row.targetLevel }} · {{ format(row.target) }}</span>
+          </article>
+        </div>
+      </details>
+      <details class="material-price-editor">
+        <summary>图谱升级消耗与材料单价</summary>
+        <div class="result-cards graph-cost-cards">
+          <article
+            v-for="(amount, name) in graphUpgradeCost.materials"
+            :key="name"
+          >
+            <span>预计{{ name }}</span
+            ><strong>{{ format(amount) }}</strong
+            ><label
+              >单价<input
+                v-model.number="graphPrices[name]"
+                type="number"
+                min="0"
+                :placeholder="String(graphMaterialPrice(name))"
+            /></label>
+          </article>
+        </div>
+      </details>
       <details class="data-table collapsible-table">
         <summary>{{ graphTypes[graphType] }}完整属性（按需展开）</summary>
         <div v-for="row in graphLevels" :key="row.id">
@@ -1566,21 +2034,20 @@ function applyPlan(plan: GrowthPlan) {
             ><strong>{{ graphRecipeContribution }}</strong>
           </article>
           <article>
-            <span>已保存图谱总精通</span
+            <span
+              >{{
+                graphPortfolioMode === "current" ? "当前" : "目标"
+              }}分类已保存精通</span
             ><strong>{{ graphPortfolioContribution }}</strong>
-          </article>
-          <article>
-            <span>距图谱目标尚差</span
-            ><strong>{{
-              Math.max(0, (graphTarget?.exp ?? 0) - graphPortfolioContribution)
-            }}</strong>
           </article>
         </div>
         <button class="compare-action" @click="saveGraphRecipe">
-          保存到当前图谱
+          保存到{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱
         </button>
         <p class="growth-note">
-          精通度严格按原版的初始值、升星表、专研/专精表及具体涂装收集值计算。保存后会计入当前图谱总精通。
+          当前正在编辑“{{
+            graphPortfolioMode === "current" ? "当前" : "目标"
+          }}图谱”。精通度与升级消耗按原版升星、专研、专精、装备等级、暴击规则及具体涂装计算。
         </p>
       </section>
       <details v-if="graphPortfolioItems.length" class="configured-recipes">
@@ -1590,7 +2057,7 @@ function applyPlan(plan: GrowthPlan) {
             <button @click="selectGraphEquipment(entry.item)">
               <strong>{{ entry.item.name }}</strong
               ><span>{{ entry.contribution }}精通</span></button
-            ><button @click="delete graphPortfolio[entry.item.name]">
+            ><button @click="delete activeGraphPortfolio[entry.item.name]">
               移除
             </button>
           </article>
@@ -1601,10 +2068,22 @@ function applyPlan(plan: GrowthPlan) {
         <article
           v-for="item in graphEquipment"
           :key="item.name"
-          :class="{ active: selectedGraphEquipment?.name === item.name }"
+          :class="{
+            active: selectedGraphEquipment?.name === item.name,
+            configured: Boolean(activeGraphPortfolio[item.name]),
+          }"
           @click="selectGraphEquipment(item)"
         >
           <strong>{{ item.name }}</strong
+          ><small v-if="activeGraphPortfolio[item.name]"
+            >已加入{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱
+            ·
+            {{
+              calculateGraphContribution(
+                item,
+                activeGraphPortfolio[item.name]!,
+              )
+            }}精通</small
           ><span
             >初始精通 {{ item.init_value }} · 升星 {{ item.max_star ?? "—" }} ·
             专研 {{ item.max_zy ?? "—" }} · 专精 {{ item.max_zj ?? "—" }}</span
