@@ -657,6 +657,31 @@ function graphSavedContribution(item: GraphEquipment) {
   const state = graphCurrentPortfolio[item.name];
   return state ? calculateGraphContribution(item, state) : 0;
 }
+function graphResearchCapForStar(item: GraphEquipment, star: number) {
+  const capByStar = [10, 15, 20, 25, 30, 30];
+  return Math.min(item.max_zy ?? 0, capByStar[Math.max(0, Math.min(5, star))]!);
+}
+function graphMasteryCapForStar(item: GraphEquipment, star: number) {
+  if (star < 4) return 0;
+  if (star === 4) return Math.min(item.max_zj ?? 0, 20);
+  return item.max_zj ?? 0;
+}
+const graphSelectedResearchCap = computed(() =>
+  selectedGraphEquipment.value
+    ? graphResearchCapForStar(
+        selectedGraphEquipment.value,
+        graphRecipeStar.value,
+      )
+    : 0,
+);
+const graphSelectedMasteryCap = computed(() =>
+  selectedGraphEquipment.value
+    ? graphMasteryCapForStar(
+        selectedGraphEquipment.value,
+        graphRecipeStar.value,
+      )
+    : 0,
+);
 const graphPortfolioItems = computed(() => {
   const all = (graph.value[graphEquipmentKeys[graphType.value]!] ??
     []) as GraphEquipment[];
@@ -800,6 +825,52 @@ function saveGraphRecipe() {
     mastery: graphRecipeMastery.value,
     skins: [...graphSelectedSkins.value],
   };
+}
+function updateGraphRecipeStar() {
+  const item = selectedGraphEquipment.value;
+  if (!item) return;
+  graphRecipeResearch.value = Math.min(
+    graphRecipeResearch.value,
+    graphResearchCapForStar(item, graphRecipeStar.value),
+  );
+  graphRecipeMastery.value = Math.min(
+    graphRecipeMastery.value,
+    graphMasteryCapForStar(item, graphRecipeStar.value),
+  );
+  if (graphRecipeResearch.value < (item.max_zy ?? 0))
+    graphRecipeMastery.value = 0;
+  saveGraphRecipe();
+}
+function updateGraphRecipeResearch() {
+  const item = selectedGraphEquipment.value;
+  if (!item) return;
+  const research = graphRecipeResearch.value;
+  const requiredStar =
+    research > 25
+      ? 4
+      : research > 20
+        ? 3
+        : research > 15
+          ? 2
+          : research > 10
+            ? 1
+            : 0;
+  graphRecipeStar.value = Math.max(graphRecipeStar.value, requiredStar);
+  if (research < (item.max_zy ?? 0)) graphRecipeMastery.value = 0;
+  saveGraphRecipe();
+}
+function updateGraphRecipeMastery() {
+  const item = selectedGraphEquipment.value;
+  if (!item) return;
+  const mastery = graphRecipeMastery.value;
+  if (mastery > 0) {
+    graphRecipeStar.value = Math.max(
+      graphRecipeStar.value,
+      mastery > 20 ? 5 : 4,
+    );
+    graphRecipeResearch.value = item.max_zy ?? 0;
+  }
+  saveGraphRecipe();
 }
 function removeSelectedGraphRecipe() {
   const item = selectedGraphEquipment.value;
@@ -2141,7 +2212,7 @@ function applyPlan(plan: GrowthPlan) {
                 min="0"
                 :max="selectedGraphEquipment.max_star"
                 step="1"
-                @input="saveGraphRecipe"
+                @input="updateGraphRecipeStar"
             /></label>
             <label
               v-if="(selectedGraphEquipment.max_zy ?? 0) > 0"
@@ -2159,7 +2230,7 @@ function applyPlan(plan: GrowthPlan) {
                 min="0"
                 :max="selectedGraphEquipment.max_zy"
                 step="1"
-                @input="saveGraphRecipe"
+                @input="updateGraphRecipeResearch"
             /></label>
             <label
               v-if="(selectedGraphEquipment.max_zj ?? 0) > 0"
@@ -2177,8 +2248,22 @@ function applyPlan(plan: GrowthPlan) {
                 min="0"
                 :max="selectedGraphEquipment.max_zj"
                 step="1"
-                @input="saveGraphRecipe"
+                @input="updateGraphRecipeMastery"
             /></label>
+            <div class="graph-unlock-rules">
+              <strong>星级解锁规则</strong>
+              <span>专研 0–10：无星级要求</span>
+              <span
+                >专研 11–15：1星 · 16–20：2星 · 21–25：3星 · 26–30：4星</span
+              >
+              <span v-if="(selectedGraphEquipment.max_zj ?? 0) > 0">
+                专精 1–20：4星且专研满级 · 21级以上：5星且专研满级
+              </span>
+              <small>
+                当前星级可用上限：专研 {{ graphSelectedResearchCap }} · 专精
+                {{ graphSelectedMasteryCap }}
+              </small>
+            </div>
           </div>
           <fieldset
             v-if="selectedGraphEquipment.skin?.length"

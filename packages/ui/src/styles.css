@@ -1455,6 +1455,22 @@ input {
   accent-color: #50c2a7;
   cursor: pointer;
 }
+.graph-unlock-rules {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: rgb(231 189 105 / 8%);
+  color: #9bacc1;
+  font-size: 11px;
+}
+.graph-unlock-rules strong {
+  color: #e7bd69;
+}
+.graph-unlock-rules small {
+  margin-top: 3px;
+  color: #8ff0d7;
+}
 .graph-cost-cards {
   padding: 12px;
   border-top: 1px solid rgb(148 163 184 / 12%);

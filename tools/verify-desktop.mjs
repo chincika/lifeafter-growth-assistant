@@ -127,6 +127,28 @@ const evaluation = await send("Runtime.evaluate", {
       Boolean(graphTargetLevelSelect);
     const graphNeededScoreText = document.querySelector('.growth-page > .result-cards article:last-child strong')?.textContent;
     const graphRanges = document.querySelectorAll('.graph-recipe-planner .graph-progress-control input[type="range"]');
+    if (graphRanges[1]) {
+      graphRanges[1].value = '16';
+      graphRanges[1].dispatchEvent(new Event('input', { bubbles: true }));
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    const graphResearchRaisedRequiredStar =
+      graphRanges[0]?.value === '2' && graphRanges[2]?.value === '0';
+    if (graphRanges[2]) {
+      graphRanges[2].value = '21';
+      graphRanges[2].dispatchEvent(new Event('input', { bubbles: true }));
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    const graphMasteryRaisedRequirements =
+      graphRanges[0]?.value === '5' &&
+      graphRanges[1]?.value === graphRanges[1]?.max;
+    if (graphRanges[0]) {
+      graphRanges[0].value = '3';
+      graphRanges[0].dispatchEvent(new Event('input', { bubbles: true }));
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    const graphStarDropClampedProgress =
+      Number(graphRanges[1]?.value) <= 25 && graphRanges[2]?.value === '0';
     if (graphRanges[0]) { graphRanges[0].value = '1'; graphRanges[0].dispatchEvent(new Event('input', { bubbles: true })); }
     if (graphRanges[1]) { graphRanges[1].value = '1'; graphRanges[1].dispatchEvent(new Event('input', { bubbles: true })); }
     await new Promise((resolve) => setTimeout(resolve, 20));
@@ -152,8 +174,27 @@ const evaluation = await send("Runtime.evaluate", {
     const graphSecondClickCancelled =
       !document.querySelector('.graph-editor-dialog') &&
       !document.querySelector('.equipment-catalog article.active');
-    const planId = await window.desktopApi.saveGrowthPlan({ name: '自动测试养成方案', module: 'research', payload: { from: 0, to: 30 } });
-    const growthPlanPersisted = (await window.desktopApi.listGrowthPlans()).some((plan) => plan.id === planId && plan.payload.to === 30);
+    const preservedGraphPayload = {
+      graphTargetLevels: [1, 2, 3, 4, 5, 6, 7],
+      graphCurrentPortfolio: {
+        '哨兵战术霰弹枪': {
+          star: 5,
+          research: 30,
+          mastery: 35,
+          skins: ['雨战'],
+        },
+      },
+    };
+    const planId = await window.desktopApi.saveGrowthPlan({
+      name: '自动测试图谱方案',
+      module: 'graph',
+      payload: preservedGraphPayload,
+    });
+    const growthPlanPersisted = (await window.desktopApi.listGrowthPlans()).some(
+      (plan) =>
+        plan.id === planId &&
+        JSON.stringify(plan.payload) === JSON.stringify(preservedGraphPayload),
+    );
     await window.desktopApi.deleteGrowthPlan(planId);
     return {
       title: document.title,
@@ -181,6 +222,9 @@ const evaluation = await send("Runtime.evaluate", {
       graphDialogOpened,
       graphErrorsAfterCurrent,
       graphProgressControlCount,
+      graphResearchRaisedRequiredStar,
+      graphMasteryRaisedRequirements,
+      graphStarDropClampedProgress,
       graphTargetLevelOnly,
       graphNeededScoreText,
       graphErrorsAfterCurrentEdit,
@@ -265,6 +309,14 @@ if (
   throw new Error("Graph recipe editing raised an invalid downgrade error");
 if (result.graphProgressControlCount < 3)
   throw new Error("Graph research and mastery progress sliders did not render");
+if (
+  !result.graphResearchRaisedRequiredStar ||
+  !result.graphMasteryRaisedRequirements ||
+  !result.graphStarDropClampedProgress
+)
+  throw new Error(
+    "Graph star, research, and mastery unlock rules were not enforced",
+  );
 if (!result.graphTargetLevelOnly)
   throw new Error("Graph target should be configured by level only");
 if (
