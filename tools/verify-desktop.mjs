@@ -120,6 +120,8 @@ const evaluation = await send("Runtime.evaluate", {
     document.querySelector('.skin-selector input')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     const graphContributionAfterSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
+    const graphErrorsAfterCurrentEdit = document.querySelectorAll('.growth-page .input-error').length;
+    const graphSummaryAfterCurrentEdit = [...document.querySelectorAll('.growth-page > .result-cards strong')].map((node) => node.textContent);
     await new Promise((resolve) => setTimeout(resolve, 20));
     [...document.querySelectorAll('.graph-mode-switch button')].find((button) => button.textContent?.includes('复制当前'))?.click();
     await new Promise((resolve) => setTimeout(resolve, 30));
@@ -175,6 +177,9 @@ const evaluation = await send("Runtime.evaluate", {
       graphDialogOpened,
       graphErrorsAfterCurrent,
       graphCurrentInheritedByTarget: graphSummaryCards[0] === graphSummaryCards[1],
+      graphErrorsAfterCurrentEdit,
+      graphTargetTracksCurrentEdits:
+        graphSummaryAfterCurrentEdit[0] === graphSummaryAfterCurrentEdit[1],
       graphSecondClickCancelled,
       graphSkinContributionIncreased: graphContributionAfterSkin > graphContributionBeforeSkin,
       configuredGraphRecipeCount,
@@ -257,6 +262,11 @@ if (
   throw new Error(
     "Current graph recipe was incorrectly treated as missing from target",
   );
+if (
+  result.graphErrorsAfterCurrentEdit !== 0 ||
+  !result.graphTargetTracksCurrentEdits
+)
+  throw new Error("Target graph baseline did not track current graph edits");
 if (!result.graphSecondClickCancelled)
   throw new Error("Clicking the selected graph recipe again did not cancel it");
 if (!result.graphSkinContributionIncreased)

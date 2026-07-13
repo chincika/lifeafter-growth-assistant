@@ -566,6 +566,33 @@ const graphMasteryTables = computed(
 const graphPortfolioMode = ref<"current" | "target">("current");
 const graphCurrentPortfolio = reactive<Record<string, GraphRecipeState>>({});
 const graphTargetPortfolio = reactive<Record<string, GraphRecipeState>>({});
+const effectiveGraphTargetPortfolio = computed<
+  Record<string, GraphRecipeState>
+>(() => {
+  const result: Record<string, GraphRecipeState> = {};
+  const names = new Set([
+    ...Object.keys(graphCurrentPortfolio),
+    ...Object.keys(graphTargetPortfolio),
+  ]);
+  for (const name of names) {
+    const current = graphCurrentPortfolio[name];
+    const target = graphTargetPortfolio[name];
+    if (!current && target) {
+      result[name] = { ...target, skins: [...target.skins] };
+      continue;
+    }
+    if (!current) continue;
+    result[name] = target
+      ? {
+          star: Math.max(current.star, target.star),
+          research: Math.max(current.research, target.research),
+          mastery: Math.max(current.mastery, target.mastery),
+          skins: [...new Set([...current.skins, ...target.skins])],
+        }
+      : { ...current, skins: [...current.skins] };
+  }
+  return result;
+});
 const activeGraphPortfolio = computed(() =>
   graphPortfolioMode.value === "current"
     ? graphCurrentPortfolio
@@ -657,7 +684,7 @@ function graphEntries(
 }
 const graphCurrentItems = computed(() => graphEntries(graphCurrentPortfolio));
 const graphTargetItems = computed(() =>
-  graphEntries(graphTargetPortfolio, graphCurrentPortfolio),
+  graphEntries(effectiveGraphTargetPortfolio.value),
 );
 const graphCurrentContribution = computed(() =>
   graphCurrentItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
@@ -692,7 +719,7 @@ const graphAllTypeSummary = computed(() =>
     const level = (value: number) =>
       levels.reduce((result, row) => (value >= row.exp ? row.id : result), 1);
     const current = score(graphCurrentPortfolio),
-      target = score(graphTargetPortfolio, graphCurrentPortfolio);
+      target = score(effectiveGraphTargetPortfolio.value);
     return {
       name,
       current,
@@ -746,13 +773,12 @@ function removeSelectedGraphRecipe() {
   if (
     graphPortfolioMode.value === "current" &&
     graphTargetPortfolio[item.name] &&
-    JSON.stringify(graphTargetPortfolio[item.name]) ===
-      JSON.stringify({
-        star: graphRecipeStar.value,
-        research: graphRecipeResearch.value,
-        mastery: graphRecipeMastery.value,
-        skins: graphSelectedSkins.value,
-      })
+    graphTargetPortfolio[item.name]!.star <= graphRecipeStar.value &&
+    graphTargetPortfolio[item.name]!.research <= graphRecipeResearch.value &&
+    graphTargetPortfolio[item.name]!.mastery <= graphRecipeMastery.value &&
+    graphTargetPortfolio[item.name]!.skins.every((skin) =>
+      graphSelectedSkins.value.includes(skin),
+    )
   )
     delete graphTargetPortfolio[item.name];
   graphRecipeStar.value = 0;
@@ -777,24 +803,15 @@ function selectGraphEquipment(item: GraphEquipment) {
   }
   selectedGraphEquipment.value = item;
   const saved =
-    activeGraphPortfolio.value[item.name] ??
-    (graphPortfolioMode.value === "target"
-      ? graphCurrentPortfolio[item.name]
-      : undefined);
+    graphPortfolioMode.value === "target"
+      ? effectiveGraphTargetPortfolio.value[item.name]
+      : activeGraphPortfolio.value[item.name];
   graphRecipeStar.value = saved?.star ?? 0;
   graphRecipeResearch.value = saved?.research ?? 0;
   graphRecipeMastery.value = saved?.mastery ?? 0;
   graphSelectedSkins.value = [...(saved?.skins ?? [])];
   if (!activeGraphPortfolio.value[item.name]) {
     saveGraphRecipe();
-    if (
-      graphPortfolioMode.value === "current" &&
-      !graphTargetPortfolio[item.name]
-    )
-      graphTargetPortfolio[item.name] = {
-        ...graphCurrentPortfolio[item.name]!,
-        skins: [...graphCurrentPortfolio[item.name]!.skins],
-      };
   }
 }
 function copyCurrentGraphToTarget() {
@@ -935,8 +952,7 @@ const graphUpgradeCost = computed<GraphUpgradeCost>(() => {
         mastery: 0,
         skins: [],
       };
-      const target =
-        graphTargetPortfolio[item.name] ?? graphCurrentPortfolio[item.name];
+      const target = effectiveGraphTargetPortfolio.value[item.name];
       if (!target) continue;
       if (
         target.star < current.star ||
