@@ -112,6 +112,9 @@ const evaluation = await send("Runtime.evaluate", {
     await new Promise((resolve) => setTimeout(resolve, 20));
     document.querySelector('.equipment-catalog article')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
+    const graphDialogOpened = Boolean(document.querySelector('.graph-editor-dialog'));
+    const graphErrorsAfterCurrent = document.querySelectorAll('.growth-page .input-error').length;
+    const graphSummaryCards = [...document.querySelectorAll('.growth-page > .result-cards strong')].map((node) => node.textContent);
     const graphRecipePlanner = document.querySelector('.graph-recipe-planner')?.textContent;
     const graphContributionBeforeSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
     document.querySelector('.skin-selector input')?.click();
@@ -138,6 +141,11 @@ const evaluation = await send("Runtime.evaluate", {
     if (fireInputs[2]) { fireInputs[2].value = '20'; fireInputs[2].dispatchEvent(new Event('input', { bubbles: true })); }
     await new Promise((resolve) => setTimeout(resolve, 20));
     const fireThrowerContribution = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
+    document.querySelector('.equipment-catalog article.active')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const graphSecondClickCancelled =
+      !document.querySelector('.graph-editor-dialog') &&
+      !document.querySelector('.equipment-catalog article.active');
     const planId = await window.desktopApi.saveGrowthPlan({ name: '自动测试养成方案', module: 'research', payload: { from: 0, to: 30 } });
     const growthPlanPersisted = (await window.desktopApi.listGrowthPlans()).some((plan) => plan.id === planId && plan.payload.to === 30);
     await window.desktopApi.deleteGrowthPlan(planId);
@@ -164,6 +172,10 @@ const evaluation = await send("Runtime.evaluate", {
       comparedChipCount,
       geneNodePlanner,
       graphRecipePlanner,
+      graphDialogOpened,
+      graphErrorsAfterCurrent,
+      graphCurrentInheritedByTarget: graphSummaryCards[0] === graphSummaryCards[1],
+      graphSecondClickCancelled,
       graphSkinContributionIncreased: graphContributionAfterSkin > graphContributionBeforeSkin,
       configuredGraphRecipeCount,
       graphUpgradeCostText,
@@ -236,6 +248,17 @@ if (
   throw new Error("Growth modules did not render");
 if (!result.graphRecipePlanner?.includes("配方精通规划"))
   throw new Error("Graph recipe planner did not render");
+if (!result.graphDialogOpened)
+  throw new Error("Graph recipe details did not open in a dialog");
+if (
+  result.graphErrorsAfterCurrent !== 0 ||
+  !result.graphCurrentInheritedByTarget
+)
+  throw new Error(
+    "Current graph recipe was incorrectly treated as missing from target",
+  );
+if (!result.graphSecondClickCancelled)
+  throw new Error("Clicking the selected graph recipe again did not cancel it");
 if (!result.graphSkinContributionIncreased)
   throw new Error("Graph skin contribution was not calculated");
 if (result.configuredGraphRecipeCount !== 1)

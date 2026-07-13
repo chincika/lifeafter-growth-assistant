@@ -638,19 +638,27 @@ const graphPortfolioItems = computed(() => {
 const graphPortfolioContribution = computed(() =>
   graphPortfolioItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
 );
-function graphEntries(portfolio: Record<string, GraphRecipeState>) {
+function graphEntries(
+  portfolio: Record<string, GraphRecipeState>,
+  fallback?: Record<string, GraphRecipeState>,
+) {
   const all = (graph.value[graphEquipmentKeys[graphType.value]!] ??
     []) as GraphEquipment[];
   return all
-    .filter((item) => portfolio[item.name])
+    .filter((item) => portfolio[item.name] ?? fallback?.[item.name])
     .map((item) => ({
       item,
-      state: portfolio[item.name]!,
-      contribution: calculateGraphContribution(item, portfolio[item.name]!),
+      state: (portfolio[item.name] ?? fallback?.[item.name])!,
+      contribution: calculateGraphContribution(
+        item,
+        (portfolio[item.name] ?? fallback?.[item.name])!,
+      ),
     }));
 }
 const graphCurrentItems = computed(() => graphEntries(graphCurrentPortfolio));
-const graphTargetItems = computed(() => graphEntries(graphTargetPortfolio));
+const graphTargetItems = computed(() =>
+  graphEntries(graphTargetPortfolio, graphCurrentPortfolio),
+);
 const graphCurrentContribution = computed(() =>
   graphCurrentItems.value.reduce((sum, entry) => sum + entry.contribution, 0),
 );
@@ -673,18 +681,18 @@ const graphAllTypeSummary = computed(() =>
     const items = (graph.value[graphEquipmentKeys[index]!] ??
       []) as GraphEquipment[];
     const levels = (graph.value[graphKeys[index]!] ?? []) as GraphLevel[];
-    const score = (portfolio: Record<string, GraphRecipeState>) =>
-      items.reduce(
-        (sum, item) =>
-          portfolio[item.name]
-            ? sum + calculateGraphContribution(item, portfolio[item.name]!)
-            : sum,
-        0,
-      );
+    const score = (
+      portfolio: Record<string, GraphRecipeState>,
+      fallback?: Record<string, GraphRecipeState>,
+    ) =>
+      items.reduce((sum, item) => {
+        const state = portfolio[item.name] ?? fallback?.[item.name];
+        return state ? sum + calculateGraphContribution(item, state) : sum;
+      }, 0);
     const level = (value: number) =>
       levels.reduce((result, row) => (value >= row.exp ? row.id : result), 1);
     const current = score(graphCurrentPortfolio),
-      target = score(graphTargetPortfolio);
+      target = score(graphTargetPortfolio, graphCurrentPortfolio);
     return {
       name,
       current,
@@ -735,10 +743,23 @@ function removeSelectedGraphRecipe() {
   const item = selectedGraphEquipment.value;
   if (!item) return;
   delete activeGraphPortfolio.value[item.name];
+  if (
+    graphPortfolioMode.value === "current" &&
+    graphTargetPortfolio[item.name] &&
+    JSON.stringify(graphTargetPortfolio[item.name]) ===
+      JSON.stringify({
+        star: graphRecipeStar.value,
+        research: graphRecipeResearch.value,
+        mastery: graphRecipeMastery.value,
+        skins: graphSelectedSkins.value,
+      })
+  )
+    delete graphTargetPortfolio[item.name];
   graphRecipeStar.value = 0;
   graphRecipeResearch.value = 0;
   graphRecipeMastery.value = 0;
   graphSelectedSkins.value = [];
+  selectedGraphEquipment.value = null;
 }
 function maxSelectedGraphRecipe() {
   const item = selectedGraphEquipment.value;
@@ -750,6 +771,10 @@ function maxSelectedGraphRecipe() {
   saveGraphRecipe();
 }
 function selectGraphEquipment(item: GraphEquipment) {
+  if (selectedGraphEquipment.value?.name === item.name) {
+    removeSelectedGraphRecipe();
+    return;
+  }
   selectedGraphEquipment.value = item;
   const saved =
     activeGraphPortfolio.value[item.name] ??
@@ -760,7 +785,17 @@ function selectGraphEquipment(item: GraphEquipment) {
   graphRecipeResearch.value = saved?.research ?? 0;
   graphRecipeMastery.value = saved?.mastery ?? 0;
   graphSelectedSkins.value = [...(saved?.skins ?? [])];
-  if (!activeGraphPortfolio.value[item.name]) saveGraphRecipe();
+  if (!activeGraphPortfolio.value[item.name]) {
+    saveGraphRecipe();
+    if (
+      graphPortfolioMode.value === "current" &&
+      !graphTargetPortfolio[item.name]
+    )
+      graphTargetPortfolio[item.name] = {
+        ...graphCurrentPortfolio[item.name]!,
+        skins: [...graphCurrentPortfolio[item.name]!.skins],
+      };
+  }
 }
 function copyCurrentGraphToTarget() {
   for (const key of Object.keys(graphTargetPortfolio))
@@ -900,12 +935,9 @@ const graphUpgradeCost = computed<GraphUpgradeCost>(() => {
         mastery: 0,
         skins: [],
       };
-      const target = graphTargetPortfolio[item.name];
-      if (!target) {
-        if (graphCurrentPortfolio[item.name])
-          result.errors.push(`${item.name}未保留在目标图谱中`);
-        continue;
-      }
+      const target =
+        graphTargetPortfolio[item.name] ?? graphCurrentPortfolio[item.name];
+      if (!target) continue;
       if (
         target.star < current.star ||
         target.research < current.research ||
@@ -2058,78 +2090,93 @@ function applyPlan(plan: GrowthPlan) {
           <small v-else>未录入 · 初始 {{ item.init_value }}精通</small>
         </article>
       </section>
-      <section
+      <div
         v-if="selectedGraphEquipment"
-        class="chip-detail graph-recipe-planner"
+        class="graph-editor-backdrop"
+        @click.self="selectedGraphEquipment = null"
       >
-        <h3>{{ selectedGraphEquipment.name }} · 配方精通规划</h3>
-        <div class="growth-controls">
-          <label v-if="(selectedGraphEquipment.max_star ?? 0) > 0"
-            >星级<input
-              v-model.number="graphRecipeStar"
-              type="number"
-              min="0"
-              :max="selectedGraphEquipment.max_star"
-              @input="saveGraphRecipe"
-          /></label>
-          <label v-if="(selectedGraphEquipment.max_zy ?? 0) > 0"
-            >专研<input
-              v-model.number="graphRecipeResearch"
-              type="number"
-              min="0"
-              :max="selectedGraphEquipment.max_zy"
-              @input="saveGraphRecipe"
-          /></label>
-          <label v-if="(selectedGraphEquipment.max_zj ?? 0) > 0"
-            >专精<input
-              v-model.number="graphRecipeMastery"
-              type="number"
-              min="0"
-              :max="selectedGraphEquipment.max_zj"
-              @input="saveGraphRecipe"
-          /></label>
-        </div>
-        <fieldset
-          v-if="selectedGraphEquipment.skin?.length"
-          class="skin-selector"
+        <section
+          class="chip-detail graph-recipe-planner graph-editor-dialog"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="`${selectedGraphEquipment.name}配方详情`"
         >
-          <legend>选择实际已收集涂装</legend>
-          <label v-for="skin in selectedGraphEquipment.skin" :key="skin.name"
-            ><input
-              v-model="graphSelectedSkins"
-              type="checkbox"
-              :value="skin.name"
-              @change="saveGraphRecipe"
-            />{{ skin.name }}（{{ skin.value ?? 0 }}精通）</label
+          <button
+            class="graph-editor-close"
+            aria-label="关闭配方详情"
+            @click="selectedGraphEquipment = null"
           >
-        </fieldset>
-        <div class="result-cards">
-          <article>
-            <span>当前配方精通度</span
-            ><strong>{{ graphRecipeContribution }}</strong>
-          </article>
-          <article>
-            <span
-              >{{
-                graphPortfolioMode === "current" ? "当前" : "目标"
-              }}分类已保存精通</span
-            ><strong>{{ graphPortfolioContribution }}</strong>
-          </article>
-        </div>
-        <div class="graph-editor-actions">
-          <button class="compare-action" @click="maxSelectedGraphRecipe">
-            本配方全部拉满
+            ×
           </button>
-          <button class="danger-action" @click="removeSelectedGraphRecipe">
-            从{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱移除
-          </button>
-        </div>
-        <p class="growth-note">
-          当前正在编辑“{{
-            graphPortfolioMode === "current" ? "当前" : "目标"
-          }}图谱”，修改会立即计入结果。精通度与升级消耗按升星、专研、专精、装备等级及具体涂装计算。
-        </p>
-      </section>
+          <h3>{{ selectedGraphEquipment.name }} · 配方精通规划</h3>
+          <div class="growth-controls">
+            <label v-if="(selectedGraphEquipment.max_star ?? 0) > 0"
+              >星级<input
+                v-model.number="graphRecipeStar"
+                type="number"
+                min="0"
+                :max="selectedGraphEquipment.max_star"
+                @input="saveGraphRecipe"
+            /></label>
+            <label v-if="(selectedGraphEquipment.max_zy ?? 0) > 0"
+              >专研<input
+                v-model.number="graphRecipeResearch"
+                type="number"
+                min="0"
+                :max="selectedGraphEquipment.max_zy"
+                @input="saveGraphRecipe"
+            /></label>
+            <label v-if="(selectedGraphEquipment.max_zj ?? 0) > 0"
+              >专精<input
+                v-model.number="graphRecipeMastery"
+                type="number"
+                min="0"
+                :max="selectedGraphEquipment.max_zj"
+                @input="saveGraphRecipe"
+            /></label>
+          </div>
+          <fieldset
+            v-if="selectedGraphEquipment.skin?.length"
+            class="skin-selector"
+          >
+            <legend>选择实际已收集涂装</legend>
+            <label v-for="skin in selectedGraphEquipment.skin" :key="skin.name"
+              ><input
+                v-model="graphSelectedSkins"
+                type="checkbox"
+                :value="skin.name"
+                @change="saveGraphRecipe"
+              />{{ skin.name }}（{{ skin.value ?? 0 }}精通）</label
+            >
+          </fieldset>
+          <div class="result-cards">
+            <article>
+              <span>当前配方精通度</span
+              ><strong>{{ graphRecipeContribution }}</strong>
+            </article>
+            <article>
+              <span
+                >{{
+                  graphPortfolioMode === "current" ? "当前" : "目标"
+                }}分类已保存精通</span
+              ><strong>{{ graphPortfolioContribution }}</strong>
+            </article>
+          </div>
+          <div class="graph-editor-actions">
+            <button class="compare-action" @click="maxSelectedGraphRecipe">
+              本配方全部拉满
+            </button>
+            <button class="danger-action" @click="removeSelectedGraphRecipe">
+              从{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱移除
+            </button>
+          </div>
+          <p class="growth-note">
+            当前正在编辑“{{
+              graphPortfolioMode === "current" ? "当前" : "目标"
+            }}图谱”，修改会立即计入结果。精通度与升级消耗按升星、专研、专精、装备等级及具体涂装计算。
+          </p>
+        </section>
+      </div>
       <details v-if="graphPortfolioItems.length" class="configured-recipes">
         <summary>已配置配方（{{ graphPortfolioItems.length }}）</summary>
         <div>

@@ -1354,6 +1354,45 @@ input {
   flex-wrap: wrap;
   gap: 8px;
 }
+.graph-editor-backdrop {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(3 9 18 / 72%);
+  backdrop-filter: blur(5px);
+}
+.graph-editor-dialog {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
+  margin: 0;
+  overflow: auto;
+  border: 1px solid rgb(80 194 167 / 42%);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
+}
+.graph-editor-close {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgb(148 163 184 / 20%);
+  border-radius: 50%;
+  background: #111c2e;
+  color: #cbd8e6;
+  font-size: 22px;
+  cursor: pointer;
+}
+.graph-editor-dialog > h3 {
+  padding-right: 42px;
+}
 .graph-cost-cards {
   padding: 12px;
   border-top: 1px solid rgb(148 163 184 / 12%);
@@ -1456,6 +1495,13 @@ input {
   .graph-toolbar details > div {
     right: auto;
     left: 0;
+  }
+  .graph-editor-backdrop {
+    align-items: end;
+    padding: 10px;
+  }
+  .graph-editor-dialog {
+    max-height: calc(100vh - 20px);
   }
 }
 @media (prefers-color-scheme: light) {
