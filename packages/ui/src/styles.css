@@ -1241,6 +1241,35 @@ input {
 .graph-mode-switch button:nth-last-child(-n + 2) {
   margin-left: auto;
 }
+.graph-flow-note {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-left: 3px solid #50c2a7;
+  border-radius: 4px 9px 9px 4px;
+  background: rgb(80 194 167 / 8%);
+}
+.graph-flow-note strong {
+  color: #c8fff1;
+}
+.graph-flow-note span {
+  color: #8fa4bf;
+  font-size: 12px;
+}
+.graph-target-level {
+  display: grid;
+  gap: 7px;
+}
+.graph-target-level select {
+  min-width: 120px;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid rgb(80 194 167 / 35%);
+  border-radius: 7px;
+  background: #0d1727;
+  color: #c8fff1;
+  font-weight: 700;
+}
 .graph-category-tabs {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -1345,6 +1374,10 @@ input {
   margin: 0;
   padding: 9px 10px;
 }
+.graph-recipe-grid article > span {
+  color: #e7bd69;
+  font-size: 10px;
+}
 .graph-recipe-grid article:focus-visible {
   outline: 2px solid #50c2a7;
   outline-offset: 1px;
@@ -1392,6 +1425,35 @@ input {
 }
 .graph-editor-dialog > h3 {
   padding-right: 42px;
+}
+.graph-progress-controls {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid rgb(148 163 184 / 13%);
+  border-radius: 9px;
+  background: rgb(7 15 27 / 55%);
+}
+.graph-progress-control {
+  display: grid;
+  gap: 8px;
+}
+.graph-progress-control > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.graph-progress-control b {
+  color: #dce8f5;
+}
+.graph-progress-control output {
+  color: #8ff0d7;
+  font-variant-numeric: tabular-nums;
+}
+.graph-progress-control input[type="range"] {
+  width: 100%;
+  accent-color: #50c2a7;
+  cursor: pointer;
 }
 .graph-cost-cards {
   padding: 12px;

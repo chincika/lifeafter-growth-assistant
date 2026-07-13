@@ -525,6 +525,7 @@ const graphInputError = computed(() =>
   graphFrom.value > graphTo.value ? "目标图谱等级不能低于当前等级。" : "",
 );
 const graphEquipmentQuery = ref("");
+const graphTargetLevels = reactive<number[]>([1, 1, 1, 1, 1, 1, 1]);
 const graphEquipment = computed(() =>
   (
     (graph.value[graphEquipmentKeys[graphType.value]!] ?? []) as Array<{
@@ -593,11 +594,7 @@ const effectiveGraphTargetPortfolio = computed<
   }
   return result;
 });
-const activeGraphPortfolio = computed(() =>
-  graphPortfolioMode.value === "current"
-    ? graphCurrentPortfolio
-    : graphTargetPortfolio,
-);
+const activeGraphPortfolio = computed(() => graphCurrentPortfolio);
 function tableValue(table: number[] | undefined, level: number) {
   return table?.[Math.max(0, Math.min(level, (table?.length ?? 1) - 1))] ?? 0;
 }
@@ -648,6 +645,18 @@ const graphRecipeContribution = computed(() => {
     skins: graphSelectedSkins.value,
   });
 });
+function graphMaxContribution(item: GraphEquipment) {
+  return calculateGraphContribution(item, {
+    star: item.max_star ?? 0,
+    research: item.max_zy ?? 0,
+    mastery: item.max_zj ?? 0,
+    skins: (item.skin ?? []).map((skin) => skin.name),
+  });
+}
+function graphSavedContribution(item: GraphEquipment) {
+  const state = graphCurrentPortfolio[item.name];
+  return state ? calculateGraphContribution(item, state) : 0;
+}
 const graphPortfolioItems = computed(() => {
   const all = (graph.value[graphEquipmentKeys[graphType.value]!] ??
     []) as GraphEquipment[];
@@ -700,6 +709,27 @@ function graphLevelFromScore(score: number) {
 const graphCurrentPortfolioLevel = computed(() =>
   graphLevelFromScore(graphCurrentContribution.value),
 );
+const graphSelectedTargetLevel = computed({
+  get: () =>
+    Math.max(
+      graphCurrentPortfolioLevel.value,
+      graphTargetLevels[graphType.value] ?? 1,
+    ),
+  set: (value: number) => {
+    graphTargetLevels[graphType.value] = Math.max(
+      graphCurrentPortfolioLevel.value,
+      Math.min(graphLevels.value.length, Number(value) || 1),
+    );
+  },
+});
+const graphSelectedTargetScore = computed(
+  () =>
+    graphLevels.value[graphSelectedTargetLevel.value - 1]?.exp ??
+    graphCurrentContribution.value,
+);
+const graphSelectedNeededScore = computed(() =>
+  Math.max(0, graphSelectedTargetScore.value - graphCurrentContribution.value),
+);
 const graphTargetPortfolioLevel = computed(() =>
   graphLevelFromScore(graphTargetContribution.value),
 );
@@ -718,14 +748,19 @@ const graphAllTypeSummary = computed(() =>
       }, 0);
     const level = (value: number) =>
       levels.reduce((result, row) => (value >= row.exp ? row.id : result), 1);
-    const current = score(graphCurrentPortfolio),
-      target = score(effectiveGraphTargetPortfolio.value);
+    const current = score(graphCurrentPortfolio);
+    const currentLevel = level(current);
+    const targetLevel = Math.max(
+      currentLevel,
+      Math.min(levels.length, graphTargetLevels[index] ?? 1),
+    );
+    const target = levels[targetLevel - 1]?.exp ?? current;
     return {
       name,
       current,
       target,
-      currentLevel: level(current),
-      targetLevel: level(target),
+      currentLevel,
+      targetLevel,
     };
   }),
 );
@@ -1350,6 +1385,7 @@ function snapshot(): Record<string, unknown> {
     graphRecipeMastery: graphRecipeMastery.value,
     graphSelectedSkins: [...graphSelectedSkins.value],
     graphPortfolioMode: graphPortfolioMode.value,
+    graphTargetLevels: [...graphTargetLevels],
     graphCurrentPortfolio: Object.fromEntries(
       Object.entries(graphCurrentPortfolio).map(([name, state]) => [
         name,
@@ -1498,8 +1534,12 @@ function applyPlan(plan: GrowthPlan) {
     graphTargetPortfolio,
     p.graphTargetPortfolio ?? p.graphPortfolio,
   );
-  if (p.graphPortfolioMode === "current" || p.graphPortfolioMode === "target")
-    graphPortfolioMode.value = p.graphPortfolioMode;
+  if (Array.isArray(p.graphTargetLevels))
+    p.graphTargetLevels.slice(0, graphTypes.length).forEach((value, index) => {
+      if (typeof value === "number" && Number.isFinite(value))
+        graphTargetLevels[index] = Math.max(1, Math.trunc(value));
+    });
+  graphPortfolioMode.value = "current";
   if (p.graphPrices && typeof p.graphPrices === "object")
     Object.assign(graphPrices, p.graphPrices);
 }
@@ -1935,26 +1975,11 @@ function applyPlan(plan: GrowthPlan) {
     </div>
 
     <div v-else-if="active === 'graph'" class="growth-page">
-      <section class="graph-mode-switch">
-        <button
-          :class="{ active: graphPortfolioMode === 'current' }"
-          @click="
-            graphPortfolioMode = 'current';
-            selectedGraphEquipment = null;
-          "
+      <section class="graph-flow-note">
+        <strong>先录入现有配方，再选择目标图谱等级</strong>
+        <span
+          >目标只按等级设置；每件配方还能提供多少精通会直接显示在配方列表中。</span
         >
-          ① 当前图谱
-        </button>
-        <button
-          :class="{ active: graphPortfolioMode === 'target' }"
-          @click="
-            graphPortfolioMode = 'target';
-            selectedGraphEquipment = null;
-          "
-        >
-          ② 目标图谱
-        </button>
-        <button @click="copyCurrentGraphToTarget">复制当前 → 目标</button>
       </section>
       <section class="graph-category-tabs" aria-label="图谱分类">
         <button
@@ -1968,11 +1993,7 @@ function applyPlan(plan: GrowthPlan) {
           "
         >
           {{ name }}
-          <small>{{
-            graphAllTypeSummary[i]?.[
-              graphPortfolioMode === "current" ? "current" : "target"
-            ] ?? 0
-          }}</small>
+          <small>{{ graphAllTypeSummary[i]?.current ?? 0 }} 精通</small>
         </button>
       </section>
       <section class="graph-toolbar">
@@ -1994,14 +2015,6 @@ function applyPlan(plan: GrowthPlan) {
           </div>
         </details>
       </section>
-      <p
-        v-for="error in graphUpgradeCost.errors"
-        :key="error"
-        class="input-error"
-        role="alert"
-      >
-        {{ error }}
-      </p>
       <div class="result-cards">
         <article>
           <span>当前图谱</span
@@ -2011,25 +2024,27 @@ function applyPlan(plan: GrowthPlan) {
           >
         </article>
         <article>
-          <span>目标图谱</span
-          ><strong
-            >Lv {{ graphTargetPortfolioLevel }} ·
-            {{ format(graphTargetContribution) }}精通</strong
-          >
+          <label class="graph-target-level">
+            <span>目标图谱等级</span>
+            <select v-model.number="graphSelectedTargetLevel">
+              <option
+                v-for="row in graphLevels"
+                :key="row.id"
+                :value="row.id"
+                :disabled="row.id < graphCurrentPortfolioLevel"
+              >
+                Lv {{ row.id }}
+              </option>
+            </select>
+          </label>
         </article>
         <article>
-          <span>新增精通度</span
-          ><strong>{{
-            format(graphTargetContribution - graphCurrentContribution)
-          }}</strong>
+          <span>目标等级门槛</span
+          ><strong>{{ format(graphSelectedTargetScore) }}精通</strong>
         </article>
         <article>
-          <span>升级期望点击</span
-          ><strong>{{ format(graphUpgradeCost.expectedClicks) }}</strong>
-        </article>
-        <article>
-          <span>按单价估算金条</span
-          ><strong>{{ format(graphUpgradeGoldValue) }}</strong>
+          <span>距离目标还需</span
+          ><strong>{{ format(graphSelectedNeededScore) }}精通</strong>
         </article>
       </div>
       <details class="graph-overview">
@@ -2040,25 +2055,6 @@ function applyPlan(plan: GrowthPlan) {
             ><span>Lv {{ row.currentLevel }} · {{ format(row.current) }}</span
             ><b>→</b
             ><span>Lv {{ row.targetLevel }} · {{ format(row.target) }}</span>
-          </article>
-        </div>
-      </details>
-      <details class="material-price-editor">
-        <summary>图谱升级消耗与材料单价</summary>
-        <div class="result-cards graph-cost-cards">
-          <article
-            v-for="(amount, name) in graphUpgradeCost.materials"
-            :key="name"
-          >
-            <span>预计{{ name }}</span
-            ><strong>{{ format(amount) }}</strong
-            ><label
-              >单价<input
-                v-model.number="graphPrices[name]"
-                type="number"
-                min="0"
-                :placeholder="String(graphMaterialPrice(name))"
-            /></label>
           </article>
         </div>
       </details>
@@ -2095,15 +2091,18 @@ function applyPlan(plan: GrowthPlan) {
         >
           <strong>{{ item.name }}</strong>
           <small v-if="activeGraphPortfolio[item.name]">
-            已录入 ·
-            {{
-              calculateGraphContribution(
-                item,
-                activeGraphPortfolio[item.name]!,
-              )
-            }}精通
+            当前 {{ graphSavedContribution(item) }} · 满养成
+            {{ graphMaxContribution(item) }}
           </small>
-          <small v-else>未录入 · 初始 {{ item.init_value }}精通</small>
+          <small v-else>
+            未录入 · 可获得 {{ graphMaxContribution(item) }}精通
+          </small>
+          <span>
+            还能增加
+            {{
+              format(graphMaxContribution(item) - graphSavedContribution(item))
+            }}精通
+          </span>
         </article>
       </section>
       <div
@@ -2125,29 +2124,59 @@ function applyPlan(plan: GrowthPlan) {
             ×
           </button>
           <h3>{{ selectedGraphEquipment.name }} · 配方精通规划</h3>
-          <div class="growth-controls">
-            <label v-if="(selectedGraphEquipment.max_star ?? 0) > 0"
-              >星级<input
+          <div class="graph-progress-controls">
+            <label
+              v-if="(selectedGraphEquipment.max_star ?? 0) > 0"
+              class="graph-progress-control"
+            >
+              <span
+                ><b>星级</b
+                ><output
+                  >{{ graphRecipeStar }} /
+                  {{ selectedGraphEquipment.max_star }}</output
+                ></span
+              ><input
                 v-model.number="graphRecipeStar"
-                type="number"
+                type="range"
                 min="0"
                 :max="selectedGraphEquipment.max_star"
+                step="1"
                 @input="saveGraphRecipe"
             /></label>
-            <label v-if="(selectedGraphEquipment.max_zy ?? 0) > 0"
-              >专研<input
+            <label
+              v-if="(selectedGraphEquipment.max_zy ?? 0) > 0"
+              class="graph-progress-control"
+            >
+              <span
+                ><b>专研</b
+                ><output
+                  >{{ graphRecipeResearch }} /
+                  {{ selectedGraphEquipment.max_zy }}</output
+                ></span
+              ><input
                 v-model.number="graphRecipeResearch"
-                type="number"
+                type="range"
                 min="0"
                 :max="selectedGraphEquipment.max_zy"
+                step="1"
                 @input="saveGraphRecipe"
             /></label>
-            <label v-if="(selectedGraphEquipment.max_zj ?? 0) > 0"
-              >专精<input
+            <label
+              v-if="(selectedGraphEquipment.max_zj ?? 0) > 0"
+              class="graph-progress-control"
+            >
+              <span
+                ><b>专精</b
+                ><output
+                  >{{ graphRecipeMastery }} /
+                  {{ selectedGraphEquipment.max_zj }}</output
+                ></span
+              ><input
                 v-model.number="graphRecipeMastery"
-                type="number"
+                type="range"
                 min="0"
                 :max="selectedGraphEquipment.max_zj"
+                step="1"
                 @input="saveGraphRecipe"
             /></label>
           </div>
@@ -2171,11 +2200,23 @@ function applyPlan(plan: GrowthPlan) {
               ><strong>{{ graphRecipeContribution }}</strong>
             </article>
             <article>
-              <span
-                >{{
-                  graphPortfolioMode === "current" ? "当前" : "目标"
-                }}分类已保存精通</span
+              <span>本类当前总精通</span
               ><strong>{{ graphPortfolioContribution }}</strong>
+            </article>
+            <article>
+              <span>本配方满养成精通</span
+              ><strong>{{
+                graphMaxContribution(selectedGraphEquipment)
+              }}</strong>
+            </article>
+            <article>
+              <span>本配方还能增加</span
+              ><strong>{{
+                format(
+                  graphMaxContribution(selectedGraphEquipment) -
+                    graphRecipeContribution,
+                )
+              }}</strong>
             </article>
           </div>
           <div class="graph-editor-actions">
@@ -2183,13 +2224,11 @@ function applyPlan(plan: GrowthPlan) {
               本配方全部拉满
             </button>
             <button class="danger-action" @click="removeSelectedGraphRecipe">
-              从{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱移除
+              从当前图谱移除
             </button>
           </div>
           <p class="growth-note">
-            当前正在编辑“{{
-              graphPortfolioMode === "current" ? "当前" : "目标"
-            }}图谱”，修改会立即计入结果。精通度与升级消耗按升星、专研、专精、装备等级及具体涂装计算。
+            修改会立即计入当前图谱。通过上方“还能增加”可以直接判断这件配方对目标等级的帮助。
           </p>
         </section>
       </div>

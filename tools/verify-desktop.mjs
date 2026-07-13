@@ -114,31 +114,35 @@ const evaluation = await send("Runtime.evaluate", {
     await new Promise((resolve) => setTimeout(resolve, 20));
     const graphDialogOpened = Boolean(document.querySelector('.graph-editor-dialog'));
     const graphErrorsAfterCurrent = document.querySelectorAll('.growth-page .input-error').length;
-    const graphSummaryCards = [...document.querySelectorAll('.growth-page > .result-cards strong')].map((node) => node.textContent);
     const graphRecipePlanner = document.querySelector('.graph-recipe-planner')?.textContent;
+    const graphProgressControlCount = document.querySelectorAll('.graph-progress-control input[type="range"]').length;
+    const graphTargetLevelSelect = document.querySelector('.graph-target-level select');
+    if (graphTargetLevelSelect?.options[1]) {
+      graphTargetLevelSelect.value = graphTargetLevelSelect.options[1].value;
+      graphTargetLevelSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    const graphTargetLevelOnly =
+      !document.querySelector('.graph-mode-switch') &&
+      Boolean(graphTargetLevelSelect);
+    const graphNeededScoreText = document.querySelector('.growth-page > .result-cards article:last-child strong')?.textContent;
+    const graphRanges = document.querySelectorAll('.graph-recipe-planner .graph-progress-control input[type="range"]');
+    if (graphRanges[0]) { graphRanges[0].value = '1'; graphRanges[0].dispatchEvent(new Event('input', { bubbles: true })); }
+    if (graphRanges[1]) { graphRanges[1].value = '1'; graphRanges[1].dispatchEvent(new Event('input', { bubbles: true })); }
+    await new Promise((resolve) => setTimeout(resolve, 20));
     const graphContributionBeforeSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
     document.querySelector('.skin-selector input')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     const graphContributionAfterSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
     const graphErrorsAfterCurrentEdit = document.querySelectorAll('.growth-page .input-error').length;
-    const graphSummaryAfterCurrentEdit = [...document.querySelectorAll('.growth-page > .result-cards strong')].map((node) => node.textContent);
+    document.querySelector('.graph-editor-close')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
-    [...document.querySelectorAll('.graph-mode-switch button')].find((button) => button.textContent?.includes('复制当前'))?.click();
-    await new Promise((resolve) => setTimeout(resolve, 30));
-    document.querySelector('.equipment-catalog article')?.click();
-    await new Promise((resolve) => setTimeout(resolve, 20));
-    const targetInputs = document.querySelectorAll('.graph-recipe-planner .growth-controls input[type="number"]');
-    if (targetInputs[0]) { targetInputs[0].value = '1'; targetInputs[0].dispatchEvent(new Event('input', { bubbles: true })); }
-    if (targetInputs[1]) { targetInputs[1].value = '1'; targetInputs[1].dispatchEvent(new Event('input', { bubbles: true })); }
-    await new Promise((resolve) => setTimeout(resolve, 20));
-    await new Promise((resolve) => setTimeout(resolve, 30));
-    const graphUpgradeCostText = document.querySelector('.material-price-editor')?.textContent;
     const configuredGraphRecipeCount = document.querySelectorAll('.configured-recipes article').length;
     const graphSearch = document.querySelector('.graph-toolbar input[placeholder]');
     if (graphSearch) { graphSearch.value = '火焰喷射器'; graphSearch.dispatchEvent(new Event('input', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
     document.querySelector('.equipment-catalog article')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
-    const fireInputs = document.querySelectorAll('.graph-recipe-planner .growth-controls input[type="number"]');
+    const fireInputs = document.querySelectorAll('.graph-recipe-planner .graph-progress-control input[type="range"]');
     if (fireInputs[0]) { fireInputs[0].value = '4'; fireInputs[0].dispatchEvent(new Event('input', { bubbles: true })); }
     if (fireInputs[2]) { fireInputs[2].value = '20'; fireInputs[2].dispatchEvent(new Event('input', { bubbles: true })); }
     await new Promise((resolve) => setTimeout(resolve, 20));
@@ -176,14 +180,13 @@ const evaluation = await send("Runtime.evaluate", {
       graphRecipePlanner,
       graphDialogOpened,
       graphErrorsAfterCurrent,
-      graphCurrentInheritedByTarget: graphSummaryCards[0] === graphSummaryCards[1],
+      graphProgressControlCount,
+      graphTargetLevelOnly,
+      graphNeededScoreText,
       graphErrorsAfterCurrentEdit,
-      graphTargetTracksCurrentEdits:
-        graphSummaryAfterCurrentEdit[0] === graphSummaryAfterCurrentEdit[1],
       graphSecondClickCancelled,
       graphSkinContributionIncreased: graphContributionAfterSkin > graphContributionBeforeSkin,
       configuredGraphRecipeCount,
-      graphUpgradeCostText,
       fireThrowerContribution,
       growthPlanPersisted,
       nodeExposed: typeof window.require !== 'undefined' || typeof window.process !== 'undefined'
@@ -257,29 +260,26 @@ if (!result.graphDialogOpened)
   throw new Error("Graph recipe details did not open in a dialog");
 if (
   result.graphErrorsAfterCurrent !== 0 ||
-  !result.graphCurrentInheritedByTarget
+  result.graphErrorsAfterCurrentEdit !== 0
+)
+  throw new Error("Graph recipe editing raised an invalid downgrade error");
+if (result.graphProgressControlCount < 3)
+  throw new Error("Graph research and mastery progress sliders did not render");
+if (!result.graphTargetLevelOnly)
+  throw new Error("Graph target should be configured by level only");
+if (
+  !result.graphNeededScoreText ||
+  Number.parseFloat(result.graphNeededScoreText.replaceAll(",", "")) <= 0
 )
   throw new Error(
-    "Current graph recipe was incorrectly treated as missing from target",
+    "Graph target level did not expose the remaining mastery score",
   );
-if (
-  result.graphErrorsAfterCurrentEdit !== 0 ||
-  !result.graphTargetTracksCurrentEdits
-)
-  throw new Error("Target graph baseline did not track current graph edits");
 if (!result.graphSecondClickCancelled)
   throw new Error("Clicking the selected graph recipe again did not cancel it");
 if (!result.graphSkinContributionIncreased)
   throw new Error("Graph skin contribution was not calculated");
 if (result.configuredGraphRecipeCount !== 1)
   throw new Error("Graph recipe portfolio was not saved");
-if (
-  !result.graphUpgradeCostText?.includes("配方残页") ||
-  !result.graphUpgradeCostText?.includes("纳米")
-)
-  throw new Error(
-    "Graph upgrade costs did not include star and research materials",
-  );
 if (result.fireThrowerContribution !== 355)
   throw new Error(
     "Fire thrower special graph progression table was not applied",
