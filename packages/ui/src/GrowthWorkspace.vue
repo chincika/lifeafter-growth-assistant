@@ -731,13 +731,36 @@ function saveGraphRecipe() {
     skins: [...graphSelectedSkins.value],
   };
 }
+function removeSelectedGraphRecipe() {
+  const item = selectedGraphEquipment.value;
+  if (!item) return;
+  delete activeGraphPortfolio.value[item.name];
+  graphRecipeStar.value = 0;
+  graphRecipeResearch.value = 0;
+  graphRecipeMastery.value = 0;
+  graphSelectedSkins.value = [];
+}
+function maxSelectedGraphRecipe() {
+  const item = selectedGraphEquipment.value;
+  if (!item) return;
+  graphRecipeStar.value = item.max_star ?? 0;
+  graphRecipeResearch.value = item.max_zy ?? 0;
+  graphRecipeMastery.value = item.max_zj ?? 0;
+  graphSelectedSkins.value = (item.skin ?? []).map((skin) => skin.name);
+  saveGraphRecipe();
+}
 function selectGraphEquipment(item: GraphEquipment) {
   selectedGraphEquipment.value = item;
-  const saved = activeGraphPortfolio.value[item.name];
+  const saved =
+    activeGraphPortfolio.value[item.name] ??
+    (graphPortfolioMode.value === "target"
+      ? graphCurrentPortfolio[item.name]
+      : undefined);
   graphRecipeStar.value = saved?.star ?? 0;
   graphRecipeResearch.value = saved?.research ?? 0;
   graphRecipeMastery.value = saved?.mastery ?? 0;
   graphSelectedSkins.value = [...(saved?.skins ?? [])];
+  if (!activeGraphPortfolio.value[item.name]) saveGraphRecipe();
 }
 function copyCurrentGraphToTarget() {
   for (const key of Object.keys(graphTargetPortfolio))
@@ -1884,22 +1907,44 @@ function applyPlan(plan: GrowthPlan) {
           ② 目标图谱
         </button>
         <button @click="copyCurrentGraphToTarget">复制当前 → 目标</button>
-        <button @click="fillActiveGraphCategory(false)">拉满已保存配方</button>
-        <button @click="fillActiveGraphCategory(true)">本类全部拉满</button>
-        <button @click="clearActiveGraphCategory">清空当前分类</button>
       </section>
-      <section class="growth-controls">
+      <section class="graph-category-tabs" aria-label="图谱分类">
+        <button
+          v-for="(name, i) in graphTypes"
+          :key="name"
+          :class="{ active: graphType === i }"
+          @click="
+            graphType = i;
+            graphEquipmentQuery = '';
+            selectedGraphEquipment = null;
+          "
+        >
+          {{ name }}
+          <small>{{
+            graphAllTypeSummary[i]?.[
+              graphPortfolioMode === "current" ? "current" : "target"
+            ] ?? 0
+          }}</small>
+        </button>
+      </section>
+      <section class="graph-toolbar">
         <label
-          >图谱<select v-model.number="graphType">
-            <option v-for="(name, i) in graphTypes" :key="name" :value="i">
-              {{ name }}
-            </option>
-          </select></label
-        ><label
-          >搜索配方<input
+          >搜索当前分类<input
             v-model="graphEquipmentQuery"
-            placeholder="装备或涂装"
+            placeholder="输入装备或涂装名称"
         /></label>
+        <details>
+          <summary>批量操作</summary>
+          <div>
+            <button @click="fillActiveGraphCategory(false)">
+              拉满已录入配方
+            </button>
+            <button @click="fillActiveGraphCategory(true)">本类全部拉满</button>
+            <button class="danger-action" @click="clearActiveGraphCategory">
+              清空本类
+            </button>
+          </div>
+        </details>
       </section>
       <p
         v-for="error in graphUpgradeCost.errors"
@@ -1983,6 +2028,36 @@ function applyPlan(plan: GrowthPlan) {
           }}</span>
         </div>
       </details>
+      <section class="equipment-catalog graph-recipe-grid">
+        <h3>{{ graphTypes[graphType] }}配方</h3>
+        <p class="growth-note">
+          点击配方即录入并打开编辑；所有修改即时生效，无需另行保存。
+        </p>
+        <article
+          v-for="item in graphEquipment"
+          :key="item.name"
+          :class="{
+            active: selectedGraphEquipment?.name === item.name,
+            configured: Boolean(activeGraphPortfolio[item.name]),
+          }"
+          tabindex="0"
+          @click="selectGraphEquipment(item)"
+          @keydown.enter="selectGraphEquipment(item)"
+          @keydown.space.prevent="selectGraphEquipment(item)"
+        >
+          <strong>{{ item.name }}</strong>
+          <small v-if="activeGraphPortfolio[item.name]">
+            已录入 ·
+            {{
+              calculateGraphContribution(
+                item,
+                activeGraphPortfolio[item.name]!,
+              )
+            }}精通
+          </small>
+          <small v-else>未录入 · 初始 {{ item.init_value }}精通</small>
+        </article>
+      </section>
       <section
         v-if="selectedGraphEquipment"
         class="chip-detail graph-recipe-planner"
@@ -1995,6 +2070,7 @@ function applyPlan(plan: GrowthPlan) {
               type="number"
               min="0"
               :max="selectedGraphEquipment.max_star"
+              @input="saveGraphRecipe"
           /></label>
           <label v-if="(selectedGraphEquipment.max_zy ?? 0) > 0"
             >专研<input
@@ -2002,6 +2078,7 @@ function applyPlan(plan: GrowthPlan) {
               type="number"
               min="0"
               :max="selectedGraphEquipment.max_zy"
+              @input="saveGraphRecipe"
           /></label>
           <label v-if="(selectedGraphEquipment.max_zj ?? 0) > 0"
             >专精<input
@@ -2009,6 +2086,7 @@ function applyPlan(plan: GrowthPlan) {
               type="number"
               min="0"
               :max="selectedGraphEquipment.max_zj"
+              @input="saveGraphRecipe"
           /></label>
         </div>
         <fieldset
@@ -2021,6 +2099,7 @@ function applyPlan(plan: GrowthPlan) {
               v-model="graphSelectedSkins"
               type="checkbox"
               :value="skin.name"
+              @change="saveGraphRecipe"
             />{{ skin.name }}（{{ skin.value ?? 0 }}精通）</label
           >
         </fieldset>
@@ -2037,13 +2116,18 @@ function applyPlan(plan: GrowthPlan) {
             ><strong>{{ graphPortfolioContribution }}</strong>
           </article>
         </div>
-        <button class="compare-action" @click="saveGraphRecipe">
-          保存到{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱
-        </button>
+        <div class="graph-editor-actions">
+          <button class="compare-action" @click="maxSelectedGraphRecipe">
+            本配方全部拉满
+          </button>
+          <button class="danger-action" @click="removeSelectedGraphRecipe">
+            从{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱移除
+          </button>
+        </div>
         <p class="growth-note">
           当前正在编辑“{{
             graphPortfolioMode === "current" ? "当前" : "目标"
-          }}图谱”。精通度与升级消耗按原版升星、专研、专精、装备等级、暴击规则及具体涂装计算。
+          }}图谱”，修改会立即计入结果。精通度与升级消耗按升星、专研、专精、装备等级及具体涂装计算。
         </p>
       </section>
       <details v-if="graphPortfolioItems.length" class="configured-recipes">
@@ -2059,35 +2143,6 @@ function applyPlan(plan: GrowthPlan) {
           </article>
         </div>
       </details>
-      <section class="equipment-catalog">
-        <h3>{{ graphTypes[graphType] }}配方与涂装资料</h3>
-        <article
-          v-for="item in graphEquipment"
-          :key="item.name"
-          :class="{
-            active: selectedGraphEquipment?.name === item.name,
-            configured: Boolean(activeGraphPortfolio[item.name]),
-          }"
-          @click="selectGraphEquipment(item)"
-        >
-          <strong>{{ item.name }}</strong
-          ><small v-if="activeGraphPortfolio[item.name]"
-            >已加入{{ graphPortfolioMode === "current" ? "当前" : "目标" }}图谱
-            ·
-            {{
-              calculateGraphContribution(
-                item,
-                activeGraphPortfolio[item.name]!,
-              )
-            }}精通</small
-          ><span
-            >初始精通 {{ item.init_value }} · 升星 {{ item.max_star ?? "—" }} ·
-            专研 {{ item.max_zy ?? "—" }} · 专精 {{ item.max_zj ?? "—" }}</span
-          ><small v-if="item.skin?.length"
-            >涂装：{{ item.skin.map((skin) => skin.name).join("、") }}</small
-          >
-        </article>
-      </section>
     </div>
 
     <div

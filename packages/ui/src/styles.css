@@ -1241,6 +1241,119 @@ input {
 .graph-mode-switch button:nth-last-child(-n + 2) {
   margin-left: auto;
 }
+.graph-category-tabs {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+.graph-category-tabs button {
+  display: grid;
+  gap: 3px;
+  min-height: 52px;
+  padding: 8px;
+  border: 1px solid rgb(148 163 184 / 14%);
+  border-radius: 8px;
+  background: rgb(17 28 46 / 65%);
+  color: #9bacc1;
+  cursor: pointer;
+}
+.graph-category-tabs button.active {
+  border-color: #50c2a7;
+  background: rgb(80 194 167 / 14%);
+  color: #c8fff1;
+}
+.graph-category-tabs small {
+  color: #7187a1;
+  font-size: 10px;
+}
+.graph-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+.graph-toolbar > label {
+  display: grid;
+  flex: 1;
+  gap: 5px;
+  color: #8fa4bf;
+  font-size: 11px;
+}
+.graph-toolbar input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgb(148 163 184 / 18%);
+  border-radius: 8px;
+  background: #0d1727;
+  color: #dbe7f4;
+}
+.graph-toolbar details {
+  position: relative;
+}
+.graph-toolbar summary {
+  min-width: 100px;
+  padding: 11px 14px;
+  border: 1px solid rgb(148 163 184 / 18%);
+  border-radius: 8px;
+  color: #b8c7d9;
+  cursor: pointer;
+  list-style: none;
+}
+.graph-toolbar details > div {
+  position: absolute;
+  z-index: 4;
+  top: calc(100% + 6px);
+  right: 0;
+  display: grid;
+  width: 190px;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid rgb(148 163 184 / 20%);
+  border-radius: 9px;
+  background: #111c2e;
+  box-shadow: 0 14px 30px rgb(0 0 0 / 30%);
+}
+.graph-toolbar button,
+.graph-editor-actions button {
+  padding: 9px 11px;
+  border: 1px solid rgb(148 163 184 / 16%);
+  border-radius: 7px;
+  background: rgb(148 163 184 / 7%);
+  color: #c5d2e1;
+  cursor: pointer;
+}
+.danger-action {
+  color: #ffaaa3 !important;
+}
+.graph-recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 6px;
+  max-height: 360px;
+  padding: 10px;
+  overflow: auto;
+  border: 1px solid rgb(148 163 184 / 14%);
+  border-radius: 10px;
+  background: rgb(13 23 39 / 55%);
+}
+.graph-recipe-grid h3,
+.graph-recipe-grid > p {
+  grid-column: 1 / -1;
+}
+.graph-recipe-grid article {
+  min-height: 58px;
+  margin: 0;
+  padding: 9px 10px;
+}
+.graph-recipe-grid article:focus-visible {
+  outline: 2px solid #50c2a7;
+  outline-offset: 1px;
+}
+.graph-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .graph-cost-cards {
   padding: 12px;
   border-top: 1px solid rgb(148 163 184 / 12%);
@@ -1308,6 +1421,9 @@ input {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     max-height: 260px;
   }
+  .graph-category-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 @media (max-width: 620px) {
   .growth-controls {
@@ -1329,6 +1445,17 @@ input {
   .data-table > div {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+  .graph-category-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .graph-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .graph-toolbar details > div {
+    right: auto;
+    left: 0;
   }
 }
 @media (prefers-color-scheme: light) {

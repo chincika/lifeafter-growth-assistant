@@ -108,8 +108,8 @@ const evaluation = await send("Runtime.evaluate", {
     const geneNodePlanner = document.querySelector('.node-planner')?.textContent;
     growthButtons.find((button) => button.textContent?.trim() === '图谱养成')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
-    const graphTypeSelect = document.querySelector('.growth-controls select');
-    if (graphTypeSelect) { graphTypeSelect.value = '1'; graphTypeSelect.dispatchEvent(new Event('change', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
+    document.querySelectorAll('.graph-category-tabs button')[1]?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
     document.querySelector('.equipment-catalog article')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     const graphRecipePlanner = document.querySelector('.graph-recipe-planner')?.textContent;
@@ -117,7 +117,6 @@ const evaluation = await send("Runtime.evaluate", {
     document.querySelector('.skin-selector input')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     const graphContributionAfterSkin = Number(document.querySelector('.graph-recipe-planner .result-cards strong')?.textContent);
-    document.querySelector('.graph-recipe-planner .compare-action')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
     [...document.querySelectorAll('.graph-mode-switch button')].find((button) => button.textContent?.includes('复制当前'))?.click();
     await new Promise((resolve) => setTimeout(resolve, 30));
@@ -127,11 +126,10 @@ const evaluation = await send("Runtime.evaluate", {
     if (targetInputs[0]) { targetInputs[0].value = '1'; targetInputs[0].dispatchEvent(new Event('input', { bubbles: true })); }
     if (targetInputs[1]) { targetInputs[1].value = '1'; targetInputs[1].dispatchEvent(new Event('input', { bubbles: true })); }
     await new Promise((resolve) => setTimeout(resolve, 20));
-    document.querySelector('.graph-recipe-planner .compare-action')?.click();
     await new Promise((resolve) => setTimeout(resolve, 30));
     const graphUpgradeCostText = document.querySelector('.material-price-editor')?.textContent;
     const configuredGraphRecipeCount = document.querySelectorAll('.configured-recipes article').length;
-    const graphSearch = document.querySelector('.growth-controls input[placeholder]');
+    const graphSearch = document.querySelector('.graph-toolbar input[placeholder]');
     if (graphSearch) { graphSearch.value = '火焰喷射器'; graphSearch.dispatchEvent(new Event('input', { bubbles: true })); await new Promise((resolve) => setTimeout(resolve, 20)); }
     document.querySelector('.equipment-catalog article')?.click();
     await new Promise((resolve) => setTimeout(resolve, 20));
