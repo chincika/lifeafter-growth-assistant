@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.07.17.12",
+  "version": "2026.07.17.13",
   "entries": [
     {
       "id": "activity.e.001",
@@ -993,6 +993,15 @@
       "title": "电力时代",
       "startDate": "2019-02-28",
       "description": "第 9 期 · 35 级",
+      "withdrawn": false
+    },
+    {
+      "id": "activity.maintained.a0fec2fd-941c-4a02-92f7-5df9880b0aae",
+      "category": "activity-category.t",
+      "title": "8芯片（公告没写）",
+      "startDate": "2026-07-16",
+      "endDate": "2026-08-06",
+      "description": "第199期 · 9折芯片",
       "withdrawn": false
     }
   ]
