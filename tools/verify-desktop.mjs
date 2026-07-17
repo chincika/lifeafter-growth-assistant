@@ -48,7 +48,15 @@ await new Promise((resolve) => setTimeout(resolve, 1_000));
 
 const evaluation = await send("Runtime.evaluate", {
   expression: `(async () => {
+    const overviewRendered = document.body.innerText.includes('今天想计算什么？');
     const before = await window.desktopApi?.listMarketItems();
+    const references = await window.desktopApi?.getReferenceContent();
+    const settingsBefore = await window.desktopApi?.getSettings();
+    await window.desktopApi?.setSettings({ ...settingsBefore, theme: 'dark' });
+    const settingsPersisted = (await window.desktopApi?.getSettings())?.theme === 'dark';
+    const backupBefore = (await window.desktopApi?.listBackups())?.length ?? 0;
+    await window.desktopApi?.createBackup();
+    const backupCreated = ((await window.desktopApi?.listBackups())?.length ?? 0) > backupBefore;
     const initialFirstItem = before?.[0]?.name;
     const target = before?.[10];
     if (target) await window.desktopApi.setMarketItemState({ id: target.id, marketPrice: 123, focused: true });
@@ -59,7 +67,32 @@ const evaluation = await send("Runtime.evaluate", {
     const after = await window.desktopApi?.listMarketItems();
     const persisted = after?.find((item) => item.id === target?.id);
     const persistedRecipe = after?.find((item) => item.id === recipeTarget?.id)?.recipe[0];
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '地摊')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 50));
     const marketRendered = document.body.innerText.includes("458") && document.body.innerText.includes("石纹蜂窝板");
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '纳米')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const nanoRendered = document.body.innerText.includes('纳米塑材收益') && document.querySelectorAll('.nano-table .data-row').length > 0;
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '食谱')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const cookbookRendered = document.body.innerText.includes('566 条原版资料') && document.querySelectorAll('.recipe-card').length > 100;
+    document.querySelector('.recipe-card')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    const cookbookDetailRendered = Boolean(document.querySelector('.recipe-detail-modal'));
+    document.querySelector('.recipe-detail-modal .close-button')?.click();
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '活动')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    const activitiesRendered = document.body.innerText.includes('活动计时器') && document.querySelectorAll('.category-tabs button').length === 8;
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '幸存者快报')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    document.querySelector('.news-history button')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    const newsRendered = document.body.innerText.includes('发布通道暂时关闭') && document.querySelectorAll('.news-history button').length > 100;
+    const newsImageIsLocalProtocol = document.querySelector('.news-modal img')?.src.startsWith('lifeafter-news://');
+    document.querySelector('.news-modal .close-button')?.click();
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '设置')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    const settingsRendered = document.body.innerText.includes('设置与数据') && document.querySelectorAll('.settings-card').length >= 4;
     [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === '养成计算')?.click();
     await new Promise((resolve) => setTimeout(resolve, 100));
     const growthButtons = [...document.querySelectorAll('.growth-tabs button')];
@@ -201,6 +234,17 @@ const evaluation = await send("Runtime.evaluate", {
       text: document.body.innerText,
       csp: document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content,
       runtime: await window.desktopApi?.getRuntimeInfo(),
+      overviewRendered,
+      referenceCounts: { cookbook: references?.cookbook?.length, activities: references?.activities?.entries?.length, news: references?.news?.entries?.length },
+      settingsPersisted,
+      backupCreated,
+      nanoRendered,
+      cookbookRendered,
+      cookbookDetailRendered,
+      activitiesRendered,
+      newsRendered,
+      newsImageIsLocalProtocol,
+      settingsRendered,
       marketItemCount: after?.length,
       marketRendered,
       initialFirstItem,
@@ -279,6 +323,12 @@ if (!result.runtime || result.runtime.platform !== "win32") {
 }
 if (result.nodeExposed)
   throw new Error("Node globals are exposed to the renderer");
+if (!result.overviewRendered || !result.nanoRendered || !result.cookbookRendered || !result.cookbookDetailRendered || !result.activitiesRendered || !result.newsRendered || !result.newsImageIsLocalProtocol || !result.settingsRendered)
+  throw new Error("One or more primary modules did not render or respond");
+if (result.referenceCounts?.cookbook !== 566 || result.referenceCounts?.activities !== 111 || result.referenceCounts?.news !== 197)
+  throw new Error("Legacy reference content counts changed");
+if (!result.settingsPersisted || !result.backupCreated)
+  throw new Error("Settings or backup persistence failed");
 if (!result.responsiveGrowthLayout)
   throw new Error("Growth workspace overflowed at compact width");
 if (result.marketItemCount !== 459)

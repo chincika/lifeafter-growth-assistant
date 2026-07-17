@@ -2,7 +2,7 @@
 
 面向 Windows 的开源、本地优先游戏养成与数据工具。
 
-> 项目正在进行从旧版网页工具到可维护桌面应用的完整重构，当前尚未发布可用版本。
+旧版网页工具已重构为不依赖原网站运行的 Windows 桌面程序，并配套独立资料维护器。
 
 ## 项目目标
 
@@ -13,15 +13,37 @@
 - 业务核心与 UI 为未来 Android 版本保留复用能力。
 - 不采集遥测数据，不在后台上传用户信息。
 
-## 当前阶段
+## 已实现模块
 
-当前处于旧版功能审计与新架构设计阶段。项目范围和已确认决策见：
+- 地摊递归成本、税后收益、采集券收益和自定义产品；
+- 纳米 I/II/III、专研点击与旧版特殊成本分支；
+- 566 条食谱、组合效果筛选和本地解锁进度；
+- 专研/升星、专精、配件、腰带芯片、图谱、两类基因和装备改造；
+- 八类活动历史和 197 期幸存者快报索引；
+- 本地设置、自动/手动备份、校验恢复、旧版 ZIP/xy.dat 迁移；
+- 客户端更新提示、公共资料独立更新和 required 更新策略接口；
+- Windows 资料维护器，可用表单维护资料、生成校验清单并直接发布 GitHub。
+
+项目范围和规则依据见：
 
 - [产品决策](docs/product-decisions.md)
 - [架构方案](docs/architecture.md)
 - [旧版功能清单](docs/legacy-inventory.md)
 - [地摊与纳米计算审计](docs/audits/market-and-nano.md)
 - [Windows 桌面运行时基线](docs/desktop-runtime.md)
+- [资料维护与发布](docs/content-maintenance.md)
+
+## 开发与打包
+
+```powershell
+pnpm install
+pnpm check
+pnpm test:run
+pnpm build
+pnpm --filter @lifeafter-assistant/desktop dist:portable
+pnpm --filter @lifeafter-assistant/desktop dist:installer
+pnpm --filter @lifeafter-assistant/maintainer dist:portable
+```
 
 ## 开源协议
 

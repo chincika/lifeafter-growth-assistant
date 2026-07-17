@@ -1,6 +1,6 @@
 # 架构方案
 
-状态：初稿
+状态：Windows 首版已实现
 
 ## 技术方向
 
@@ -69,9 +69,10 @@ flowchart LR
 - 远程数据包验证 schema、大小限制、版本、哈希和资源类型。
 - 更新失败采用事务回滚，保留上一份有效数据。
 
-## 待验证决策
+## 已验证实现
 
-- SQLite 驱动在 Electron 打包、便携模式和未来 Android 适配中的组合。
-- 安装器与便携包使用 electron-builder；NSIS 安装版与 portable 单文件已完成骨架验证。
-- 无签名条件下客户端更新的安全确认与用户体验。
-- GitHub 数据发布使用 Releases、静态分支，或二者结合。
+- Electron 内使用 Node 24 的 `node:sqlite`，安装版与便携版均已完成真实启动和持久化验证。
+- 安装器与便携包使用 electron-builder；NSIS 与 portable 均可构建。
+- 客户端更新只通知、不自动安装；optional、recommended、required 和宽限期由远程清单控制。
+- 公共资料使用 GitHub 静态分支的 `releases/content-manifest.json`，独立维护器可生成并直接发布。
+- 远程资料更新执行大小、SHA-256、schema、升级前备份和数据库事务校验。

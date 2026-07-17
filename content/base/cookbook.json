@@ -1,0 +1,5101 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026.06.11.1",
+  "source": "archived application data",
+  "recipes": [
+    {
+      "id": "recipe.0001",
+      "position": 0,
+      "name": "果酱",
+      "method": "4水果",
+      "effect": "每秒回复血量24\n每秒回复饱食度7.2",
+      "duration": "5秒",
+      "defaultUnlocked": true
+    },
+    {
+      "id": "recipe.0002",
+      "position": 1,
+      "name": "蜜糖",
+      "method": "4蜂蜜",
+      "effect": "每秒回复血量48",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0003",
+      "position": 2,
+      "name": "纯椰汁",
+      "method": "4椰子",
+      "effect": "每秒回复血量20\n每秒回复饱食度4",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0004",
+      "position": 3,
+      "name": "果味冰棒",
+      "method": "水果 + 3冰块",
+      "effect": "体温降低10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0005",
+      "position": 4,
+      "name": "水果蜜饯",
+      "method": "2水果 + 2蜂蜜",
+      "effect": "每秒回复血量35",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0006",
+      "position": 5,
+      "name": "水果牛奶",
+      "method": "3水果 + 牛奶",
+      "effect": "每秒回复血量17.9",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0007",
+      "position": 6,
+      "name": "奶糖",
+      "method": "2牛奶 + 2蜂蜜",
+      "effect": "移动速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0008",
+      "position": 7,
+      "name": "果汁",
+      "method": "2水果 + 2冰块",
+      "effect": "每秒回复血量8\n每秒回复饱食度4",
+      "duration": "5秒",
+      "defaultUnlocked": true
+    },
+    {
+      "id": "recipe.0009",
+      "position": 8,
+      "name": "蜂蜜水",
+      "method": "1蜂蜜 + 3冰块",
+      "effect": "每秒回复血量12\n体温提升10\n去除感冒",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0010",
+      "position": 9,
+      "name": "蛋卷",
+      "method": "3面粉 + 禽蛋",
+      "effect": "每秒回复饱食度19.2",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0011",
+      "position": 10,
+      "name": "椰子冻",
+      "method": "2冰块 + 2椰子",
+      "effect": "每秒回复血量10\n体温降低20",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0012",
+      "position": 11,
+      "name": "椰汁水果捞",
+      "method": "3水果 + 椰子",
+      "effect": "游泳速度提升9%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0013",
+      "position": 12,
+      "name": "奶香玉米布丁",
+      "method": "2牛奶 + 2玉米",
+      "effect": "移动速度提升5%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0014",
+      "position": 13,
+      "name": "水果派",
+      "method": "2水果 + 面粉 + 蜂蜜",
+      "effect": "人型怪伤害提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0015",
+      "position": 14,
+      "name": "葡式蛋挞",
+      "method": "2面粉 + 蜂蜜 + 牛奶",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0016",
+      "position": 15,
+      "name": "牛奶布丁",
+      "method": "2蜂蜜 + 牛奶 + 冰块",
+      "effect": "每秒回复血量16\n体温降低15",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0017",
+      "position": 16,
+      "name": "奶油浓汤",
+      "method": "2肉 + 蔬菜 + 牛奶",
+      "effect": "每秒回复血量20\n每秒回复饱食度15\n体温提升20",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0018",
+      "position": 17,
+      "name": "椰奶雪花糕",
+      "method": "2椰子 + 面粉 + 牛奶",
+      "effect": "采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0019",
+      "position": 18,
+      "name": "水果椰奶",
+      "method": "2水果 + 牛奶 + 椰子",
+      "effect": "游泳速度提升9%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0020",
+      "position": 19,
+      "name": "蛋黄玉米酥",
+      "method": "面粉 + 禽蛋 + 玉米 + 水果",
+      "effect": "血量上限150",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0021",
+      "position": 20,
+      "name": "水果蛋糕",
+      "method": "水果 + 面粉 + 蜂蜜 + 牛奶\n（找夏冬凉买食谱）",
+      "effect": "移动速度提升5%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0022",
+      "position": 21,
+      "name": "水果冰沙",
+      "method": "2水果 + 蜂蜜 + 冰块",
+      "effect": "每秒回复血量22\n体温降低20",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0023",
+      "position": 22,
+      "name": "草莓果冻",
+      "method": "牛奶 + 冰块 + 2草莓\n（找夏冬凉买食谱）",
+      "effect": "暴击率5%\n移动速度提升5%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0024",
+      "position": 23,
+      "name": "草莓酸奶冰",
+      "method": "蜂蜜 + 牛奶 + 草莓 + 冰块",
+      "effect": "移动速度提升5%\n体温降低20",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0025",
+      "position": 24,
+      "name": "莓莓芝士蛋糕",
+      "method": "面粉 + 牛奶 + 草莓 + 蓝莓",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0026",
+      "position": 25,
+      "name": "太阳果炖牛奶蛋",
+      "method": "2禽蛋 + 牛奶 + 南瓜",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0027",
+      "position": 26,
+      "name": "蓝莓椰丝脆",
+      "method": "2蓝莓 + 面粉 + 椰子",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0028",
+      "position": 27,
+      "name": "黄金玉米盏",
+      "method": "胡萝卜 + 禽蛋 + 2玉米",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0029",
+      "position": 28,
+      "name": "大神爱心慕斯",
+      "method": "网易大神app赠送",
+      "effect": "暴击率提升10%\n移动速度提升5%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0030",
+      "position": 29,
+      "name": "树根蛋糕",
+      "method": "月卡宝箱领取",
+      "effect": "伐木主资源暴击率20%\n伐木副资源暴击率10%\n挖矿主资源暴击率20%\n挖矿副资源暴击率10%\n采麻主资源暴击率20%\n采麻副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0031",
+      "position": 30,
+      "name": "甜蜜七巧果",
+      "method": "七夕限定 活动购买",
+      "effect": "伐木速度提升10%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0032",
+      "position": 31,
+      "name": "七巧五子拼盘",
+      "method": "七夕限定 活动购买",
+      "effect": "挖矿速度提升10%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0033",
+      "position": 32,
+      "name": "浓情巧克力慕斯",
+      "method": "七夕限定 活动购买",
+      "effect": "持续回复血量1.5",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0034",
+      "position": 33,
+      "name": "恋语棉花糖",
+      "method": "七夕限定 活动购买",
+      "effect": "移动速度提升5%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0035",
+      "position": 34,
+      "name": "爱心甜甜圈",
+      "method": "七夕限定 活动购买",
+      "effect": "暴击率10%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0036",
+      "position": 35,
+      "name": "莲蓉双簧月饼",
+      "method": "2特制面粉 + 2莲蓉和咸蛋黄\n（中秋限定食材制作）",
+      "effect": "伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0037",
+      "position": 36,
+      "name": "冰皮椰蓉月饼",
+      "method": "2特制面粉 + 2糯米粉和椰蓉\n（中秋限定食材制作）",
+      "effect": "挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0038",
+      "position": 37,
+      "name": "五仁火腿月饼",
+      "method": "2特制面粉 + 2果仁和火腿\n（中秋限定食材制作）",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0039",
+      "position": 38,
+      "name": "芝麻豆沙月饼",
+      "method": "2特制面粉 + 2黑芝麻和豆沙\n（中秋限定食材制作）",
+      "effect": "暴击率提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0040",
+      "position": 39,
+      "name": "消暑水果冰粥",
+      "method": "2水果 + 冰块 + 大米",
+      "effect": "移动速度提升5%\n挖矿速度提升10%\n沙尘暴抵抗10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0041",
+      "position": 40,
+      "name": "牛奶蒸米糕",
+      "method": "2牛奶 + 大米 + 调料",
+      "effect": "持续回复血量2\n挖矿主资源暴击率10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0042",
+      "position": 41,
+      "name": "红糖糍粑",
+      "method": "2蜂蜜 + 2大米",
+      "effect": "挖矿主资源暴击率15%\n沙尘暴抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0043",
+      "position": 42,
+      "name": "酒酿圆子",
+      "method": "面粉 + 2大米 + 调料",
+      "effect": "沼泽抵抗10%\n伐木主资源暴击率10%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0044",
+      "position": 43,
+      "name": "双皮奶",
+      "method": "2牛奶 + 面粉 + 冰块",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n奔跑消耗体力降低10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0045",
+      "position": 44,
+      "name": "芝麻糊",
+      "method": "2芝麻 + 2大米",
+      "effect": "采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0046",
+      "position": 45,
+      "name": "姜撞奶",
+      "method": "2蜂蜜 + 牛奶 + 葱姜蒜",
+      "effect": "移动速度提升5%\n伐木主资源暴击率10%\n伐木副资源暴击率10%\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0047",
+      "position": 46,
+      "name": "水果棒棒糖",
+      "method": "2蜂蜜 + 2草莓\n（学习制作技能）",
+      "effect": "移动速度提升5%\n游泳速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0048",
+      "position": 47,
+      "name": "可乐小子饼干",
+      "method": "月卡宝箱领取",
+      "effect": "人型怪伤害提升10%\n污染物伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0049",
+      "position": 48,
+      "name": "杏仁布丁",
+      "method": "圣诞限定兑换",
+      "effect": "伐木速度提升10%\n伐木主资源暴击率20%\n伐木副资源暴击率10%\n挖矿速度提升10%\n挖矿主资源暴击率20%\n挖矿副资源暴击率10%\n采麻速度提升10%\n采麻主资源暴击率20%\n采麻副资源暴击率10%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0050",
+      "position": 49,
+      "name": "圣诞姜饼",
+      "method": "圣诞限定兑换",
+      "effect": "暴击率提升10%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0051",
+      "position": 50,
+      "name": "凤梨酥",
+      "method": "禽蛋 + 糖 + 2菠萝",
+      "effect": "持续回复血量1.5\n人型怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0052",
+      "position": 51,
+      "name": "西多士",
+      "method": "水果 + 牛奶 + 禽蛋 + 糖",
+      "effect": "伐木主资源暴击率10%\n伐木速度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0053",
+      "position": 52,
+      "name": "鸡蛋仔",
+      "method": "3禽蛋 + 面粉",
+      "effect": "污染怪伤害提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0054",
+      "position": 53,
+      "name": "鱼丸粗面",
+      "method": "鱼 + 2蔬菜 + 面粉",
+      "effect": "血量上限100",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0055",
+      "position": 54,
+      "name": "烤面包",
+      "method": "4面粉",
+      "effect": "每秒回复饱食度24",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0056",
+      "position": 55,
+      "name": "热牛奶",
+      "method": "4牛奶",
+      "effect": "体温提升10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0057",
+      "position": 56,
+      "name": "肉馅千层饼",
+      "method": "2肉 + 2面粉",
+      "effect": "人型怪伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0058",
+      "position": 57,
+      "name": "蔬菜千层饼",
+      "method": "2蔬菜 + 2面粉",
+      "effect": "伐木主资源暴击率5%\n伐木副资源暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0059",
+      "position": 58,
+      "name": "蘑菇乌冬面",
+      "method": "2蘑菇 + 2面粉",
+      "effect": "挖矿主资源暴击率5%\n挖矿副资源暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0060",
+      "position": 59,
+      "name": "果酱面包",
+      "method": "2水果 + 2面粉",
+      "effect": "每秒回复血量15\n每秒回复饱食度15",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0061",
+      "position": 60,
+      "name": "甜菜粥",
+      "method": "2蔬菜 + 2蜂蜜",
+      "effect": "每秒回复血量15\n体温提升15\n去除感冒",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0062",
+      "position": 61,
+      "name": "奶味牛角包",
+      "method": "2面粉 + 2牛奶",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0063",
+      "position": 62,
+      "name": "蜂蜜牛角包",
+      "method": "3面粉 + 1蜂蜜",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0064",
+      "position": 63,
+      "name": "芝麻元宵",
+      "method": "3芝麻 + 面粉",
+      "effect": "采麻主资源暴击率10%\n采麻副资源暴击率10%\n采麻速度提升8%\n体温提升20\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0065",
+      "position": 64,
+      "name": "花生元宵",
+      "method": "3花生 + 面粉",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升8%\n体温提升20\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0066",
+      "position": 65,
+      "name": "红豆元宵",
+      "method": "3红豆 + 面粉",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n伐木速度提升8%\n体温提升20\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0067",
+      "position": 66,
+      "name": "枣泥元宵",
+      "method": "3冬枣 + 面粉",
+      "effect": "移动速度提升5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%\n体温提升20\n去除感冒",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0068",
+      "position": 67,
+      "name": "红油小面",
+      "method": "2面粉 + 2穿天椒",
+      "effect": "每秒回复饱食度15",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0069",
+      "position": 68,
+      "name": "椰浆面包",
+      "method": "2面粉 + 2椰子",
+      "effect": "每秒回复血量15\n每秒回复饱食度20",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0070",
+      "position": 69,
+      "name": "玉米发糕",
+      "method": "面粉 + 玉米 + 2水果（加血量）\n2面粉 + 2玉米（加饱食度）",
+      "effect": "每秒回复血量13\n每秒回复饱食度10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0071",
+      "position": 70,
+      "name": "水饺",
+      "method": "2肉 + 蘑菇 + 面粉",
+      "effect": "每秒回复血量16\n每秒回复饱食度12.5\n体温提升20",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0072",
+      "position": 71,
+      "name": "三明治",
+      "method": "2肉 + 水果 + 面粉",
+      "effect": "污染物伤害提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0073",
+      "position": 72,
+      "name": "虾仁玉米披萨",
+      "method": "面粉 + 2玉米 + 对虾",
+      "effect": "暴击率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0074",
+      "position": 73,
+      "name": "特制披萨",
+      "method": "肉 + 蘑菇 + 蔬菜 + 面粉\n（找夏冬凉买食谱）",
+      "effect": "建筑伤害提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0075",
+      "position": 74,
+      "name": "肉酱意大利面",
+      "method": "肉 + 蔬菜 + 水果 + 面粉\n（找夏冬凉买食谱）",
+      "effect": "暴击率10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0076",
+      "position": 75,
+      "name": "彩虹元宵",
+      "method": "面粉 + 芝麻 + 花生 + 红豆",
+      "effect": "持续回复血量1.5\n体温提升20",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0077",
+      "position": 76,
+      "name": "草莓松饼",
+      "method": "面粉 + 3草莓",
+      "effect": "每秒回复血量25\n每秒回复饱食度10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0078",
+      "position": 77,
+      "name": "蓝莓饼干",
+      "method": "2蓝莓 + 2面粉",
+      "effect": "伐木速度提升6%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0079",
+      "position": 78,
+      "name": "海鲜炒乌冬",
+      "method": "面粉 + 对虾 + 鱿鱼 + 梭子蟹",
+      "effect": "血量上限120",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0080",
+      "position": 79,
+      "name": "香菇火腿粽",
+      "method": "香菇 + 火腿 + 2糯米",
+      "effect": "伐木速度提升10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0081",
+      "position": 80,
+      "name": "香菇虾仁粽",
+      "method": "香菇 + 虾仁 + 2糯米",
+      "effect": "挖矿速度提升10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0082",
+      "position": 81,
+      "name": "绿豆鲜肉粽",
+      "method": "绿豆 + 五花肉 + 2糯米",
+      "effect": "采麻速度提升10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0083",
+      "position": 82,
+      "name": "绿豆火腿粽",
+      "method": "绿豆 + 火腿 + 2糯米",
+      "effect": "伐木副资源暴击率10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0084",
+      "position": 83,
+      "name": "板栗虾仁粽",
+      "method": "板栗 + 虾仁 + 2糯米",
+      "effect": "挖矿副资源暴击率10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0085",
+      "position": 84,
+      "name": "板栗鲜肉粽",
+      "method": "板栗 + 五花肉 + 2糯米",
+      "effect": "采麻副资源暴击率10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0086",
+      "position": 85,
+      "name": "至尊甜粽",
+      "method": "香菇 + 绿豆 + 板栗 + 糯米",
+      "effect": "持续回复血量1.5\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0087",
+      "position": 86,
+      "name": "至尊肉粽",
+      "method": "虾仁 + 火腿 + 五花肉 + 糯米",
+      "effect": "暴击率提升10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0088",
+      "position": 87,
+      "name": "蛋包饭",
+      "method": "鸡蛋 + 酱料 + 2大米",
+      "effect": "持续回复血量1.5\n免暴率5%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0089",
+      "position": 88,
+      "name": "蛋炒饭",
+      "method": "2禽蛋 + 2大米",
+      "effect": "持续回复血量1.5\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0090",
+      "position": 89,
+      "name": "香菇卤肉饭",
+      "method": "2肉 + 蘑菇 + 大米",
+      "effect": "暴击率5%\n免暴率5%\n采麻副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0091",
+      "position": 90,
+      "name": "海鲜粥",
+      "method": "鱼类 + 对虾 + 河蟹 + 大米",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0092",
+      "position": 91,
+      "name": "金枪鱼烤米卷",
+      "method": "2金枪鱼 + 大米 + 调料",
+      "effect": "游泳速度提升10%\n伐木速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0093",
+      "position": 92,
+      "name": "椰子炖饭",
+      "method": "2椰子 + 2大米",
+      "effect": "持续回复血量1.5\n伐木速度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0094",
+      "position": 93,
+      "name": "什锦烧麦",
+      "method": "2肉 + 蔬菜 + 大米",
+      "effect": "雷雨抵抗10%\n伐木副资源暴击率10%\n弹药携带量提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0095",
+      "position": 94,
+      "name": "草莓饭团",
+      "method": "2大米 + 2草莓",
+      "effect": "采麻主资源暴击率15%\n暴风雪抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0096",
+      "position": 95,
+      "name": "牛奶奶酪米糊",
+      "method": "2大米 + 2牛奶",
+      "effect": "伐木主资源暴击率15%\n雷雨抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0097",
+      "position": 96,
+      "name": "麻辣炒锅米粉",
+      "method": "2大米 + 2穿天椒",
+      "effect": "暴击率10%\n沼泽抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0098",
+      "position": 97,
+      "name": "煲仔饭",
+      "method": "肉 + 2大米 + 调料\n（找夏冬凉买食谱）",
+      "effect": "持续回复血量1\n免暴率5%\n奔跑消耗体力降低5%\n头部伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0099",
+      "position": 98,
+      "name": "脆米仙贝",
+      "method": "2大米 + 酱料 + 调料",
+      "effect": "持续回复血量1.5\n移动速度提升5%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0100",
+      "position": 99,
+      "name": "白米饭",
+      "method": "4大米",
+      "effect": "血量上限150",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0101",
+      "position": 100,
+      "name": "南瓜手抓饭",
+      "method": "2大米 + 2南瓜",
+      "effect": "伐木副资源暴击率15%\n沼泽抵抗10%",
+      "duration": "1800秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0102",
+      "position": 101,
+      "name": "海鲜炒饭",
+      "method": "对虾 + 河蟹 + 2大米",
+      "effect": "血量上限150\n挖矿主资源暴击率8%\n挖矿副资源暴击率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0103",
+      "position": 102,
+      "name": "芝士红肠饭",
+      "method": "2肉 + 牛奶 + 大米",
+      "effect": "持续回复血量1.5\n挖矿主资源暴击率10%\n战斗熟练度提升10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0104",
+      "position": 103,
+      "name": "可爱的饭团",
+      "method": "2大米 + 胡萝卜 + 调料",
+      "effect": "持续回复血量1.5\n移动速度提升5%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0105",
+      "position": 104,
+      "name": "石锅拌饭",
+      "method": "大米 + 禽蛋 + 2蔬菜",
+      "effect": "持续回复血量1.5\n战斗熟练度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0106",
+      "position": 105,
+      "name": "鲜虾咖喱炒饭",
+      "method": "2大米 + 对虾 + 调料",
+      "effect": "免暴率5%\n气力上限添加率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0107",
+      "position": 106,
+      "name": "菠萝什锦饭",
+      "method": "蔬菜 + 2大米 + 菠萝\n（找夏冬凉买食谱）",
+      "effect": "血量上限150\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0108",
+      "position": 107,
+      "name": "吐司风味米片",
+      "method": "蔬菜 + 2大米 + 鲑鱼",
+      "effect": "持续回复血量1.5\n采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0109",
+      "position": 108,
+      "name": "肥肠粉",
+      "method": "动物内脏 + 穿天椒 + 2粉丝",
+      "effect": "雷雨抵抗10%\n污染怪伤害提升10%\n补充弹药消耗降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0110",
+      "position": 109,
+      "name": "酸辣粉",
+      "method": "穿天椒 + 葱姜蒜 + 2粉丝",
+      "effect": "暴击率5%\n奔跑消耗体力降低10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0111",
+      "position": 110,
+      "name": "红油抄手",
+      "method": "2肉 + 面粉 + 穿天椒",
+      "effect": "暴击率5%\n射速提升5%\n换弹速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0112",
+      "position": 111,
+      "name": "担担面",
+      "method": "2面粉 + 2调料",
+      "effect": "雷雨抵抗10%\n伐木速度提升15%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0113",
+      "position": 112,
+      "name": "凉糕",
+      "method": "3面粉 + 调料",
+      "effect": "雷雨抵抗10%\n伐木速度提升10%\n伐木主资源暴击率10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0114",
+      "position": 113,
+      "name": "钟水饺",
+      "method": "肉 + 3面粉",
+      "effect": "弹药携带量提升10%\n补充弹药消耗降低10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0115",
+      "position": 114,
+      "name": "锅盔",
+      "method": "2肉 + 面粉 + 调料",
+      "effect": "头部伤害提升5%\n奔跑消耗体力降低10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0116",
+      "position": 115,
+      "name": "凉面",
+      "method": "2面粉 + 酱料 + 葱姜蒜",
+      "effect": "气力上限添加率10%\n采麻速度提升10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0117",
+      "position": 116,
+      "name": "菠萝油",
+      "method": "2面粉 + 2蜂蜜",
+      "effect": "恢复气力速度提升10%\n挖矿速度提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0118",
+      "position": 117,
+      "name": "水晶虾饺",
+      "method": "2面粉 + 2对虾",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0119",
+      "position": 118,
+      "name": "鲜虾云吞",
+      "method": "2面粉 + 对虾 + 酱料",
+      "effect": "挖矿副资源暴击率10%\n挖矿速度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0120",
+      "position": 119,
+      "name": "鲜肉肠粉",
+      "method": "2肉 + 大米 + 酱料",
+      "effect": "持续回复血量1.5\n暴风雪抵抗10%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0121",
+      "position": 120,
+      "name": "鲜虾肠粉",
+      "method": "2虾 + 大米 + 酱料",
+      "effect": "免暴率5%\n沙尘暴抵抗10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0122",
+      "position": 121,
+      "name": "鸡蛋肠粉",
+      "method": "2禽蛋 + 酱料 + 大米",
+      "effect": "血量上限150\n雷雨抵抗10%\n弹药携带量提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0123",
+      "position": 122,
+      "name": "肝腰肠粉",
+      "method": "2大米 + 酱料 + 动物内脏",
+      "effect": "持续回复血量1.5\n人型怪伤害提升10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0124",
+      "position": 123,
+      "name": "皮蛋瘦肉粥",
+      "method": "禽蛋 + 肉 + 2大米",
+      "effect": "免暴率5%\n挥砍速度提升5%\n补充弹药消耗降低5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0125",
+      "position": 124,
+      "name": "火腿蛋丝粥",
+      "method": "肉 + 2大米 + 火腿",
+      "effect": "射速提升5%\n暴风雪抵抗10%\n弹药携带量10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0126",
+      "position": 125,
+      "name": "奶油玉米粥",
+      "method": "圣诞限定",
+      "effect": "持续回复血量1.5\n游泳速度提升10%\n移动速度提升5%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0127",
+      "position": 126,
+      "name": "卤肉饭",
+      "method": "肉 + 禽蛋 + 大米 + 酱料",
+      "effect": "人型怪伤害提升10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0128",
+      "position": 127,
+      "name": "猪扒包",
+      "method": "面粉 + 2肉 + 酱料",
+      "effect": "头部伤害提升7.5%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0129",
+      "position": 128,
+      "name": "虾籽捞面",
+      "method": "面粉 + 虾 + 酱料 + 穿天椒",
+      "effect": "挖矿主资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0130",
+      "position": 129,
+      "name": "大米河粉",
+      "method": "大米 + 2肉 + 穿天椒",
+      "effect": "恢复气力速度提升10%\n采集熟练度提升10%",
+      "duration": "600",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0131",
+      "position": 130,
+      "name": "牛肉芝士汉堡",
+      "method": "肉 + 2面粉 + 牛奶",
+      "effect": "伐木主资源暴击率10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0132",
+      "position": 131,
+      "name": "新禧春卷",
+      "method": "春节限定活动获得",
+      "effect": "攻击力2\n护甲值1",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0133",
+      "position": 132,
+      "name": "印尼炒饭",
+      "method": "肉 + 蔬菜 + 大米 + 禽蛋",
+      "effect": "射速提升10%\n弹药携带量10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0134",
+      "position": 133,
+      "name": "椰浆饭",
+      "method": "椰子 + 禽蛋 + 大米 + 酱料",
+      "effect": "战斗熟练度提升10%\n污染怪伤害提升10%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0135",
+      "position": 134,
+      "name": "炸鱼薯条",
+      "method": "鱼类 + 蔬菜 + 酱料 + 食用油",
+      "effect": "采麻主资源暴击率10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0136",
+      "position": 135,
+      "name": "泰式炒河粉",
+      "method": "蔬菜 + 对虾 + 大米 + 葱姜蒜",
+      "effect": "挖矿主资源暴击率10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0137",
+      "position": 136,
+      "name": "不可描述的食物",
+      "method": "3冰块 + 1肉（失败料理）",
+      "effect": "每秒回复饱食度10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0138",
+      "position": 137,
+      "name": "干净的罐头",
+      "method": "市政厅购买或野外箱子",
+      "effect": "每秒回复饱食度6",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0139",
+      "position": 138,
+      "name": "清炖鱼汤",
+      "method": "2鱼 + 2冰块",
+      "effect": "每秒回复血量25\n体温提升20\n去除感冒",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0140",
+      "position": 139,
+      "name": "蔬菜鱼丸汤",
+      "method": "2鱼 + 2蔬菜",
+      "effect": "最大气息提升50%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0141",
+      "position": 140,
+      "name": "炸鱼饼",
+      "method": "2鱼 + 2面粉",
+      "effect": "挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0142",
+      "position": 141,
+      "name": "麻辣水煮鱼",
+      "method": "2鱼 + 2穿天椒",
+      "effect": "战斗熟练度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0143",
+      "position": 142,
+      "name": "鲜极虾王汤",
+      "method": "2鱼 + 对虾 + 河蟹\n（学习制作技能）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0144",
+      "position": 143,
+      "name": "玉子烧",
+      "method": "2鱼 + 2牛奶\n（学习制作技能）",
+      "effect": "头部伤害提升5%\n射速提升5%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0145",
+      "position": 144,
+      "name": "烤肉",
+      "method": "4肉",
+      "effect": "每秒回复血量28.8\n每秒回复饱食度14.4",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0146",
+      "position": 145,
+      "name": "蛋羹",
+      "method": "4禽蛋",
+      "effect": "每秒回复血量5",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0147",
+      "position": 146,
+      "name": "肉串",
+      "method": "2肉 + 2水果",
+      "effect": "动物伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0148",
+      "position": 147,
+      "name": "肉丸子",
+      "method": "2肉 + 2蔬菜",
+      "effect": "污染怪伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0149",
+      "position": 148,
+      "name": "蘑菇肉串",
+      "method": "蘑菇 + 3肉",
+      "effect": "暴击率提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0150",
+      "position": 149,
+      "name": "蜜汁烤肉",
+      "method": "2蜂蜜 + 2肉",
+      "effect": "持续回复血量1",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0151",
+      "position": 150,
+      "name": "蜜浇蘑菇",
+      "method": "2蘑菇 + 2蜂蜜",
+      "effect": "采麻主资源暴击率10%\n采麻副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0152",
+      "position": 151,
+      "name": "牛奶炖肉",
+      "method": "2肉 + 2牛奶",
+      "effect": "污染怪伤害提升5%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0153",
+      "position": 152,
+      "name": "辣椒炒蛋",
+      "method": "2穿天椒 + 2禽蛋",
+      "effect": "每秒回复血量5",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0154",
+      "position": 153,
+      "name": "麻辣肉丁",
+      "method": "2肉 + 2穿天椒",
+      "effect": "建筑伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0155",
+      "position": 154,
+      "name": "鲜肉蛋饺",
+      "method": "2肉 + 2禽蛋",
+      "effect": "动物伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0156",
+      "position": 155,
+      "name": "蔬菜蛋饼",
+      "method": "2蔬菜 + 2禽蛋",
+      "effect": "污染怪伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0157",
+      "position": 156,
+      "name": "蘑菇焗蛋",
+      "method": "2蘑菇 + 2禽蛋",
+      "effect": "人型怪伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0158",
+      "position": 157,
+      "name": "蜂蜜蛋花汤",
+      "method": "2蜂蜜 + 2禽蛋",
+      "effect": "每秒回复血量28\n体温提升20\n去除感冒",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0159",
+      "position": 158,
+      "name": "椰子炖蛋",
+      "method": "2椰子 + 2禽蛋",
+      "effect": "最大气息提升50%\n游泳速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0160",
+      "position": 159,
+      "name": "椰香烤肉",
+      "method": "2肉 + 2椰子",
+      "effect": "采集熟练度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0161",
+      "position": 160,
+      "name": "虾仁焗蛋",
+      "method": "2对虾 + 2禽蛋",
+      "effect": "每秒回复血量5",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0162",
+      "position": 161,
+      "name": "玉米肉碎",
+      "method": "2玉米 + 2肉",
+      "effect": "人型怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0163",
+      "position": 162,
+      "name": "营养煨炖",
+      "method": "2肉 + 面粉 + 牛奶",
+      "effect": "动物伤害提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0164",
+      "position": 163,
+      "name": "水煮肉片",
+      "method": "2肉 + 蔬菜 + 穿天椒",
+      "effect": "战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0165",
+      "position": 164,
+      "name": "甜辣小丸子",
+      "method": "2肉 + 蜂蜜 + 穿天椒",
+      "effect": "战斗熟练度提升5%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0166",
+      "position": 165,
+      "name": "什锦拼盘",
+      "method": "肉 + 蔬菜 + 水果 + 蘑菇",
+      "effect": "伐木主资源暴击率5%\n伐木副资源暴击率5%\n挖矿主资源暴击率5%\n挖矿副资源暴击率5%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0167",
+      "position": 166,
+      "name": "肉扒大餐",
+      "method": "2肉 + 蔬菜 + 蘑菇",
+      "effect": "持续回复血量1.5",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0168",
+      "position": 167,
+      "name": "麻辣香锅",
+      "method": "肉 + 蔬菜 + 蘑菇 + 穿天椒",
+      "effect": "暴击率10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0169",
+      "position": 168,
+      "name": "胡萝卜肉饼",
+      "method": "2肉 + 2胡萝卜",
+      "effect": "动物伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0170",
+      "position": 169,
+      "name": "鱼香肉丝",
+      "method": "2肉 + 穿天椒 + 胡萝卜",
+      "effect": "每秒回复血量50",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0171",
+      "position": 170,
+      "name": "香辣梭子蟹",
+      "method": "2穿天椒 + 2梭子蟹",
+      "effect": "每秒回复血量5",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0172",
+      "position": 171,
+      "name": "炸鱿鱼圈",
+      "method": "2鱿鱼 + 2面粉",
+      "effect": "游泳速度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0173",
+      "position": 172,
+      "name": "香辣鱿鱼须",
+      "method": "2鱿鱼 + 2穿天椒",
+      "effect": "游泳速度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0174",
+      "position": 173,
+      "name": "麻辣海鲜香锅",
+      "method": "穿天椒 + 对虾 + 鱿鱼 + 梭子蟹",
+      "effect": "人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0175",
+      "position": 174,
+      "name": "蒸河虾",
+      "method": "4对虾\n（或 1对虾 + 3肉）",
+      "effect": "每秒回复血量21.6\n每秒回复饱食度12.6",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0176",
+      "position": 175,
+      "name": "蒸螃蟹",
+      "method": "4河蟹\n（或 1河蟹 + 3肉）",
+      "effect": "每秒回复血量20\n每秒回复饱食度12",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0177",
+      "position": 176,
+      "name": "烤草鱼",
+      "method": "4草鱼\n（或 1草鱼 + 3肉）",
+      "effect": "伐木速度提升5%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0178",
+      "position": 177,
+      "name": "烤鲤鱼",
+      "method": "4鲤鱼\n（或 1鲤鱼 + 3肉）",
+      "effect": "采麻速度提升5%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0179",
+      "position": 178,
+      "name": "烤河豚",
+      "method": "4河豚\n（或 1河豚 + 3肉）",
+      "effect": "每秒回复血量70",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0180",
+      "position": 179,
+      "name": "烤鲶鱼",
+      "method": "4鲶鱼\n（或 1鲶鱼 + 3肉）",
+      "effect": "挖矿速度提升5%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0181",
+      "position": 180,
+      "name": "烤大黄鱼",
+      "method": "4大黄鱼\n（或 1大黄鱼 + 3肉）",
+      "effect": "每秒回复血量42\n每秒回复饱食度14.2",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0182",
+      "position": 181,
+      "name": "烤梭子蟹",
+      "method": "4梭子蟹\n（或 1梭子蟹 + 3肉）",
+      "effect": "每秒回复血量20\n每秒回复饱食度12",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0183",
+      "position": 182,
+      "name": "烤鲅鱼",
+      "method": "4鲅鱼\n（或 1鲅鱼 + 3肉）",
+      "effect": "每秒回复血量22\n每秒回复饱食度14",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0184",
+      "position": 183,
+      "name": "烤鲈鱼",
+      "method": "4条纹鲈鱼\n（或 1条纹鲈鱼 + 3肉）",
+      "effect": "每秒回复血量22\n每秒回复饱食度13",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0185",
+      "position": 184,
+      "name": "烤鳜鱼",
+      "method": "4鳜鱼\n（或 1鳜鱼 + 3肉）",
+      "effect": "每秒回复血量46\n每秒回复饱食度12",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0186",
+      "position": 185,
+      "name": "烤银鲳鱼",
+      "method": "4银鲳鱼\n（或 1银鲳鱼 + 3肉）",
+      "effect": "最大气息提升50%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0187",
+      "position": 186,
+      "name": "烤带鱼",
+      "method": "4带鱼\n（或 1带鱼 + 3肉）",
+      "effect": "伐木速度提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0188",
+      "position": 187,
+      "name": "烤多宝鱼",
+      "method": "4多宝鱼\n（或 1多宝鱼 + 3肉）",
+      "effect": "挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0189",
+      "position": 188,
+      "name": "烤海猪鱼",
+      "method": "4云斑海猪鱼\n（或 1云斑海猪鱼 + 3肉）",
+      "effect": "每秒回复血量50\n每秒回复饱食度14",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0190",
+      "position": 189,
+      "name": "烤鳗鱼",
+      "method": "4鳗鱼\n（或 1鳗鱼 + 3肉）",
+      "effect": "伐木速度提升5%\n挖矿速度提升5%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0191",
+      "position": 190,
+      "name": "烤石斑鱼",
+      "method": "4红石斑鱼\n（或 1红石斑鱼 + 3肉）",
+      "effect": "采麻速度提升10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0192",
+      "position": 191,
+      "name": "烤鳟鱼",
+      "method": "4虹鳟鱼\n（或 1虹鳟鱼 + 3肉）",
+      "effect": "移动速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0193",
+      "position": 192,
+      "name": "烤鲑鱼",
+      "method": "4鲑鱼\n（或 1鲑鱼 + 3肉）",
+      "effect": "采麻主资源暴击率10%\n采麻副资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0194",
+      "position": 193,
+      "name": "烤罗非鱼",
+      "method": "4红罗非鱼\n（或 1红罗非鱼 + 3肉）",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0195",
+      "position": 194,
+      "name": "烤鹦嘴鱼",
+      "method": "4鹦嘴鱼\n（或 1鹦嘴鱼 + 3肉）",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0196",
+      "position": 195,
+      "name": "烤苏眉鱼",
+      "method": "4苏眉鱼\n（或 1苏眉鱼 + 3肉）",
+      "effect": "挖矿速度提升10%\n伐木速度提升10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0197",
+      "position": 196,
+      "name": "烤甲鱼",
+      "method": "4甲鱼\n（或 1甲鱼 + 3肉）",
+      "effect": "采集熟练度提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0198",
+      "position": 197,
+      "name": "烤鸡鱼",
+      "method": "4鸡鱼\n（或 1鸡鱼 + 3肉）",
+      "effect": "伐木速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0199",
+      "position": 198,
+      "name": "烤鱿鱼",
+      "method": "4鱿鱼\n（或 1鱿鱼 + 3肉）",
+      "effect": "挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0200",
+      "position": 199,
+      "name": "烤太阳鱼",
+      "method": "4蓝鳃太阳鱼\n（或 1蓝鳃太阳鱼 + 3肉）",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0201",
+      "position": 200,
+      "name": "剁椒鱼头",
+      "method": "穿天椒 + 3鳙鱼",
+      "effect": "人型怪伤害提升5%\n污染怪伤害提升5%\n动物伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0202",
+      "position": 201,
+      "name": "清蒸鲥鱼",
+      "method": "4鲥鱼\n（或 1鲥鱼 + 3肉）",
+      "effect": "移动速度提升2.5%\n伐木主资源暴击率10%\n伐木副资源暴击率10%\n伐木速度提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0203",
+      "position": 202,
+      "name": "红烧蛇鱼",
+      "method": "4蛇鱼\n（或 1蛇鱼 + 3肉）",
+      "effect": "移动速度提升2.5%\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0204",
+      "position": 203,
+      "name": "碳烤红绸鱼",
+      "method": "4红绸鱼\n（或 1红绸鱼 + 3肉）",
+      "effect": "移动速度提升5%\n血量上限50",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0205",
+      "position": 204,
+      "name": "烤秋刀鱼",
+      "method": "4秋刀鱼\n（或 1秋刀鱼 + 3肉）",
+      "effect": "移动速度提升2.5%\n采麻主资源暴击率10%\n采麻副资源暴击率10%\n采麻速度提升10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0206",
+      "position": 205,
+      "name": "油炸雨鱼",
+      "method": "4雨鱼\n（或 1雨鱼 + 3肉）",
+      "effect": "战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0207",
+      "position": 206,
+      "name": "火鼠鱼料理",
+      "method": "4火鼠鱼\n（或 1火鼠鱼 + 3肉）",
+      "effect": "持续回复血量0.1\n暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0208",
+      "position": 207,
+      "name": "香煎冰棘鱼",
+      "method": "4冰棘鱼\n（或 1冰棘鱼 + 3肉）",
+      "effect": "移动速度提升5%\n伐木主资源暴击率10%\n伐木副资源暴击率10%\n伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0209",
+      "position": 208,
+      "name": "白条鱼生",
+      "method": "冰块 + 3白条鱼",
+      "effect": "采麻速度提升5%\n采集熟练度提升10%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0210",
+      "position": 209,
+      "name": "煎龙利鱼",
+      "method": "4龙利鱼\n（或 1龙利鱼 + 3肉）",
+      "effect": "移动速度提升5%\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0211",
+      "position": 210,
+      "name": "金枪鱼生",
+      "method": "冰块 + 3金枪鱼",
+      "effect": "移动速度提升5%\n采麻主资源暴击率10%\n采麻副资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0212",
+      "position": 211,
+      "name": "龙虾大餐",
+      "method": "4龙虾\n（或 1龙虾 + 3肉）",
+      "effect": "血量上限200",
+      "duration": "1800秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0213",
+      "position": 212,
+      "name": "锦鲤刺身",
+      "method": "4锦鲤\n（或 1锦鲤 + 3肉）",
+      "effect": "持续回复血量2\n暴击率10%\n移动速度提升5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%\n建筑伤害提升10%\n伐木主资源暴击率10%\n伐木副资源暴击率10%\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n采麻主资源暴击率10%\n采麻副资源暴击率10%",
+      "duration": "1800秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0214",
+      "position": 213,
+      "name": "豪华鸡腿便当",
+      "method": "快乐101家具店搬砖",
+      "effect": "回复精力值200\n每秒回复饱食度6",
+      "duration": "5秒",
+      "defaultUnlocked": true
+    },
+    {
+      "id": "recipe.0215",
+      "position": 214,
+      "name": "南瓜小丑派",
+      "method": "2面粉 + 小丑鱼 + 南瓜",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%\n采集熟练度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0216",
+      "position": 215,
+      "name": "烤魔鬼鱼",
+      "method": "1魔鬼鱼 + 3穿天椒\n（魔鬼鱼改名：伤刺鱼）",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0217",
+      "position": 216,
+      "name": "生鱼片寿司",
+      "method": "2鱼 + 蔬菜 + 大米",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0218",
+      "position": 217,
+      "name": "米粉蒸肉",
+      "method": "2大米 + 肉 + 酱料",
+      "effect": "血量上限150\n沼泽抵抗10%\n挥砍速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0219",
+      "position": 218,
+      "name": "蚂蚁上树",
+      "method": "肉 + 穿天椒 + 2粉丝",
+      "effect": "射速提升5%\n战斗熟练度提升10%\n沙尘暴抵抗10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0220",
+      "position": 219,
+      "name": "熊掌豆腐",
+      "method": "2肉 + 葱姜蒜 + 豆腐",
+      "effect": "移动速度提升5%\n射速提升5%\n换弹速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0221",
+      "position": 220,
+      "name": "毛血旺",
+      "method": "肉 + 穿天椒 + 调料 + 动物内脏",
+      "effect": "持续回复血量1.5\n人型怪伤害提升10%\n战斗熟练度提升15%\n体温提升20",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0222",
+      "position": 221,
+      "name": "回锅肉",
+      "method": "2肉 + 酱料 + 葱姜蒜",
+      "effect": "持续回复血量1\n弹药携带量10%\n弹跳提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0223",
+      "position": 222,
+      "name": "干煸肥肠",
+      "method": "2穿天椒 + 2动物内脏",
+      "effect": "建筑伤害提升10%\n射程提升10",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0224",
+      "position": 223,
+      "name": "夫妻肺片",
+      "method": "穿天椒 + 食用油 + 2动物内脏\n（找夏冬凉买食谱）",
+      "effect": "污染怪伤害提升10%\n头部伤害提升5%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0225",
+      "position": 224,
+      "name": "上汤龙虾",
+      "method": "2虾 + 面粉 + 蔬菜",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0226",
+      "position": 225,
+      "name": "椒盐濑尿虾",
+      "method": "2濑尿虾 + 调料 + 葱姜蒜",
+      "effect": "游泳速度提升10%\n采集熟练度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0227",
+      "position": 226,
+      "name": "卤水拼盘",
+      "method": "禽蛋 + 2动物内脏 + 酱料",
+      "effect": "免暴率5%\n补充弹药消耗降低10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0228",
+      "position": 227,
+      "name": "干蒸",
+      "method": "肉 + 2禽蛋 + 调料",
+      "effect": "气力上限添加率10%\n挥砍速度提升10%\n移动速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0229",
+      "position": 228,
+      "name": "脆皮烤肉",
+      "method": "2肉 + 2调料",
+      "effect": "移动速度提升5%\n头部伤害提升7.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0230",
+      "position": 229,
+      "name": "咸蛋蒸肉饼",
+      "method": "2肉 + 禽蛋 + 大米",
+      "effect": "人型怪伤害提升10%\n暴风雪抵抗10%\n补充弹药消耗降低5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0231",
+      "position": 230,
+      "name": "水晶蹄膀",
+      "method": "2肉 + 酱料 + 食用油",
+      "effect": "污染怪伤害提升10%\n免暴率5%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0232",
+      "position": 231,
+      "name": "大米肉丸子",
+      "method": "2肉 + 大米 + 调料",
+      "effect": "动物伤害提升10%\n奔跑消耗体力降低10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0233",
+      "position": 232,
+      "name": "玉米萝卜大骨汤",
+      "method": "肉 + 玉米 + 2胡萝卜",
+      "effect": "持续回复血量1.5\n血量上限100\n免暴率5%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0234",
+      "position": 233,
+      "name": "排骨海带汤",
+      "method": "2肉 + 蔬菜 + 调料\n（或 肉 + 2蔬菜 + 调料）",
+      "effect": "持续回复血量1.5\n免暴率10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0235",
+      "position": 234,
+      "name": "香煎芙蓉蛋",
+      "method": "肉 + 蔬菜 + 蘑菇 + 禽蛋",
+      "effect": "采麻主资源暴击率10%\n采麻副资源暴击率10%\n战斗熟练度提升5%\n弹药携带量提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0236",
+      "position": 235,
+      "name": "菠萝咕咾肉",
+      "method": "2肉 + 糖 + 菠萝\n（找夏冬凉买食谱）",
+      "effect": "移动速度提升5%\n最大气息提升10%\n头部伤害提升5%\n稳定性50",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0237",
+      "position": 236,
+      "name": "百花鱼肚",
+      "method": "2鱼 + 蔬菜 + 食用油",
+      "effect": "移动速度提升5%\n采麻主资源暴击率10%\n采麻速度提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0238",
+      "position": 237,
+      "name": "咖喱鱼蛋",
+      "method": "鱼 + 2蔬菜 + 酱料",
+      "effect": "采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0239",
+      "position": 238,
+      "name": "天妇罗",
+      "method": "鱼 + 蛋 + 食用油 + 面粉",
+      "effect": "采麻副资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0240",
+      "position": 239,
+      "name": "关东煮",
+      "method": "肉 + 蔬菜 + 蘑菇 + 豆腐",
+      "effect": "污染怪伤害提升5%\n奔跑消耗体力降低5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0241",
+      "position": 240,
+      "name": "沙嗲",
+      "method": "3肉 + 酱料",
+      "effect": "换弹速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0242",
+      "position": 241,
+      "name": "蕉叶柳鱼",
+      "method": "鱼 + 2蔬菜 + 调料",
+      "effect": "伐木主资源暴击率5%\n挖矿主资源暴击率5%\n采麻主资源暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0243",
+      "position": 242,
+      "name": "冬阴功汤",
+      "method": "蘑菇 + 2虾 + 葱姜蒜",
+      "effect": "暴击率5%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0244",
+      "position": 243,
+      "name": "咖喱炒蟹",
+      "method": "2蟹 + 酱料 + 食用油",
+      "effect": "伐木副资源暴击率5%\n挖矿副资源暴击率5%\n采麻副资源暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0245",
+      "position": 244,
+      "name": "蒸烤蔬菜",
+      "method": "4蔬菜",
+      "effect": "每秒回复血量18.6\n每秒回复饱食度18.6",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0246",
+      "position": 245,
+      "name": "热水",
+      "method": "4冰块",
+      "effect": "体温提升10\n去除感冒",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0247",
+      "position": 246,
+      "name": "烤蘑菇",
+      "method": "4蘑菇（不可全为松茸）",
+      "effect": "每秒回复血量17",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0248",
+      "position": 247,
+      "name": "辣椒酱",
+      "method": "4穿天椒",
+      "effect": "体温提升45",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0249",
+      "position": 248,
+      "name": "烤玉米棒",
+      "method": "4玉米",
+      "effect": "每秒回复血量15",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0250",
+      "position": 249,
+      "name": "蔬果沙拉",
+      "method": "2蔬菜 + 2水果",
+      "effect": "采麻主资源暴击率5%\n采麻副资源暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0251",
+      "position": 250,
+      "name": "蘑菇浓汤",
+      "method": "2蘑菇 + 2牛奶",
+      "effect": "每秒回复血量15",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0252",
+      "position": 251,
+      "name": "蘑菇炒辣椒",
+      "method": "2蘑菇 + 2穿天椒",
+      "effect": "每秒回复血量10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0253",
+      "position": 252,
+      "name": "香辣水煮玉米",
+      "method": "2穿天椒 + 2玉米",
+      "effect": "暴击率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0254",
+      "position": 253,
+      "name": "黄金玉米烙",
+      "method": "2蜂蜜 + 2玉米",
+      "effect": "每秒回复血量60",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0255",
+      "position": 254,
+      "name": "椰香玉米浓汤",
+      "method": "2椰子 + 2玉米",
+      "effect": "每秒回复血量18\n体温提升20",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0256",
+      "position": 255,
+      "name": "黄油煎松茸",
+      "method": "4松茸",
+      "effect": "每秒回复血量16",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0257",
+      "position": 256,
+      "name": "炸南瓜条",
+      "method": "面粉 + 牛奶 + 2南瓜",
+      "effect": "每秒回复血量10\n每秒回复饱食度14",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0258",
+      "position": 257,
+      "name": "杂菌汤",
+      "method": "蔬菜 + 草菇 + 松茸 + 洞穴菇",
+      "effect": "体温提升26\n去除感冒",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0259",
+      "position": 258,
+      "name": "辣炒西瓜皮",
+      "method": "2穿天椒 + 2西瓜",
+      "effect": "每秒回复血量10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0260",
+      "position": 259,
+      "name": "胡萝卜玉米汁",
+      "method": "2胡萝卜 + 2玉米",
+      "effect": "每秒回复血量10",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0261",
+      "position": 260,
+      "name": "玉米南瓜粥",
+      "method": "3玉米 + 南瓜",
+      "effect": "持续回复血量1",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0262",
+      "position": 261,
+      "name": "麻婆豆腐",
+      "method": "2穿天椒 + 葱姜蒜 + 豆腐",
+      "effect": "暴击率5%\n气力上限添加率5%\n稳定性50",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0263",
+      "position": 262,
+      "name": "三大炮",
+      "method": "蜂蜜 + 芝麻 + 2大米",
+      "effect": "暴风雪抵抗10%\n采麻速度提升10%\n采麻主资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0264",
+      "position": 263,
+      "name": "冒菜",
+      "method": "水果 + 蔬菜 + 蘑菇 + 葱姜蒜",
+      "effect": "移动速度提升5%\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0265",
+      "position": 264,
+      "name": "调味花生",
+      "method": "2花生 + 穿天椒 + 调料",
+      "effect": "移动速度提升5%\n暴击率5%\n恢复气力速度5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0266",
+      "position": 265,
+      "name": "姜汤",
+      "method": "蜂蜜 + 冰块 + 2葱姜蒜",
+      "effect": "游泳速度提升10%\n挖矿速度提升10%\n奔跑消耗体力降低10%\n体温提升20\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0267",
+      "position": 266,
+      "name": "鼎边锉",
+      "method": "大米 + 肉 + 蔬菜 + 蘑菇",
+      "effect": "伐木速度提升5%\n采麻速度提升5%\n挖矿速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0268",
+      "position": 267,
+      "name": "蔬菜寿司",
+      "method": "3蔬菜 + 大米",
+      "effect": "挥砍速度提升10%\n恢复气力速度10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0269",
+      "position": 268,
+      "name": "土豆炖牛肉",
+      "method": "土豆 + 2肉 + 胡萝卜",
+      "effect": "持续回复血量0.5\n人型怪伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0270",
+      "position": 269,
+      "name": "土豆丝炒肉",
+      "method": "2肉 + 2土豆",
+      "effect": "持续回复血量0.5\n污染怪伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0271",
+      "position": 270,
+      "name": "薯条",
+      "method": "3土豆 + 食用油",
+      "effect": "移动速度提升5%\n游泳速度提升5%\n采集熟练度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0272",
+      "position": 271,
+      "name": "风琴土豆",
+      "method": "2土豆 + 肉 + 调料",
+      "effect": "暴击率5%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0273",
+      "position": 272,
+      "name": "麻辣薯角",
+      "method": "2土豆 + 穿天椒 + 食用油",
+      "effect": "战斗熟练度提升10%\n换弹速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0274",
+      "position": 273,
+      "name": "土豆泥",
+      "method": "2土豆 + 2牛奶",
+      "effect": "头部伤害提升7.5%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0275",
+      "position": 274,
+      "name": "土豆饼",
+      "method": "面粉 + 调料 + 葱姜蒜 + 土豆",
+      "effect": "伐木主资源暴击率10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0276",
+      "position": 275,
+      "name": "土豆焖饭",
+      "method": "土豆 + 胡萝卜 + 大米 + 葱姜蒜",
+      "effect": "伐木速度提升5%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0277",
+      "position": 276,
+      "name": "烤土豆",
+      "method": "4土豆",
+      "effect": "射速提升10%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0278",
+      "position": 277,
+      "name": "宫保土豆丁",
+      "method": "2土豆 + 胡萝卜 + 穿天椒",
+      "effect": "气力上限添加率提升5%\n挥砍速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0279",
+      "position": 278,
+      "name": "香菇土豆肉沫饭",
+      "method": "土豆 + 蘑菇 + 穿天椒 + 大米",
+      "effect": "雷雨抵抗10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0280",
+      "position": 279,
+      "name": "葱香小土豆",
+      "method": "2土豆 + 食用油 + 葱姜蒜",
+      "effect": "射速提升5%\n补充弹药消耗降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0281",
+      "position": 280,
+      "name": "松软培根土豆包",
+      "method": "2面粉 + 肉 + 土豆",
+      "effect": "持续回复血量1\n暴击率8%\n建筑伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0282",
+      "position": 281,
+      "name": "培根土豆饭",
+      "method": "土豆 + 大米 + 肉 + 葱姜蒜\n（莱文黎明区教会避难所购买食谱）",
+      "effect": "暴击率5%\n污染怪伤害提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0283",
+      "position": 282,
+      "name": "鸡蛋土豆泥沙拉",
+      "method": "土豆 + 禽蛋 + 玉米 + 牛奶",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0284",
+      "position": 283,
+      "name": "香煎土豆片",
+      "method": "食用油 + 酱料 + 葱姜蒜 + 土豆",
+      "effect": "暴风雪抵抗10%\n头部伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0285",
+      "position": 284,
+      "name": "奶酪拉丝土豆泥",
+      "method": "2牛奶 + 土豆 + 肉",
+      "effect": "气力上限添加率5%\n恢复气力速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0286",
+      "position": 285,
+      "name": "土豆丝饼",
+      "method": "土豆 + 面粉 + 酱料 + 食用油",
+      "effect": "恢复气力速度5%\n挖矿副资源暴击率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0287",
+      "position": 286,
+      "name": "虾仁土豆蛋饼",
+      "method": "土豆 + 虾类 + 2禽蛋",
+      "effect": "气力上限添加率5%\n伐木副资源暴击率7.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0288",
+      "position": 287,
+      "name": "土豆肥牛盖饭",
+      "method": "土豆 + 肉 + 大米 + 禽蛋",
+      "effect": "气力上限添加率5%\n采集副资源暴击率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0289",
+      "position": 288,
+      "name": "土豆黄焖鸡米饭",
+      "method": "土豆 + 肉 + 大米 + 酱料",
+      "effect": "采麻副资源暴击率5%\n采麻速度提升5%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0290",
+      "position": 289,
+      "name": "香甜土豆松",
+      "method": "2土豆 + 糖 + 食用油",
+      "effect": "战斗熟练度提升5%\n换弹速度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0291",
+      "position": 290,
+      "name": "爱心便当",
+      "method": "爱心稻谷 + 3随意食材",
+      "effect": "持续回复血量1\n暴击率提升10%\n污染怪伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0292",
+      "position": 291,
+      "name": "柠汁土豆",
+      "method": "2土豆 + 柠檬 + 葱姜蒜",
+      "effect": "补充弹药消耗降低10%\n弹药携带量提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0293",
+      "position": 292,
+      "name": "柠檬酱",
+      "method": "2柠檬 + 2禽蛋",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0294",
+      "position": 293,
+      "name": "冰冻柠檬片",
+      "method": "3柠檬 + 冰块",
+      "effect": "移动速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0295",
+      "position": 294,
+      "name": "柠檬蜜",
+      "method": "3糖 + 柠檬",
+      "effect": "游泳速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0296",
+      "position": 295,
+      "name": "蜂蜜柠檬茶",
+      "method": "蜂蜜 + 2冰块 + 柠檬",
+      "effect": "弹跳提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0297",
+      "position": 296,
+      "name": "青柠蒸鱼",
+      "method": "2柠檬 + 鱼 + 葱姜蒜",
+      "effect": "挖矿速度提升5%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0298",
+      "position": 297,
+      "name": "柠檬戚风蛋糕",
+      "method": "柠檬 + 面粉 + 禽蛋 + 糖",
+      "effect": "采麻速度提升5%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0299",
+      "position": 298,
+      "name": "柠檬芝士蛋糕",
+      "method": "柠檬 + 面粉 + 牛奶 + 禽蛋\n（莱文黎明区联盟避难所找哈尔购买食谱）",
+      "effect": "采麻副资源暴击率10%\n采麻速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0300",
+      "position": 299,
+      "name": "柠檬棒棒糖",
+      "method": "2柠檬 + 2糖",
+      "effect": "气力上限添加率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0301",
+      "position": 300,
+      "name": "金汤柠檬鱼",
+      "method": "柠檬 + 鱼 + 调料 + 穿天椒\n（莱文黎明区科技会避难所找拉赫尼诺夫购买食谱）",
+      "effect": "伐木副资源暴击率10%\n伐木速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0302",
+      "position": 301,
+      "name": "柠檬玛德琳",
+      "method": "柠檬 + 面粉 + 2禽蛋",
+      "effect": "恢复气力速度10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0303",
+      "position": 302,
+      "name": "凉拌手撕肉",
+      "method": "柠檬 + 肉 + 穿天椒 + 葱姜蒜\n（莱文黎明区科技会避难所找智孝购买食谱）",
+      "effect": "挖矿副资源暴击率10%\n采矿速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0304",
+      "position": 303,
+      "name": "柠檬蒸对虾",
+      "method": "2柠檬 + 2对虾",
+      "effect": "伐木主资源暴击率5%\n采集熟练度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0305",
+      "position": 304,
+      "name": "柠檬冰淇淋",
+      "method": "柠檬 + 糖 + 2冰块",
+      "effect": "移动速度提升8%\n弹跳提升2%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0306",
+      "position": 305,
+      "name": "酸爽青柠虾",
+      "method": "柠檬 + 穿天椒 + 虾类 + 葱姜蒜",
+      "effect": "挖矿副资源暴击率5%\n挖矿速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0307",
+      "position": 306,
+      "name": "海鲜意面",
+      "method": "2面粉 + 对虾 + 柠檬",
+      "effect": "伐木副资源暴击率7.5%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0308",
+      "position": 307,
+      "name": "柠檬汁",
+      "method": "4柠檬",
+      "effect": "移动速度提升5%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0309",
+      "position": 308,
+      "name": "西瓜柠檬苏打饮",
+      "method": "2冰块 + 西瓜 + 柠檬",
+      "effect": "移动速度提升5%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0310",
+      "position": 309,
+      "name": "草莓柠檬水",
+      "method": "草莓 + 柠檬 + 2冰块",
+      "effect": "移动速度提升5%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0311",
+      "position": 310,
+      "name": "香煎长颌鲚",
+      "method": "4长颌鲚\n（或 1长颌鲚 + 3肉）",
+      "effect": "战斗熟练度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0312",
+      "position": 311,
+      "name": "炸小银鱼",
+      "method": "4小银鱼\n（或 1小银鱼 + 3肉）",
+      "effect": "持续回复血量0.5\n暴击率提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0313",
+      "position": 312,
+      "name": "红烧胭脂鱼",
+      "method": "4胭脂鱼\n（或 1胭脂鱼 + 3肉）",
+      "effect": "移动速度提升5%\n伐木副资源暴击率10%\n伐木速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0314",
+      "position": 313,
+      "name": "烤翻车鱼",
+      "method": "4翻车鱼\n（或 1翻车鱼 + 3肉）",
+      "effect": "采麻速度提升5%\n采集熟练度提升5%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0315",
+      "position": 314,
+      "name": "清蒸凤尾鱼",
+      "method": "4凤尾鱼\n（或 1凤尾鱼 + 3肉）",
+      "effect": "每秒回复血量59\n每秒回复饱食度8",
+      "duration": "5秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0316",
+      "position": 315,
+      "name": "干煎马面鱼",
+      "method": "4马面鱼\n（或 1马面鱼 + 3肉）",
+      "effect": "移动速度提升5%\n采麻主资源暴击率5%\n采麻副资源暴击率5%\n采麻速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0317",
+      "position": 316,
+      "name": "西瓜冰沙",
+      "method": "高校限定料理自选箱",
+      "effect": "暴击率提升10%\n污染怪伤害提升10%\n动物伤害提升10%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0318",
+      "position": 317,
+      "name": "牛奶雪糕",
+      "method": "高校限定料理自选箱",
+      "effect": "暴击率提升5%\n气力上限添加率10%\n污染怪伤害提升10%\n动物伤害提升10%\n挥砍速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0319",
+      "position": 318,
+      "name": "Q弹彩虹软糖",
+      "method": "高校限定料理自选箱",
+      "effect": "暴击率提升10%\n移动速度提升10%\n污染怪伤害提升\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0320",
+      "position": 319,
+      "name": "烤赤魟",
+      "method": "4赤魟\n（或 1赤魟 + 3肉）",
+      "effect": "采集熟练度提升10%\n伐木速度提升10%\n伐木副资源暴击率7.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0321",
+      "position": 320,
+      "name": "红烧弹涂鱼",
+      "method": "4弹涂鱼\n（或 1弹涂鱼 + 3肉）",
+      "effect": "挖矿速度提升10%\n挖矿副资源暴击率7.5%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0322",
+      "position": 321,
+      "name": "飞鱼刺身",
+      "method": "4飞鱼\n（或 1飞鱼 + 3肉）",
+      "effect": "采麻速度提升10%\n采麻副资源暴击率7.5%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0323",
+      "position": 322,
+      "name": "炸针鱼",
+      "method": "4针鱼\n（或 1针鱼 + 3肉）",
+      "effect": "暴击率提升10%\n射速提升5%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0324",
+      "position": 323,
+      "name": "菊花茶",
+      "method": "3菊花瓣 + 冰块",
+      "effect": "移动速度提升10%\n建筑伤害提升10%",
+      "duration": "-",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0325",
+      "position": 324,
+      "name": "油焖春笋",
+      "method": "春笋/毛笋 + 穿天椒 + 葱姜蒜 + 食用油",
+      "effect": "持续回复血量1\n弹药携带量10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0326",
+      "position": 325,
+      "name": "春笋炒肉",
+      "method": "春笋/毛笋 + 穿天椒 + 肉 + 食用油",
+      "effect": "免暴率10%\n暴击率10%\n污染怪伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0327",
+      "position": 326,
+      "name": "清炒春笋",
+      "method": "春笋/毛笋 + 穿天椒 + 糖 + 食用油",
+      "effect": "伐木速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0328",
+      "position": 327,
+      "name": "腌笃鲜",
+      "method": "2春笋/毛笋 + 肉 + 葱姜蒜",
+      "effect": "气力上限添加率10%\n伐木副资源暴击率10%\n伐木速度提升10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0329",
+      "position": 328,
+      "name": "鲜笋抱蛋饺",
+      "method": "春笋/毛笋 + 虾 + 面粉 + 禽蛋",
+      "effect": "气力上限添加率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0330",
+      "position": 329,
+      "name": "泡椒春笋",
+      "method": "春笋/毛笋 + 穿天椒 + 葱姜蒜 + 酱料",
+      "effect": "头部伤害提升5%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0331",
+      "position": 330,
+      "name": "红烧肉油焖笋",
+      "method": "春笋/毛笋 + 肉 + 葱姜蒜 + 食用油",
+      "effect": "移动速度提升10%\n挖矿主资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0332",
+      "position": 331,
+      "name": "八珍豆腐",
+      "method": "春笋/毛笋 + 蘑菇 + 豆腐 + 胡萝卜",
+      "effect": "气力上限添加率10%\n采麻副资源暴击率10%\n采麻速度提升10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0333",
+      "position": 332,
+      "name": "香菇春笋煲鸡汤",
+      "method": "春笋/毛笋 + 蘑菇 + 肉 + 葱姜蒜",
+      "effect": "人型怪伤害提升10%\n头部伤害提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0334",
+      "position": 333,
+      "name": "春笋炒鸡蛋",
+      "method": "2春笋/毛笋 + 2禽蛋",
+      "effect": "建筑伤害提升10%\n挥砍速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0335",
+      "position": 334,
+      "name": "爽口腌黄瓜",
+      "method": "2黄瓜 + 酱料 + 穿天椒",
+      "effect": "采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0336",
+      "position": 335,
+      "name": "炒三丁",
+      "method": "土豆 + 胡萝卜 + 黄瓜 + 肉",
+      "effect": "持续回复血量1\n暴击率提升10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0337",
+      "position": 336,
+      "name": "响油黄瓜卷",
+      "method": "黄瓜 + 穿天椒 + 葱姜蒜 + 酱料",
+      "effect": "人型怪伤害提升10%\n射速提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0338",
+      "position": 337,
+      "name": "开运平安竹",
+      "method": "黄瓜 + 玉米 + 胡萝卜 + 糖",
+      "effect": "气力上限添加率10%\n伐木副资源暴击率10%\n伐木速度提升10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0339",
+      "position": 338,
+      "name": "三色虾仁",
+      "method": "胡萝卜 + 虾 + 黄瓜 + 葱姜蒜",
+      "effect": "气力上限添加率10%\n污染怪伤害提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0340",
+      "position": 339,
+      "name": "酸辣凉拌面",
+      "method": "面粉 + 黄瓜 + 穿天椒 + 酱料",
+      "effect": "气力上限添加率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0341",
+      "position": 340,
+      "name": "木须肉",
+      "method": "黄瓜 + 禽蛋 + 蘑菇 + 肉",
+      "effect": "暴击率10%\n头部伤害提升7.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0342",
+      "position": 341,
+      "name": "黄瓜炒鸡蛋",
+      "method": "2黄瓜 + 2禽蛋",
+      "effect": "游泳速度提升10%\n挖矿主资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0343",
+      "position": 342,
+      "name": "凉拌黄瓜",
+      "method": "黄瓜 + 糖 + 葱姜蒜 + 酱料",
+      "effect": "气力上限添加率10%\n采麻副资源暴击率10%\n采麻速度提升10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0344",
+      "position": 343,
+      "name": "黄瓜炒肉片",
+      "method": "黄瓜 + 2肉 + 酱料",
+      "effect": "射程提升10\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0345",
+      "position": 344,
+      "name": "哈密瓜奶昔",
+      "method": "2哈密瓜 + 2牛奶",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0346",
+      "position": 345,
+      "name": "哈密瓜果酱",
+      "method": "4哈密瓜",
+      "effect": "移动速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0347",
+      "position": 346,
+      "name": "哈密瓜汁",
+      "method": "3哈密瓜 + 冰块",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0348",
+      "position": 347,
+      "name": "哈密瓜冰淇淋",
+      "method": "哈密瓜 + 牛奶 + 糖 + 冰块",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%\n沼泽降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0349",
+      "position": 348,
+      "name": "哈密瓜蛋糕",
+      "method": "2哈密瓜 + 面粉 + 牛奶",
+      "effect": "伐木副资源暴击率10%\n伐木速度提升10%\n采集熟练度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0350",
+      "position": 349,
+      "name": "哈密瓜椰奶布丁",
+      "method": "哈密瓜 + 椰子 + 牛奶 + 糖",
+      "effect": "挖矿副资源暴击率10%\n挖矿速度提升10%\n采集熟练度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0351",
+      "position": 350,
+      "name": "缤纷水果茶",
+      "method": "西瓜 + 哈密瓜 + 柠檬 + 冰块",
+      "effect": "采麻副资源暴击率10%\n采麻速度提升10%\n采集熟练度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0352",
+      "position": 351,
+      "name": "椰汁西米露",
+      "method": "哈密瓜 + 牛奶 + 椰子 + 大米",
+      "effect": "暴击率10%\n污染怪伤害提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0353",
+      "position": 352,
+      "name": "哈密瓜冰棒",
+      "method": "2哈密瓜 + 2冰块",
+      "effect": "移动速度提升10%\n动物伤害提升10%\n体温降低20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0354",
+      "position": 353,
+      "name": "烤哈密瓜片",
+      "method": "3哈密瓜 + 调料",
+      "effect": "头部伤害提升8%\n换弹速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0355",
+      "position": 354,
+      "name": "白萝卜丝汤",
+      "method": "2白萝卜 + 葱姜蒜 + 调料",
+      "effect": "暴击率10%\n污染怪伤害提升10%\n暴风雪抵抗10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0356",
+      "position": 355,
+      "name": "红烧白萝卜",
+      "method": "2白萝卜 + 葱姜蒜 + 酱料",
+      "effect": "伐木主资源暴击率10%\n伐木速度提升5%\n采集熟练度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0357",
+      "position": 356,
+      "name": "爽口酸辣萝卜",
+      "method": "2白萝卜 + 穿天椒 + 酱料",
+      "effect": "伐木副资源暴击率10%\n伐木速度提升10%\n暴风雪抵抗10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0358",
+      "position": 357,
+      "name": "大骨萝卜汤",
+      "method": "肉 + 白萝卜 + 冰块 + 葱姜蒜",
+      "effect": "挖矿副资源暴击率10%\n挖矿速度提升10%\n暴风雪抵抗10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0359",
+      "position": 358,
+      "name": "萝卜菌菇汤",
+      "method": "蘑菇 + 白萝卜 + 冰块 + 葱姜蒜",
+      "effect": "采麻副资源暴击率10%\n采麻速度提升10%\n暴风雪抵抗10%\n体温提升20",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0360",
+      "position": 359,
+      "name": "萝卜丝饼",
+      "method": "白萝卜 + 葱姜蒜 + 面粉 + 禽蛋",
+      "effect": "人型怪伤害提升10%\n补充弹药消耗降低10%\n射速提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0361",
+      "position": 360,
+      "name": "白萝卜丝炒牛肉",
+      "method": "白萝卜 + 肉 + 葱姜蒜 + 酱料",
+      "effect": "动物伤害提升10%\n免暴率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0362",
+      "position": 361,
+      "name": "白萝卜丝煎蛋汤",
+      "method": "白萝卜 + 禽蛋 + 葱姜蒜 + 冰块",
+      "effect": "伐木副资源暴击率10%\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0363",
+      "position": 362,
+      "name": "白萝卜肉丝饭",
+      "method": "白萝卜 + 肉 + 大米 + 葱姜蒜",
+      "effect": "持续回复血量0.8\n恢复气力速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0364",
+      "position": 363,
+      "name": "萝卜糕",
+      "method": "白萝卜 + 2面粉 + 糖",
+      "effect": "污染怪伤害提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0365",
+      "position": 364,
+      "name": "清炖桂鱼",
+      "method": "4桂鱼\n（或 1桂鱼 + 3肉）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0366",
+      "position": 365,
+      "name": "大马哈鱼刺身",
+      "method": "4大马哈鱼\n（或 1大马哈鱼 + 3肉）",
+      "effect": "伐木副资源暴击率10%\n挖矿副资源暴击率10%\n采麻副资源暴击率10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0367",
+      "position": 366,
+      "name": "烤黄鳝",
+      "method": "4黄鳝\n（或 1黄鳝 + 3肉）",
+      "effect": "伐木副资源暴击率10%\n挖矿副资源暴击率10%\n采麻副资源暴击率10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0368",
+      "position": 367,
+      "name": "清蒸鲽鱼",
+      "method": "4鲽鱼\n（或 1鲽鱼 + 3肉）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0369",
+      "position": 368,
+      "name": "烤乌青鱼",
+      "method": "4乌青鱼\n（或 1乌青鱼 + 3肉）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%\n沼泽抵抗10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0370",
+      "position": 369,
+      "name": "清蒸鳕鱼",
+      "method": "4鳕鱼\n（或 1鳕鱼 + 3肉）",
+      "effect": "伐木副资源暴击率10%\n挖矿副资源暴击率10%\n采麻副资源暴击率10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0371",
+      "position": 370,
+      "name": "红烧鳊鱼",
+      "method": "4鳊鱼\n（或 1鳊鱼 + 3肉）",
+      "effect": "伐木副资源暴击率10%\n挖矿副资源暴击率10%\n采麻副资源暴击率10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0372",
+      "position": 371,
+      "name": "清蒸珍宝蟹",
+      "method": "4珍宝蟹\n（或 1珍宝蟹 + 3肉）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%\n暴风雪抵抗10%",
+      "duration": "750秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0373",
+      "position": 372,
+      "name": "鲜炸脆苹果",
+      "method": "2苹果 + 面粉 + 食用油",
+      "effect": "挖矿副资源暴击率10%\n挖矿速度提升10%\n最大气息提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0374",
+      "position": 373,
+      "name": "苹果派",
+      "method": "苹果 + 面粉 + 糖 + 蛋",
+      "effect": "头部伤害提升10%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0375",
+      "position": 374,
+      "name": "香脆苹果片",
+      "method": "柠檬 + 3苹果",
+      "effect": "移动速度提升10%\n挖矿主资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0376",
+      "position": 375,
+      "name": "玫瑰苹果酥",
+      "method": "2苹果 + 禽蛋 + 面粉",
+      "effect": "暴击率5%\n污染怪伤害提升10%\n弹药携带量提升10%\n稳定性30",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0377",
+      "position": 376,
+      "name": "牛肉苹果三明治",
+      "method": "2肉 + 面粉 + 苹果",
+      "effect": "人型怪伤害提升10%\n头部伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0378",
+      "position": 377,
+      "name": "苹果奶香松饼",
+      "method": "2禽蛋 + 2苹果",
+      "effect": "动物伤害提升10%\n稳定性50",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0379",
+      "position": 378,
+      "name": "苹果薯条",
+      "method": "2苹果 + 酱料 + 食用油",
+      "effect": "采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0380",
+      "position": 379,
+      "name": "苹果酱",
+      "method": "4苹果",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0381",
+      "position": 380,
+      "name": "胡萝卜苹果汁",
+      "method": "2冰块 + 胡萝卜 + 苹果",
+      "effect": "伐木副资源暴击率8%\n挖矿副资源暴击率8%\n采麻副资源暴击率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0382",
+      "position": 381,
+      "name": "水果花拼盘",
+      "method": "2苹果 + 2甜橙",
+      "effect": "暴击率5%\n气力上限添加率5%\n污染怪伤害提升10%\n挥砍速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0383",
+      "position": 382,
+      "name": "芒果冰沙",
+      "method": "3冰块 + 芒果",
+      "effect": "游泳速度提升10%\n最大气息提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0384",
+      "position": 383,
+      "name": "椰香芒果糯米饭",
+      "method": "芒果 + 椰子 + 2大米",
+      "effect": "暴击率5%\n污染怪伤害提升10%\n稳定性25\n换弹速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0385",
+      "position": 384,
+      "name": "椰芒软糖",
+      "method": "牛奶 + 椰子 + 糖 + 芒果",
+      "effect": "免暴率10%\n暴击率5%\n人形怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0386",
+      "position": 385,
+      "name": "芒果班戟",
+      "method": "芒果 + 牛奶 + 禽蛋 + 面粉",
+      "effect": "伐木副资源暴击率10%\n伐木速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0387",
+      "position": 386,
+      "name": "芒果奶昔",
+      "method": "2牛奶 + 冰块 + 芒果",
+      "effect": "挖矿副资源暴击率10%\n挖矿速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0388",
+      "position": 387,
+      "name": "芒果布丁",
+      "method": "牛奶 + 芒果 + 冰块 + 面粉",
+      "effect": "采麻副资源暴击率10%\n采麻速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0389",
+      "position": 388,
+      "name": "芒果蛋挞",
+      "method": "芒果 + 禽蛋 + 糖 + 面粉",
+      "effect": "暴击率5%\n动物伤害提升10%\n战斗熟练度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0390",
+      "position": 389,
+      "name": "芒果蜂蜜水",
+      "method": "2蜂蜜 + 冰块 + 芒果",
+      "effect": "移动速度提升10%\n稳定性50\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0391",
+      "position": 390,
+      "name": "芒果酱",
+      "method": "4芒果",
+      "effect": "头部伤害提升10%\n换弹速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0392",
+      "position": 391,
+      "name": "芒果双皮奶",
+      "method": "2牛奶 + 2芒果",
+      "effect": "伐木速度提升10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0393",
+      "position": 392,
+      "name": "橙子曲奇饼干",
+      "method": "2甜橙 + 面粉 + 糖",
+      "effect": "气力上限添加率10%\n伐木主资源暴击率10%\n伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0394",
+      "position": 393,
+      "name": "甜橙汁",
+      "method": "3甜橙 + 冰块",
+      "effect": "气力上限添加率10%\n挖矿主资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0395",
+      "position": 394,
+      "name": "橙子蒸蛋",
+      "method": "3禽蛋 + 甜橙",
+      "effect": "污染怪伤害提升10%\n头部伤害提升10%\n射速提升5%\n稳定性25",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0396",
+      "position": 395,
+      "name": "柠檬甜橙汁",
+      "method": "2冰块 + 柠檬 + 甜橙",
+      "effect": "游泳速度提升10%\n挖矿主资源暴击率10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0397",
+      "position": 396,
+      "name": "甜橙戚风蛋糕",
+      "method": "甜橙 + 禽蛋 + 糖 + 面粉",
+      "effect": "气力上限添加率10%\n采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0398",
+      "position": 397,
+      "name": "橙子酱",
+      "method": "4甜橙",
+      "effect": "人型怪伤害提升10%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0399",
+      "position": 398,
+      "name": "橙味棒棒糖",
+      "method": "2糖 + 2甜橙",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%\n稳定性50",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0400",
+      "position": 399,
+      "name": "橙子撞奶",
+      "method": "2冰块 + 甜橙 + 牛奶",
+      "effect": "移动速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0401",
+      "position": 400,
+      "name": "蟹酿橙",
+      "method": "蟹类 + 甜橙 + 酱料 + 葱姜蒜",
+      "effect": "游泳速度提升10%\n奔跑消耗体力降低10%\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0402",
+      "position": 401,
+      "name": "糖渍橙皮丝",
+      "method": "甜橙 + 2糖 + 调料",
+      "effect": "游泳速度提升10%\n奔跑消耗体力降低10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0403",
+      "position": 402,
+      "name": "极净桑葚果酱",
+      "method": "桑葚 + 3任意食材",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0404",
+      "position": 403,
+      "name": "有机蔓越莓曲奇",
+      "method": "蔓越莓 + 3任意食材",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0405",
+      "position": 404,
+      "name": "沁心龙眼米汤",
+      "method": "龙眼 + 3任意食材",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0406",
+      "position": 405,
+      "name": "至臻沙棘凉糕",
+      "method": "沙棘 + 3任意食材",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0407",
+      "position": 406,
+      "name": "梦幻荔枝冰饮",
+      "method": "荔枝 + 3任意食材",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "900秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0408",
+      "position": 407,
+      "name": "自制石头烤肉",
+      "method": "快乐101周末巡逻 - 克里斯\n好感度提升获得",
+      "effect": "持续回复血量0.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0409",
+      "position": 408,
+      "name": "活力热狗",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "暴击率10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0410",
+      "position": 409,
+      "name": "销魂叉烧饭",
+      "method": "快乐101周末巡逻 - 巴格克星\n好感度提升获得",
+      "effect": "移动速度提升10%\n恢复气力速度5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0411",
+      "position": 410,
+      "name": "派对拐杖糖",
+      "method": "快乐101周末巡逻 - 朵洛希哈维\n好感度提升获得",
+      "effect": "雷雨抵抗10%\n稳定性25",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0412",
+      "position": 411,
+      "name": "秘制油泼面",
+      "method": "快乐101周末巡逻 - 海伦娜薇恩\n好感度提升获得",
+      "effect": "人型怪伤害提升\n战斗熟练度提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0413",
+      "position": 412,
+      "name": "冰爽莓莓",
+      "method": "快乐101周末巡逻 - 克里斯\n好感度提升获得",
+      "effect": "持续回复血量\n游泳速度提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0414",
+      "position": 413,
+      "name": "飘香荷叶烤鸡",
+      "method": "快乐101周末巡逻 - 克里斯\n好感度提升获得",
+      "effect": "持续回复血量\n移动速度提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0415",
+      "position": 414,
+      "name": "铁板鱿鱼",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "暴击率提升10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0416",
+      "position": 415,
+      "name": "午后巡逻套餐",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "暴击率10%\n人型怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0417",
+      "position": 416,
+      "name": "焦糖布丁",
+      "method": "快乐101周末巡逻 - 巴格克星\n好感度提升获得",
+      "effect": "移动速度提升10%\n气力上限添加率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0418",
+      "position": 417,
+      "name": "青草地甜筒",
+      "method": "快乐101周末巡逻 - 巴格克星\n好感度提升获得",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0419",
+      "position": 418,
+      "name": "赤郡奶酪",
+      "method": "快乐101周末巡逻 - 朵洛希哈维\n好感度提升获得",
+      "effect": "抗恶劣环境提升\n免暴率",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0420",
+      "position": 419,
+      "name": "肥仔米",
+      "method": "快乐101周末巡逻 - 朵洛希哈维\n好感度提升获得",
+      "effect": "血量上限150\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0421",
+      "position": 420,
+      "name": "海鲜烩饭",
+      "method": "快乐101周末巡逻 - 海伦娜薇恩\n好感度提升获得",
+      "effect": "战斗熟练度提升\n伤害提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0422",
+      "position": 421,
+      "name": "绵绵泡芙",
+      "method": "快乐101周末巡逻 - 海伦娜薇恩\n好感度提升获得",
+      "effect": "战斗熟练度提升\n伤害提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0423",
+      "position": 422,
+      "name": "珍珠丸子",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "持续回复血量\n移动速度提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0424",
+      "position": 423,
+      "name": "红枣糕",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "暴击率\n伤害提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0425",
+      "position": 424,
+      "name": "虾尾拌面",
+      "method": "快乐101周末巡逻 - 巴格克星\n好感度提升获得",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0426",
+      "position": 425,
+      "name": "三鲜冰粉",
+      "method": "快乐101周末巡逻 - 哈提\n好感度提升获得",
+      "effect": "动物伤害提升5%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0427",
+      "position": 426,
+      "name": "糯米糖藕",
+      "method": "快乐101周末巡逻 - 哈提\n好感度提升获得",
+      "effect": "血量上限150\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0428",
+      "position": 427,
+      "name": "暖心烤火鸡",
+      "method": "2特供配料 + 2特供火鸡（感恩节食谱）",
+      "effect": "人型怪伤害提升10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0429",
+      "position": 428,
+      "name": "甜蜜南瓜饼",
+      "method": "2特供配料 + 2特供南瓜（感恩节食谱）",
+      "effect": "伐木副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0430",
+      "position": 429,
+      "name": "温馨土豆泥",
+      "method": "2特供配料 + 2特供土豆（感恩节食谱）",
+      "effect": "挖矿副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0431",
+      "position": 430,
+      "name": "和睦小布丁",
+      "method": "2特供配料 + 2特供鸡蛋（感恩节食谱）",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0432",
+      "position": 431,
+      "name": "甜水面",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "持续回复血量\n移动速度提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0433",
+      "position": 432,
+      "name": "肉酱千层面",
+      "method": "快乐101周末巡逻 - 海德尔\n好感度提升获得",
+      "effect": "暴击率\n伤害提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0434",
+      "position": 433,
+      "name": "芥末虾球",
+      "method": "快乐101周末巡逻 - 巴格克星\n好感度提升获得",
+      "effect": "移动速度提升\n奔跑消耗体力降低",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0435",
+      "position": 434,
+      "name": "香甜柿饼",
+      "method": "快乐101周末巡逻 - 海伦娜薇恩\n好感度提升获得",
+      "effect": "战斗熟练度\n伤害提升",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0436",
+      "position": 435,
+      "name": "滋补椰子鸡",
+      "method": "快乐101周末巡逻 - 朵洛希哈维\n好感度提升获得",
+      "effect": "抗恶劣环境\n血量上限",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0437",
+      "position": 436,
+      "name": "糖年糕",
+      "method": "双旦特典食物 - 海德尔",
+      "effect": "持续回复血量1.5",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0438",
+      "position": 437,
+      "name": "莓果蛋糕",
+      "method": "双旦特典食物 - 海伦娜薇恩",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0439",
+      "position": 438,
+      "name": "百物炖肉菜",
+      "method": "双旦特典食物 - 克里斯",
+      "effect": "免暴率5%\n暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0440",
+      "position": 439,
+      "name": "金银满屋",
+      "method": "双旦特典食物 - 朵洛希哈维",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0441",
+      "position": 440,
+      "name": "雪人糯米糍",
+      "method": "双旦特典食物 - 哈提",
+      "effect": "免暴率5%\n暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0442",
+      "position": 441,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0443",
+      "position": 442,
+      "name": "嫩烤香草羊排",
+      "method": "通过『夏夜露营家具箱』的[ 户外餐桌 ]可随机获得野餐食物\n或2023年7月6日~7月20日，可在『庄园展示』>『旗舰精装房』体验家具获得，",
+      "effect": "暴击率10%\n人型怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0444",
+      "position": 443,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0445",
+      "position": 444,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0446",
+      "position": 445,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0447",
+      "position": 446,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0448",
+      "position": 447,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0449",
+      "position": 448,
+      "name": "热茶",
+      "method": "2冰块 + 2茶叶",
+      "effect": "再生活力上限80\n再生活力消耗降低8%\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0450",
+      "position": 449,
+      "name": "茶叶蛋",
+      "method": "2禽蛋 + 2茶叶",
+      "effect": "移动速度提升10%\n孢子分裂指数50\n共生回复比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0451",
+      "position": 450,
+      "name": "茶泡饭",
+      "method": "2冰块 + 茶叶 + 大米",
+      "effect": "射速提升10%\n再生伤害系数2.5%\n孢子回复转化比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0452",
+      "position": 451,
+      "name": "茶叶炒鸡蛋",
+      "method": "2茶叶 + 禽蛋 + 食用油",
+      "effect": "暴击率10%\n再生活力上限100\n共生回复比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0453",
+      "position": 452,
+      "name": "奶茶",
+      "method": "2牛奶 + 冰块 + 茶叶",
+      "effect": "暴击率10%\n人型怪伤害提升10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0454",
+      "position": 453,
+      "name": "果茶",
+      "method": "冰块 + 2水果 + 茶叶",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0455",
+      "position": 454,
+      "name": "抹茶蛋糕",
+      "method": "牛奶 + 糖 + 面粉 + 茶叶",
+      "effect": "伐木副资源暴击率10%\n挖矿副资源暴击率10%\n采麻副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0456",
+      "position": 455,
+      "name": "抹茶布丁",
+      "method": "牛奶 + 冰块 + 面粉 + 茶叶",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0457",
+      "position": 456,
+      "name": "茶冻撞奶",
+      "method": "牛奶 + 柠檬 + 冰块 + 茶叶",
+      "effect": "人型怪伤害提升10%\n污染怪伤害提升10%\n再生活力消耗降低",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0458",
+      "position": 457,
+      "name": "茶香烤肉",
+      "method": "2茶叶 + 2肉",
+      "effect": "持续回复血量1.5\n孢子分裂指数50\n孢子回复转化比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0459",
+      "position": 458,
+      "name": "香煎银鳕鱼",
+      "method": "鳕鱼 + 3食用油",
+      "effect": "持续回复血量1.5\n免暴率5%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0460",
+      "position": 459,
+      "name": "炸鳕鱼排",
+      "method": "鳕鱼 + 面粉 + 2食用油",
+      "effect": "持续回复血量2\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0461",
+      "position": 460,
+      "name": "烤金枪鱼",
+      "method": "4金枪鱼",
+      "effect": "暴击率5%\n免暴率5%\n采麻副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0462",
+      "position": 461,
+      "name": "金枪鱼饭团",
+      "method": "金枪鱼 + 3大米",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0463",
+      "position": 462,
+      "name": "香煎金枪鱼",
+      "method": "金枪鱼 + 3食用油",
+      "effect": "移动速度提升5%\n挖矿速度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0464",
+      "position": 463,
+      "name": "红烧鲑鱼",
+      "method": "鲑鱼 + 3酱料",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0465",
+      "position": 464,
+      "name": "香煎鲑鱼",
+      "method": "鲑鱼 + 3食用油",
+      "effect": "游泳速度提升10%\n伐木速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0466",
+      "position": 465,
+      "name": "鲑鱼刺身",
+      "method": "鲑鱼 + 3冰块",
+      "effect": "持续回复血量1.5\n伐木速度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0467",
+      "position": 466,
+      "name": "红烧带鱼",
+      "method": "带鱼 + 3酱料",
+      "effect": "伐木副资源暴击率10%\n雷雨抵抗10%\n弹药携带量10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0468",
+      "position": 467,
+      "name": "香煎带鱼",
+      "method": "带鱼 + 3食用油",
+      "effect": "血量上限150\n挥砍速度提升5%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0469",
+      "position": 468,
+      "name": "清蒸带鱼",
+      "method": "带鱼 + 3冰块",
+      "effect": "采麻主资源暴击率10%\n暴风雪抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0470",
+      "position": 469,
+      "name": "香煎秋刀鱼",
+      "method": "秋刀鱼 + 3食用油",
+      "effect": "伐木主资源暴击率15%\n雷雨抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0471",
+      "position": 470,
+      "name": "红烧秋刀鱼",
+      "method": "秋刀鱼 + 3酱料",
+      "effect": "暴击率10%\n沼泽抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0472",
+      "position": 471,
+      "name": "清蒸寄居蟹",
+      "method": "寄居蟹 + 3冰块",
+      "effect": "持续回复血量1\n免暴率5%\n头部伤害提升5%\n奔跑消耗体力降低5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0473",
+      "position": 472,
+      "name": "辣炒寄居蟹",
+      "method": "寄居蟹 + 2穿天椒 + 食用油",
+      "effect": "持续回复血量1.5\n移动速度提升5%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0474",
+      "position": 473,
+      "name": "清蒸石斑鱼",
+      "method": "石斑鱼 + 3冰块",
+      "effect": "持续回复血量1.5\n挖矿主资源暴击率10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0475",
+      "position": 474,
+      "name": "石斑鱼头火锅",
+      "method": "石斑鱼 + 2冰块 + 葱姜蒜",
+      "effect": "血量上限150",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0476",
+      "position": 475,
+      "name": "红烧石斑鱼",
+      "method": "石斑鱼 + 3酱料",
+      "effect": "伐木副资源暴击率15%\n沼泽抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0477",
+      "position": 476,
+      "name": "石斑鱼豆腐汤",
+      "method": "石斑鱼 + 冰块 + 葱姜蒜 + 豆腐",
+      "effect": "血量上限150\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0478",
+      "position": 477,
+      "name": "烤海螺",
+      "method": "4海螺",
+      "effect": "血量上限150\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0479",
+      "position": 478,
+      "name": "海螺刺身",
+      "method": "海螺 + 3冰块",
+      "effect": "持续回复血量1.5\n采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0480",
+      "position": 479,
+      "name": "辣炒海螺",
+      "method": "海螺 + 3穿天椒",
+      "effect": "射速提升5%\n战斗熟练度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0481",
+      "position": 480,
+      "name": "烤沙丁鱼",
+      "method": "4沙丁鱼",
+      "effect": "暴击率5%\n气力上限添加率5%\n稳定性50",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0482",
+      "position": 481,
+      "name": "香煎沙丁鱼",
+      "method": "沙丁鱼 + 3食用油",
+      "effect": "移动速度提升5%\n射速提升5%\n换弹速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0483",
+      "position": 482,
+      "name": "水煮面包蟹",
+      "method": "面包蟹 + 3冰块",
+      "effect": "污染怪伤害提升10%\n补充弹药消耗降低10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0484",
+      "position": 483,
+      "name": "椒盐面包蟹",
+      "method": "面包蟹 + 2葱姜蒜 + 调料",
+      "effect": "持续回复血量1.5\n人型怪伤害提升10%\n战斗熟练度提升15%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0485",
+      "position": 484,
+      "name": "烤青花鱼",
+      "method": "4青花鱼",
+      "effect": "持续回复血量1\n弹药携带量10%\n弹跳提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0486",
+      "position": 485,
+      "name": "青花鱼饭团",
+      "method": "青花鱼 + 3大米",
+      "effect": "暴击率5%\n奔跑消耗体力降低10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0487",
+      "position": 486,
+      "name": "鲈鱼汤",
+      "method": "鲈鱼 + 3冰块",
+      "effect": "建筑伤害提升10%\n射程提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0488",
+      "position": 487,
+      "name": "红烧鲈鱼",
+      "method": "鲈鱼 + 3酱料",
+      "effect": "污染怪伤害提升10%\n头部伤害提升5%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0489",
+      "position": 488,
+      "name": "烤红歌鲤",
+      "method": "4红歌鲤",
+      "effect": "采麻主资源暴击率10%\n采麻速度提升10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0490",
+      "position": 489,
+      "name": "烤巴浪鱼",
+      "method": "4巴浪鱼",
+      "effect": "移动速度提升5%\n挖矿主资源暴击率10%\n挖矿副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0491",
+      "position": 490,
+      "name": "香煎巴浪鱼",
+      "method": "巴浪鱼 + 3食用油",
+      "effect": "暴击率5%\n射速提升5%\n换弹速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0492",
+      "position": 491,
+      "name": "葱姜炒花蟹",
+      "method": "花蟹 + 食用油 + 2葱姜蒜",
+      "effect": "挖矿主资源暴击率15%\n沙尘暴抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0493",
+      "position": 492,
+      "name": "清蒸花蟹",
+      "method": "花蟹 + 3冰块",
+      "effect": "伐木速度提升15%\n雷雨抵抗10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0494",
+      "position": 493,
+      "name": "烤比目鱼",
+      "method": "4比目鱼",
+      "effect": "伐木主资源暴击率10%\n伐木速度提升10%\n雷雨抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0495",
+      "position": 494,
+      "name": "清蒸比目鱼",
+      "method": "比目鱼 + 3冰块",
+      "effect": "暴击率5%\n移动速度提升5%\n恢复气力速度提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0496",
+      "position": 495,
+      "name": "香煎比目鱼",
+      "method": "比目鱼 + 3食用油",
+      "effect": "补充弹药消耗降低10%\n弹药携带量10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0497",
+      "position": 496,
+      "name": "红烧比目鱼",
+      "method": "比目鱼 + 3酱料",
+      "effect": "头部伤害提升6%\n奔跑消耗体力降低10%\n战斗熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0498",
+      "position": 497,
+      "name": "烤基围虾",
+      "method": "4基围虾",
+      "effect": "伐木主资源暴击率10%\n沼泽抵抗10%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0499",
+      "position": 498,
+      "name": "红烧基围虾",
+      "method": "基围虾 + 3酱料\n（或 3基围虾 + 酱料）",
+      "effect": "气力上限添加率10%\n采麻速度提升10%\n沼泽抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0500",
+      "position": 499,
+      "name": "清蒸基围虾",
+      "method": "基围虾 + 3冰块\n（或 3基围虾 + 冰块）",
+      "effect": "游泳速度提升10%\n挖矿速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0501",
+      "position": 500,
+      "name": "清蒸皇帝蟹",
+      "method": "皇帝蟹 + 3冰块",
+      "effect": "恢复气力速度提升10%\n挖矿速度提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0502",
+      "position": 501,
+      "name": "碳烤皇帝蟹",
+      "method": "4皇帝蟹",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0503",
+      "position": 502,
+      "name": "烤三刀鱼",
+      "method": "4三刀鱼",
+      "effect": "挖矿副资源暴击率10%\n挖矿速度提升10%\n沙尘暴抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0504",
+      "position": 503,
+      "name": "清蒸三刀鱼",
+      "method": "三刀鱼 + 3冰块",
+      "effect": "伐木主资源暴击率10%\n伐木副资源暴击率10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0505",
+      "position": 504,
+      "name": "红烧三刀鱼",
+      "method": "三刀鱼 + 3酱料",
+      "effect": "采麻主资源暴击率10%\n采麻速度提升10%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0506",
+      "position": 505,
+      "name": "烤马头鱼",
+      "method": "4马头鱼",
+      "effect": "移动速度提升5%\n伐木主资源暴击率10%\n伐木副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0507",
+      "position": 506,
+      "name": "香煎马头鱼",
+      "method": "马头鱼 + 3食用油",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0508",
+      "position": 507,
+      "name": "清蒸马头鱼",
+      "method": "马头鱼 + 3冰块",
+      "effect": "游泳速度提升10%\n奔跑消耗体力降低10%\n采集熟练度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0509",
+      "position": 508,
+      "name": "鳌虾刺身",
+      "method": "深海鳌虾 + 3冰块",
+      "effect": "动物伤害提升10%\n免暴率5%\n补充弹药消耗降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0510",
+      "position": 509,
+      "name": "烤鳌虾",
+      "method": "4深海鳌虾",
+      "effect": "移动速度提升5%\n气力上限添加率10%\n挥砍速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0511",
+      "position": 510,
+      "name": "避风塘炒蟹",
+      "method": "2蟹类 + 面粉 + 葱姜蒜",
+      "effect": "移动速度提升10%\n孢子分裂指数50\n共生回复比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0512",
+      "position": 511,
+      "name": "香辣蟹",
+      "method": "3蟹类 + 穿天椒",
+      "effect": "射速提升10%\n再生伤害系数2.5%\n孢子回复转化比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0513",
+      "position": 512,
+      "name": "避风塘炒虾",
+      "method": "2虾类 + 面粉 + 葱姜蒜",
+      "effect": "暴击率10%\n再生活力上限100\n共生回复比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0514",
+      "position": 513,
+      "name": "香辣虾",
+      "method": "3虾类 + 穿天椒",
+      "effect": "暴击率10%\n人型怪伤害提升10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0515",
+      "position": 514,
+      "name": "虾蟹粥",
+      "method": "虾类 + 蟹类 + 冰块 + 大米",
+      "effect": "移动速度提升10%\n奔跑消耗体力降低10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0516",
+      "position": 515,
+      "name": "龙虾麻婆豆腐",
+      "method": "2龙虾 + 2豆腐\n（或 2蓝龙虾 + 2豆腐）",
+      "effect": "伐木副资源暴击率10%\n挖矿副资源暴击率10%\n采麻副资源暴击率10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0517",
+      "position": 516,
+      "name": "龙虾沙拉",
+      "method": "2龙虾 + 蔬菜 + 水果\n（或 2蓝龙虾 + 蔬菜 + 水果）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0518",
+      "position": 517,
+      "name": "蒜蓉焗龙虾",
+      "method": "2龙虾 + 2葱姜蒜\n（或 2蓝龙虾 + 2葱姜蒜）",
+      "effect": "人型怪伤害提升10%\n污染怪伤害提升10%\n再生活力消耗降低10%\n再生伤害系数2.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0519",
+      "position": 518,
+      "name": "沸腾龙虾锅",
+      "method": "龙虾 + 3穿天椒",
+      "effect": "持续回复血量1.5\n孢子分裂指数50\n孢子回复转化比例10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0520",
+      "position": 519,
+      "name": "凉拌海带丝",
+      "method": "4海带",
+      "effect": "移动速度提升5%\n头部伤害提升7.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0521",
+      "position": 520,
+      "name": "海带排骨汤",
+      "method": "海带 + 3肉",
+      "effect": "再生活力上限100\n再生活力消耗降低10%\n去除感冒",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0522",
+      "position": 521,
+      "name": "手工饺子",
+      "method": "先行者或回归玩家在回归频道领取其他玩家发出的毕业红包获得",
+      "effect": "暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0523",
+      "position": 522,
+      "name": "惊奇南瓜切片",
+      "method": "4惊奇南瓜\n在万圣节活动（2022年）获得惊奇南瓜种子种植后获得惊奇南瓜",
+      "effect": "人型怪伤害提升5%\n污染怪伤害提升5%\n动物伤害提升5%",
+      "duration": "1200秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0524",
+      "position": 523,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0525",
+      "position": 524,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0526",
+      "position": 525,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0527",
+      "position": 526,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0528",
+      "position": 527,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0529",
+      "position": 528,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0530",
+      "position": 529,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0531",
+      "position": 530,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0532",
+      "position": 531,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0533",
+      "position": 532,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0534",
+      "position": 533,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0535",
+      "position": 534,
+      "name": "未知",
+      "method": "",
+      "effect": "",
+      "duration": "",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0536",
+      "position": 535,
+      "name": "金鱼果汤",
+      "method": "4金鱼果",
+      "effect": "游泳速度提升10%",
+      "duration": "120秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0537",
+      "position": 536,
+      "name": "金！鱼果汤！",
+      "method": "3金鱼果 + 金！鱼果！",
+      "effect": "移动速度提升10%\n游泳速度提升10%",
+      "duration": "300秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0538",
+      "position": 537,
+      "name": "糖霜李子",
+      "method": "萌芽计划每周赠送（详情问精灵）",
+      "effect": "暴击率10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0539",
+      "position": 538,
+      "name": "枫叶棒棒糖",
+      "method": "萌芽计划随机赠送或阶段目标（详情问精灵）",
+      "effect": "污染怪伤害提升10%\n头部伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0540",
+      "position": 539,
+      "name": "紫藤花茶",
+      "method": "萌芽计划每周、每月纪念日赠送（详情问精灵）",
+      "effect": "移动速度提升10%\n污染怪伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0541",
+      "position": 540,
+      "name": "樱花果冻",
+      "method": "萌芽计划周年纪念日赠送（虽然精灵这么写，但能提前获得）",
+      "effect": "污染怪伤害提升10%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0542",
+      "position": 541,
+      "name": "麻辣肉片",
+      "method": "通过家具[ 美味团圆火锅桌 ]的「外带」制作获得，需要自带 2 块蓝色肉。\n或2024年4月26日~5月23日，可在『庄园展示』>『旗舰精装房』体验家具获得。",
+      "effect": "人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0543",
+      "position": 542,
+      "name": "鸳鸯鱼丸",
+      "method": "通过家具[ 美味团圆火锅桌 ]的「外带」制作获得，需要自带 2 条蓝色鱼。\n或2024年4月26日~5月23日，可在『庄园展示』>『旗舰精装房』体验家具获得。",
+      "effect": "无",
+      "duration": "0秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0544",
+      "position": 543,
+      "name": "养生蔬菜",
+      "method": "通过家具[ 美味团圆火锅桌 ]的「外带」制作获得，需要自带 2 个蓝色蔬菜。\n或2024年4月26日~5月23日，可在『庄园展示』>『旗舰精装房』体验家具获得。",
+      "effect": "制作速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0545",
+      "position": 544,
+      "name": "椒盐藕饼",
+      "method": "肉类 + 葱姜蒜 + 调料 + 莲藕\n2025年3月13 ~ 4月10日，非人哉联动获得莲藕。",
+      "effect": "暴击率8%\n污染怪伤害提升8%\n免暴率8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0546",
+      "position": 545,
+      "name": "藕粉羹",
+      "method": "2冰块 + 糖 + 莲藕\n2025年3月13 ~ 4月10日，非人哉联动获得莲藕。",
+      "effect": "污染怪伤害提升8%\n稳定性20\n射速提升4%\n头部伤害提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0547",
+      "position": 546,
+      "name": "鲜桃汁",
+      "method": "3桃子 + 冰块",
+      "effect": "移动速度提升5%\n伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0548",
+      "position": 547,
+      "name": "桃子果酱",
+      "method": "4桃子",
+      "effect": "移动速度提升5%\n污染物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0549",
+      "position": 548,
+      "name": "蜜桃果冻",
+      "method": "2桃子 + 冰块 + 糖",
+      "effect": "射速提升8%\n头部伤害提升4%\n换弹速度提升8%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0550",
+      "position": 549,
+      "name": "番茄炒蛋",
+      "method": "2番茄 + 禽蛋 + 调料",
+      "effect": "伐木主资源暴击率8%\n伐木副资源暴击率8%\n伐木速度提升8%\n持续回复血量1.2",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0551",
+      "position": 550,
+      "name": "凉拌西红柿",
+      "method": "3番茄 + 糖",
+      "effect": "移动速度提升5%\n游泳速度提升10%\n最大气息提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0552",
+      "position": 551,
+      "name": "番茄炖肉",
+      "method": "2番茄 + 食用油 + 肉",
+      "effect": "污染怪伤害提升10%\n弹药携带量提升10%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0553",
+      "position": 552,
+      "name": "柿子大福",
+      "method": "柿子 + 糖 + 牛奶 + 面粉",
+      "effect": "挖矿主资源暴击率10%\n挖矿副资源暴击率10%\n挖矿速度提升10%\n最大气息提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0554",
+      "position": 553,
+      "name": "柿子果酱",
+      "method": "4柿子",
+      "effect": "移动速度提升5%\n射速提升10%\n挥砍速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0555",
+      "position": 554,
+      "name": "柿子果冻",
+      "method": "4柿子 + 糖 + 冰块",
+      "effect": "暴击率8%\n人型怪伤害提升4%\n污染物伤害提升4%\n动物伤害提升4%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0556",
+      "position": 555,
+      "name": "葡萄蛋糕",
+      "method": "2葡萄 + 面粉 + 牛奶",
+      "effect": "移动速度提升5%\n伐木副资源暴击率10%\n伐木速度提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0557",
+      "position": 556,
+      "name": "葡萄烩饭",
+      "method": "葡萄 + 大米 + 酱料 + 虾类",
+      "effect": "持续回复血量1.5\n血量上限100\n人型怪伤害提升5%\n污染物伤害提升5%\n动物伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0558",
+      "position": 557,
+      "name": "葡萄奶酪拼盘",
+      "method": "葡萄 + 2牛奶 + 柠檬",
+      "effect": "恢复气力速度提升5%\n气力上限添加率5%\n免暴率5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0559",
+      "position": 558,
+      "name": "酱香炒饭",
+      "method": "南瓜酱菜 + 番茄 + 大米 + 调料\n（或 任意酱菜 + 任意蔬菜 + 大米 + 调料）",
+      "effect": "人型怪伤害提升10%\n污染怪伤害提升10%\n再生活力消耗降低10%\n再生伤害系数2.5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0560",
+      "position": 559,
+      "name": "酱菜蛋饼",
+      "method": "南瓜酱菜 + 鸡蛋 + 酱料 + 食用油\n（或 任意酱菜 + 禽蛋 + 酱料 + 食用油）",
+      "effect": "稳定性25\n头部伤害提升10%\n射程提升10",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0561",
+      "position": 560,
+      "name": "熏肉披萨",
+      "method": "香薰兔 + 番茄 + 面粉 + 糖\n（或 任意熏肉 + 任意蔬菜 + 面粉 + 糖）",
+      "effect": "移动速度提升5%\n污染怪伤害提升10%\n挥砍速度提升10%\n最大气息提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0562",
+      "position": 561,
+      "name": "熏肉炖粉条",
+      "method": "香薰兔 + 粉丝 + 葱姜蒜 + 调料\n（或 任意熏肉 + 粉丝 + 葱姜蒜 + 调料）",
+      "effect": "伐木速度提升10%\n挖矿速度提升10%\n采麻速度提升10%\n最大气息提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0563",
+      "position": 562,
+      "name": "桑格利亚",
+      "method": "葡萄窖藏 + 2桃子 + 冰块",
+      "effect": "持续回复血量1.5\n免暴率5%\n射速提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0564",
+      "position": 563,
+      "name": "激情海岸",
+      "method": "桃子吟酿 + 2桃子 + 冰块",
+      "effect": "持续回复血量1.5\n移动速度提升10%\n暴风雪抵抗10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0565",
+      "position": 564,
+      "name": "液芯奶冻",
+      "method": "草莓 + 凤梨纯酿 + 牛奶 + 糖",
+      "effect": "持续回复血量1.0\n暴击率5%\n人型怪伤害提升10%\n污染怪伤害提升10%\n动物伤害提升10%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    },
+    {
+      "id": "recipe.0566",
+      "position": 565,
+      "name": "风味萨鲁米",
+      "method": "草莓 + 凤梨纯酿 + 肉类 + 蜂蜜",
+      "effect": "持续回复血量1.0\n免暴率5%\n奔跑消耗体力降低5%\n头部伤害提升5%",
+      "duration": "600秒",
+      "defaultUnlocked": false
+    }
+  ]
+}

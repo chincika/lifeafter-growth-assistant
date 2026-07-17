@@ -1,0 +1,11 @@
+import { contextBridge, ipcRenderer } from "electron";
+const maintainerApi = Object.freeze({
+  chooseDirectory: () => ipcRenderer.invoke("content:choose-directory") as Promise<string | null>,
+  load: (directory?: string) => ipcRenderer.invoke("content:load", directory) as Promise<any>,
+  saveRecord: (input: any) => ipcRenderer.invoke("content:save-record", input) as Promise<any>,
+  deleteRecord: (input: any) => ipcRenderer.invoke("content:delete-record", input) as Promise<any>,
+  buildRelease: (input: any) => ipcRenderer.invoke("release:build", input) as Promise<any>,
+  publishRelease: (input: any) => ipcRenderer.invoke("release:publish", input) as Promise<any>,
+});
+contextBridge.exposeInMainWorld("maintainerApi", maintainerApi);
+export type MaintainerApi = typeof maintainerApi;

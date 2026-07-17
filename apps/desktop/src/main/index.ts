@@ -1,5 +1,5 @@
-import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
-import { mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { app, BrowserWindow, dialog, ipcMain, protocol, shell, type IpcMainInvokeEvent } from "electron";
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
 
@@ -8,9 +8,23 @@ import {
   openDatabase,
   type SqliteDatabase,
 } from "@lifeafter-assistant/database";
-import { marketCatalogSchema, nanoCatalogSchema } from "@lifeafter-assistant/data-schema";
+import { activityCatalogSchema, baseDataPackageSchema, contentManifestSchema, cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema, newsCatalogSchema, type ActivityCatalog, type BaseDataPackage, type NewsCatalog } from "@lifeafter-assistant/data-schema";
+import {
+  backupPath,
+  createBackup,
+  ensureAutomaticBackups,
+  exportBackup,
+  getSettings,
+  importLegacyData,
+  listBackups,
+  restoreBackup,
+  setSettings,
+  type AppSettings,
+} from "./user-data-service.js";
+import { applyContentManifest, readCachedContent } from "./content-update-service.js";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
+protocol.registerSchemesAsPrivileged([{ scheme: "lifeafter-news", privileges: { secure: true, standard: true, supportFetchAPI: true } }]);
 const portableDirectory = process.env.PORTABLE_EXECUTABLE_DIR;
 const testDataDirectory = process.env.LIFEAFTER_ASSISTANT_USER_DATA_DIR;
 const dataRoot = portableDirectory
@@ -20,6 +34,11 @@ const dataRoot = portableDirectory
 if (portableDirectory || testDataDirectory) app.setPath("userData", dataRoot);
 app.setAppUserModelId(APP_ID);
 let database: SqliteDatabase | undefined;
+
+interface CookbookDocument { recipes: Array<{ id: string; position: number; name: string; method: string; effect: string; duration: string; defaultUnlocked: boolean }> }
+function readBundledJson<T>(fileName: string): T {
+  return JSON.parse(readFileSync(join(bundledContentDirectory(), fileName), "utf8")) as T;
+}
 
 function bundledContentDirectory(): string {
   return app.isPackaged
@@ -78,11 +97,14 @@ function installBundledContent(target: SqliteDatabase): void {
 
 function listMarketItems(target: SqliteDatabase) {
   const recipeChoices = new Map(
-    target.prepare("SELECT product_entity_id, ingredient_entity_id, acquisition_mode FROM user_recipe_choices").all().map((row) => {
+    target.prepare("SELECT product_entity_id, ingredient_entity_id, acquisition_mode, quantity_override FROM user_recipe_choices").all().map((row) => {
       const value = row as Record<string, unknown>;
-      return [`${value.product_entity_id}:${value.ingredient_entity_id}`, String(value.acquisition_mode)] as const;
+      return [`${value.product_entity_id}:${value.ingredient_entity_id}`, { mode: String(value.acquisition_mode), quantity: value.quantity_override === null ? null : Number(value.quantity_override) }] as const;
     }),
   );
+  const legacyNanoRow = target.prepare("SELECT value_json AS valueJson FROM settings WHERE key='legacy-import-preserved'").get() as { valueJson: string } | undefined;
+  const legacyNano = new Map<string, any>();
+  if (legacyNanoRow) { try { for (const item of JSON.parse(legacyNanoRow.valueJson).nano ?? []) legacyNano.set(String(item.name), item); } catch { /* ignore invalid preserved legacy overrides */ } }
   return target
     .prepare(`
       WITH all_market_entities AS (
@@ -116,18 +138,72 @@ function listMarketItems(target: SqliteDatabase) {
           const ingredient = entry as Record<string, unknown>;
           const ingredientId = String(ingredient.ingredientId);
           const defaultMode = String(ingredient.defaultAcquisitionMode);
+          const choice = recipeChoices.get(`${value.id}:${ingredientId}`);
           return {
             ingredientId,
-            quantity: Number(ingredient.quantity),
-            acquisitionMode: recipeChoices.get(`${value.id}:${ingredientId}`) ?? defaultMode,
+            quantity: choice?.quantity ?? Number(ingredient.quantity),
+            acquisitionMode: choice?.mode ?? defaultMode,
           };
         }),
         marketPrice: value.marketPrice === null ? null : Number(value.marketPrice),
         focused: Boolean(value.focused),
         hasRecipe: Array.isArray(payload.recipe) && payload.recipe.length > 0,
-        hasNano: payload.nano !== null,
+        hasNano: payload.nano !== null || legacyNano.has(String(value.name)),
+        nano: legacyNano.has(String(value.name)) ? (() => { const item = legacyNano.get(String(value.name)); return { itemId: String(value.id), nano1: { min: Number(item.nami_1_min), max: Number(item.nami_1_max), average: Number(item.nami_1_avg) }, nano2: { min: Number(item.nami_2_min), max: Number(item.nami_2_max), average: Number(item.nami_2_avg) }, nano3: { min: Number(item.nami_3_min), max: Number(item.nami_3_max), average: Number(item.nami_3_avg) } }; })() : (payload.nano ?? null),
       };
     });
+}
+
+function referenceContent(target: SqliteDatabase) {
+  let remoteBase: BaseDataPackage | undefined; let remoteActivities: ActivityCatalog | undefined; let remoteNews: NewsCatalog | undefined;
+  try { const value = readCachedContent<unknown>(dataRoot, "base-data"); if (value) remoteBase = baseDataPackageSchema.parse(value); } catch { remoteBase = undefined; }
+  try { const value = readCachedContent<unknown>(dataRoot, "activities"); if (value) remoteActivities = activityCatalogSchema.parse(value); } catch { remoteActivities = undefined; }
+  try { const value = readCachedContent<unknown>(dataRoot, "news"); if (value) remoteNews = newsCatalogSchema.parse(value); } catch { remoteNews = undefined; }
+  const cookbook = remoteBase?.cookbook ?? cookbookCatalogSchema.parse(readBundledJson<unknown>("cookbook.json"));
+  const unlocks = new Map((target.prepare("SELECT recipe_id AS recipeId,unlocked FROM cookbook_unlocks").all() as Array<{ recipeId: string; unlocked: number }>).map((row) => [row.recipeId, Boolean(row.unlocked)]));
+  const bundledActivities = readBundledJson<{ categories: Array<{ id: string; name: string; sortOrder: number }>; entries: unknown[] }>("activities.json");
+  const categoryNames = new Map(bundledActivities.categories.map((category) => [category.id, category.name]));
+  const activities = remoteActivities ? {
+    categories: [...new Set(remoteActivities.entries.map((entry) => entry.category))].map((id, index) => ({ id, name: categoryNames.get(id) ?? id, sortOrder: index })),
+    entries: remoteActivities.entries.map((entry) => ({ id: entry.id, category: entry.category, categoryName: categoryNames.get(entry.category) ?? entry.category, title: entry.title, version: "", condition: entry.description ?? "", floors: null, startDate: entry.startDate, endDate: entry.endDate, rawStart: entry.startDate, rawEnd: entry.endDate ?? "待定" })),
+  } : bundledActivities;
+  const bundledNews = readBundledJson<{ enabled: boolean; entries: Array<{ id: string; publishedDate?: string; title: string; imageUrl: string }> }>("survivor-news.json");
+  const news = remoteNews ? { enabled: true, entries: remoteNews.entries.filter((entry) => !entry.withdrawn).map((entry) => ({ id: entry.id, publishedDate: entry.publishedAt.slice(0,10), title: entry.title, imageUrl: `lifeafter-news://image/${entry.id}` })) } : { ...bundledNews, entries: bundledNews.entries.map((entry) => ({ ...entry, imageUrl: `lifeafter-news://image/${entry.id}` })) };
+  return {
+    cookbook: cookbook.recipes.map(({ defaultUnlocked, ...recipe }) => ({ ...recipe, unlocked: unlocks.get(recipe.id) ?? defaultUnlocked })),
+    activities,
+    news,
+  };
+}
+
+function assertTrusted(event: IpcMainInvokeEvent, label: string) {
+  if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) throw new Error(`Rejected ${label} request`);
+  return database;
+}
+
+function newsImageSource(id: string): string | undefined {
+  try {
+    const remote = readCachedContent<unknown>(dataRoot, "news");
+    if (remote) return newsCatalogSchema.parse(remote).entries.find((entry) => entry.id === id)?.image.url;
+  } catch { /* use bundled history */ }
+  return readBundledJson<{ entries: Array<{ id: string; imageUrl: string }> }>("survivor-news.json").entries.find((entry) => entry.id === id)?.imageUrl;
+}
+
+function registerNewsImageProtocol() {
+  protocol.handle("lifeafter-news", async (request) => {
+    const url = new URL(request.url); const id = decodeURIComponent(url.pathname.slice(1));
+    if (url.hostname !== "image" || !/^[a-z0-9][a-z0-9._-]{2,127}$/.test(id)) return new Response("Invalid image ID", { status: 400 });
+    const directory = join(dataRoot, "Cache", "news"); const dataFile = join(directory, `${id}.bin`); const typeFile = join(directory, `${id}.type`);
+    if (existsSync(dataFile) && existsSync(typeFile)) return new Response(readFileSync(dataFile), { headers: { "content-type": readFileSync(typeFile, "utf8") } });
+    const source = newsImageSource(id); if (!source) return new Response("Image not found", { status: 404 });
+    const sourceUrl = new URL(source); if (sourceUrl.protocol !== "https:") return new Response("Untrusted image URL", { status: 403 });
+    try {
+      const response = await fetch(source, { signal: AbortSignal.timeout(20_000) }); if (!response.ok) return new Response("Remote image unavailable", { status: 502 });
+      const type = response.headers.get("content-type")?.split(";")[0] ?? ""; if (!type.startsWith("image/")) return new Response("Remote response is not an image", { status: 415 });
+      const buffer = Buffer.from(await response.arrayBuffer()); if (buffer.length > 64 * 1024 * 1024) return new Response("Image exceeds cache limit", { status: 413 });
+      mkdirSync(directory, { recursive: true }); writeFileSync(dataFile, buffer); writeFileSync(typeFile, type, "utf8"); return new Response(buffer, { headers: { "content-type": type, "cache-control": "public, max-age=31536000, immutable" } });
+    } catch { return new Response("Remote image unavailable", { status: 502 }); }
+  });
 }
 
 function assertWritableDataRoot(): void {
@@ -180,8 +256,66 @@ function registerIpcHandlers(databaseVersion: number): void {
       portable: Boolean(portableDirectory),
       appVersion: app.getVersion(),
       databaseVersion,
+      dataRoot,
     };
   });
+  ipcMain.handle("reference:get-content", (event) => referenceContent(assertTrusted(event, "reference content")));
+  ipcMain.handle("cookbook:set-unlock", (event, input: { id: string; unlocked: boolean }) => {
+    const target = assertTrusted(event, "cookbook update");
+    if (!/^recipe\.\d{4}$/.test(input.id)) throw new Error("食谱编号无效");
+    target.prepare(`INSERT INTO cookbook_unlocks(recipe_id,unlocked,updated_at) VALUES (?,?,?) ON CONFLICT(recipe_id) DO UPDATE SET unlocked=excluded.unlocked,updated_at=excluded.updated_at`).run(input.id, input.unlocked ? 1 : 0, new Date().toISOString());
+  });
+  ipcMain.handle("settings:get", (event) => getSettings(assertTrusted(event, "settings")));
+  ipcMain.handle("settings:set", (event, input: AppSettings) => setSettings(assertTrusted(event, "settings update"), input));
+  ipcMain.handle("backups:list", (event) => listBackups(assertTrusted(event, "backup list"), dataRoot));
+  ipcMain.handle("backups:create", (event) => createBackup(assertTrusted(event, "backup creation"), dataRoot, app.getVersion(), databaseVersion, "manual"));
+  ipcMain.handle("backups:export", async (event, id: string) => {
+    const target = assertTrusted(event, "backup export"); const source = backupPath(target, dataRoot, id); if (!source) throw new Error("找不到备份记录");
+    const result = await dialog.showSaveDialog({ title: "导出备份副本", defaultPath: join(app.getPath("documents"), source.split(/[\\/]/).pop() ?? "assistant.backup.json"), filters: [{ name: "助手备份", extensions: ["json"] }] });
+    if (!result.canceled && result.filePath) exportBackup(target, dataRoot, id, result.filePath);
+    return { canceled: result.canceled };
+  });
+  ipcMain.handle("backups:restore", async (event) => {
+    const target = assertTrusted(event, "backup restore"); const result = await dialog.showOpenDialog({ title: "选择备份文件", properties: ["openFile"], filters: [{ name: "助手备份", extensions: ["json"] }] });
+    if (result.canceled || !result.filePaths[0]) return { canceled: true };
+    const restored = restoreBackup(target, result.filePaths[0], () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "pre-import"); });
+    return { canceled: false, restored };
+  });
+  ipcMain.handle("migration:import-legacy", async (event) => {
+    const target = assertTrusted(event, "legacy import"); const result = await dialog.showOpenDialog({ title: "选择旧版 xy.dat / JSON 数据", properties: ["openFile"], filters: [{ name: "旧版数据", extensions: ["dat", "json", "txt"] }] });
+    if (result.canceled || !result.filePaths[0]) return { canceled: true };
+    const ids = readBundledJson<CookbookDocument>("cookbook.json").recipes.map((recipe) => recipe.id);
+    const report = importLegacyData(target, result.filePaths[0], ids, () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "pre-import"); });
+    return { canceled: false, report };
+  });
+  ipcMain.handle("runtime:open-data-folder", (event) => { assertTrusted(event, "data folder"); void shell.openPath(dataRoot); });
+  ipcMain.handle("runtime:export-diagnostics", async (event) => {
+    const target = assertTrusted(event, "diagnostics"); const diagnostics = [`明日之后养成助手诊断报告`, `生成时间：${new Date().toISOString()}`, `客户端版本：${app.getVersion()}`, `数据库版本：${databaseVersion}`, `平台：${process.platform} ${process.arch}`, `Electron：${process.versions.electron}`, `Node：${process.versions.node}`, `便携模式：${Boolean(portableDirectory)}`, `公共资料版本：${(target.prepare("SELECT version FROM content_releases ORDER BY applied_at DESC LIMIT 1").get() as {version?:string}|undefined)?.version ?? "未知"}`, `备份数量：${listBackups(target, dataRoot).length}`, `说明：本报告不包含售价、方案、食谱解锁状态或其他个人数据。`].join("\n");
+    const result = await dialog.showSaveDialog({ title: "导出诊断报告", defaultPath: join(app.getPath("documents"), `assistant-diagnostics-${new Date().toISOString().slice(0,10)}.txt`), filters: [{ name: "文本", extensions: ["txt"] }] });
+    if (!result.canceled && result.filePath) writeFileSync(result.filePath, diagnostics, "utf8"); return { canceled: result.canceled };
+  });
+  ipcMain.handle("updates:check", async (event, force = false) => {
+    const target = assertTrusted(event, "update check"); const settings = getSettings(target); const now = Date.now();
+    const readCheckTime = (key: string) => {
+      const row = target.prepare("SELECT value_json AS valueJson FROM settings WHERE key=?").get(key) as { valueJson: string } | undefined;
+      return row ? Number(JSON.parse(row.valueJson)) : 0;
+    };
+    const writeCheckTime = (key: string) => target.prepare(`INSERT INTO settings(key,value_json,updated_at) VALUES (?,?,?) ON CONFLICT(key) DO UPDATE SET value_json=excluded.value_json,updated_at=excluded.updated_at`).run(key, JSON.stringify(now), new Date(now).toISOString());
+    const intervals = { launch: 0, daily: 86_400_000, weekly: 604_800_000, monthly: 2_592_000_000, never: Number.POSITIVE_INFINITY };
+    const clientCheckDue = force || now - readCheckTime("last-update-check") >= intervals[settings.clientUpdateFrequency];
+    const contentCheckDue = settings.contentAutoUpdate && (force || now - readCheckTime("last-content-check") >= intervals.daily);
+    if (!clientCheckDue && !contentCheckDue) return { skipped: true, message: "尚未到自动检查时间" };
+    try {
+      const response = await fetch("https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json", { signal: AbortSignal.timeout(10_000) });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`); const manifest = contentManifestSchema.parse(await response.json());
+      const contentUpdate = contentCheckDue ? await applyContentManifest(target, dataRoot, manifest, () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "upgrade"); }) : { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
+      if (clientCheckDue) writeCheckTime("last-update-check");
+      if (contentCheckDue) writeCheckTime("last-content-check");
+      const latest = manifest.clientUpdate.latestVersion; const current = app.getVersion(); const update = latest !== current;
+      return { skipped: false, update, current, latest, policy: manifest.clientUpdate.updateLevel, minimumSupportedVersion: manifest.clientUpdate.minimumSupportedVersion, message: `${update ? manifest.clientUpdate.message : "客户端已是最新版本"}${contentUpdate.updated ? `；公共资料已更新至 ${contentUpdate.contentVersion}` : ""}`, downloadPageUrl: manifest.clientUpdate.downloadPageUrl, contentVersion: manifest.contentVersion, contentUpdated: contentUpdate.updated };
+    } catch (error) { if (force) throw new Error(`无法检查更新：${error instanceof Error ? error.message : String(error)}`); return { skipped: false, error: true, message: "自动检查失败，继续使用本地资料" }; }
+  });
+  ipcMain.handle("updates:open-download", (event, url: string) => { assertTrusted(event, "update download"); if (!isTrustedExternalUrl(url)) throw new Error("更新地址不在受信任的 GitHub 域名中"); void shell.openExternal(url); });
   ipcMain.handle("market:list-items", (event) => {
     if (!isTrustedRendererUrl(event.senderFrame?.url ?? "") || !database) {
       throw new Error("Rejected market request");
@@ -190,6 +324,7 @@ function registerIpcHandlers(databaseVersion: number): void {
   });
   ipcMain.handle("growth:get-content", (event) => {
     if (!isTrustedRendererUrl(event.senderFrame?.url ?? "")) throw new Error("Rejected growth request");
+    try { const cached = readCachedContent<unknown>(dataRoot, "base-data"); if (cached) return baseDataPackageSchema.parse(cached).growth; } catch { /* fall back to bundled verified data */ }
     const directory = join(bundledContentDirectory(), "growth");
     const files = ["progression-legacy.json", "belt-legacy.json", "reference-legacy.json", "gene-legacy.json", "static-growth-legacy.json", "graph-legacy.json"];
     return Object.fromEntries(files.map((file) => [file.replace("-legacy.json", ""), JSON.parse(readFileSync(join(directory, file), "utf8"))]));
@@ -337,9 +472,11 @@ function createWindow(): BrowserWindow {
 
 app.whenReady().then(() => {
   assertWritableDataRoot();
+  registerNewsImageProtocol();
   database = openDatabase(join(dataRoot, "assistant.sqlite"));
   const databaseVersion = migrateDatabase(database);
   installBundledContent(database);
+  ensureAutomaticBackups(database, dataRoot, app.getVersion(), databaseVersion);
   registerIpcHandlers(databaseVersion);
   createWindow();
 

@@ -1,8 +1,14 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
-import { marketCatalogSchema, nanoCatalogSchema } from "./base-content.js";
+import { cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema } from "./base-content.js";
 
 describe("base content schemas", () => {
+  it("validates the complete extracted cookbook with stable contiguous positions", () => {
+    const cookbook = JSON.parse(readFileSync(resolve(import.meta.dirname, "../../../content/base/cookbook.json"), "utf8"));
+    expect(cookbookCatalogSchema.parse(cookbook).recipes).toHaveLength(566);
+  });
   it("accepts stable market references", () => {
     const result = marketCatalogSchema.safeParse({
       schemaVersion: 1,

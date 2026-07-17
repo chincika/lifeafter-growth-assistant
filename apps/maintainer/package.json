@@ -1,8 +1,8 @@
 {
-  "name": "@lifeafter-assistant/desktop",
+  "name": "@lifeafter-assistant/maintainer",
   "version": "0.1.0",
-  "description": "明日之后养成助手 Windows 客户端",
-  "author": "Evebreeze",
+  "description": "明日之后养成助手的本地资料维护与发布工具",
+  "author": "LifeAfter Assistant Contributors",
   "private": true,
   "type": "module",
   "main": "out/main/index.js",
@@ -12,19 +12,11 @@
     "check": "vue-tsc --noEmit -p tsconfig.json",
     "test": "vitest",
     "test:run": "vitest run --passWithNoTests",
-    "pack:dir": "pnpm --workspace-root build && electron-builder --dir",
-    "dist:installer": "pnpm --workspace-root build && electron-builder --win nsis --x64",
     "dist:portable": "pnpm --workspace-root build && electron-builder --win portable --x64"
   },
   "dependencies": {
-    "@lifeafter-assistant/core": "workspace:*",
-    "@lifeafter-assistant/database": "workspace:*",
     "@lifeafter-assistant/data-schema": "workspace:*",
-    "@lifeafter-assistant/migration": "workspace:*",
-    "@lifeafter-assistant/ui": "workspace:*",
-    "fflate": "^0.8.2",
-    "vue": "^3.5.0",
-    "vue-i18n": "^11.4.0"
+    "vue": "^3.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",

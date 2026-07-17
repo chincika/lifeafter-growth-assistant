@@ -125,5 +125,42 @@ export const nanoCatalogSchema = z
   })
   .strict();
 
+export const cookbookCatalogSchema = z.object({
+  schemaVersion: z.literal(1),
+  contentVersion: contentVersionSchema,
+  source: z.string().trim().min(1).max(500),
+  recipes: z.array(z.object({
+    id: stableIdSchema,
+    position: z.number().int().nonnegative(),
+    name: z.string().trim().min(1).max(200),
+    method: z.string().max(2_000),
+    effect: z.string().max(4_000),
+    duration: z.string().max(200),
+    defaultUnlocked: z.boolean(),
+  }).strict()).max(10_000),
+}).strict().superRefine((catalog, context) => {
+  const ids = new Set<string>();
+  for (const [index, recipe] of catalog.recipes.entries()) {
+    if (ids.has(recipe.id)) context.addIssue({ code: "custom", message: `Duplicate cookbook recipe ID: ${recipe.id}`, path: ["recipes", index, "id"] });
+    ids.add(recipe.id);
+    if (recipe.position !== index) context.addIssue({ code: "custom", message: "Cookbook positions must remain contiguous", path: ["recipes", index, "position"] });
+  }
+});
+
+export const baseDataPackageSchema = z.object({
+  schemaVersion: z.literal(1),
+  contentVersion: contentVersionSchema,
+  market: marketCatalogSchema,
+  nano: nanoCatalogSchema,
+  cookbook: cookbookCatalogSchema,
+  growth: z.record(z.string(), z.unknown()),
+}).strict().superRefine((value, context) => {
+  for (const [name, version] of [["market", value.market.contentVersion], ["nano", value.nano.contentVersion], ["cookbook", value.cookbook.contentVersion]] as const) {
+    if (version !== value.contentVersion) context.addIssue({ code: "custom", message: `${name} content version does not match package`, path: [name, "contentVersion"] });
+  }
+});
+
 export type MarketCatalog = z.infer<typeof marketCatalogSchema>;
 export type NanoCatalog = z.infer<typeof nanoCatalogSchema>;
+export type CookbookCatalog = z.infer<typeof cookbookCatalogSchema>;
+export type BaseDataPackage = z.infer<typeof baseDataPackageSchema>;
