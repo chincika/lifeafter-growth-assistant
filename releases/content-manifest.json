@@ -1,38 +1,38 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026.07.17.5",
-  "publishedAt": "2026-07-17T09:19:32.855Z",
+  "contentVersion": "2026.07.17.6",
+  "publishedAt": "2026-07-17T09:34:16.245Z",
   "minimumClientVersion": "0.1.0",
   "clientUpdate": {
     "latestVersion": "0.1.1",
     "minimumSupportedVersion": "0.1.0",
     "updateLevel": "optional",
-    "message": "幸存者快报图片缓存兼容更新",
+    "message": "公共资料更新",
     "downloadPageUrl": "https://github.com/chincika/lifeafter-growth-assistant/releases",
-    "effectiveAt": "2026-07-17T09:19:32.855Z",
+    "effectiveAt": "2026-07-17T09:34:16.245Z",
     "graceDays": 7
   },
   "packages": [
     {
       "kind": "base-data",
-      "version": "2026.07.17.5",
+      "version": "2026.07.17.6",
       "url": "https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/base-data.json",
-      "sha256": "13f92e15215a04b2e5a9109d7c7b351af0c144c8a857c9580726a4b059f92186",
+      "sha256": "1c6bba4fb3457b979b7b81fbce4f7d9fcbe33ef6d896e93b4cc75a3a5af82d62",
       "sizeBytes": 1710719
     },
     {
       "kind": "activities",
-      "version": "2026.07.17.5",
+      "version": "2026.07.17.6",
       "url": "https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/activities.json",
-      "sha256": "4842433ce8c139069a86e588088db932465eec0d86ebfaf2d89300a2cd1b4956",
+      "sha256": "e5838c04bd7b69d15551309a0c0b4259111f09e7848c4a8b2b8898c54f9809bc",
       "sizeBytes": 27016
     },
     {
       "kind": "news",
-      "version": "2026.07.17.5",
+      "version": "2026.07.17.6",
       "url": "https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/news.json",
-      "sha256": "47252d965aa05baf94bee229a7a6b6580facc12b0692694c06a6be63cf7463e0",
-      "sizeBytes": 87029
+      "sha256": "0a86b40126b83caacf5753b6e69ab595c8942e3758d84be8e8d6ee33017f6647",
+      "sizeBytes": 87033
     }
   ]
 }
