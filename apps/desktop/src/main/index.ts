@@ -22,6 +22,7 @@ import {
   type AppSettings,
 } from "./user-data-service.js";
 import { applyContentManifest, readCachedContent } from "./content-update-service.js";
+import { planUpdateChecks } from "./update-check-policy.js";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
 protocol.registerSchemesAsPrivileged([{ scheme: "lifeafter-news", privileges: { secure: true, standard: true, supportFetchAPI: true } }]);
@@ -301,18 +302,16 @@ function registerIpcHandlers(databaseVersion: number): void {
       return row ? Number(JSON.parse(row.valueJson)) : 0;
     };
     const writeCheckTime = (key: string) => target.prepare(`INSERT INTO settings(key,value_json,updated_at) VALUES (?,?,?) ON CONFLICT(key) DO UPDATE SET value_json=excluded.value_json,updated_at=excluded.updated_at`).run(key, JSON.stringify(now), new Date(now).toISOString());
-    const intervals = { launch: 0, daily: 86_400_000, weekly: 604_800_000, monthly: 2_592_000_000, never: Number.POSITIVE_INFINITY };
-    const clientCheckDue = force || now - readCheckTime("last-update-check") >= intervals[settings.clientUpdateFrequency];
-    const contentCheckDue = settings.contentAutoUpdate && (force || now - readCheckTime("last-content-check") >= intervals.daily);
+    const { clientCheckDue, contentCheckDue } = planUpdateChecks({ clientUpdateFrequency: settings.clientUpdateFrequency, lastClientCheck: readCheckTime("last-update-check"), now, manualClientCheck: force });
     if (!clientCheckDue && !contentCheckDue) return { skipped: true, message: "尚未到自动检查时间" };
     try {
       const response = await net.fetch("https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json", { signal: AbortSignal.timeout(10_000) });
       if (!response.ok) throw new Error(`HTTP ${response.status}`); const manifest = contentManifestSchema.parse(await response.json());
       const contentUpdate = contentCheckDue ? await applyContentManifest(target, dataRoot, manifest, () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "upgrade"); }, net.fetch) : { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
       if (clientCheckDue) writeCheckTime("last-update-check");
-      if (contentCheckDue) writeCheckTime("last-content-check");
-      const latest = manifest.clientUpdate.latestVersion; const current = app.getVersion(); const update = latest !== current;
-      return { skipped: false, update, current, latest, policy: manifest.clientUpdate.updateLevel, minimumSupportedVersion: manifest.clientUpdate.minimumSupportedVersion, message: `${update ? manifest.clientUpdate.message : "客户端已是最新版本"}${contentUpdate.updated ? `；公共资料已更新至 ${contentUpdate.contentVersion}` : ""}`, downloadPageUrl: manifest.clientUpdate.downloadPageUrl, contentVersion: manifest.contentVersion, contentUpdated: contentUpdate.updated };
+      const latest = manifest.clientUpdate.latestVersion; const current = app.getVersion(); const update = clientCheckDue && latest !== current;
+      const message = [clientCheckDue ? (update ? manifest.clientUpdate.message : "客户端已是最新版本") : "", contentUpdate.updated ? `公共资料已更新至 ${contentUpdate.contentVersion}` : (!clientCheckDue ? "公共资料已是最新版本" : "")].filter(Boolean).join("；");
+      return { skipped: false, update, current, latest, policy: manifest.clientUpdate.updateLevel, minimumSupportedVersion: manifest.clientUpdate.minimumSupportedVersion, message, downloadPageUrl: manifest.clientUpdate.downloadPageUrl, contentVersion: manifest.contentVersion, contentUpdated: contentUpdate.updated };
     } catch (error) { if (force) throw new Error(`无法检查更新：${error instanceof Error ? error.message : String(error)}`); return { skipped: false, error: true, message: "自动检查失败，继续使用本地资料" }; }
   });
   ipcMain.handle("updates:open-download", (event, url: string) => { assertTrusted(event, "update download"); if (!isTrustedExternalUrl(url)) throw new Error("更新地址不在受信任的 GitHub 域名中"); void shell.openExternal(url); });

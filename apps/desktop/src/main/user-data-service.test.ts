@@ -18,7 +18,7 @@ describe("desktop user data service", () => {
     context.database.prepare("DELETE FROM saved_plans").run(); setSettings(context.database, { theme: "dark", clientUpdateFrequency: "daily", contentAutoUpdate: true });
     restoreBackup(context.database, join(context.directory, "Backups", backup.fileName), () => undefined);
     expect(context.database.prepare("SELECT name,payload_json AS payloadJson FROM saved_plans WHERE id='plan.growth.preserved'").get()).toEqual({ name: "我的图谱", payloadJson: JSON.stringify({ graphTargetLevels: [2,3,4] }) });
-    expect(getSettings(context.database)).toEqual({ theme: "light", clientUpdateFrequency: "monthly", contentAutoUpdate: false });
+    expect(getSettings(context.database)).toEqual({ theme: "light", clientUpdateFrequency: "monthly", contentAutoUpdate: true });
   });
   it("rejects a modified backup before touching the database", () => {
     const context = setup(); const backup = createBackup(context.database, context.directory, "1.0.0", context.version, "manual"); const path = join(context.directory, "Backups", backup.fileName); const value = JSON.parse(readFileSync(path, "utf8")); value.appVersion = "tampered"; writeFileSync(path, JSON.stringify(value));

@@ -29,13 +29,13 @@ function settingValue(database: SqliteDatabase, key: string): unknown {
 }
 export function getSettings(database: SqliteDatabase): AppSettings {
   const value = settingValue(database, "app") as Partial<AppSettings> | undefined;
-  return { ...defaultSettings, ...(value ?? {}) };
+  return { ...defaultSettings, ...(value ?? {}), contentAutoUpdate: true };
 }
 export function setSettings(database: SqliteDatabase, settings: AppSettings) {
   const validated: AppSettings = {
     theme: ["system", "dark", "light"].includes(settings.theme) ? settings.theme : "system",
     clientUpdateFrequency: ["launch", "daily", "weekly", "monthly", "never"].includes(settings.clientUpdateFrequency) ? settings.clientUpdateFrequency : "weekly",
-    contentAutoUpdate: Boolean(settings.contentAutoUpdate),
+    contentAutoUpdate: true,
   };
   database.prepare(`INSERT INTO settings(key,value_json,updated_at) VALUES ('app',?,?) ON CONFLICT(key) DO UPDATE SET value_json=excluded.value_json,updated_at=excluded.updated_at`).run(JSON.stringify(validated), new Date().toISOString());
   return validated;

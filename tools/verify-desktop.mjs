@@ -1,4 +1,5 @@
 const port = process.argv[2] ?? "9340";
+const requireRemoteContent = process.env.VERIFY_REMOTE_CONTENT === "1";
 const endpoint = `http://127.0.0.1:${port}/json`;
 
 let targets;
@@ -87,12 +88,15 @@ const evaluation = await send("Runtime.evaluate", {
     await new Promise((resolve) => setTimeout(resolve, 30));
     document.querySelector('.news-history button')?.click();
     await new Promise((resolve) => setTimeout(resolve, 30));
-    const newsRendered = document.body.innerText.includes('发布通道暂时关闭') && document.querySelectorAll('.news-history button').length > 100;
+    const newsButtons = [...document.querySelectorAll('.news-history button')];
+    const newsRendered = document.body.innerText.includes('幸存者快报') && newsButtons.length > 100;
+    const newestNewsFirst = references?.news?.entries?.length === 197 || newsButtons[0]?.textContent?.includes('2026-06-24');
     const newsImageIsLocalProtocol = document.querySelector('.news-modal img')?.src.startsWith('lifeafter-news://');
     document.querySelector('.news-modal .close-button')?.click();
     [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '设置')?.click();
     await new Promise((resolve) => setTimeout(resolve, 30));
     const settingsRendered = document.body.innerText.includes('设置与数据') && document.querySelectorAll('.settings-card').length >= 4;
+    const automaticContentPolicyRendered = document.body.innerText.includes('公共资料每次启动都会自动检查并静默应用') && [...document.querySelectorAll('button')].some((button) => button.textContent?.trim() === '立即检查客户端版本') && ![...document.querySelectorAll('label')].some((label) => label.textContent?.includes('自动检查公共资料更新'));
     [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === '养成计算')?.click();
     await new Promise((resolve) => setTimeout(resolve, 100));
     const growthButtons = [...document.querySelectorAll('.growth-tabs button')];
@@ -243,8 +247,10 @@ const evaluation = await send("Runtime.evaluate", {
       cookbookDetailRendered,
       activitiesRendered,
       newsRendered,
+      newestNewsFirst,
       newsImageIsLocalProtocol,
       settingsRendered,
+      automaticContentPolicyRendered,
       marketItemCount: after?.length,
       marketRendered,
       initialFirstItem,
@@ -325,8 +331,12 @@ if (result.nodeExposed)
   throw new Error("Node globals are exposed to the renderer");
 if (!result.overviewRendered || !result.nanoRendered || !result.cookbookRendered || !result.cookbookDetailRendered || !result.activitiesRendered || !result.newsRendered || !result.newsImageIsLocalProtocol || !result.settingsRendered)
   throw new Error("One or more primary modules did not render or respond");
-if (result.referenceCounts?.cookbook !== 566 || result.referenceCounts?.activities !== 111 || result.referenceCounts?.news !== 197)
+if (result.referenceCounts?.cookbook !== 566 || result.referenceCounts?.activities !== 111 || ![197,198].includes(result.referenceCounts?.news))
   throw new Error("Legacy reference content counts changed");
+if (requireRemoteContent && (result.referenceCounts?.news !== 198 || !result.newestNewsFirst))
+  throw new Error("Public content was not automatically applied on launch");
+if (!result.automaticContentPolicyRendered)
+  throw new Error("Automatic public-content policy is missing or still user-configurable");
 if (!result.settingsPersisted || !result.backupCreated)
   throw new Error("Settings or backup persistence failed");
 if (!result.responsiveGrowthLayout)
