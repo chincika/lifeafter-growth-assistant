@@ -50,6 +50,8 @@ await new Promise((resolve) => setTimeout(resolve, 1_000));
 
 const evaluation = await send("Runtime.evaluate", {
   expression: `(async () => {
+    [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '总览')?.click();
+    await new Promise((resolve) => setTimeout(resolve, 50));
     const overviewRendered = document.body.innerText.includes('今天想计算什么？');
     const before = await window.desktopApi?.listMarketItems();
     const references = await window.desktopApi?.getReferenceContent();
@@ -91,7 +93,7 @@ const evaluation = await send("Runtime.evaluate", {
     await new Promise((resolve) => setTimeout(resolve, 30));
     const newsButtons = [...document.querySelectorAll('.news-history button')];
     const newsRendered = document.body.innerText.includes('幸存者快报') && newsButtons.length > 100;
-    const newestNewsFirst = references?.news?.entries?.length === 197 || newsButtons[0]?.textContent?.includes('2026-06-24');
+    const newestNewsFirst = references?.news?.entries?.[0]?.title?.includes('2026-07-08') && newsButtons[0]?.textContent?.includes('2026-07-08');
     const newsImageIsLocalProtocol = document.querySelector('.news-modal img')?.src.startsWith('lifeafter-news://');
     document.querySelector('.news-modal .close-button')?.click();
     [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '设置')?.click();
@@ -334,9 +336,9 @@ if (result.nodeExposed)
   throw new Error("Node globals are exposed to the renderer");
 if (!result.overviewRendered || !result.nanoRendered || !result.cookbookRendered || !result.cookbookDetailRendered || !result.activitiesRendered || !result.newsRendered || !result.newsImageIsLocalProtocol || !result.settingsRendered)
   throw new Error("One or more primary modules did not render or respond");
-if (result.referenceCounts?.cookbook !== 566 || result.referenceCounts?.activities !== 111 || ![197,198].includes(result.referenceCounts?.news))
+if (result.referenceCounts?.cookbook !== 566 || result.referenceCounts?.activities !== 111 || ![197,198,199].includes(result.referenceCounts?.news))
   throw new Error("Legacy reference content counts changed");
-if (requireRemoteContent && (result.referenceCounts?.news !== 198 || !result.newestNewsFirst))
+if (requireRemoteContent && (result.referenceCounts?.news !== 199 || !result.newestNewsFirst))
   throw new Error("Public content was not automatically applied on launch");
 if (!result.automaticContentPolicyRendered)
   throw new Error("Automatic public-content policy is missing or still user-configurable");

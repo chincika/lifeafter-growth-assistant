@@ -28,14 +28,19 @@ export function applyBaseDataPackage(database: SqliteDatabase, value: ReturnType
   for (const item of value.market.items) insert.run(item.id, item.name, JSON.stringify({ ...item, nano: nano.get(item.id) ?? null }), value.contentVersion, now);
 }
 export async function applyContentManifest(database: SqliteDatabase, dataRoot: string, manifest: ContentManifest, beforeApply: () => void, fetcher: ContentFetcher = fetch) {
-  const existing = database.prepare("SELECT 1 FROM content_releases WHERE version=?").get(manifest.contentVersion);
-  if (existing && manifest.packages.every((entry) => existsSync(cachedContentFile(dataRoot, entry.kind)))) return { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
+  const manifestHash = hash(JSON.stringify(manifest));
+  const existing = database.prepare("SELECT manifest_sha256 AS manifestSha256 FROM content_releases WHERE version=?").get(manifest.contentVersion) as { manifestSha256: string } | undefined;
+  const cacheMatches = manifest.packages.every((entry) => {
+    const path = cachedContentFile(dataRoot, entry.kind);
+    return existsSync(path) && hash(readFileSync(path)) === entry.sha256.toLowerCase();
+  });
+  if (existing?.manifestSha256 === manifestHash && cacheMatches) return { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
   const downloaded = [];
   for (const entry of manifest.packages) downloaded.push(await downloadPackage(entry, fetcher));
   beforeApply(); mkdirSync(join(dataRoot, "Content"), { recursive: true }); database.exec("BEGIN IMMEDIATE");
   try {
     for (const item of downloaded) if (item.entry.kind === "base-data") applyBaseDataPackage(database, item.parsed as ReturnType<typeof baseDataPackageSchema.parse>);
-    database.prepare("INSERT INTO content_releases(version,applied_at,manifest_sha256) VALUES (?,?,?) ON CONFLICT(version) DO UPDATE SET applied_at=excluded.applied_at,manifest_sha256=excluded.manifest_sha256").run(manifest.contentVersion, new Date().toISOString(), hash(JSON.stringify(manifest)));
+    database.prepare("INSERT INTO content_releases(version,applied_at,manifest_sha256) VALUES (?,?,?) ON CONFLICT(version) DO UPDATE SET applied_at=excluded.applied_at,manifest_sha256=excluded.manifest_sha256").run(manifest.contentVersion, new Date().toISOString(), manifestHash);
     database.exec("COMMIT");
   } catch (error) { database.exec("ROLLBACK"); throw error; }
   try {
