@@ -1,4 +1,5 @@
 const port = process.argv[2] ?? "9341";
+const probeGithubNetwork = process.env.VERIFY_GITHUB_NETWORK === "1";
 let targets;
 for (let attempt = 0; attempt < 40; attempt += 1) {
   try { targets = await (await fetch(`http://127.0.0.1:${port}/json`)).json(); break; }
@@ -35,9 +36,11 @@ const evaluated = await send("Runtime.evaluate", {
     setValue(document.querySelector('.editor input[type=url]'),'https://example.com/e2e-news.png');
     document.querySelector('.editor footer button:last-child')?.click();await new Promise(r=>setTimeout(r,120));
     const newsSaveSucceeded=document.body.innerText.includes('已校验并保存')&&!document.querySelector('.editor');
+    let githubNetworkError='';
+    if(${JSON.stringify(probeGithubNetwork)}){try{await window.maintainerApi.publishRelease({repository:'chincika/lifeafter-growth-assistant',branch:'main',contentVersion:data.contentVersion,latestVersion:'0.1.0',minimumClientVersion:'0.1.0',minimumSupportedVersion:'0.1.0',updateLevel:'optional',updateMessage:'网络探测',graceDays:7,includeNews:false,token:'invalid-token-for-network-test'});}catch(error){githubNetworkError=String(error);}}
     tabs[2]?.click();await new Promise(r=>setTimeout(r,20));
     document.querySelector('.record-list button')?.click();await new Promise(r=>setTimeout(r,20));
-    return{title:document.title,counts:data.counts,tabs:tabs.length,localImagePicker,newsSaveSucceeded,cookbookEditor:Boolean(document.querySelector('.editor')),releasePanel:Boolean(document.querySelector('.release')),nodeExposed:typeof window.require!=='undefined'||typeof window.process!=='undefined',text:document.body.innerText.slice(0,500)};
+    return{title:document.title,counts:data.counts,tabs:tabs.length,localImagePicker,newsSaveSucceeded,githubNetworkError,cookbookEditor:Boolean(document.querySelector('.editor')),releasePanel:Boolean(document.querySelector('.release')),nodeExposed:typeof window.require!=='undefined'||typeof window.process!=='undefined',text:document.body.innerText.slice(0,500)};
   })()`,
   awaitPromise: true,
   returnByValue: true,
@@ -48,4 +51,5 @@ const result = { ...evaluated.result.value, errors };
 console.log(JSON.stringify(result, null, 2));
 if (result.counts.market !== 458 || result.counts.nano !== 159 || result.counts.cookbook !== 566 || result.counts.activities !== 111 || result.counts.news !== 197) throw new Error("Maintainer content counts changed");
 if (result.tabs !== 5 || !result.localImagePicker || !result.newsSaveSucceeded || !result.cookbookEditor || !result.releasePanel) throw new Error("Maintainer UI did not render or persist news correctly");
+if (probeGithubNetwork && (!/HTTP (401|403)/.test(result.githubNetworkError) || /fetch failed/i.test(result.githubNetworkError))) throw new Error(`Maintainer did not reach GitHub through the system network stack: ${result.githubNetworkError}`);
 if (result.nodeExposed || errors.length) throw new Error("Maintainer security/runtime check failed");

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, ipcMain, nativeImage, shell, type IpcMainInvokeEvent } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, nativeImage, net, shell, type IpcMainInvokeEvent } from "electron";
 import { createHash, randomUUID } from "node:crypto";
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, extname, join, resolve, sep } from "node:path";
@@ -55,7 +55,7 @@ async function prepareRelease(input:any){
         continue;
       }else{
         if(!/^https:\/\//.test(url))throw new Error(`快报缺少本地长图或 HTTPS 地址：${entry.title}`);
-        const response=await fetch(url,{signal:AbortSignal.timeout(30_000)});
+        const response=await net.fetch(url,{signal:AbortSignal.timeout(30_000)});
         if(!response.ok)throw new Error(`快报图片下载失败：${entry.title}`);
         buffer=Buffer.from(await response.arrayBuffer());
       }
@@ -73,7 +73,7 @@ async function prepareRelease(input:any){
   files.set("content-manifest.json",Buffer.from(`${JSON.stringify(manifest,null,2)}\n`));
   return files;
 }
-async function githubPut(repository:string,branch:string,token:string,path:string,content:Buffer){const endpoint=`https://api.github.com/repos/${repository}/contents/${path}`;const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"lifeafter-content-maintainer"};const existing=await fetch(`${endpoint}?ref=${encodeURIComponent(branch)}`,{headers});let existingSha:string|undefined;if(existing.ok)existingSha=String((await existing.json()).sha);else if(existing.status!==404)throw new Error(`读取 GitHub ${path} 失败：HTTP ${existing.status}`);const response=await fetch(endpoint,{method:"PUT",headers:{...headers,"Content-Type":"application/json"},body:JSON.stringify({message:`chore(content): publish ${path}`,content:content.toString("base64"),branch,...(existingSha?{sha:existingSha}:{})})});if(!response.ok)throw new Error(`发布 ${path} 失败：HTTP ${response.status} ${await response.text()}`);}
+async function githubPut(repository:string,branch:string,token:string,path:string,content:Buffer){const endpoint=`https://api.github.com/repos/${repository}/contents/${path}`;const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"lifeafter-content-maintainer"};const existing=await net.fetch(`${endpoint}?ref=${encodeURIComponent(branch)}`,{headers});let existingSha:string|undefined;if(existing.ok)existingSha=String((await existing.json()).sha);else if(existing.status!==404)throw new Error(`读取 GitHub ${path} 失败：HTTP ${existing.status}`);const response=await net.fetch(endpoint,{method:"PUT",headers:{...headers,"Content-Type":"application/json"},body:JSON.stringify({message:`chore(content): publish ${path}`,content:content.toString("base64"),branch,...(existingSha?{sha:existingSha}:{})})});if(!response.ok)throw new Error(`发布 ${path} 失败：HTTP ${response.status} ${await response.text()}`);}
 function createWindow(){const window=new BrowserWindow({width:1440,height:900,minWidth:1040,minHeight:700,title:"明日之后养成助手资料维护器",backgroundColor:"#0b1220",webPreferences:{preload:join(import.meta.dirname,"../preload/index.cjs"),contextIsolation:true,nodeIntegration:false,sandbox:true}});window.webContents.setWindowOpenHandler(({url})=>{if(url.startsWith("https://github.com/"))void shell.openExternal(url);return{action:"deny"}});if(process.env.ELECTRON_RENDERER_URL)void window.loadURL(process.env.ELECTRON_RENDERER_URL);else void window.loadFile(join(import.meta.dirname,"../renderer/index.html"));}
 app.whenReady().then(()=>{
   initializeContentDirectory();

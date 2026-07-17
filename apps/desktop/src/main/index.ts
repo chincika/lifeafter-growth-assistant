@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, ipcMain, protocol, shell, type IpcMainInvokeEvent } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, net, protocol, shell, type IpcMainInvokeEvent } from "electron";
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
@@ -198,7 +198,7 @@ function registerNewsImageProtocol() {
     const source = newsImageSource(id); if (!source) return new Response("Image not found", { status: 404 });
     const sourceUrl = new URL(source); if (sourceUrl.protocol !== "https:") return new Response("Untrusted image URL", { status: 403 });
     try {
-      const response = await fetch(source, { signal: AbortSignal.timeout(20_000) }); if (!response.ok) return new Response("Remote image unavailable", { status: 502 });
+      const response = await net.fetch(source, { signal: AbortSignal.timeout(20_000) }); if (!response.ok) return new Response("Remote image unavailable", { status: 502 });
       const type = response.headers.get("content-type")?.split(";")[0] ?? ""; if (!type.startsWith("image/")) return new Response("Remote response is not an image", { status: 415 });
       const buffer = Buffer.from(await response.arrayBuffer()); if (buffer.length > 64 * 1024 * 1024) return new Response("Image exceeds cache limit", { status: 413 });
       mkdirSync(directory, { recursive: true }); writeFileSync(dataFile, buffer); writeFileSync(typeFile, type, "utf8"); return new Response(buffer, { headers: { "content-type": type, "cache-control": "public, max-age=31536000, immutable" } });
@@ -306,9 +306,9 @@ function registerIpcHandlers(databaseVersion: number): void {
     const contentCheckDue = settings.contentAutoUpdate && (force || now - readCheckTime("last-content-check") >= intervals.daily);
     if (!clientCheckDue && !contentCheckDue) return { skipped: true, message: "尚未到自动检查时间" };
     try {
-      const response = await fetch("https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json", { signal: AbortSignal.timeout(10_000) });
+      const response = await net.fetch("https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json", { signal: AbortSignal.timeout(10_000) });
       if (!response.ok) throw new Error(`HTTP ${response.status}`); const manifest = contentManifestSchema.parse(await response.json());
-      const contentUpdate = contentCheckDue ? await applyContentManifest(target, dataRoot, manifest, () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "upgrade"); }) : { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
+      const contentUpdate = contentCheckDue ? await applyContentManifest(target, dataRoot, manifest, () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "upgrade"); }, net.fetch) : { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
       if (clientCheckDue) writeCheckTime("last-update-check");
       if (contentCheckDue) writeCheckTime("last-content-check");
       const latest = manifest.clientUpdate.latestVersion; const current = app.getVersion(); const update = latest !== current;
