@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026.07.17.14",
+  "contentVersion": "2026.07.17.15",
   "market": {
     "schemaVersion": 1,
-    "contentVersion": "2026.07.17.14",
+    "contentVersion": "2026.07.17.15",
     "items": [
       {
         "id": "item.legacy.3915f9fdd0acc2b1e844",
@@ -12786,7 +12786,7 @@
   },
   "nano": {
     "schemaVersion": 1,
-    "contentVersion": "2026.07.17.14",
+    "contentVersion": "2026.07.17.15",
     "items": [
       {
         "itemId": "item.legacy.4fad23d4ce66a22ef88e",
@@ -15654,7 +15654,7 @@
   },
   "cookbook": {
     "schemaVersion": 1,
-    "contentVersion": "2026.07.17.14",
+    "contentVersion": "2026.07.17.15",
     "source": "archived application data",
     "recipes": [
       {
