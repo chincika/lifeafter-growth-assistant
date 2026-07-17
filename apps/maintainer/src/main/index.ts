@@ -1,9 +1,10 @@
-import { app, BrowserWindow, dialog, ipcMain, nativeImage, net, shell, type IpcMainInvokeEvent } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, nativeImage, net, safeStorage, shell, type IpcMainInvokeEvent } from "electron";
 import { createHash, randomUUID } from "node:crypto";
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { dirname, extname, join, resolve, sep } from "node:path";
 import { activityCatalogSchema, baseDataPackageSchema, contentManifestSchema, cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema, newsCatalogSchema } from "@lifeafter-assistant/data-schema";
 import { resolveReleaseContentVersion, suggestContentVersion } from "./content-version.js";
+import { clearGithubToken, loadGithubToken, saveGithubToken } from "./credential-store.js";
 
 type Dataset = "market" | "nano" | "cookbook" | "activities" | "news";
 const categories = ["wood","stone","hemp","animal","special","semi-finished","armor","shield","hat","blade","bow","shotgun","smg","assault-rifle","sniper-rifle","grenade-launcher","flamethrower","pistol","melee-shield","electromagnetic-gun","drone","consumable"] as const;
@@ -85,8 +86,10 @@ app.whenReady().then(()=>{
   ipcMain.handle("content:load",(event,directory?:string)=>{trusted(event);if(directory)contentDirectory=resolve(directory);return viewModel();});
   ipcMain.handle("content:save-record",(event,input)=>{trusted(event);return saveRecord(input)});
   ipcMain.handle("content:delete-record",(event,input)=>{trusted(event);return deleteRecord(input)});
+  ipcMain.handle("credentials:get-token",(event)=>{trusted(event);return loadGithubToken(app.getPath("userData"),safeStorage)});
+  ipcMain.handle("credentials:clear-token",(event)=>{trusted(event);clearGithubToken(app.getPath("userData"));});
   ipcMain.handle("release:build",async(event,input)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择发布包输出目录",properties:["openDirectory","createDirectory"]});if(result.canceled||!result.filePaths[0])return{canceled:true};const files=await prepareRelease(input),directory=join(result.filePaths[0],`content-${input.contentVersion}`);mkdirSync(directory,{recursive:true});for(const[name,buffer]of files){const target=join(directory,name);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,buffer);}return{canceled:false,directory,files:[...files.keys()]};});
-  ipcMain.handle("release:publish",async(event,input)=>{trusted(event);const token=String(input.token??"");if(token.length<20)throw new Error("请输入有效的 GitHub Token");const remoteVersion=await githubContentVersion(input.repository,input.branch,token);const contentVersion=resolveReleaseContentVersion(String(input.contentVersion),remoteVersion);const files=await prepareRelease({...input,contentVersion});for(const[name,buffer]of files)await githubPut(input.repository,input.branch,token,`releases/${name}`,buffer);return{published:[...files.keys()],contentVersion};});
+  ipcMain.handle("release:publish",async(event,input)=>{trusted(event);const token=String(input.token??"");if(token.length<20)throw new Error("请输入有效的 GitHub Token");const remoteVersion=await githubContentVersion(input.repository,input.branch,token);const contentVersion=resolveReleaseContentVersion(String(input.contentVersion),remoteVersion);const files=await prepareRelease({...input,contentVersion});for(const[name,buffer]of files)await githubPut(input.repository,input.branch,token,`releases/${name}`,buffer);let tokenSaved=true,tokenSaveWarning="";try{saveGithubToken(app.getPath("userData"),token,safeStorage)}catch(error){tokenSaved=false;tokenSaveWarning=error instanceof Error?error.message:String(error)}return{published:[...files.keys()],contentVersion,tokenSaved,tokenSaveWarning};});
   createWindow();
 });
 app.on("window-all-closed",()=>{if(process.platform!=="darwin")app.quit()});

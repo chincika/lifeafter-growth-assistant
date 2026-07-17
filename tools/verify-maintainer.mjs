@@ -26,6 +26,11 @@ const evaluated = await send("Runtime.evaluate", {
   expression: `(async()=>{
     const data=await window.maintainerApi.load();
     const tabs=[...document.querySelectorAll('aside nav button')];
+    const recordBrowserCollapsed=!document.querySelector('.record-list');
+    document.querySelector('.record-browser-toggle')?.click();await new Promise(r=>setTimeout(r,20));
+    const browser=document.querySelector('.record-browser')?.getBoundingClientRect();
+    const content=document.querySelector('.content')?.getBoundingClientRect();
+    const recordBrowserFullWidth=Boolean(browser&&content&&browser.width>=content.width-50);
     for(const tab of tabs){tab.click();await new Promise(r=>setTimeout(r,10));}
     tabs[4]?.click();await new Promise(r=>setTimeout(r,20));
     document.querySelector('.toolbar button')?.click();await new Promise(r=>setTimeout(r,20));
@@ -36,12 +41,14 @@ const evaluated = await send("Runtime.evaluate", {
     setValue(document.querySelector('.editor input[type=url]'),'https://example.com/e2e-news.png');
     document.querySelector('.editor footer button:last-child')?.click();await new Promise(r=>setTimeout(r,120));
     const newsSaveSucceeded=document.body.innerText.includes('已校验并保存')&&!document.querySelector('.editor');
+    document.querySelector('.record-browser-toggle')?.click();await new Promise(r=>setTimeout(r,20));
     const newNewsFirst=document.querySelector('.record-list button strong')?.textContent==='E2E 临时快报';
     let githubNetworkError='';
     if(${JSON.stringify(probeGithubNetwork)}){try{await window.maintainerApi.publishRelease({repository:'chincika/lifeafter-growth-assistant',branch:'main',contentVersion:data.contentVersion,latestVersion:'0.1.0',minimumClientVersion:'0.1.0',minimumSupportedVersion:'0.1.0',updateLevel:'optional',updateMessage:'网络探测',graceDays:7,includeNews:false,token:'invalid-token-for-network-test'});}catch(error){githubNetworkError=String(error);}}
     tabs[2]?.click();await new Promise(r=>setTimeout(r,20));
+    document.querySelector('.record-browser-toggle')?.click();await new Promise(r=>setTimeout(r,20));
     document.querySelector('.record-list button')?.click();await new Promise(r=>setTimeout(r,20));
-    return{title:document.title,counts:data.counts,tabs:tabs.length,localImagePicker,newsSaveSucceeded,newNewsFirst,githubNetworkError,cookbookEditor:Boolean(document.querySelector('.editor')),releasePanel:Boolean(document.querySelector('.release')),nodeExposed:typeof window.require!=='undefined'||typeof window.process!=='undefined',text:document.body.innerText.slice(0,500)};
+    return{title:document.title,counts:data.counts,tabs:tabs.length,recordBrowserCollapsed,recordBrowserFullWidth,localImagePicker,newsSaveSucceeded,newNewsFirst,githubNetworkError,cookbookEditor:Boolean(document.querySelector('.editor')),releasePanel:Boolean(document.querySelector('.release')),secureTokenCopy:document.querySelector('.release')?.textContent?.includes('Windows 当前账户加密保存'),nodeExposed:typeof window.require!=='undefined'||typeof window.process!=='undefined',text:document.body.innerText.slice(0,500)};
   })()`,
   awaitPromise: true,
   returnByValue: true,
@@ -51,6 +58,6 @@ if (evaluated.exceptionDetails) throw new Error(JSON.stringify(evaluated.excepti
 const result = { ...evaluated.result.value, errors };
 console.log(JSON.stringify(result, null, 2));
 if (result.counts.market !== 458 || result.counts.nano !== 159 || result.counts.cookbook !== 566 || result.counts.activities !== 111 || result.counts.news !== 197) throw new Error("Maintainer content counts changed");
-if (result.tabs !== 5 || !result.localImagePicker || !result.newsSaveSucceeded || !result.newNewsFirst || !result.cookbookEditor || !result.releasePanel) throw new Error("Maintainer UI did not render, persist, or sort news correctly");
+if (result.tabs !== 5 || !result.recordBrowserCollapsed || !result.recordBrowserFullWidth || !result.localImagePicker || !result.newsSaveSucceeded || !result.newNewsFirst || !result.cookbookEditor || !result.releasePanel || !result.secureTokenCopy) throw new Error("Maintainer UI did not render, persist, or sort news correctly");
 if (probeGithubNetwork && (!/HTTP (401|403)/.test(result.githubNetworkError) || /fetch failed/i.test(result.githubNetworkError))) throw new Error(`Maintainer did not reach GitHub through the system network stack: ${result.githubNetworkError}`);
 if (result.nodeExposed || errors.length) throw new Error("Maintainer security/runtime check failed");
