@@ -222,11 +222,11 @@ function registerNewsImageProtocol() {
     if (url.hostname !== "image" || !/^[a-z0-9][a-z0-9._-]{2,127}$/.test(id)) return new Response("Invalid image ID", { status: 400 });
     const source = newsImageSource(id); if (!source) return new Response("Image not found", { status: 404 });
     const directory = join(dataRoot, "Cache", "news"); const dataFile = join(directory, `${id}.bin`); const typeFile = join(directory, `${id}.type`); const freshKey=`${id}:${source.sha256??source.url}`;
-    if (freshNewsImageKeys.has(freshKey) && existsSync(dataFile) && existsSync(typeFile)) { const buffer=readFileSync(dataFile); if(cachedNewsImageMatches(buffer,source.sha256))return new Response(buffer,{headers:{"content-type":readFileSync(typeFile,"utf8"),"cache-control":"no-store, no-cache, must-revalidate","pragma":"no-cache","expires":"0"}}); }
+    if (freshNewsImageKeys.has(freshKey) && existsSync(dataFile) && existsSync(typeFile)) { const buffer=readFileSync(dataFile); if(cachedNewsImageMatches(buffer,source.sha256))return new Response(Uint8Array.from(buffer),{headers:{"content-type":readFileSync(typeFile,"utf8"),"cache-control":"no-store, no-cache, must-revalidate","pragma":"no-cache","expires":"0"}}); }
     const sourceUrl = new URL(source.url); if (sourceUrl.protocol !== "https:") return new Response("Untrusted image URL", { status: 403 });
     try {
       const {buffer,type}=await downloadFreshNewsImage(source);
-      mkdirSync(directory, { recursive: true }); writeFileSync(dataFile, buffer); writeFileSync(typeFile, type, "utf8"); freshNewsImageKeys.add(freshKey); return new Response(buffer, { headers: { "content-type": type, "cache-control": "no-store, no-cache, must-revalidate", "pragma":"no-cache", "expires":"0" } });
+      mkdirSync(directory, { recursive: true }); writeFileSync(dataFile, buffer); writeFileSync(typeFile, type, "utf8"); freshNewsImageKeys.add(freshKey); return new Response(Uint8Array.from(buffer), { headers: { "content-type": type, "cache-control": "no-store, no-cache, must-revalidate", "pragma":"no-cache", "expires":"0" } });
     } catch { return new Response("Remote image unavailable", { status: 502 }); }
   });
 }

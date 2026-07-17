@@ -5,6 +5,7 @@ import { dirname, extname, join, resolve, sep } from "node:path";
 import { activityCatalogSchema, baseDataPackageSchema, contentManifestSchema, cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema, newsCatalogSchema } from "@lifeafter-assistant/data-schema";
 import { resolveReleaseContentVersion, suggestContentVersion } from "./content-version.js";
 import { clearGithubToken, loadGithubToken, saveGithubToken } from "./credential-store.js";
+import { writeGithubContent } from "./github-content.js";
 import { retainUnchangedPackages } from "./release-manifest.js";
 import { resolveNewsRecordId } from "./news-record-id.js";
 
@@ -89,11 +90,12 @@ async function prepareRelease(input:any){
   files.set("content-manifest.json",Buffer.from(`${JSON.stringify(manifest,null,2)}\n`));
   return files;
 }
-async function githubPut(repository:string,branch:string,token:string,path:string,content:Buffer){const endpoint=`https://api.github.com/repos/${repository}/contents/${path}`;const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"lifeafter-content-maintainer"};const existing=await net.fetch(`${endpoint}?ref=${encodeURIComponent(branch)}`,{headers});let existingSha:string|undefined;if(existing.ok)existingSha=String((await existing.json()).sha);else if(existing.status!==404)throw new Error(`读取 GitHub ${path} 失败：HTTP ${existing.status}`);const response=await net.fetch(endpoint,{method:"PUT",headers:{...headers,"Content-Type":"application/json"},body:JSON.stringify({message:`chore(content): publish ${path}`,content:content.toString("base64"),branch,...(existingSha?{sha:existingSha}:{})})});if(!response.ok)throw new Error(`发布 ${path} 失败：HTTP ${response.status} ${await response.text()}`);}
+async function githubPut(repository:string,branch:string,token:string,path:string,content:Buffer){await writeGithubContent({repository,branch,token,path,content,fetcher:(url,init)=>net.fetch(url,init)});}
 async function githubContentManifest(repository:string,branch:string,token:string){const endpoint=`https://api.github.com/repos/${repository}/contents/releases/content-manifest.json?ref=${encodeURIComponent(branch)}`;const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"lifeafter-content-maintainer"};const response=await net.fetch(endpoint,{headers});if(response.status===404)return undefined;if(!response.ok)throw new Error(`读取线上资料版本失败：HTTP ${response.status}`);const body=await response.json() as {content?:string};if(!body.content)throw new Error("线上资料清单缺少内容");return contentManifestSchema.parse(JSON.parse(Buffer.from(body.content.replace(/\s/g,""),"base64").toString("utf8")));}
 function createWindow(){const window=new BrowserWindow({width:1440,height:900,minWidth:1040,minHeight:700,title:"明日之后养成助手资料维护器",backgroundColor:"#0b1220",webPreferences:{preload:join(import.meta.dirname,"../preload/index.cjs"),contextIsolation:true,nodeIntegration:false,sandbox:true}});window.webContents.setWindowOpenHandler(({url})=>{if(url.startsWith("https://github.com/"))void shell.openExternal(url);return{action:"deny"}});if(process.env.ELECTRON_RENDERER_URL)void window.loadURL(process.env.ELECTRON_RENDERER_URL);else void window.loadFile(join(import.meta.dirname,"../renderer/index.html"));}
 app.whenReady().then(()=>{
   initializeContentDirectory();
+  let publishInProgress=false;
   ipcMain.handle("content:choose-directory",async(event)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择 content/base 资料目录",properties:["openDirectory"]});if(result.canceled||!result.filePaths[0])return null;contentDirectory=result.filePaths[0];return contentDirectory;});
   ipcMain.handle("content:choose-news-image",async(event)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择幸存者快报长图",properties:["openFile"],filters:[{name:"图片",extensions:["png","jpg","jpeg","webp"]}]});if(result.canceled||!result.filePaths[0])return null;const source=result.filePaths[0],buffer=readFileSync(source),size=inspectImage(buffer,source),extension=extname(source).toLowerCase();const directory=join(contentDirectory,"news-images"),fileName=`news-${randomUUID()}${extension}`;mkdirSync(directory,{recursive:true});copyFileSync(source,join(directory,fileName));return{imageFile:`news-images/${fileName}`,width:size.width,height:size.height,sizeBytes:buffer.length};});
   ipcMain.handle("content:load",(event,directory?:string)=>{trusted(event);if(directory)contentDirectory=resolve(directory);return viewModel();});
@@ -102,7 +104,26 @@ app.whenReady().then(()=>{
   ipcMain.handle("credentials:get-token",(event)=>{trusted(event);return loadGithubToken(app.getPath("userData"),safeStorage)});
   ipcMain.handle("credentials:clear-token",(event)=>{trusted(event);clearGithubToken(app.getPath("userData"));});
   ipcMain.handle("release:build",async(event,input)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择发布包输出目录",properties:["openDirectory","createDirectory"]});if(result.canceled||!result.filePaths[0])return{canceled:true};const files=await prepareRelease(input),directory=join(result.filePaths[0],`content-${input.contentVersion}`);mkdirSync(directory,{recursive:true});for(const[name,buffer]of files){const target=join(directory,name);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,buffer);}return{canceled:false,directory,files:[...files.keys()]};});
-  ipcMain.handle("release:publish",async(event,input)=>{trusted(event);const token=String(input.token??"");if(token.length<20)throw new Error("请输入有效的 GitHub Token");const remoteManifest=await githubContentManifest(input.repository,input.branch,token);const contentVersion=resolveReleaseContentVersion(String(input.contentVersion),remoteManifest?.contentVersion);const files=await prepareRelease({...input,contentVersion});const generatedManifest=contentManifestSchema.parse(JSON.parse(files.get("content-manifest.json")!.toString("utf8"))),mergedManifest=retainUnchangedPackages(generatedManifest,remoteManifest);files.set("content-manifest.json",Buffer.from(`${JSON.stringify(mergedManifest,null,2)}\n`));for(const[name,buffer]of files)await githubPut(input.repository,input.branch,token,`releases/${name}`,buffer);let tokenSaved=true,tokenSaveWarning="";try{saveGithubToken(app.getPath("userData"),token,safeStorage)}catch(error){tokenSaved=false;tokenSaveWarning=error instanceof Error?error.message:String(error)}return{published:[...files.keys()],contentVersion,tokenSaved,tokenSaveWarning};});
+  ipcMain.handle("release:publish",async(event,input)=>{
+    trusted(event);
+    if(publishInProgress)throw new Error("已有资料发布任务正在进行，请等待完成后再试");
+    publishInProgress=true;
+    try{
+      const token=String(input.token??"");
+      if(token.length<20)throw new Error("请输入有效的 GitHub Token");
+      const remoteManifest=await githubContentManifest(input.repository,input.branch,token);
+      const contentVersion=resolveReleaseContentVersion(String(input.contentVersion),remoteManifest?.contentVersion);
+      const files=await prepareRelease({...input,contentVersion});
+      const generatedManifest=contentManifestSchema.parse(JSON.parse(files.get("content-manifest.json")!.toString("utf8"))),mergedManifest=retainUnchangedPackages(generatedManifest,remoteManifest);
+      files.set("content-manifest.json",Buffer.from(`${JSON.stringify(mergedManifest,null,2)}\n`));
+      for(const[name,buffer]of files)await githubPut(input.repository,input.branch,token,`releases/${name}`,buffer);
+      let tokenSaved=true,tokenSaveWarning="";
+      try{saveGithubToken(app.getPath("userData"),token,safeStorage)}catch(error){tokenSaved=false;tokenSaveWarning=error instanceof Error?error.message:String(error)}
+      return{published:[...files.keys()],contentVersion,tokenSaved,tokenSaveWarning};
+    }finally{
+      publishInProgress=false;
+    }
+  });
   createWindow();
 });
 app.on("window-all-closed",()=>{if(process.platform!=="darwin")app.quit()});

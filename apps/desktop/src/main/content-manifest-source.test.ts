@@ -27,11 +27,11 @@ const manifest = {
 describe("content manifest source", () => {
   it("prefers the uncached GitHub Contents API", async () => {
     const encoded = Buffer.from(JSON.stringify(manifest)).toString("base64");
-    const fetcher = vi.fn(async () => new Response(JSON.stringify({ encoding: "base64", content: encoded }), { status: 200 }));
+    const fetcher = vi.fn<(input: string, init?: RequestInit) => Promise<Response>>(async () => new Response(JSON.stringify({ encoding: "base64", content: encoded }), { status: 200 }));
     const result = await fetchLatestContentManifest(fetcher, 123);
     expect(result.contentVersion).toBe("2026.07.17.8");
     expect(fetcher).toHaveBeenCalledTimes(1);
-    expect(String(fetcher.mock.calls[0]?.[0])).toContain("api.github.com/repos/chincika/lifeafter-growth-assistant/contents/releases/content-manifest.json?ref=main&v=123");
+    expect(String(fetcher.mock.calls[0]![0])).toContain("api.github.com/repos/chincika/lifeafter-growth-assistant/contents/releases/content-manifest.json?ref=main&v=123");
   });
 
   it("falls back to GitHub Raw when the API is unavailable", async () => {
@@ -41,6 +41,6 @@ describe("content manifest source", () => {
     const result = await fetchLatestContentManifest(fetcher, 456);
     expect(result.clientUpdate.latestVersion).toBe("0.1.2");
     expect(fetcher).toHaveBeenCalledTimes(2);
-    expect(String(fetcher.mock.calls[1]?.[0])).toContain("raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json?v=456");
+    expect(String(fetcher.mock.calls[1]![0])).toContain("raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json?v=456");
   });
 });
