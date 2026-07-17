@@ -49,6 +49,10 @@ async function prepareRelease(input:any){
         const assetName=`news/${safeId}-${version}-${sha(buffer).slice(0,12)}${extension}`;
         files.set(assetName,buffer);
         url=`${rawBase}/${assetName}`;
+      }else if(!String(entry.id).startsWith("news.maintained.")){
+        if(!/^https:\/\//.test(url))throw new Error(`历史快报缺少 HTTPS 地址：${entry.title}`);
+        entries.push({id:entry.id,title:entry.title,publishedAt:`${entry.publishedDate}T00:00:00+08:00`,image:{url,sha256:sha(Buffer.from(`legacy-url:${url}`)),sizeBytes:1,width:1,height:1},withdrawn:false});
+        continue;
       }else{
         if(!/^https:\/\//.test(url))throw new Error(`快报缺少本地长图或 HTTPS 地址：${entry.title}`);
         const response=await fetch(url,{signal:AbortSignal.timeout(30_000)});
