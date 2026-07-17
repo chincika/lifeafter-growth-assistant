@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "contentVersion": "2026.07.11.3",
-  "publishedAt": "2026-07-17T07:11:15.074Z",
+  "publishedAt": "2026-07-17T07:31:18.289Z",
   "minimumClientVersion": "0.1.0",
   "clientUpdate": {
-    "latestVersion": "0.1.0",
+    "latestVersion": "0.1.1",
     "minimumSupportedVersion": "0.1.0",
     "updateLevel": "optional",
-    "message": "公共资料更新",
+    "message": "新版支持公共资料每次启动自动检查并静默应用",
     "downloadPageUrl": "https://github.com/chincika/lifeafter-growth-assistant/releases",
-    "effectiveAt": "2026-07-17T07:11:15.074Z",
+    "effectiveAt": "2026-07-17T07:31:18.289Z",
     "graceDays": 7
   },
   "packages": [
