@@ -1,6 +1,6 @@
 {
   "name": "@lifeafter-assistant/maintainer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "明日之后养成助手的本地资料维护与发布工具",
   "author": "LifeAfter Assistant Contributors",
   "private": true,

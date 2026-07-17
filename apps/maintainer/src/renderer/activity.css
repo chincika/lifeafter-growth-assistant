@@ -1,0 +1,99 @@
+.activity-category-panel {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0 1.4rem 1rem;
+  padding: 1rem;
+  border: 1px solid #293a53;
+  border-radius: 0.8rem;
+  background: rgb(17 28 46 / 55%);
+}
+
+.activity-category-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.activity-category-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  border-color: #2a3a52;
+  background: #0d1727;
+  color: #aab8cc;
+  text-align: left;
+}
+
+.activity-category-tabs button.active {
+  border-color: #50c2a7;
+  background: rgb(80 194 167 / 14%);
+  color: #bafff3;
+}
+
+.activity-category-tabs small {
+  display: grid;
+  place-items: center;
+  min-width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 999px;
+  background: rgb(148 163 184 / 12%);
+  font-size: 0.72rem;
+}
+
+.activity-category-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.65rem;
+  background: rgb(8 15 28 / 48%);
+}
+
+.activity-category-context > div,
+.activity-edit-context {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0.2rem 0.65rem;
+}
+
+.activity-category-context span,
+.activity-edit-context span {
+  color: #58cbb2;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.activity-category-context small,
+.activity-edit-context small {
+  grid-column: 1 / -1;
+  color: #8295ad;
+}
+
+.activity-category-context button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.activity-edit-context {
+  padding: 0.8rem 0.9rem;
+  border-left: 3px solid #50c2a7;
+  border-radius: 0.55rem;
+  background: rgb(80 194 167 / 8%);
+}
+
+.activity-edit-context strong {
+  color: #c7fff4;
+}
+
+@media (max-width: 1150px) {
+  .activity-category-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 780px) {
+  .activity-category-tabs { grid-template-columns: 1fr; }
+  .activity-category-context { align-items: stretch; flex-direction: column; }
+}

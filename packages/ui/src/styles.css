@@ -363,6 +363,8 @@ input {
 .activity-card dl div { display: flex; gap: .45rem; }
 .activity-card dt { color: #7e90a7; }
 .activity-card dd { margin: 0; }
+.activity-card dl .activity-description { display: grid; flex-basis: 100%; gap: .35rem; padding-top: .7rem; border-top: 1px solid rgb(148 163 184 / 13%); }
+.activity-card .activity-description dd { line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
 .news-history { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .65rem; }
 .news-history button { display: grid; gap: .35rem; padding: .9rem; text-align: left; border: 1px solid rgb(148 163 184 / 17%); border-radius: .7rem; background: rgb(17 28 46 / 62%); color: #e8eef8; cursor: pointer; }
 .news-history button span, .news-history button small { color: #8da1ba; }
