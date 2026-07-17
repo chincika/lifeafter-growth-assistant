@@ -1,5 +1,6 @@
 const port = process.argv[2] ?? "9340";
 const requireRemoteContent = process.env.VERIFY_REMOTE_CONTENT === "1";
+const requireDirectoryPortable = process.env.VERIFY_DIRECTORY_PORTABLE === "1";
 const endpoint = `http://127.0.0.1:${port}/json`;
 
 let targets;
@@ -327,6 +328,8 @@ if (!result.csp) throw new Error("Content Security Policy is missing");
 if (!result.runtime || result.runtime.platform !== "win32") {
   throw new Error("Preload bridge is unavailable");
 }
+if (requireDirectoryPortable && (!result.runtime.portable || !/[\\/]Data$/.test(result.runtime.dataRoot)))
+  throw new Error("Directory portable build did not use its adjacent Data folder");
 if (result.nodeExposed)
   throw new Error("Node globals are exposed to the renderer");
 if (!result.overviewRendered || !result.nanoRendered || !result.cookbookRendered || !result.cookbookDetailRendered || !result.activitiesRendered || !result.newsRendered || !result.newsImageIsLocalProtocol || !result.settingsRendered)

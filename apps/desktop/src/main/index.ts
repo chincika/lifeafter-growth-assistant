@@ -1,6 +1,6 @@
 import { app, BrowserWindow, dialog, ipcMain, net, protocol, shell, type IpcMainInvokeEvent } from "electron";
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { randomUUID } from "node:crypto";
 
 import {
@@ -26,7 +26,9 @@ import { planUpdateChecks } from "./update-check-policy.js";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
 protocol.registerSchemesAsPrivileged([{ scheme: "lifeafter-news", privileges: { secure: true, standard: true, supportFetchAPI: true } }]);
-const portableDirectory = process.env.PORTABLE_EXECUTABLE_DIR;
+const executableDirectory = dirname(app.getPath("exe"));
+const directoryPortable = app.isPackaged && existsSync(join(executableDirectory, "portable-mode.json"));
+const portableDirectory = process.env.PORTABLE_EXECUTABLE_DIR ?? (directoryPortable ? executableDirectory : undefined);
 const testDataDirectory = process.env.LIFEAFTER_ASSISTANT_USER_DATA_DIR;
 const dataRoot = portableDirectory
   ? join(portableDirectory, "Data")

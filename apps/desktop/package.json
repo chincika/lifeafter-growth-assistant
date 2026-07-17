@@ -14,7 +14,7 @@
     "test:run": "vitest run --passWithNoTests",
     "pack:dir": "pnpm --workspace-root build && electron-builder --dir",
     "dist:installer": "pnpm --workspace-root build && electron-builder --win nsis --x64",
-    "dist:portable": "pnpm --workspace-root build && electron-builder --win portable --x64"
+    "dist:portable": "pnpm --workspace-root build && electron-builder --dir --x64 && powershell -NoProfile -ExecutionPolicy Bypass -File ../../tools/package-windows-portable.ps1"
   },
   "dependencies": {
     "@lifeafter-assistant/core": "workspace:*",
