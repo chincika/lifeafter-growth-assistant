@@ -43,7 +43,10 @@ pnpm build
 pnpm --filter @lifeafter-assistant/desktop dist:portable
 pnpm --filter @lifeafter-assistant/desktop dist:installer
 pnpm --filter @lifeafter-assistant/maintainer dist:portable
+pnpm release:maintainer:private
 ```
+
+公开仓库的 Release 只发布客户端。资料维护器的可执行文件只发布到所有者可见的私有仓库 `chincika/lifeafter-assistant-maintainer`；私有发布脚本会先核验目标仓库可见性，拒绝把维护器上传到公开仓库。
 
 ## 开源协议
 

@@ -11,7 +11,8 @@
     "check": "pnpm -r check",
     "test": "pnpm -r test",
     "test:run": "pnpm -r test:run",
-    "audit:growth": "node tools/audit-growth-content.mjs"
+    "audit:growth": "node tools/audit-growth-content.mjs",
+    "release:maintainer:private": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/publish-maintainer-private.ps1"
   },
   "devDependencies": {
     "@babel/parser": "^8.0.4",
