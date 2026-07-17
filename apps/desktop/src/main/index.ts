@@ -1,5 +1,5 @@
-import { app, BrowserWindow, dialog, ipcMain, net, protocol, shell, type IpcMainInvokeEvent } from "electron";
-import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { app, BrowserWindow, dialog, ipcMain, net, protocol, session, shell, type IpcMainInvokeEvent } from "electron";
+import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { randomUUID } from "node:crypto";
 
@@ -8,7 +8,7 @@ import {
   openDatabase,
   type SqliteDatabase,
 } from "@lifeafter-assistant/database";
-import { activityCatalogSchema, baseDataPackageSchema, contentManifestSchema, cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema, newsCatalogSchema, type ActivityCatalog, type BaseDataPackage, type NewsCatalog } from "@lifeafter-assistant/data-schema";
+import { activityCatalogSchema, baseDataPackageSchema, cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema, newsCatalogSchema, type ActivityCatalog, type BaseDataPackage, type NewsCatalog } from "@lifeafter-assistant/data-schema";
 import {
   backupPath,
   createBackup,
@@ -22,7 +22,10 @@ import {
   type AppSettings,
 } from "./user-data-service.js";
 import { applyContentManifest, readCachedContent } from "./content-update-service.js";
+import { fetchLatestContentManifest } from "./content-manifest-source.js";
 import { planUpdateChecks } from "./update-check-policy.js";
+import { cachedNewsImageMatches, detectNewsImageContentType, newsImageProtocolUrl, newsImageRemoteCandidates, remoteNewsImageFetchUrl, type NewsImageSource } from "./news-image-cache.js";
+import { isClientVersionNewer } from "./client-version.js";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
 protocol.registerSchemesAsPrivileged([{ scheme: "lifeafter-news", privileges: { secure: true, standard: true, supportFetchAPI: true } }]);
@@ -37,6 +40,8 @@ const dataRoot = portableDirectory
 if (portableDirectory || testDataDirectory) app.setPath("userData", dataRoot);
 app.setAppUserModelId(APP_ID);
 let database: SqliteDatabase | undefined;
+const newsImageSessionNonce = randomUUID();
+const freshNewsImageKeys = new Set<string>();
 
 interface CookbookDocument { recipes: Array<{ id: string; position: number; name: string; method: string; effect: string; duration: string; defaultUnlocked: boolean }> }
 function readBundledJson<T>(fileName: string): T {
@@ -171,7 +176,7 @@ function referenceContent(target: SqliteDatabase) {
     entries: remoteActivities.entries.map((entry) => ({ id: entry.id, category: entry.category, categoryName: categoryNames.get(entry.category) ?? entry.category, title: entry.title, version: "", condition: entry.description ?? "", floors: null, startDate: entry.startDate, endDate: entry.endDate, rawStart: entry.startDate, rawEnd: entry.endDate ?? "待定" })),
   } : bundledActivities;
   const bundledNews = readBundledJson<{ enabled: boolean; entries: Array<{ id: string; publishedDate?: string; title: string; imageUrl: string }> }>("survivor-news.json");
-  const news = remoteNews ? { enabled: true, entries: remoteNews.entries.filter((entry) => !entry.withdrawn).map((entry) => ({ id: entry.id, publishedDate: entry.publishedAt.slice(0,10), title: entry.title, imageUrl: `lifeafter-news://image/${entry.id}` })) } : { ...bundledNews, entries: bundledNews.entries.map((entry) => ({ ...entry, imageUrl: `lifeafter-news://image/${entry.id}` })) };
+  const news = remoteNews ? { enabled: true, entries: remoteNews.entries.filter((entry) => !entry.withdrawn).map((entry) => ({ id: entry.id, publishedDate: entry.publishedAt.slice(0,10), title: entry.title, imageUrl: newsImageProtocolUrl(entry.id,entry.image.sha256,newsImageSessionNonce) })) } : { ...bundledNews, entries: bundledNews.entries.map((entry) => ({ ...entry, imageUrl: newsImageProtocolUrl(entry.id,undefined,newsImageSessionNonce) })) };
   return {
     cookbook: cookbook.recipes.map(({ defaultUnlocked, ...recipe }) => ({ ...recipe, unlocked: unlocks.get(recipe.id) ?? defaultUnlocked })),
     activities,
@@ -184,29 +189,66 @@ function assertTrusted(event: IpcMainInvokeEvent, label: string) {
   return database;
 }
 
-function newsImageSource(id: string): string | undefined {
+function newsImageSource(id: string): NewsImageSource | undefined {
   try {
     const remote = readCachedContent<unknown>(dataRoot, "news");
-    if (remote) return newsCatalogSchema.parse(remote).entries.find((entry) => entry.id === id)?.image.url;
+    if (remote) { const entry=newsCatalogSchema.parse(remote).entries.find((item) => item.id===id); if(entry)return{url:entry.image.url,sha256:entry.image.sha256}; }
   } catch { /* use bundled history */ }
-  return readBundledJson<{ entries: Array<{ id: string; imageUrl: string }> }>("survivor-news.json").entries.find((entry) => entry.id === id)?.imageUrl;
+  const entry=readBundledJson<{ entries: Array<{ id: string; imageUrl: string }> }>("survivor-news.json").entries.find((item) => item.id===id);
+  return entry?{url:entry.imageUrl}:undefined;
+}
+
+async function downloadFreshNewsImage(source: NewsImageSource): Promise<{buffer:Buffer;type:string}> {
+  const candidates=newsImageRemoteCandidates(source.url);
+  for (let candidateIndex=0;candidateIndex<candidates.length;candidateIndex+=1) {
+    for (let attempt=0;attempt<2;attempt+=1) {
+      try {
+        const nonce=`${newsImageSessionNonce}-${candidateIndex}-${attempt}`;
+        const response=await net.fetch(remoteNewsImageFetchUrl(candidates[candidateIndex]!,source.sha256,nonce),{cache:"no-store",signal:AbortSignal.timeout(60_000)});
+        if (!response.ok) continue;
+        const buffer=Buffer.from(await response.arrayBuffer());
+        if (buffer.length>64*1024*1024||!cachedNewsImageMatches(buffer,source.sha256)) continue;
+        const type=detectNewsImageContentType(buffer);
+        if (type) return {buffer,type};
+      } catch { /* retry the primary source, then use the trusted GitHub Raw fallback */ }
+    }
+  }
+  throw new Error("Fresh remote image could not be downloaded and verified");
 }
 
 function registerNewsImageProtocol() {
   protocol.handle("lifeafter-news", async (request) => {
     const url = new URL(request.url); const id = decodeURIComponent(url.pathname.slice(1));
     if (url.hostname !== "image" || !/^[a-z0-9][a-z0-9._-]{2,127}$/.test(id)) return new Response("Invalid image ID", { status: 400 });
-    const directory = join(dataRoot, "Cache", "news"); const dataFile = join(directory, `${id}.bin`); const typeFile = join(directory, `${id}.type`);
-    if (existsSync(dataFile) && existsSync(typeFile)) return new Response(readFileSync(dataFile), { headers: { "content-type": readFileSync(typeFile, "utf8") } });
     const source = newsImageSource(id); if (!source) return new Response("Image not found", { status: 404 });
-    const sourceUrl = new URL(source); if (sourceUrl.protocol !== "https:") return new Response("Untrusted image URL", { status: 403 });
+    const directory = join(dataRoot, "Cache", "news"); const dataFile = join(directory, `${id}.bin`); const typeFile = join(directory, `${id}.type`); const freshKey=`${id}:${source.sha256??source.url}`;
+    if (freshNewsImageKeys.has(freshKey) && existsSync(dataFile) && existsSync(typeFile)) { const buffer=readFileSync(dataFile); if(cachedNewsImageMatches(buffer,source.sha256))return new Response(buffer,{headers:{"content-type":readFileSync(typeFile,"utf8"),"cache-control":"no-store, no-cache, must-revalidate","pragma":"no-cache","expires":"0"}}); }
+    const sourceUrl = new URL(source.url); if (sourceUrl.protocol !== "https:") return new Response("Untrusted image URL", { status: 403 });
     try {
-      const response = await net.fetch(source, { signal: AbortSignal.timeout(20_000) }); if (!response.ok) return new Response("Remote image unavailable", { status: 502 });
-      const type = response.headers.get("content-type")?.split(";")[0] ?? ""; if (!type.startsWith("image/")) return new Response("Remote response is not an image", { status: 415 });
-      const buffer = Buffer.from(await response.arrayBuffer()); if (buffer.length > 64 * 1024 * 1024) return new Response("Image exceeds cache limit", { status: 413 });
-      mkdirSync(directory, { recursive: true }); writeFileSync(dataFile, buffer); writeFileSync(typeFile, type, "utf8"); return new Response(buffer, { headers: { "content-type": type, "cache-control": "public, max-age=31536000, immutable" } });
+      const {buffer,type}=await downloadFreshNewsImage(source);
+      mkdirSync(directory, { recursive: true }); writeFileSync(dataFile, buffer); writeFileSync(typeFile, type, "utf8"); freshNewsImageKeys.add(freshKey); return new Response(buffer, { headers: { "content-type": type, "cache-control": "no-store, no-cache, must-revalidate", "pragma":"no-cache", "expires":"0" } });
     } catch { return new Response("Remote image unavailable", { status: 502 }); }
   });
+}
+
+function resetNewsImageCache(): void {
+  freshNewsImageKeys.clear();
+  const directory=join(dataRoot,"Cache","news");
+  if (!existsSync(directory)) return;
+  for (const entry of readdirSync(directory,{withFileTypes:true})) {
+    if (entry.isFile() && /^[a-z0-9][a-z0-9._-]{2,127}\.(bin|type)$/.test(entry.name)) {
+      try { unlinkSync(join(directory,entry.name)); } catch { /* a fresh fetch remains mandatory even if cleanup fails */ }
+    }
+  }
+}
+
+async function synchronizePublicContentOnStartup(target: SqliteDatabase, databaseVersion: number): Promise<void> {
+  try {
+    const manifest=await fetchLatestContentManifest((url,init)=>net.fetch(url,init),Date.now());
+    await applyContentManifest(target,dataRoot,manifest,()=>{createBackup(target,dataRoot,app.getVersion(),databaseVersion,"upgrade");},net.fetch);
+  } catch (error) {
+    writeFileSync(join(dataRoot,"content-sync-warning.log"),`${new Date().toISOString()} ${error instanceof Error?error.stack??error.message:String(error)}\n`,"utf8");
+  }
 }
 
 function assertWritableDataRoot(): void {
@@ -307,11 +349,10 @@ function registerIpcHandlers(databaseVersion: number): void {
     const { clientCheckDue, contentCheckDue } = planUpdateChecks({ clientUpdateFrequency: settings.clientUpdateFrequency, lastClientCheck: readCheckTime("last-update-check"), now, manualClientCheck: force });
     if (!clientCheckDue && !contentCheckDue) return { skipped: true, message: "尚未到自动检查时间" };
     try {
-      const response = await net.fetch("https://raw.githubusercontent.com/chincika/lifeafter-growth-assistant/main/releases/content-manifest.json", { signal: AbortSignal.timeout(10_000) });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`); const manifest = contentManifestSchema.parse(await response.json());
+      const manifest = await fetchLatestContentManifest((url,init)=>net.fetch(url,init),now);
       const contentUpdate = contentCheckDue ? await applyContentManifest(target, dataRoot, manifest, () => { createBackup(target, dataRoot, app.getVersion(), databaseVersion, "upgrade"); }, net.fetch) : { updated: false, contentVersion: manifest.contentVersion, packages: [] as string[] };
       if (clientCheckDue) writeCheckTime("last-update-check");
-      const latest = manifest.clientUpdate.latestVersion; const current = app.getVersion(); const update = clientCheckDue && latest !== current;
+      const latest = manifest.clientUpdate.latestVersion; const current = app.getVersion(); const update = clientCheckDue && isClientVersionNewer(latest,current);
       const message = [clientCheckDue ? (update ? manifest.clientUpdate.message : "客户端已是最新版本") : "", contentUpdate.updated ? `公共资料已更新至 ${contentUpdate.contentVersion}` : (!clientCheckDue ? "公共资料已是最新版本" : "")].filter(Boolean).join("；");
       return { skipped: false, update, current, latest, policy: manifest.clientUpdate.updateLevel, minimumSupportedVersion: manifest.clientUpdate.minimumSupportedVersion, message, downloadPageUrl: manifest.clientUpdate.downloadPageUrl, contentVersion: manifest.contentVersion, contentUpdated: contentUpdate.updated };
     } catch (error) { if (force) throw new Error(`无法检查更新：${error instanceof Error ? error.message : String(error)}`); return { skipped: false, error: true, message: "自动检查失败，继续使用本地资料" }; }
@@ -471,13 +512,16 @@ function createWindow(): BrowserWindow {
   return window;
 }
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   assertWritableDataRoot();
+  await session.defaultSession.clearCache();
+  resetNewsImageCache();
   registerNewsImageProtocol();
   database = openDatabase(join(dataRoot, "assistant.sqlite"));
   const databaseVersion = migrateDatabase(database);
   installBundledContent(database);
   ensureAutomaticBackups(database, dataRoot, app.getVersion(), databaseVersion);
+  await synchronizePublicContentOnStartup(database,databaseVersion);
   registerIpcHandlers(databaseVersion);
   createWindow();
 

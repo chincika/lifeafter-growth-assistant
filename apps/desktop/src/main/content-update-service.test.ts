@@ -5,11 +5,15 @@ import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { migrateDatabase, openDatabase, type SqliteDatabase } from "@lifeafter-assistant/database";
 import { baseDataPackageSchema, contentManifestSchema } from "@lifeafter-assistant/data-schema";
-import { applyBaseDataPackage, applyContentManifest } from "./content-update-service.js";
+import { applyBaseDataPackage, applyContentManifest, versionedRemoteUrl } from "./content-update-service.js";
 let database: SqliteDatabase | undefined;
 const temporaryDirectories: string[] = [];
 afterEach(()=>{database?.close();database=undefined;for(const directory of temporaryDirectories.splice(0))rmSync(directory,{recursive:true,force:true})});
 describe("public content application",()=>{it("updates public fields without overwriting personal price and focus",()=>{database=openDatabase(":memory:");migrateDatabase(database);const now=new Date().toISOString();database.prepare("INSERT INTO public_entities(id,entity_type,name,payload_json,content_version,updated_at) VALUES ('item.wood','market-item','旧木头','{}','2026.07.16.1',?)").run(now);database.prepare("INSERT INTO user_item_state(entity_id,market_price,focused,updated_at) VALUES ('item.wood',321,1,?)").run(now);const value=baseDataPackageSchema.parse({schemaVersion:1,contentVersion:"2026.07.17.1",market:{schemaVersion:1,contentVersion:"2026.07.17.1",items:[{id:"item.wood",name:"木头",category:"wood",legacyType:0,sortOrder:0,level:1,couponCost:10,legacyAliases:[],recipe:[]}],knownIssues:[]},nano:{schemaVersion:1,contentVersion:"2026.07.17.1",items:[{itemId:"item.wood",nano1:{min:9,average:12.5,max:16},nano2:{min:0,average:0,max:0},nano3:{min:0,average:0,max:0}}]},cookbook:{schemaVersion:1,contentVersion:"2026.07.17.1",source:"test",recipes:[]},growth:{}});applyBaseDataPackage(database,value);expect(database.prepare("SELECT name,content_version AS contentVersion FROM public_entities WHERE id='item.wood'").get()).toEqual({name:"木头",contentVersion:"2026.07.17.1"});expect(database.prepare("SELECT market_price,focused FROM user_item_state WHERE entity_id='item.wood'").get()).toEqual({market_price:321,focused:1});});});
+
+it("adds a unique version query to fixed GitHub Raw URLs",()=>{
+  expect(versionedRemoteUrl("https://raw.githubusercontent.com/example/repo/main/releases/news.json","abc123")).toBe("https://raw.githubusercontent.com/example/repo/main/releases/news.json?v=abc123");
+});
 
 it("reapplies changed packages when a maintainer accidentally reuses a version", async () => {
   database=openDatabase(":memory:");migrateDatabase(database);

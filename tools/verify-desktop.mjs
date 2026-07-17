@@ -94,7 +94,7 @@ const evaluation = await send("Runtime.evaluate", {
     const newsButtons = [...document.querySelectorAll('.news-history button')];
     const newsRendered = document.body.innerText.includes('幸存者快报') && newsButtons.length > 100;
     const newestNewsFirst = references?.news?.entries?.[0]?.title?.includes('2026-07-08') && newsButtons[0]?.textContent?.includes('2026-07-08');
-    const newsImageIsLocalProtocol = document.querySelector('.news-modal img')?.src.startsWith('lifeafter-news://');
+    const newsImageIsLocalProtocol = document.querySelector('.news-modal img')?.src.startsWith('lifeafter-news://') && document.querySelector('.news-modal img')?.src.includes('?v=') && document.querySelector('.news-modal img')?.src.includes('&session=');
     document.querySelector('.news-modal .close-button')?.click();
     [...document.querySelectorAll('.nav-item')].find((button) => button.textContent?.trim() === '设置')?.click();
     await new Promise((resolve) => setTimeout(resolve, 30));

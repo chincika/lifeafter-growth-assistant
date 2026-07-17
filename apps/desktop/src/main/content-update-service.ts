@@ -7,12 +7,13 @@ import { activityCatalogSchema, baseDataPackageSchema, newsCatalogSchema, type C
 
 function hash(value: Buffer | string) { return createHash("sha256").update(value).digest("hex"); }
 type ContentFetcher = (input: string, init?: RequestInit) => Promise<Response>;
+export function versionedRemoteUrl(value: string, version: string | number) { const url=new URL(value); url.searchParams.set("v",String(version)); return url.toString(); }
 export function cachedContentFile(dataRoot: string, kind: string) { return join(dataRoot, "Content", `${kind}.json`); }
 export function readCachedContent<T>(dataRoot: string, kind: string): T | undefined {
   const path = cachedContentFile(dataRoot, kind); return existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) as T : undefined;
 }
 async function downloadPackage(entry: ContentManifest["packages"][number], fetcher: ContentFetcher) {
-  const response = await fetcher(entry.url, { signal: AbortSignal.timeout(30_000) }); if (!response.ok) throw new Error(`${entry.kind} 下载失败：HTTP ${response.status}`);
+  const response = await fetcher(versionedRemoteUrl(entry.url,entry.sha256), { cache:"no-store",signal: AbortSignal.timeout(30_000) }); if (!response.ok) throw new Error(`${entry.kind} 下载失败：HTTP ${response.status}`);
   const announced = Number(response.headers.get("content-length") ?? 0); if (announced > entry.sizeBytes || announced > 512 * 1024 * 1024) throw new Error(`${entry.kind} 文件大小异常`);
   const buffer = Buffer.from(await response.arrayBuffer()); if (buffer.length !== entry.sizeBytes) throw new Error(`${entry.kind} 实际大小与清单不符`); if (hash(buffer).toLowerCase() !== entry.sha256.toLowerCase()) throw new Error(`${entry.kind} SHA-256 校验失败`);
   let parsed: unknown; try { parsed = JSON.parse(buffer.toString("utf8")); } catch { throw new Error(`${entry.kind} 不是有效 JSON 资料包`); }
