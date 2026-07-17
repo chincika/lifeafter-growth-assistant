@@ -4,7 +4,7 @@ interface News { id: string; publishedDate?: string; title: string; imageUrl: st
 const props = defineProps<{ enabled: boolean; entries: News[] }>();
 const query = ref("");
 const selected = ref<News | null>(null);
-const visible = computed(() => props.entries.filter((entry) => !query.value.trim() || entry.title.includes(query.value.trim())));
+const visible = computed(() => props.entries.filter((entry) => !query.value.trim() || entry.title.includes(query.value.trim())).sort((a,b)=>(b.publishedDate??"").localeCompare(a.publishedDate??"")));
 </script>
 <template>
   <section class="module-workspace">
