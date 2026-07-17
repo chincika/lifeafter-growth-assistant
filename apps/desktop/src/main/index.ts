@@ -23,6 +23,7 @@ import {
 } from "./user-data-service.js";
 import { applyContentManifest, readCachedContent } from "./content-update-service.js";
 import { fetchLatestContentManifest } from "./content-manifest-source.js";
+import { refreshActivityCatalogOnLaunch } from "./activity-catalog-source.js";
 import { planUpdateChecks } from "./update-check-policy.js";
 import { cachedNewsImageMatches, detectNewsImageContentType, newsImageProtocolUrl, newsImageRemoteCandidates, remoteNewsImageFetchUrl, type NewsImageSource } from "./news-image-cache.js";
 import { isClientVersionNewer } from "./client-version.js";
@@ -243,12 +244,21 @@ function resetNewsImageCache(): void {
 }
 
 async function synchronizePublicContentOnStartup(target: SqliteDatabase, databaseVersion: number): Promise<void> {
+  const warnings: string[]=[];
   try {
     const manifest=await fetchLatestContentManifest((url,init)=>net.fetch(url,init),Date.now());
     await applyContentManifest(target,dataRoot,manifest,()=>{createBackup(target,dataRoot,app.getVersion(),databaseVersion,"upgrade");},net.fetch);
   } catch (error) {
-    writeFileSync(join(dataRoot,"content-sync-warning.log"),`${new Date().toISOString()} ${error instanceof Error?error.stack??error.message:String(error)}\n`,"utf8");
+    warnings.push(`公共资料清单同步失败：${error instanceof Error?error.stack??error.message:String(error)}`);
   }
+  try {
+    await refreshActivityCatalogOnLaunch(dataRoot,(url,init)=>net.fetch(url,init),`${Date.now()}-${randomUUID()}`);
+  } catch(error) {
+    warnings.push(`活动配置独立同步失败：${error instanceof Error?error.stack??error.message:String(error)}`);
+  }
+  const warningFile=join(dataRoot,"content-sync-warning.log");
+  if(warnings.length)writeFileSync(warningFile,`${new Date().toISOString()} ${warnings.join("\n")}\n`,"utf8");
+  else if(existsSync(warningFile))unlinkSync(warningFile);
 }
 
 function assertWritableDataRoot(): void {
