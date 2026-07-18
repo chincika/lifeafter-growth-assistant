@@ -3,7 +3,7 @@ import { computed, onMounted, reactive, ref } from "vue";
 import { withAutomaticNews } from "./release-policy";
 type Dataset = "market"|"nano"|"cookbook"|"activities"|"news";
 const data=ref<any>(null),dataset=ref<Dataset>("market"),query=ref(""),selected=ref<any>(null),status=ref(""),busy=ref(false),listExpanded=ref(false),activeActivityCategory=ref(""),releasePanel=ref<HTMLDetailsElement|null>(null),contentVersion=ref("2026.07.17.1"),newsEnabled=ref(false);
-const release=reactive({repository:"chincika/lifeafter-growth-assistant",branch:"main",contentVersion:"2026.07.17.1",latestVersion:"0.1.5",minimumClientVersion:"0.1.0",minimumSupportedVersion:"0.1.0",updateLevel:"optional",updateMessage:"公共资料更新",graceDays:7,token:""});
+const release=reactive({repository:"chincika/lifeafter-growth-assistant",branch:"main",contentVersion:"2026.07.17.1",latestVersion:"0.1.6",minimumClientVersion:"0.1.0",minimumSupportedVersion:"0.1.0",updateLevel:"optional",updateMessage:"公共资料更新",graceDays:7,token:""});
 const datasetLabels:{id:Dataset;name:string}[]=[{id:"market",name:"物品与配方"},{id:"nano",name:"纳米"},{id:"cookbook",name:"食谱"},{id:"activities",name:"活动"},{id:"news",name:"幸存者快报"}];
 const activityCategories=computed(()=>[...(data.value?.activityCategories??[])].sort((a:any,b:any)=>a.sortOrder-b.sortOrder));
 const currentActivityCategory=computed(()=>activityCategories.value.find((item:any)=>item.id===activeActivityCategory.value));
