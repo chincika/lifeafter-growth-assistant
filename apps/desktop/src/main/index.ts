@@ -25,7 +25,7 @@ import { applyContentManifest, readCachedContent } from "./content-update-servic
 import { fetchLatestContentManifest } from "./content-manifest-source.js";
 import { refreshActivityCatalogOnLaunch } from "./activity-catalog-source.js";
 import { planUpdateChecks } from "./update-check-policy.js";
-import { cachedNewsImageMatches, detectNewsImageContentType, newsImageProtocolUrl, newsImageRemoteCandidates, remoteNewsImageFetchUrl, type NewsImageSource } from "./news-image-cache.js";
+import { cachedNewsImageMatches, detectNewsImageContentType, newsImageDisplayUrl, newsImageRemoteCandidates, remoteNewsImageFetchUrl, type NewsImageSource } from "./news-image-cache.js";
 import { isClientVersionNewer } from "./client-version.js";
 
 const APP_ID = "io.github.chincika.lifeafter-growth-assistant";
@@ -177,7 +177,10 @@ function referenceContent(target: SqliteDatabase) {
     entries: remoteActivities.entries.map((entry) => ({ id: entry.id, category: entry.category, categoryName: categoryNames.get(entry.category) ?? entry.category, title: entry.title, version: "", condition: entry.description ?? "", floors: null, startDate: entry.startDate, endDate: entry.endDate, rawStart: entry.startDate, rawEnd: entry.endDate ?? "待定" })),
   } : bundledActivities;
   const bundledNews = readBundledJson<{ enabled: boolean; entries: Array<{ id: string; publishedDate?: string; title: string; imageUrl: string }> }>("survivor-news.json");
-  const news = remoteNews ? { enabled: true, entries: remoteNews.entries.filter((entry) => !entry.withdrawn).map((entry) => ({ id: entry.id, publishedDate: entry.publishedAt.slice(0,10), title: entry.title, imageUrl: newsImageProtocolUrl(entry.id,entry.image.sha256,newsImageSessionNonce) })) } : { ...bundledNews, entries: bundledNews.entries.map((entry) => ({ ...entry, imageUrl: newsImageProtocolUrl(entry.id,undefined,newsImageSessionNonce) })) };
+  const news = remoteNews ? { enabled: true, entries: remoteNews.entries.filter((entry) => !entry.withdrawn).map((entry) => {
+    const publishedDate = entry.publishedAt.slice(0,10);
+    return { id: entry.id, publishedDate, title: entry.title, imageUrl: newsImageDisplayUrl({ id: entry.id, publishedDate, originalUrl: entry.image.url, sha256: entry.image.sha256, sessionNonce: newsImageSessionNonce }) };
+  }) } : { ...bundledNews, entries: bundledNews.entries.map((entry) => ({ ...entry, imageUrl: newsImageDisplayUrl({ id: entry.id, publishedDate: entry.publishedDate, originalUrl: entry.imageUrl, sessionNonce: newsImageSessionNonce }) })) };
   return {
     cookbook: cookbook.recipes.map(({ defaultUnlocked, ...recipe }) => ({ ...recipe, unlocked: unlocks.get(recipe.id) ?? defaultUnlocked })),
     activities,

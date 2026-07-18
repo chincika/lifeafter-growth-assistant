@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cachedNewsImageMatches, detectNewsImageContentType, newsImageProtocolUrl, newsImageRemoteCandidates, remoteNewsImageFetchUrl } from "./news-image-cache";
+import { cachedNewsImageMatches, detectNewsImageContentType, newsImageDisplayUrl, newsImageProtocolUrl, newsImageRemoteCandidates, remoteNewsImageFetchUrl } from "./news-image-cache";
 
 describe("news image cache", () => {
   it("versions the renderer URL with the published image hash", () => {
@@ -12,6 +12,33 @@ describe("news image cache", () => {
     expect(remoteNewsImageFetchUrl("https://cdn.example.com/news.png", "ABC123", "launch-2")).toBe(
       "https://cdn.example.com/news.png?v=abc123-launch-2",
     );
+  });
+
+  it("uses the original external URL for news before 2026-06-24", () => {
+    expect(newsImageDisplayUrl({
+      id: "news.legacy.example",
+      publishedDate: "2026-06-23",
+      originalUrl: "https://legacy.example.com/news.webp",
+      sha256: "ABC123",
+      sessionNonce: "launch-3",
+    })).toBe("https://legacy.example.com/news.webp");
+  });
+
+  it("keeps 2026-06-24 and later news on a launch-versioned hot-update URL", () => {
+    expect(newsImageDisplayUrl({
+      id: "news.maintained.boundary",
+      publishedDate: "2026-06-24",
+      originalUrl: "https://cdn.example.com/news.webp",
+      sha256: "ABC123",
+      sessionNonce: "launch-4",
+    })).toBe("https://cdn.example.com/news.webp?v=abc123-launch-4");
+    expect(newsImageDisplayUrl({
+      id: "news.maintained.newer",
+      publishedDate: "2026-07-08T00:00:00.000Z",
+      originalUrl: "https://cdn.example.com/news.webp",
+      sha256: "DEF456",
+      sessionNonce: "launch-5",
+    })).toBe("https://cdn.example.com/news.webp?v=def456-launch-5");
   });
 
   it("falls back from jsDelivr to the same GitHub Raw asset", () => {

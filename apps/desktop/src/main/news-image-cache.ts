@@ -5,12 +5,26 @@ export interface NewsImageSource {
   sha256?: string;
 }
 
+export const MANAGED_NEWS_START_DATE = "2026-06-24";
+
 export function newsImageProtocolUrl(id: string, sha256?: string, sessionNonce?: string): string {
   const parameters = new URLSearchParams();
   if (sha256) parameters.set("v", sha256.toLowerCase());
   if (sessionNonce) parameters.set("session", sessionNonce);
   const query = parameters.size ? `?${parameters.toString()}` : "";
   return `lifeafter-news://image/${encodeURIComponent(id)}${query}`;
+}
+
+export function newsImageDisplayUrl(input: {
+  id: string;
+  publishedDate?: string | undefined;
+  originalUrl: string;
+  sha256?: string | undefined;
+  sessionNonce: string;
+}): string {
+  const publishedDate = input.publishedDate?.slice(0, 10);
+  if (publishedDate && publishedDate < MANAGED_NEWS_START_DATE) return input.originalUrl;
+  return remoteNewsImageFetchUrl(input.originalUrl, input.sha256, input.sessionNonce);
 }
 
 export function remoteNewsImageFetchUrl(value: string, sha256: string | undefined, sessionNonce: string): string {
