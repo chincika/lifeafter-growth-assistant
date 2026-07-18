@@ -64,7 +64,7 @@ const visible = computed(() => {
 <template>
   <section class="module-workspace">
     <header class="page-header">
-      <div><span class="eyebrow">原版计算机制</span><h2>纳米塑材收益</h2><p>比较采集券兑换、市场直购与专研点击效率；售价与材料获取方式沿用地摊中的个人数据。</p></div>
+      <h2>纳米塑材收益</h2>
       <input v-model="query" class="search-input" type="search" placeholder="搜索材料…">
     </header>
     <section class="controls module-controls">

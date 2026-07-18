@@ -1619,11 +1619,7 @@ function applyPlan(plan: GrowthPlan) {
 <template>
   <section class="growth-workspace">
     <header class="growth-header">
-      <div>
-        <span class="eyebrow">本地养成规划</span>
-        <h2>养成计算</h2>
-        <p>旧版完整资料已离线迁移；确定性成本、精确期望和资料说明分开呈现。</p>
-      </div>
+      <h2>养成计算</h2>
     </header>
     <nav class="growth-tabs">
       <button

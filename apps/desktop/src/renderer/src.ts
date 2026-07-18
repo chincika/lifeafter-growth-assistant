@@ -26,7 +26,7 @@ const Root = {
       applyTheme(settings.value.theme);
     }
     onMounted(async () => {
-      try { await loadAll(); const result = await window.desktopApi.checkUpdates(false); if (!result.skipped) { updateStatus.value = result.message ?? "更新检查完成"; updateUrl.value = result.update ? (result.downloadPageUrl ?? "") : ""; if (result.contentUpdated) [items.value,growthContent.value,referenceContent.value] = await Promise.all([window.desktopApi.listMarketItems(),window.desktopApi.getGrowthContent(),window.desktopApi.getReferenceContent()]); } }
+      try { await loadAll(); const result = await window.desktopApi.checkUpdates(false); if (!result.skipped) { updateStatus.value = result.update ? (result.message ?? "发现客户端更新") : ""; updateUrl.value = result.update ? (result.downloadPageUrl ?? "") : ""; if (result.contentUpdated) [items.value,growthContent.value,referenceContent.value] = await Promise.all([window.desktopApi.listMarketItems(),window.desktopApi.getGrowthContent(),window.desktopApi.getReferenceContent()]); } }
       catch (reason) { error.value = reason instanceof Error ? reason.message : String(reason); }
       finally { loading.value = false; }
     });

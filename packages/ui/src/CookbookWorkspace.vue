@@ -34,7 +34,7 @@ function setUnlock(unlocked: boolean) { if (selected.value) emit("setUnlock", { 
 
 <template>
   <section class="module-workspace">
-    <header class="page-header"><div><span class="eyebrow">566 条原版资料</span><h2>食谱大全</h2><p>按名称、食材或组合效果筛选；解锁状态自动保存在本机。</p></div><div class="summary-chip">已解锁 <strong>{{ unlockedCount }}</strong> / {{ recipes.length }}</div></header>
+    <header class="page-header"><h2>食谱大全</h2><div class="summary-chip">已解锁 <strong>{{ unlockedCount }}</strong> / {{ recipes.length }}</div></header>
     <section class="controls module-controls"><label class="grow-control">食谱或食材<input v-model="query" type="search" placeholder="例如：水果、蜂蜜、果酱"></label><label>解锁状态<select v-model="unlockFilter"><option value="all">全部</option><option value="unlocked">已解锁</option><option value="locked">未解锁</option></select></label><button type="button" class="secondary-button" @click="showEffects=!showEffects">{{ showEffects ? '收起效果筛选' : '展开效果筛选' }}</button></section>
     <section v-if="showEffects" class="effect-filter"><article v-for="group in effectGroups" :key="group.name"><strong>{{ group.name }}</strong><div><button v-for="effect in group.values" :key="effect" type="button" :class="{selected:selectedEffects.includes(effect)}" @click="toggleEffect(effect)">{{ effect }}</button></div></article><button v-if="selectedEffects.length" type="button" class="link-button" @click="selectedEffects=[]">清空组合条件</button></section>
     <p class="module-count">筛选结果 {{ filtered.length }} 条</p>

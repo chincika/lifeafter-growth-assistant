@@ -48,18 +48,11 @@ input {
   font-weight: 900;
 }
 .brand h1,
-.brand p,
-.page-header h2,
-.page-header p {
+.page-header h2 {
   margin: 0;
 }
 .brand h1 {
   font-size: 16px;
-}
-.brand p {
-  margin-top: 4px;
-  color: #8fa4bf;
-  font-size: 11px;
 }
 .sidebar nav {
   display: grid;
@@ -82,11 +75,6 @@ input {
   background: rgb(80 194 167 / 12%);
   color: #b8f5e6;
 }
-.privacy-note {
-  margin-top: auto;
-  color: #71849d;
-  font-size: 12px;
-}
 .workspace {
   padding: 34px 40px;
   overflow: hidden;
@@ -105,15 +93,7 @@ input {
   font-weight: 700;
   letter-spacing: 0.12em;
 }
-.page-header h2 {
-  margin-top: 7px;
-  font-size: 30px;
-}
-.page-header p {
-  margin-top: 7px;
-  color: #98aac1;
-  line-height: 1.6;
-}
+.page-header h2 { font-size: 30px; }
 .search input {
   width: 280px;
   padding: 10px 13px;
@@ -279,9 +259,6 @@ input {
     background: rgb(247 250 252 / 94%);
     border-color: rgb(51 65 85 / 10%);
   }
-  .brand p,
-  .privacy-note,
-  .page-header p,
   .stats span,
   .table-head,
   .item-row small,
@@ -316,7 +293,6 @@ input {
 .check-control input { width: 1.05rem; height: 1.05rem; accent-color: #50c2a7; }
 .module-callout { display: flex; align-items: center; gap: 1rem; padding: .9rem 1rem; border: 1px solid rgb(80 194 167 / 28%); border-left: .25rem solid #50c2a7; border-radius: .7rem; background: rgb(80 194 167 / 7%); }
 .module-callout span { color: #9db0c8; font-size: .86rem; }
-.warning-callout { border-color: rgb(231 187 100 / 32%); border-left-color: #e7bb64; background: rgb(231 187 100 / 8%); }
 .summary-chip { align-self: center; padding: .8rem 1rem; border: 1px solid rgb(80 194 167 / 30%); border-radius: .8rem; color: #9db0c8; }
 .summary-chip strong { color: #9df5e6; font-size: 1.25rem; }
 .data-table { overflow: hidden; border: 1px solid rgb(148 163 184 / 18%); border-radius: .9rem; background: rgb(13 23 39 / 70%); }
@@ -671,9 +647,6 @@ input {
 .form-error {
   color: #f29393;
 }
-.product-modal .eyebrow {
-  display: block;
-}
 @media (prefers-color-scheme: light) {
   .product-modal {
     background: #f8fbfc;
@@ -691,12 +664,8 @@ input {
   margin: auto;
 }
 .growth-header h2 {
-  margin: 6px 0 0;
+  margin: 0;
   font-size: 30px;
-}
-.growth-header p {
-  margin: 6px 0 0;
-  color: #8fa4bf;
 }
 .growth-tabs {
   display: flex;
