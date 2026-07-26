@@ -1,13 +1,26 @@
 {
   "schemaVersion": 1,
-  "version": "2026.07.17.16",
+  "version": "2026.07.26.1",
   "entries": [
+    {
+      "id": "news.maintained.7fb06cda-4602-408d-9211-bcd826bccfa1",
+      "title": "2026-07-27 幸存者快报",
+      "publishedAt": "2026-07-26T00:00:00+08:00",
+      "image": {
+        "url": "https://cdn.jsdelivr.net/gh/chincika/lifeafter-growth-assistant@main/releases/news/news.maintained.7fb06cda-4602-408d-9211-bcd826bccfa1-2026.07.26.1-255eb94a9be2.png",
+        "sha256": "255eb94a9be24363f0c86c7a52e97be8aa72c40373ffe8080d61da7ab9ff25d3",
+        "sizeBytes": 21173963,
+        "width": 999,
+        "height": 17694
+      },
+      "withdrawn": false
+    },
     {
       "id": "news.maintained.2284af51-a4e0-4a56-bc51-a45b508e501b",
       "title": "2026-07-08 幸存者快报",
       "publishedAt": "2026-07-08T00:00:00+08:00",
       "image": {
-        "url": "https://cdn.jsdelivr.net/gh/chincika/lifeafter-growth-assistant@main/releases/news/news.maintained.2284af51-a4e0-4a56-bc51-a45b508e501b-2026.07.17.16-cd078e3e7ab8.png",
+        "url": "https://cdn.jsdelivr.net/gh/chincika/lifeafter-growth-assistant@main/releases/news/news.maintained.2284af51-a4e0-4a56-bc51-a45b508e501b-2026.07.26.1-cd078e3e7ab8.png",
         "sha256": "cd078e3e7ab8c276237fff4ce2c1b9a55ebacd424bbbf6c134a31a8d2b1eee66",
         "sizeBytes": 10088725,
         "width": 1011,
@@ -20,7 +33,7 @@
       "title": "2026-06-24 幸存者快报",
       "publishedAt": "2026-06-24T00:00:00+08:00",
       "image": {
-        "url": "https://cdn.jsdelivr.net/gh/chincika/lifeafter-growth-assistant@main/releases/news/news.maintained.f2ebe5a4-e60a-463a-8911-f6c96168d912-2026.07.17.16-c48cec347d6d.png",
+        "url": "https://cdn.jsdelivr.net/gh/chincika/lifeafter-growth-assistant@main/releases/news/news.maintained.f2ebe5a4-e60a-463a-8911-f6c96168d912-2026.07.26.1-c48cec347d6d.png",
         "sha256": "c48cec347d6da24994cd4a4ac6916f9891490e8dcd6f6c4986abb2b4ba6eee6c",
         "sizeBytes": 18006079,
         "width": 1029,
