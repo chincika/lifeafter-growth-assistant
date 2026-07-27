@@ -1,0 +1,19 @@
+.release-policy {
+  display: grid;
+  align-content: center;
+  gap: 0.2rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgb(80 194 167 / 35%);
+  border-radius: 0.55rem;
+  background: rgb(80 194 167 / 8%);
+  color: #bafff3;
+}
+
+.release-policy small {
+  color: #8ba5bb;
+  line-height: 1.45;
+}
+
+@media (max-width: 780px) {
+  .release-policy { min-height: 4rem; }
+}

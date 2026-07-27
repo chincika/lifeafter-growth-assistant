@@ -1,0 +1,17 @@
+appId: io.github.chincika.lifeafter-growth-assistant.maintainer
+productName: 明日之后养成助手资料维护器
+asar: true
+directories:
+  output: release
+files:
+  - out/**/*
+  - package.json
+extraResources:
+  - from: ../../content/base
+    to: content/base
+win:
+  executableName: LifeAfterAssistantMaintainer
+  target:
+    - portable
+portable:
+  artifactName: 明日之后养成助手资料维护器-${version}-portable.${ext}

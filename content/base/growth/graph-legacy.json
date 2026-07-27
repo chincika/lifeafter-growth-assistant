@@ -1,0 +1,6462 @@
+{
+  "schemaVersion": 1,
+  "declarations": {
+    "ye_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 240,
+        "up": "暴击伤害减免<em style='color:#ffff00'> +2% </em><br/>伤害减免<em style='color:#ffff00'> +1% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.01,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 600,
+        "up": "免暴率<em style='color:#ffff00'> +3% </em><br/>爆炸伤害减免<em style='color:#ffff00'> +3% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.01,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 1090,
+        "up": "暴击伤害减免<em style='color:#ffff00'> +2% </em><br/>伤害减免<em style='color:#ffff00'> +1% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.02,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 1700,
+        "up": "免暴率<em style='color:#ffff00'> +3% </em><br/>爆炸伤害减免<em style='color:#ffff00'> +3% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.02,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 2100,
+        "up": "免暴率<em style='color:#ffff00'> +3% </em><br/>暴击伤害减免<em style='color:#ffff00'> +4% </em><br/>爆炸伤害减免<em style='color:#ffff00'> +3% </em><br/>伤害减免<em style='color:#ffff00'> +2% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.09,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.08,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.09,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 2950,
+        "up": "免暴率<em style='color:#ffff00'> +3% </em><br/>暴击伤害减免<em style='color:#ffff00'> +2% </em><br/>爆炸伤害减免<em style='color:#ffff00'> +3% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.1,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 3750,
+        "up": "免暴率<em style='color:#ffff00'> +3% </em><br/>爆炸伤害减免<em style='color:#ffff00'> +3% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.1,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 4600,
+        "up": "免暴率<em style='color:#ffff00'> +3% </em><br/>爆炸伤害减免<em style='color:#ffff00'> +3% </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.18,
+            "percentage": true
+          },
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.1,
+            "percentage": true
+          },
+          {
+            "attr": "爆炸伤害减免",
+            "value": 0.18,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          }
+        ]
+      }
+    ],
+    "he_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 0,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 1880,
+        "up": "伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 4710,
+        "up": "暴击率<em style='color:#ffff00'> +3% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 8480,
+        "up": "弹药携带量<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 6,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 13200,
+        "up": "伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 9,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 21000,
+        "up": "暴击率<em style='color:#ffff00'> +3% </em><br/>弹药携带量<em style='color:#ffff00'> +3% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +6 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.09,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 26800,
+        "up": "暴击率<em style='color:#ffff00'> +3% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.09,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 18,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 39500,
+        "up": "弹药携带量<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.09,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0.11,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 4,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 18,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 53700,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +3% </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.14,
+            "percentage": true
+          },
+          {
+            "attr": "弹药携带量",
+            "value": 0.11,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 5,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 18,
+            "percentage": false
+          }
+        ]
+      }
+    ],
+    "ze_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 0,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 1500,
+        "up": "暴击伤害加成<em style='color:#ffff00'> +3% </em><br/>伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 3750,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 6750,
+        "up": "暴击伤害加成<em style='color:#ffff00'> +3% </em><br/>伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 6,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 10500,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.1,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 6,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 13800,
+        "up": "暴击伤害加成<em style='color:#ffff00'> +6% </em><br/>暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +6% </em><br/>特殊子弹强度<em style='color:#ffff00'> +6 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 12,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 20000,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +3% </em><br/>特殊子弹强度<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.2,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 4,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 27000,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.25,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 5,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 35400,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "暴击率",
+            "value": 0.3,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 6,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "特殊子弹强度",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      }
+    ],
+    "be_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 0,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 170,
+        "up": "伤害加成<em style='color:#ffff00'> +3% </em><br/>格挡<em style='color:#ffff00'> +5 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 5,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 420,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 5,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 770,
+        "up": "伤害加成<em style='color:#ffff00'> +3% </em><br/>格挡<em style='color:#ffff00'> +5 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 10,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 1200,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.1,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 10,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 3700,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +6% </em><br/>格挡<em style='color:#ffff00'> +10 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 20,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 5200,
+        "up": "攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +3% </em><br/>格挡<em style='color:#ffff00'> +5 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 4,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 25,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 5800,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.2,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 5,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 25,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 8000,
+        "up": "暴击率<em style='color:#ffff00'> +5% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击率",
+            "value": 0.25,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 6,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "格挡",
+            "value": 25,
+            "percentage": false
+          }
+        ]
+      }
+    ],
+    "ke_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 0,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 1040,
+        "up": "伤害减免<em style='color:#ffff00'> +3% </em><br/>误导<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 2600,
+        "up": "免暴率<em style='color:#ffff00'> +5% </em><br/>护甲值<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 4690,
+        "up": "伤害减免<em style='color:#ffff00'> +3% </em><br/>误导<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 6,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 7300,
+        "up": "免暴率<em style='color:#ffff00'> +5% </em><br/>护甲值<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.1,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 6,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 10000,
+        "up": "免暴率<em style='color:#ffff00'> +5% </em><br/>护甲值<em style='color:#ffff00'> +1 </em><br/>伤害减免<em style='color:#ffff00'> +6% </em><br/>误导<em style='color:#ffff00'> +6 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 12,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 12000,
+        "up": "护甲值<em style='color:#ffff00'> +1 </em><br/>伤害减免<em style='color:#ffff00'> +3% </em><br/>误导<em style='color:#ffff00'> +3 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 4,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 15000,
+        "up": "免暴率<em style='color:#ffff00'> +5% </em><br/>护甲值<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.2,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 5,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 18500,
+        "up": "免暴率<em style='color:#ffff00'> +4% </em><br/>护甲值<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "免暴率",
+            "value": 0.24,
+            "percentage": true
+          },
+          {
+            "attr": "护甲值",
+            "value": 6,
+            "percentage": false
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "误导",
+            "value": 15,
+            "percentage": false
+          }
+        ]
+      }
+    ],
+    "je_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 0,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 380,
+        "up": "暴击伤害减免<em style='color:#ffff00'> +3% </em><br/>伤害减免<em style='color:#ffff00'> +1% </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.01,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 0,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 960,
+        "up": "护盾上限提升<em style='color:#ffff00'> +30 </em><br/>护盾回复<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.01,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 30,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 1,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 1730,
+        "up": "暴击伤害减免<em style='color:#ffff00'> +3% </em><br/>伤害减免<em style='color:#ffff00'> +1% </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 30,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 1,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 2700,
+        "up": "护盾上限提升<em style='color:#ffff00'> +30 </em><br/>护盾回复<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.06,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 60,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 2,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 4400,
+        "up": "暴击伤害减免<em style='color:#ffff00'> +6% </em><br/>伤害减免<em style='color:#ffff00'> +2% </em><br/>护盾上限提升<em style='color:#ffff00'> +30 </em><br/>护盾回复<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.12,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 90,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 3,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 6800,
+        "up": "暴击伤害减免<em style='color:#ffff00'> +3% </em><br/>伤害减免<em style='color:#ffff00'> +1% </em><br/>护盾上限提升<em style='color:#ffff00'> +30 </em><br/>护盾回复<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 120,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 4,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 9500,
+        "up": "护盾上限提升<em style='color:#ffff00'> +50 </em><br/>护盾回复<em style='color:#ffff00'> +2 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 170,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 6,
+            "percentage": false
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 12000,
+        "up": "护盾上限提升<em style='color:#ffff00'> +50 </em><br/>护盾回复<em style='color:#ffff00'> +2 </em>",
+        "attrs": [
+          {
+            "attr": "暴击伤害减免",
+            "value": 0.15,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "护盾上限提升",
+            "value": 220,
+            "percentage": false
+          },
+          {
+            "attr": "护盾回复",
+            "value": 8,
+            "percentage": false
+          }
+        ]
+      }
+    ],
+    "we_0": [
+      {
+        "id": 1,
+        "exp": 0,
+        "up": "无",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "exp": 510,
+        "up": "无人机伤害加成<em style='color:#ffff00'> +1% </em><br/>伤害加成<em style='color:#ffff00'> +2% </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.01,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "exp": 1290,
+        "up": "无人机伤害加成<em style='color:#ffff00'> +1% </em><br/>攻击力<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "exp": 2330,
+        "up": "无人机伤害减免<em style='color:#ffff00'> +1% </em><br/>伤害减免<em style='color:#ffff00'> +2% </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0.01,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 0,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.02,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "exp": 3620,
+        "up": "无人机伤害减免<em style='color:#ffff00'> +1% </em><br/>护甲值<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.02,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.02,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "exp": 5700,
+        "up": "无人机伤害加成<em style='color:#ffff00'> +2% </em><br/>无人机伤害减免<em style='color:#ffff00'> +1% </em><br/>攻击力<em style='color:#ffff00'> +1 </em><br/>伤害加成<em style='color:#ffff00'> +2% </em><br/>伤害减免<em style='color:#ffff00'> +2% </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 1,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "exp": 7750,
+        "up": "护甲值<em style='color:#ffff00'> +1 </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.04,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "exp": 10500,
+        "up": "攻击力<em style='color:#ffff00'> +1 </em><br/>伤害减免<em style='color:#ffff00'> +1% </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 2,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.04,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.05,
+            "percentage": true
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "exp": 15000,
+        "up": "护甲值<em style='color:#ffff00'> +1 </em><br/>无人机伤害加成<em style='color:#ffff00'> +1% </em><br/>伤害加成<em style='color:#ffff00'> +1% </em>",
+        "attrs": [
+          {
+            "attr": "无人机伤害加成",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "无人机伤害减免",
+            "value": 0.03,
+            "percentage": true
+          },
+          {
+            "attr": "攻击力",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "护甲值",
+            "value": 3,
+            "percentage": false
+          },
+          {
+            "attr": "伤害加成",
+            "value": 0.05,
+            "percentage": true
+          },
+          {
+            "attr": "伤害减免",
+            "value": 0.05,
+            "percentage": true
+          }
+        ]
+      }
+    ],
+    "Ce_0": [
+      [
+        40,
+        60,
+        80,
+        100
+      ],
+      [
+        45,
+        70,
+        95,
+        120,
+        145
+      ],
+      [
+        50,
+        79,
+        108,
+        137,
+        166,
+        195
+      ],
+      [
+        55,
+        87,
+        119,
+        151,
+        183,
+        215
+      ],
+      [
+        60,
+        95,
+        130,
+        165,
+        200,
+        235
+      ],
+      [
+        65,
+        103,
+        141,
+        179,
+        217,
+        255
+      ],
+      [
+        55,
+        85,
+        115,
+        145,
+        175
+      ]
+    ],
+    "Ue_0": [
+      [
+        0,
+        4,
+        8,
+        12,
+        16,
+        19,
+        22,
+        25,
+        28,
+        31,
+        34,
+        37,
+        40,
+        43,
+        46,
+        49,
+        52,
+        54,
+        56,
+        58,
+        60
+      ],
+      [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        39,
+        42,
+        45,
+        48,
+        51,
+        54,
+        57,
+        60,
+        63,
+        66,
+        69,
+        72,
+        74,
+        76,
+        78,
+        80
+      ],
+      [
+        0,
+        5,
+        10,
+        15,
+        19,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        47,
+        51,
+        55,
+        59,
+        63,
+        66,
+        69,
+        72,
+        75,
+        78,
+        81,
+        84,
+        87,
+        90,
+        93,
+        96,
+        99,
+        102,
+        105,
+        108
+      ],
+      [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        29,
+        33,
+        37,
+        41,
+        45,
+        49,
+        53,
+        57,
+        61,
+        65,
+        69,
+        73,
+        77,
+        81,
+        85,
+        89,
+        92,
+        95,
+        98,
+        101,
+        104,
+        107,
+        110,
+        113,
+        116
+      ],
+      [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96,
+        100,
+        104,
+        107,
+        110,
+        113,
+        116,
+        119,
+        122,
+        125
+      ],
+      [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85,
+        90,
+        95,
+        100,
+        104,
+        108,
+        112,
+        116,
+        120,
+        123,
+        126,
+        129,
+        132,
+        135
+      ],
+      [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        39,
+        43,
+        47,
+        51,
+        55,
+        59,
+        63,
+        67,
+        71,
+        75,
+        79,
+        82,
+        85,
+        88,
+        91,
+        94,
+        97,
+        100
+      ]
+    ],
+    "Ee_0": [
+      [
+        80,
+        83,
+        86,
+        89,
+        92,
+        95,
+        98,
+        101,
+        104,
+        107,
+        110,
+        113,
+        116,
+        119,
+        122,
+        125,
+        128,
+        131,
+        134,
+        137,
+        140
+      ],
+      [
+        116,
+        119,
+        122,
+        125,
+        128,
+        131,
+        135,
+        139,
+        143,
+        147,
+        151,
+        155,
+        159,
+        163,
+        167,
+        171,
+        175,
+        179,
+        183,
+        187,
+        191,
+        195,
+        199,
+        203,
+        207,
+        211,
+        215,
+        219,
+        223,
+        227,
+        231,
+        235,
+        239,
+        243,
+        247,
+        251
+      ],
+      [
+        125,
+        128,
+        131,
+        134,
+        137,
+        140,
+        144,
+        148,
+        152,
+        156,
+        160,
+        164,
+        168,
+        172,
+        176,
+        180,
+        184,
+        188,
+        192,
+        196,
+        200,
+        205,
+        210,
+        215,
+        220,
+        225,
+        230,
+        235,
+        240,
+        245,
+        250,
+        255,
+        260,
+        265,
+        270,
+        275
+      ],
+      [
+        135,
+        138,
+        141,
+        144,
+        147,
+        150,
+        154,
+        158,
+        162,
+        166,
+        170,
+        175,
+        180,
+        185,
+        190,
+        195,
+        200,
+        205,
+        210,
+        215,
+        220,
+        225,
+        230,
+        235,
+        240,
+        245,
+        250,
+        255,
+        260,
+        265,
+        270,
+        275,
+        280,
+        285,
+        290,
+        295
+      ],
+      [
+        100,
+        104,
+        108,
+        112,
+        116,
+        120,
+        124,
+        128,
+        132,
+        136,
+        140,
+        144,
+        148,
+        152,
+        156,
+        160,
+        164,
+        168,
+        172,
+        176,
+        180
+      ]
+    ],
+    "Qe_0": [
+      {
+        "name": "斗牛战盔",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "深海战盔",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "极夜战盔",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "火凤战盔",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "猎鹰战盔",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "狼袭战盔",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "天马战盔",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "武装通讯器",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "终结战场",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "战略通讯器",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "强袭头盔",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "科技先锋",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "防暴面罩",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "御寒棉帽",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "朋克面罩",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "特级护目镜",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "银犀战盔",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "棒球帽",
+        "level": 10,
+        "init_value": 20,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "休闲帽",
+        "level": 3,
+        "init_value": 10,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      }
+    ],
+    "Ke_0": [
+      {
+        "name": "哨兵战术霰弹枪",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "G3式自动步枪",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "沙鹰双枪",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "多纳尔电磁机枪",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 30,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "萨姆战术霰弹枪",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 30,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "奥托手枪",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 25,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "斯卡突击步枪",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 25,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "EM-4电磁机枪",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "AUG突击步枪",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "转轮霰弹枪",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 15,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "EM-3电磁机枪",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 15,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "FAMAS突击步枪",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 10,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "红点霰弹枪",
+        "level": 80,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 5,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "Z5左轮手枪",
+        "level": 80,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 5,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "EM-2电磁机枪",
+        "level": 80,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 5,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "电弧突击步枪",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "AN94榴弹突击枪",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "G36C突击枪",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "仿生巨蛇霰弹",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          },
+          {
+            "name": "复仇流浪者",
+            "value": 600,
+            "limited": true
+          },
+          {
+            "name": "龙吟",
+            "value": 600
+          },
+          {
+            "name": "樱花",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "菌焰喷火器",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          },
+          {
+            "name": "龙吟",
+            "value": 600
+          },
+          {
+            "name": "绿洲",
+            "value": 600,
+            "limited": true
+          },
+          {
+            "name": "天枢龙将",
+            "value": 600
+          },
+          {
+            "name": "月华",
+            "value": 600
+          },
+          {
+            "name": "幻海",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "仿生瞬豹霰弹枪",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "短管榴弹冲锋枪",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 250
+          },
+          {
+            "name": "雪地",
+            "value": 250
+          },
+          {
+            "name": "典藏",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "仿生蛛酶步枪",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          },
+          {
+            "name": "蛋仔",
+            "value": 600,
+            "limited": true
+          },
+          {
+            "name": "黑曜石",
+            "value": 600,
+            "limited": true
+          },
+          {
+            "name": "玲珑",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "仿生蛛螯步枪",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "A2榴弹突击枪",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 250
+          },
+          {
+            "name": "雪地",
+            "value": 250
+          },
+          {
+            "name": "典藏",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "KSG霰弹枪",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 250
+          },
+          {
+            "name": "雪地",
+            "value": 250
+          },
+          {
+            "name": "典藏",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "塔沃尔突击枪",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "EM-1电磁机枪",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "M416突击步枪",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "AK47突击步枪",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 200
+          },
+          {
+            "name": "雪地",
+            "value": 200
+          },
+          {
+            "name": "典藏",
+            "value": 400
+          }
+        ]
+      },
+      {
+        "name": "MP5冲锋枪",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 200
+          },
+          {
+            "name": "雪地",
+            "value": 200
+          },
+          {
+            "name": "典藏",
+            "value": 400
+          }
+        ]
+      },
+      {
+        "name": "汤姆逊冲锋枪",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 150
+          },
+          {
+            "name": "雪地",
+            "value": 150
+          },
+          {
+            "name": "典藏",
+            "value": 300
+          }
+        ]
+      },
+      {
+        "name": "UMP9冲锋枪",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 150
+          },
+          {
+            "name": "雪地",
+            "value": 150
+          },
+          {
+            "name": "典藏",
+            "value": 300
+          }
+        ]
+      },
+      {
+        "name": "590M霰弹枪",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 150
+          },
+          {
+            "name": "雪地",
+            "value": 150
+          },
+          {
+            "name": "典藏",
+            "value": 300
+          }
+        ]
+      },
+      {
+        "name": "蝶影左轮手枪",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "火焰喷射器",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          },
+          {
+            "name": "哥斯拉",
+            "value": 550,
+            "limited": true
+          }
+        ]
+      },
+      {
+        "name": "蝶影双枪",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          },
+          {
+            "name": "福兔",
+            "value": 550
+          },
+          {
+            "name": "青渊",
+            "value": 550
+          },
+          {
+            "name": "龙吟",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "雷托霰弹枪",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          },
+          {
+            "name": "樱花",
+            "value": 550
+          },
+          {
+            "name": "绿洲",
+            "value": 550
+          },
+          {
+            "name": "天枢龙将",
+            "value": 550
+          },
+          {
+            "name": "福兔",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "弧光电磁机枪",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "95式突击步枪",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "左轮手枪",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          },
+          {
+            "name": "哥斯拉",
+            "value": 550,
+            "limited": true
+          },
+          {
+            "name": "金刚",
+            "value": 550,
+            "limited": true
+          }
+        ]
+      },
+      {
+        "name": "UZI冲锋枪",
+        "level": 10,
+        "init_value": 20,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 100
+          },
+          {
+            "name": "雪地",
+            "value": 100
+          },
+          {
+            "name": "典藏",
+            "value": 200
+          }
+        ]
+      },
+      {
+        "name": "雷明顿M870",
+        "level": 2,
+        "init_value": 10,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "蒙德拉贡步枪",
+        "level": 2,
+        "init_value": 10,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "开拓者突击枪",
+        "level": 2,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      }
+    ],
+    "We_0": [
+      {
+        "name": "RX5狙击枪",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "电能榴弹炮",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "斯通纳狙击枪",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "转轮榴弹炮",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "斯泰尔狙击枪",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 30,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "尤里卡狙击枪",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 25,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "TAC-50狙击枪",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "XM25榴弹炮",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 15,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "巴雷特狙击枪",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 15,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "QLB06榴弹炮",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 10,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "R93狙击步枪",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 10,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 325
+          },
+          {
+            "name": "雪地",
+            "value": 325
+          },
+          {
+            "name": "典藏",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "制导式火箭筒",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "SVD狙击枪",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "DSR狙击枪",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "仿生蝎尾狙击",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "仿生深潜火箭筒",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "AWM狙击步枪",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 250
+          },
+          {
+            "name": "雪地",
+            "value": 250
+          },
+          {
+            "name": "典藏",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "仿生深潜重炮",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          },
+          {
+            "name": "绿洲",
+            "value": 600
+          },
+          {
+            "name": "方舟",
+            "value": 600
+          },
+          {
+            "name": "福兔",
+            "value": 600
+          },
+          {
+            "name": "蛋仔",
+            "value": 600,
+            "limited": true
+          },
+          {
+            "name": "龙吟",
+            "value": 600
+          },
+          {
+            "name": "玲珑",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "仿生游隼狙击",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 300
+          },
+          {
+            "name": "雪地",
+            "value": 300
+          },
+          {
+            "name": "典藏",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "赤狐榴弹炮",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "AS50狙击枪",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "土制火炮",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 200
+          },
+          {
+            "name": "雪地",
+            "value": 200
+          },
+          {
+            "name": "典藏",
+            "value": 400
+          }
+        ]
+      },
+      {
+        "name": "M24狙击枪",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 200
+          },
+          {
+            "name": "雪地",
+            "value": 200
+          },
+          {
+            "name": "典藏",
+            "value": 400
+          }
+        ]
+      },
+      {
+        "name": "莫辛纳甘狙击",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 200
+          },
+          {
+            "name": "雪地",
+            "value": 200
+          },
+          {
+            "name": "典藏",
+            "value": 400
+          }
+        ]
+      },
+      {
+        "name": "碳素蜘蛛弓",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          },
+          {
+            "name": "天枢龙将",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "破潮弓",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          },
+          {
+            "name": "血月",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "保卫者狙击枪",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 275
+          },
+          {
+            "name": "雪地",
+            "value": 275
+          },
+          {
+            "name": "典藏",
+            "value": 550
+          },
+          {
+            "name": "绿洲",
+            "value": 550
+          },
+          {
+            "name": "启航",
+            "value": 550,
+            "limited": true
+          },
+          {
+            "name": "龙吟",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "强袭榴弹炮",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "竞技用反曲弓",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 225
+          },
+          {
+            "name": "雪地",
+            "value": 225
+          },
+          {
+            "name": "典藏",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "复合弓",
+        "level": 10,
+        "init_value": 20,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 100
+          },
+          {
+            "name": "雪地",
+            "value": 100
+          },
+          {
+            "name": "典藏",
+            "value": 200
+          }
+        ]
+      }
+    ],
+    "Ye_0": [
+      {
+        "name": "熔岩长刀",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 90
+          },
+          {
+            "name": "雪地",
+            "value": 90
+          },
+          {
+            "name": "典藏",
+            "value": 120
+          }
+        ]
+      },
+      {
+        "name": "合金战斧",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 90
+          },
+          {
+            "name": "雪地",
+            "value": 90
+          },
+          {
+            "name": "典藏",
+            "value": 120
+          }
+        ]
+      },
+      {
+        "name": "裂空之刃",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 30,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 90
+          },
+          {
+            "name": "雪地",
+            "value": 90
+          },
+          {
+            "name": "典藏",
+            "value": 120
+          }
+        ]
+      },
+      {
+        "name": "精钢阔刃",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 25,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 90
+          },
+          {
+            "name": "雪地",
+            "value": 90
+          },
+          {
+            "name": "典藏",
+            "value": 120
+          }
+        ]
+      },
+      {
+        "name": "合金锯刃",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 80
+          },
+          {
+            "name": "雪地",
+            "value": 80
+          },
+          {
+            "name": "典藏",
+            "value": 100
+          }
+        ]
+      },
+      {
+        "name": "奇袭之刃",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 15,
+        "skin": [
+          {
+            "name": "蔚蓝",
+            "value": 80
+          },
+          {
+            "name": "典藏",
+            "value": 100
+          }
+        ]
+      },
+      {
+        "name": "双刃战斧",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 10,
+        "skin": [
+          {
+            "name": "蔚蓝",
+            "value": 65
+          },
+          {
+            "name": "典藏",
+            "value": 65
+          }
+        ]
+      },
+      {
+        "name": "合金盾牌",
+        "level": 80,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 5,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 60
+          },
+          {
+            "name": "雪地",
+            "value": 60
+          },
+          {
+            "name": "典藏",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "name": "切割之刃",
+        "level": 80,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 5,
+        "skin": []
+      },
+      {
+        "name": "锯齿刀",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "仿生猎鲨锋刃",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "福兔",
+            "value": 60
+          },
+          {
+            "name": "樱刃",
+            "value": 60
+          },
+          {
+            "name": "溯雪之刃",
+            "value": 60
+          },
+          {
+            "name": "方天画戟",
+            "value": 60
+          },
+          {
+            "name": "黑曜石",
+            "value": 60,
+            "limited": true
+          },
+          {
+            "name": "龙吟",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "name": "电击棍",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "仿生猎兽锋刃",
+        "level": 60,
+        "init_value": 60,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "长刀",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "全钢盾牌",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "雨战",
+            "value": 55
+          },
+          {
+            "name": "雪地",
+            "value": 55
+          },
+          {
+            "name": "典藏",
+            "value": 55
+          },
+          {
+            "name": "哥斯拉",
+            "value": 55,
+            "limited": true
+          },
+          {
+            "name": "金刚",
+            "value": 55,
+            "limited": true
+          },
+          {
+            "name": "樱花",
+            "value": 55
+          }
+        ]
+      },
+      {
+        "name": "反曲刀",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "拳刺",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "斩马刀",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "金刚",
+            "value": 55,
+            "limited": true
+          },
+          {
+            "name": "樱花",
+            "value": 55
+          },
+          {
+            "name": "绿洲",
+            "value": 55
+          },
+          {
+            "name": "天枢亮银枪",
+            "value": 55
+          },
+          {
+            "name": "天枢龙将",
+            "value": 55
+          }
+        ]
+      },
+      {
+        "name": "铁丝球棍",
+        "level": 10,
+        "init_value": 20,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "咸鱼棍",
+            "value": 20,
+            "limited": true
+          }
+        ]
+      }
+    ],
+    "Xe_0": [
+      {
+        "name": "斗牛战甲",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "坚韧战甲",
+            "value": 325
+          },
+          {
+            "name": "银角战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "深海战甲",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 35,
+        "skin": [
+          {
+            "name": "奇袭战甲",
+            "value": 325
+          },
+          {
+            "name": "凶鲨战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "极夜战甲",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 30,
+        "skin": [
+          {
+            "name": "流云战甲",
+            "value": 325
+          },
+          {
+            "name": "激浪战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "火凤战甲",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 25,
+        "skin": [
+          {
+            "name": "飓风战甲",
+            "value": 325
+          },
+          {
+            "name": "魔晶战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "猎鹰战甲",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "天翔战甲",
+            "value": 325
+          },
+          {
+            "name": "赤枭战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "狼袭战甲",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 15,
+        "skin": [
+          {
+            "name": "密林战甲",
+            "value": 325
+          },
+          {
+            "name": "蓝晶战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "银驹战甲",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 10,
+        "skin": [
+          {
+            "name": "炎煌战甲",
+            "value": 325
+          },
+          {
+            "name": "金辉战甲",
+            "value": 650
+          }
+        ]
+      },
+      {
+        "name": "黑曜战甲",
+        "level": 80,
+        "init_value": 60,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 5,
+        "skin": [
+          {
+            "name": "蓝珀战甲",
+            "value": 300
+          },
+          {
+            "name": "铂金战甲",
+            "value": 600
+          }
+        ]
+      },
+      {
+        "name": "夜幕铁甲",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "丛林铁甲",
+            "value": 275
+          },
+          {
+            "name": "天际铁甲",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "暗夜谍影",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "沙漠谍影",
+            "value": 275
+          },
+          {
+            "name": "烈焰谍影",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "暗夜铠甲",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "沙漠铠甲",
+            "value": 275
+          },
+          {
+            "name": "烈焰铠甲",
+            "value": 550
+          }
+        ]
+      },
+      {
+        "name": "重型武装",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "沙漠武装",
+            "value": 250
+          },
+          {
+            "name": "酷橙武装",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "蓝色强袭铠",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "蔚蓝强袭铠",
+            "value": 500
+          },
+          {
+            "name": "深红强袭铠",
+            "value": 250
+          }
+        ]
+      },
+      {
+        "name": "眼镜蛇",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "黑色恶魔",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "防暴外套",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "白衣天使",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "朋克夹克",
+        "level": 25,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "战斗先锋",
+        "level": 20,
+        "init_value": 30,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "烈火先锋",
+            "value": 300
+          },
+          {
+            "name": "迷彩先锋",
+            "value": 30
+          }
+        ]
+      },
+      {
+        "name": "深红战甲",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 20,
+        "skin": [
+          {
+            "name": "蔚蓝战甲",
+            "value": 225
+          },
+          {
+            "name": "磺骨战甲",
+            "value": 450
+          }
+        ]
+      },
+      {
+        "name": "警用卫衣",
+        "level": 10,
+        "init_value": 20,
+        "max_star": 0,
+        "max_zy": 0,
+        "max_zj": 0,
+        "skin": [
+          {
+            "name": "资深特工",
+            "value": 20
+          },
+          {
+            "name": "防爆警察",
+            "value": 20
+          }
+        ]
+      }
+    ],
+    "Ze_0": [
+      {
+        "name": "12级基础护盾",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "12级蔚蓝护盾",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "12级磺骨护盾",
+        "level": 145,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "11级基础护盾",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "11级蔚蓝护盾",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "11级磺骨护盾",
+        "level": 140,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "10级基础护盾",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "10级蔚蓝护盾",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "10级磺骨护盾",
+        "level": 130,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "9级基础护盾",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "9级蔚蓝护盾",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "9级磺骨护盾",
+        "level": 120,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "8级基础护盾",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "8级蔚蓝护盾",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "8级磺骨护盾",
+        "level": 110,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "7级基础护盾",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "7级蔚蓝护盾",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "7级磺骨护盾",
+        "level": 100,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "6级基础护盾",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "6级蔚蓝护盾",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "6级磺骨护盾",
+        "level": 90,
+        "init_value": 65,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "5级基础护盾",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "5级蔚蓝护盾",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "5级磺骨护盾",
+        "level": 75,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "4级基础护盾",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "4级蔚蓝护盾",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "4级磺骨护盾",
+        "level": 70,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "3级基础护盾",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "3级蔚蓝护盾",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "3级磺骨护盾",
+        "level": 60,
+        "init_value": 50,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "2级基础护盾",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "2级蔚蓝护盾",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "2级磺骨护盾",
+        "level": 48,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "1级基础护盾",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "1级蔚蓝护盾",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "1级磺骨护盾",
+        "level": 30,
+        "init_value": 40,
+        "max_star": 3,
+        "max_zy": 20,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "进阶基础护盾",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "进阶蔚蓝护盾",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "进阶磺骨护盾",
+        "level": 15,
+        "init_value": 45,
+        "max_star": 4,
+        "max_zy": 25,
+        "max_zj": 0,
+        "skin": []
+      },
+      {
+        "name": "守望者护盾",
+        "level": 15,
+        "init_value": 55,
+        "max_star": 5,
+        "max_zy": 30,
+        "max_zj": 0,
+        "skin": []
+      }
+    ],
+    "ea_0": [
+      {
+        "name": "负重",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "黑耀猛犸",
+            "value": 140
+          },
+          {
+            "name": "擎天巨兽",
+            "value": 260
+          },
+          {
+            "name": "铁臂金刚",
+            "value": 500
+          },
+          {
+            "name": "必胜闪电",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "火凤",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "熔心",
+            "value": 140
+          },
+          {
+            "name": "青鸾",
+            "value": 260
+          },
+          {
+            "name": "金翎",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "守卫",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "幽兰",
+            "value": 140
+          },
+          {
+            "name": "旭日",
+            "value": 260
+          },
+          {
+            "name": "苍穹",
+            "value": 500
+          },
+          {
+            "name": "天枢幻影",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "医疗",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "银月白鸽",
+            "value": 140
+          },
+          {
+            "name": "极光护卫",
+            "value": 260
+          },
+          {
+            "name": "暗夜精灵",
+            "value": 500
+          },
+          {
+            "name": "旷野青鸢",
+            "value": 500
+          },
+          {
+            "name": "天枢幻影",
+            "value": 500
+          },
+          {
+            "name": "赤焰风华",
+            "value": 500
+          },
+          {
+            "name": "启航",
+            "value": 500,
+            "limited": true
+          },
+          {
+            "name": "龙福庇护",
+            "value": 500
+          },
+          {
+            "name": "金光普照",
+            "value": 500,
+            "limited": true
+          }
+        ]
+      },
+      {
+        "name": "战辅",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "冲天云枭",
+            "value": 140
+          },
+          {
+            "name": "流光夜枭",
+            "value": 260
+          },
+          {
+            "name": "魅影蔷薇",
+            "value": 500
+          },
+          {
+            "name": "启航",
+            "value": 500,
+            "limited": true
+          },
+          {
+            "name": "幻海",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "飞猪",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "红耳",
+            "value": 140
+          },
+          {
+            "name": "暗月",
+            "value": 260
+          },
+          {
+            "name": "乌金",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "猎犬",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "獠牙",
+            "value": 140
+          },
+          {
+            "name": "赤影",
+            "value": 260
+          },
+          {
+            "name": "流光",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "电弧",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "叶影",
+            "value": 140
+          },
+          {
+            "name": "地狱火",
+            "value": 260
+          },
+          {
+            "name": "浴火金刚",
+            "value": 500
+          },
+          {
+            "name": "赤焰风华",
+            "value": 500
+          },
+          {
+            "name": "启航",
+            "value": 500,
+            "limited": true
+          },
+          {
+            "name": "樱花",
+            "value": 500
+          },
+          {
+            "name": "血月",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "盾补",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "青翼",
+            "value": 140
+          },
+          {
+            "name": "苍风",
+            "value": 260
+          },
+          {
+            "name": "红莲",
+            "value": 500
+          },
+          {
+            "name": "初樱",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "镭蛇",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "利齿",
+            "value": 140
+          },
+          {
+            "name": "曼巴",
+            "value": 260
+          },
+          {
+            "name": "北极星",
+            "value": 500
+          },
+          {
+            "name": "碧影",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "采集",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "密林瓢虫",
+            "value": 140
+          },
+          {
+            "name": "丛林斥候",
+            "value": 260
+          },
+          {
+            "name": "烈日红蜂",
+            "value": 500
+          },
+          {
+            "name": "碧海拾花",
+            "value": 500,
+            "limited": true
+          },
+          {
+            "name": "天枢幻影",
+            "value": 500
+          },
+          {
+            "name": "启航",
+            "value": 500,
+            "limited": true
+          }
+        ]
+      },
+      {
+        "name": "灵龙",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "青龙",
+            "value": 140
+          },
+          {
+            "name": "赤龙",
+            "value": 260
+          },
+          {
+            "name": "金龙",
+            "value": 500
+          },
+          {
+            "name": "荧蝎闪击",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "狡兔",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "黑金",
+            "value": 140
+          },
+          {
+            "name": "黄袍",
+            "value": 260
+          },
+          {
+            "name": "灵玉",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "自爆",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "雷霆雄狮",
+            "value": 140
+          },
+          {
+            "name": "烈焰狮王",
+            "value": 260
+          },
+          {
+            "name": "炎熔霸虎",
+            "value": 500
+          },
+          {
+            "name": "风暴青狮",
+            "value": 500
+          },
+          {
+            "name": "天枢幻影",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "战斗",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "银翼猎手",
+            "value": 140
+          },
+          {
+            "name": "烈色闪电",
+            "value": 260
+          },
+          {
+            "name": "凶暴飞鲨",
+            "value": 500
+          },
+          {
+            "name": "天枢幻影",
+            "value": 500
+          },
+          {
+            "name": "赤焰风华",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "奔马",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "霜蹄",
+            "value": 140
+          },
+          {
+            "name": "夜骐",
+            "value": 260
+          },
+          {
+            "name": "辉光",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "光盾",
+        "init_value": 60,
+        "skin": [
+          {
+            "name": "空骑",
+            "value": 140
+          },
+          {
+            "name": "卧虎",
+            "value": 260
+          },
+          {
+            "name": "翡翠",
+            "value": 500
+          },
+          {
+            "name": "樱花",
+            "value": 500
+          },
+          {
+            "name": "赤焰风华",
+            "value": 500
+          },
+          {
+            "name": "启航",
+            "value": 500,
+            "limited": true
+          },
+          {
+            "name": "惊鸿",
+            "value": 500
+          }
+        ]
+      },
+      {
+        "name": "战虎",
+        "init_value": 140,
+        "skin": [
+          {
+            "name": "皎月",
+            "value": 260
+          },
+          {
+            "name": "碧焰",
+            "value": 260
+          }
+        ]
+      },
+      {
+        "name": "基础",
+        "init_value": 20,
+        "skin": []
+      }
+    ],
+    "va_0": {
+      "style": {
+        "display": "flex",
+        "flex-direction": "row",
+        "justify-content": "center",
+        "align-items": "center",
+        "margin-bottom": "1em",
+        "margin-right": "3em"
+      }
+    },
+    "Pa_0": {
+      "style": {
+        "display": "flex",
+        "flex-direction": "row",
+        "justify-content": "center",
+        "align-items": "center",
+        "margin-bottom": "1em"
+      }
+    },
+    "wl_0": {
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "margin-bottom": "1em"
+      }
+    },
+    "El_0": {
+      "style": {
+        "position": "relative",
+        "width": "96%",
+        "margin": "0.8em auto 1.5em auto",
+        "display": "flex",
+        "flex-direction": "row",
+        "font-size": "1rem",
+        "gap": "2em",
+        "justify-content": "center"
+      }
+    },
+    "Pl_0": {
+      "style": {
+        "width": "100%",
+        "text-align": "center",
+        "margin-bottom": "1.5em",
+        "padding": "1em 0px",
+        "border-top": "2px dashed #fff",
+        "border-bottom": "2px dashed #fff",
+        "font-size": "0.9em",
+        "color": "#ff0",
+        "font-weight": "bold"
+      }
+    },
+    "Ft_0": {
+      "style": {
+        "position": "absolute",
+        "display": "flex",
+        "flex-direction": "column",
+        "right": "2.5em",
+        "align-items": "end",
+        "line-height": "1.8em",
+        "gap": "0.8em"
+      }
+    },
+    "Yn_0": {
+      "class": "row-box",
+      "style": {
+        "margin": "1em 0px 0px 0px",
+        "padding": "0px 2em",
+        "background-color": "#60b0e6",
+        "font-size": "1rem"
+      }
+    },
+    "Ei_0": {
+      "key": 0,
+      "style": {
+        "position": "relative",
+        "width": "94%",
+        "margin": "0 auto",
+        "font-size": "1em",
+        "border": "1px solid #84b1f2",
+        "border-radius": "0.2em 0.8em 0.2em 0.2em",
+        "margin-bottom": "1em"
+      }
+    },
+    "Pi_0": {
+      "style": {
+        "background-color": "#60b0e6",
+        "border-radius": "0.2em 0.8em 0 0",
+        "font-size": "0.9em",
+        "font-weight": "bold",
+        "padding": "0.2em 0.3em"
+      }
+    },
+    "Wi_0": {
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "font-size": "0.7em",
+        "margin-left": "1em",
+        "justify-content": "space-around",
+        "align-items": "end",
+        "line-height": "1em"
+      }
+    },
+    "ss_0": {
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "font-size": "0.7em",
+        "margin-left": "0.5em",
+        "justify-content": "space-around",
+        "align-items": "end",
+        "line-height": "1em"
+      }
+    },
+    "us_0": {
+      "key": 0,
+      "style": {
+        "position": "relative",
+        "width": "94%",
+        "margin": "0 auto",
+        "font-size": "1em",
+        "border": "1px solid #84b1f2",
+        "border-radius": "0.2em 0.8em 0.2em 0.2em",
+        "margin-bottom": "1em"
+      }
+    },
+    "_u_0": {
+      "class": "tips-box",
+      "style": {
+        "max-height": "100%",
+        "margin": "0.5em 0",
+        "background-color": "#3c3c3c",
+        "border-radius": "0.5em"
+      }
+    },
+    "pv_0": {
+      "class": "row-box",
+      "style": {
+        "margin": "0.5em 0px 0px 0px",
+        "padding": "0px 2em",
+        "background-color": "#60b0e6",
+        "font-size": "1rem"
+      }
+    },
+    "Tv_0": {
+      "class": "row-box",
+      "style": {
+        "margin": "1em 0px 0px 0px",
+        "padding": "0px 2em",
+        "background-color": "#60b0e6",
+        "font-size": "1rem"
+      }
+    },
+    "Al_0": [
+      "副武器继承比例：<br/>攻击力：10%<br/>暴击率：25%<br/>伤害加成：25%<br/>误导：50%",
+      "头盔、护甲、护盾、无人机直接加到人物属性面板。",
+      "根据主武器类型，生效对应的图谱。<br/><span style=\"color: #bbf;\">若主武器为「轻型」或「重型」，则额外生效「冷兵器」图谱，按副武器比例继承，攻击力四舍五入，同专研25级的四舍五入。</span><br/><span style=\"color: #ffff00;\">若主武器为「冷兵器」，则只有主武器生效冷兵器图谱，而副武器不生效，攻击力也不按比例继承</span>。",
+      "对于，主武器为「冷兵器」时，副武器不继承冷兵器图谱的依据，来源于「B站 小霸王7v」的「明日之后：冷冰器图谱属性加成对副武器生效吗？」视频，见下方链接。<span style=\"font-size: 0.8em; color: #bbf;\">（备注：标题就是这个，此处是复制粘贴的，这次不是我打错字哦~）</span><br/><div style=\"font-size: 0.85em; margin: 1em 0px; text-indent: 0; background-color: #555; border-radius: 6px; padding: 0.5em 0.5em;\">如果视频看不懂，可以自己实操测试，得出「主武器为刀时，主刀全部继承冷兵器图谱，而副武器不生效冷兵器图谱属性」这一结论。<br/>准备步骤如下：（观察伤害加成、暴击率）<br/><div style=\"margin-left: 2.5em; text-indent: -1.5em;\">1、清空腰带的当前方案，减少变量。</div><div style=\"margin-left: 2.5em; text-indent: -1.5em;\">2、卸掉冷兵器的所有配件，减少变量。</div><div style=\"margin-left: 2.5em; text-indent: -1.5em;\">3、提高健康值、饱腹度，获得「精神焕发」的伤害加成 +5%</div><div style=\"margin-left: 2.5em; text-indent: -1.5em;\">4、记录天赋「战斗 - 战斗训练」的伤害加成、天赋「制作 - 健体术」的暴击率</div><div style=\"margin-left: 2.5em; text-indent: -1.5em;\">5、记录潜能系统、腰带精通度（腰带等级）的伤害加成、暴击率</div><div style=\"margin-left: 2.5em; text-indent: -1.5em;\">6、若穿戴护甲、帽子，记录是否有进阶暴击率属性</div>开始测试面板：<br/>1、<span style=\"color: #ffff00;\">状态1：主武器 - 弹药箱，副武器 - 无</span>。<br/><div style=\"text-indent: 2em;\">人物面板的伤害加成、暴击率由上述准备步骤的 3 ~ 6 构成。</div>2、<span style=\"color: #ffff00;\">状态2：主武器 - 弹药箱，副武器 - 棒球棍</span>。（需要留意，棒球棍是否含有无双特技）<br/><div style=\"text-indent: 2em;\">人物面板的伤害加成、暴击率在状态 1 的基础上，额外增加了「冷兵器图谱」按副武器比例继承的属性。（需要留意，棒球棍是否含有无双特技）</div>3、<span style=\"color: #ffff00;\">状态3：主武器 - 棒球棍，副武器 - 棒球棍</span>。（需要留意，棒球棍是否含有无双特技）<br/><div style=\"text-indent: 2em;\">人物面板的伤害加成、暴击率在状态 1 的基础上，额外增加了「冷兵器图谱」作为主武器的属性，但是，没有额外增加按副武器比例的继承属性。</div></div>",
+      "潜水推进器算「冷兵器」图谱，人物的详细属性可以看到有格挡属性。可以切换为鱼竿、弹药箱，来测试两者的差值。",
+      "此处的计算方式，以及数据来源，参考以下几个视频及其评论区。<br/>视频1：图谱属性数据来源 - B站 @林泉LnTian<br/>视频2、3、4：计算依据 - B站 @小霸王7v，B站 @格格格鲁，B站 @我要玉玉兔了"
+    ],
+    "Il_0": [
+      "各配方的精通度数据，源自众多玩家分享的视频。这些参考视频的链接，放在下方相关视频的评论区，喜欢重新研究的可去看一下。",
+      "80级专精上限 5，<br/>90级专精上限 10，<br/>100级专精上限 15，<br/>110级专精上限 20，<br/>120级专精上限 25，<br/>130级专精上限 30，<br/>140级专精上限 35，<br/>145级专精上限 35，<br/>这是各等级装备的专精上限。",
+      "此处的养成计算，依旧可自定义暴击概率，与「专研、升星」、「专精」这 2 个功能相同。",
+      "因为每次计算结果都是随机的暴击事件产生的，所以每次重复计算的结果会不同。另外，由于装备数量过多，而且专研、专精运气成分，假如酋长专研进化装备多花 8 万纳米2，且每次都能正常发挥酋长技能，那么 10 套的进化专研就会相差 80 万纳米2，这都是随机概率的正常现象。全装备的专研差额会更大，也是正常现象。",
+      "初代版本的进化装备，专研、专精数据难以找到，此处的精通度可能会有些许误差。<br/>「深红、95、1代喷火器、竞技用反曲弓、蜘蛛弓、强袭榴弹炮」这些 4 星装备，满专研 25 级，满专精 20 级。<br/>「左轮手枪」 5 星装备，满专研 30 级，满专精可能 35 级。<br/>「特级护目镜」 4 星装备，满专研 25 级。<br/>",
+      "专精方面，「深红」在 8级、13 级的时候，分别需要 5、10 本书，和猎鲨锋刃一致，故采用刀的那套材料数据。<br/>而「95、1代喷火器、竞技用反曲弓、蜘蛛弓、强袭榴弹炮、左轮手枪」的专精数据没有找到，此处采用雷托的那套材料数据。<br/>只专精到 20 级，刀和雷托的材料数据，所需的小黄书总量仅相差 2 本。即使这些初代进化专精套用错了数据，计算差距也不会很大。",
+      "进化一代喷火器的前 17 级专研精通度找不到数据，以专研 18 级的精通度往前推算，至少也有 4 组可能性较大的数据，此处只取其中一组数据作为模拟参考。如果是研究一代喷火器前 17 级的精通度，偏差不会超过 5，专研 18 级后的精通度是已知确定的。"
+    ],
+    "Bl_0": [
+      {
+        "name": "[ 明日之后 ]（九级图谱已更新）最全全图谱各级属性加成表",
+        "link": "https://www.bilibili.com/video/BV1Ny4y1g7kH/"
+      },
+      {
+        "name": "明日之后：冷冰器图谱属性加成对副武器生效吗？",
+        "link": "https://www.bilibili.com/video/BV1YF411S7Un/"
+      },
+      {
+        "name": "【明日之后】升8级刀图谱，看看会不会加1攻击！",
+        "link": "https://www.bilibili.com/video/BV12M411h7ud/"
+      },
+      {
+        "name": "刀图谱对副武器有加成吗？",
+        "link": "https://www.bilibili.com/video/BV1SJ4m1J7Ep/"
+      }
+    ],
+    "l_0": [
+      {
+        "attr": "攻击力",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护甲值",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "暴击率",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "免暴率",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害加成",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害减免",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害加成",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "暴击伤害减免",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "爆炸伤害减免",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "特殊子弹强度",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "弹药携带量",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "格挡",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "误导",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护盾上限提升",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "护盾回复",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "无人机伤害加成",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "无人机伤害减免",
+        "value": 0,
+        "percentage": true
+      }
+    ],
+    "l_1": [
+      {
+        "attr": "攻击力",
+        "value": 0,
+        "percentage": false
+      },
+      {
+        "attr": "暴击率",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "伤害加成",
+        "value": 0,
+        "percentage": true
+      },
+      {
+        "attr": "误导",
+        "value": 0,
+        "percentage": false
+      }
+    ],
+    "e_0": [
+      {
+        "name": "小黄书",
+        "price": 12500
+      },
+      {
+        "name": "深红战甲",
+        "price": 30000
+      },
+      {
+        "name": "95式突击步枪",
+        "price": 30000
+      },
+      {
+        "name": "火焰喷射器",
+        "price": 30000
+      },
+      {
+        "name": "左轮手枪",
+        "price": 30000
+      },
+      {
+        "name": "竞技用反曲弓",
+        "price": 30000
+      },
+      {
+        "name": "碳素蜘蛛弓",
+        "price": 30000
+      },
+      {
+        "name": "强袭榴弹炮",
+        "price": 30000
+      },
+      {
+        "name": "雷托霰弹枪",
+        "price": 23000
+      },
+      {
+        "name": "仿生巨蛇霰弹",
+        "price": 200000
+      },
+      {
+        "name": "仿生蛛酶步枪",
+        "price": 200000
+      },
+      {
+        "name": "蝶影双枪",
+        "price": 240000
+      },
+      {
+        "name": "斩马刀",
+        "price": 240000
+      },
+      {
+        "name": "仿生猎鲨锋刃",
+        "price": 800000
+      },
+      {
+        "name": "全钢盾牌",
+        "price": 23000
+      },
+      {
+        "name": "菌焰喷火器",
+        "price": 200000
+      },
+      {
+        "name": "仿生深潜重炮",
+        "price": 200000
+      },
+      {
+        "name": "保卫者狙击枪",
+        "price": 23000
+      },
+      {
+        "name": "仿生蝎尾狙击",
+        "price": 200000
+      },
+      {
+        "name": "弧光电磁机枪",
+        "price": 23000
+      },
+      {
+        "name": "破潮弓",
+        "price": 23000
+      }
+    ],
+    "a_0": {
+      "level": 0,
+      "jtd": 0,
+      "gacha_jtd": 0,
+      "no_gacha_jtd": 0,
+      "collect": 0,
+      "max_jtd": 0,
+      "max_gacha_jtd": 0,
+      "max_no_gacha_jtd": 0,
+      "max_collect": 0,
+      "min_exp_array": [],
+      "max_exp_array": [],
+      "progress_width": "width: 0%;"
+    },
+    "t_0": {
+      "tupu_level": [],
+      "shengxing_total": [],
+      "shengxing_details": [],
+      "zy_total": [],
+      "zy_details": [],
+      "zj_total": [],
+      "zj_details": [],
+      "zj_materials_total": [],
+      "zj_materials_details": []
+    },
+    "s_0": {
+      "level": 1,
+      "jtd": 0,
+      "shengxing": {
+        "page": 0,
+        "book": 0,
+        "goldbar": 0
+      },
+      "zy": {
+        "click_times": 0,
+        "xinbi": 0,
+        "nami1": 0,
+        "nami2": 0,
+        "fuben": []
+      },
+      "zj": {
+        "click_times": 0,
+        "goldbar": 0,
+        "materials": [],
+        "fuben": []
+      }
+    },
+    "l_2": {
+      "title": "",
+      "page": 0,
+      "book_sx": 0,
+      "book_zj": 0,
+      "book_total": 0,
+      "goldbar_sx": "0",
+      "goldbar_zj": "0",
+      "goldbar_total": "0",
+      "nami1": "0",
+      "nami2": "0",
+      "xinbi": "0"
+    },
+    "l_3": {
+      "tupu_level": [],
+      "shengxing": {
+        "page": 0,
+        "book": 0,
+        "goldbar": 0
+      },
+      "zy": {
+        "click_times": 0,
+        "xinbi": 0,
+        "nami1": 0,
+        "nami2": 0,
+        "fuben": []
+      },
+      "zj": {
+        "click_times": 0,
+        "goldbar": 0,
+        "materials": [],
+        "fuben": []
+      }
+    },
+    "r_0": {
+      "0": [],
+      "1": [
+        {
+          "v_2": "仿生蛛酶步枪",
+          "v_2_5": "仿生蛛螯步枪"
+        },
+        {
+          "v_2": "蝶影双枪",
+          "v_2_5": "蝶影左轮手枪"
+        },
+        {
+          "v_2": "仿生巨蛇霰弹",
+          "v_2_5": "仿生瞬豹霰弹枪"
+        }
+      ],
+      "2": [
+        {
+          "v_2": "仿生深潜重炮",
+          "v_2_5": "仿生深潜火箭筒"
+        }
+      ],
+      "3": [
+        {
+          "v_2": "仿生猎鲨锋刃",
+          "v_2_5": "仿生猎兽锋刃"
+        }
+      ],
+      "4": [],
+      "5": []
+    },
+    "l_4": [
+      {
+        "o": "95式",
+        "n": "95式突击步枪"
+      },
+      {
+        "o": "涂装:仿生蛛酶",
+        "n": "涂装:仿生蛛酶步枪"
+      },
+      {
+        "o": "涂装:仿生蛛螯",
+        "n": "涂装:仿生蛛螯步枪"
+      },
+      {
+        "o": "斯卡突击",
+        "n": "斯卡突击步枪"
+      },
+      {
+        "o": "AK47",
+        "n": "AK47突击步枪"
+      },
+      {
+        "o": "塔沃尔",
+        "n": "塔沃尔突击枪"
+      },
+      {
+        "o": "M416",
+        "n": "M416突击步枪"
+      },
+      {
+        "o": "AUG突击",
+        "n": "AUG突击步枪"
+      },
+      {
+        "o": "FAMAS",
+        "n": "FAMAS突击步枪"
+      },
+      {
+        "o": "G36C",
+        "n": "G36C突击枪"
+      },
+      {
+        "o": "AN94突击",
+        "n": "AN94榴弹突击枪"
+      },
+      {
+        "o": "短管冲锋",
+        "n": "短管榴弹冲锋枪"
+      },
+      {
+        "o": "A2突击",
+        "n": "A2榴弹突击枪"
+      },
+      {
+        "o": "电弧突击",
+        "n": "电弧突击步枪"
+      },
+      {
+        "o": "UZI",
+        "n": "UZI冲锋枪"
+      },
+      {
+        "o": "MP5",
+        "n": "MP5冲锋枪"
+      },
+      {
+        "o": "汤姆逊",
+        "n": "汤姆逊冲锋枪"
+      },
+      {
+        "o": "UMP9",
+        "n": "UMP9冲锋枪"
+      },
+      {
+        "o": "涂装:巨蛇霰弹",
+        "n": "涂装:仿生巨蛇霰弹"
+      },
+      {
+        "o": "590M",
+        "n": "590M霰弹枪"
+      },
+      {
+        "o": "KSG",
+        "n": "KSG霰弹枪"
+      },
+      {
+        "o": "霰弹",
+        "n": "霰弹枪"
+      },
+      {
+        "o": "涂装:喷火器",
+        "n": "涂装:火焰喷射器"
+      },
+      {
+        "o": "电磁",
+        "n": "电磁机枪"
+      },
+      {
+        "o": "青渊双枪",
+        "n": "蝶影双枪青渊双枪版"
+      },
+      {
+        "o": "左轮",
+        "n": "左轮手枪"
+      },
+      {
+        "o": "涂装:保卫者",
+        "n": "涂装:保卫者狙击枪"
+      },
+      {
+        "o": "涂装:蝎尾狙击",
+        "n": "涂装:仿生蝎尾狙击"
+      },
+      {
+        "o": "涂装:游隼狙击",
+        "n": "涂装:仿生游隼狙击"
+      },
+      {
+        "o": "涂装:反曲弓",
+        "n": "涂装:竞技用反曲弓"
+      },
+      {
+        "o": "涂装:蜘蛛弓",
+        "n": "涂装:碳素蜘蛛弓"
+      },
+      {
+        "o": "涂装:仿生重炮",
+        "n": "涂装:仿生深潜重炮"
+      },
+      {
+        "o": "涂装:榴弹炮",
+        "n": "涂装:强袭榴弹炮"
+      },
+      {
+        "o": "涂装:仿生火箭筒",
+        "n": "涂装:仿生深潜火箭筒"
+      },
+      {
+        "o": "尤里卡",
+        "n": "尤里卡狙击枪"
+      },
+      {
+        "o": "巴雷特",
+        "n": "巴雷特狙击枪"
+      },
+      {
+        "o": "莫辛纳甘",
+        "n": "莫辛纳甘狙击"
+      },
+      {
+        "o": "M24",
+        "n": "M24狙击枪"
+      },
+      {
+        "o": "AWM",
+        "n": "AWM狙击步枪"
+      },
+      {
+        "o": "AS50",
+        "n": "AS50狙击枪"
+      },
+      {
+        "o": "TAC-50",
+        "n": "TAC-50狙击枪"
+      },
+      {
+        "o": "R93",
+        "n": "R93狙击步枪"
+      },
+      {
+        "o": "DSR",
+        "n": "DSR狙击枪"
+      },
+      {
+        "o": "SVD",
+        "n": "SVD狙击枪"
+      },
+      {
+        "o": "斯泰尔狙击",
+        "n": "斯泰尔狙击枪"
+      },
+      {
+        "o": "赤狐",
+        "n": "赤狐榴弹炮"
+      },
+      {
+        "o": "XM25",
+        "n": "XM25榴弹炮"
+      },
+      {
+        "o": "涂装:火箭筒",
+        "n": "涂装:制导式火箭筒"
+      },
+      {
+        "o": "QLB06",
+        "n": "QLB06榴弹炮"
+      },
+      {
+        "o": "方天画戟",
+        "n": "仿生猎鲨锋刃方天画戟版"
+      },
+      {
+        "o": "溯雪之刃",
+        "n": "仿生猎鲨锋刃溯雪之刃"
+      },
+      {
+        "o": "涂装:天枢亮银枪",
+        "n": "涂装:斩马刀天枢亮银枪"
+      },
+      {
+        "o": "涂装:咸鱼棍",
+        "n": "涂装:铁丝球棍咸鱼棍"
+      },
+      {
+        "o": "典藏涂装：樱花",
+        "n": "光盾：樱花"
+      }
+    ]
+  }
+}

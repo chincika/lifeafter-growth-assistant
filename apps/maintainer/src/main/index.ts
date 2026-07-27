@@ -1,0 +1,129 @@
+import { app, BrowserWindow, dialog, ipcMain, nativeImage, net, safeStorage, shell, type IpcMainInvokeEvent } from "electron";
+import { createHash, randomUUID } from "node:crypto";
+import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
+import { dirname, extname, join, resolve, sep } from "node:path";
+import { activityCatalogSchema, baseDataPackageSchema, contentManifestSchema, cookbookCatalogSchema, marketCatalogSchema, nanoCatalogSchema, newsCatalogSchema } from "@lifeafter-assistant/data-schema";
+import { resolveReleaseContentVersion, suggestContentVersion } from "./content-version.js";
+import { clearGithubToken, loadGithubToken, saveGithubToken } from "./credential-store.js";
+import { writeGithubContent } from "./github-content.js";
+import { retainUnchangedPackages } from "./release-manifest.js";
+import { resolveNewsRecordId } from "./news-record-id.js";
+
+type Dataset = "market" | "nano" | "cookbook" | "activities" | "news";
+const categories = ["wood","stone","hemp","animal","special","semi-finished","armor","shield","hat","blade","bow","shotgun","smg","assault-rifle","sniper-rifle","grenade-launcher","flamethrower","pistol","melee-shield","electromagnetic-gun","drone","consumable"] as const;
+const categoryNames = ["木","石","麻","兽","特殊材料","半成品","护甲","护盾","帽子","刀","弓箭","霰弹枪","冲锋枪","突击步枪","狙击枪","榴弹炮","喷火器","手枪","盾牌","电磁机枪","无人机","消耗品"];
+let contentDirectory = resolve(process.cwd(), "../../content/base");
+function initializeContentDirectory(){if(!app.isPackaged)return;contentDirectory=process.env.LIFEAFTER_MAINTAINER_CONTENT_DIR?resolve(process.env.LIFEAFTER_MAINTAINER_CONTENT_DIR):join(app.getPath("documents"),"明日之后养成助手资料");if(!existsSync(join(contentDirectory,"market-items.json"))){mkdirSync(contentDirectory,{recursive:true});cpSync(join(process.resourcesPath,"content","base"),contentDirectory,{recursive:true});}}
+function trusted(event: IpcMainInvokeEvent) { const url=event.senderFrame?.url??""; if (!url.startsWith("file:") && !(process.env.ELECTRON_RENDERER_URL && url.startsWith(new URL(process.env.ELECTRON_RENDERER_URL).origin))) throw new Error("拒绝不可信页面请求"); }
+function readJson<T>(name:string):T{return JSON.parse(readFileSync(join(contentDirectory,name),"utf8")) as T;}
+function atomicJson(name:string,value:unknown){const path=join(contentDirectory,name),temporary=`${path}.tmp`,backup=`${path}.bak`;if(existsSync(path))copyFileSync(path,backup);writeFileSync(temporary,`${JSON.stringify(value,null,2)}\n`,"utf8");renameSync(temporary,path);}
+function localNewsImagePath(relativePath:string){const base=resolve(contentDirectory),target=resolve(base,relativePath);if(!target.startsWith(`${base}${sep}`))throw new Error("快报图片路径越出了资料目录");return target;}
+function inspectImage(buffer:Buffer,label:string){if(buffer.length>64*1024*1024)throw new Error(`快报图片超过 64 MiB：${label}`);const image=nativeImage.createFromBuffer(buffer),size=image.getSize();if(image.isEmpty()||size.width<1||size.height<1)throw new Error(`快报图片无效：${label}`);return size;}
+function loadDocuments(){const market=marketCatalogSchema.parse(readJson("market-items.json"));const nano=nanoCatalogSchema.parse(readJson("nano-items.json"));const cookbook=cookbookCatalogSchema.parse(readJson("cookbook.json"));const activities=readJson<any>("activities.json");const news=readJson<any>("survivor-news.json");return{market,nano,cookbook,activities,news};}
+function viewModel(){const documents=loadDocuments();const names=new Map(documents.market.items.map((item)=>[item.id,item.name]));return{directory:contentDirectory,contentVersion:documents.market.contentVersion,suggestedContentVersion:suggestContentVersion(documents.market.contentVersion),counts:{market:documents.market.items.length,nano:documents.nano.items.length,cookbook:documents.cookbook.recipes.length,activities:documents.activities.entries.length,news:documents.news.entries.length},marketItems:documents.market.items.map((item)=>({...item,categoryName:categoryNames[item.legacyType]??item.category,recipeText:item.recipe.map((entry)=>`${names.get(entry.ingredientId)??entry.ingredientId} | ${entry.quantity} | ${entry.defaultAcquisitionMode==='craft'?'制作':'购买'}`).join("\n")})),nanoItems:documents.nano.items.map((item)=>({...item,name:names.get(item.itemId)??item.itemId})),cookbookRecipes:documents.cookbook.recipes,activities:documents.activities.entries,activityCategories:documents.activities.categories,newsEntries:[...documents.news.entries].sort((a:any,b:any)=>String(b.publishedDate??"").localeCompare(String(a.publishedDate??""))),newsEnabled:Boolean(documents.news.enabled),marketOptions:documents.market.items.map((item)=>({id:item.id,name:item.name}))};}
+function validateVersion(version:string){if(!/^\d{4}\.\d{2}\.\d{2}\.\d+$/.test(version))throw new Error("资料版本必须形如 2026.07.17.1");return version;}
+function saveRecord(input:{dataset:Dataset;record:any;contentVersion:string;newsEnabled?:boolean}){const documents=loadDocuments(),version=validateVersion(input.contentVersion),record=input.record??{};if(input.dataset==="market"){const existing=documents.market.items.find((item)=>item.id===record.id);const name=String(record.name??"").trim();if(!name)throw new Error("物品名称不能为空");const byName=new Map(documents.market.items.map((item)=>[item.name,item.id]));const recipe=String(record.recipeText??"").split(/\r?\n/).filter(Boolean).map((line)=>{const [ingredientName,quantityText,modeText]=line.split("|").map((part)=>part?.trim());const ingredientId=byName.get(ingredientName??"");if(!ingredientId)throw new Error(`找不到配方材料：${ingredientName}`);const quantity=Number(quantityText);if(!Number.isFinite(quantity)||quantity<=0)throw new Error(`材料数量无效：${line}`);return{ingredientId,quantity,defaultAcquisitionMode:modeText==="购买"?"purchase" as const:"craft" as const};});const legacyType=Number(record.legacyType);const value={id:existing?.id??`item.maintained.${randomUUID()}`,name,category:categories[legacyType]??"special",legacyType,sortOrder:existing?.sortOrder??documents.market.items.length+1_000_000,level:Number(record.level??0),couponCost:Number(record.couponCost??0),legacyAliases:existing?.legacyAliases??[],recipe};const items=existing?documents.market.items.map((item)=>item.id===existing.id?value:item):[...documents.market.items,value];atomicJson("market-items.json",marketCatalogSchema.parse({...documents.market,contentVersion:version,items}));}
+else if(input.dataset==="nano"){const value={itemId:String(record.itemId),nano1:{min:Number(record.nano1?.min),max:Number(record.nano1?.max),average:Number(record.nano1?.average)},nano2:{min:Number(record.nano2?.min),max:Number(record.nano2?.max),average:Number(record.nano2?.average)},nano3:{min:Number(record.nano3?.min),max:Number(record.nano3?.max),average:Number(record.nano3?.average)}};const exists=documents.nano.items.some((item)=>item.itemId===value.itemId);const items=exists?documents.nano.items.map((item)=>item.itemId===value.itemId?value:item):[...documents.nano.items,value];atomicJson("nano-items.json",nanoCatalogSchema.parse({...documents.nano,contentVersion:version,items}));}
+else if(input.dataset==="cookbook"){const id=record.id??`recipe.maintained.${randomUUID()}`;const exists=documents.cookbook.recipes.some((item)=>item.id===id);const value={id,position:exists?Number(record.position):documents.cookbook.recipes.length,name:String(record.name??"").trim(),method:String(record.method??""),effect:String(record.effect??""),duration:String(record.duration??""),defaultUnlocked:Boolean(record.defaultUnlocked)};let recipes=exists?documents.cookbook.recipes.map((item)=>item.id===id?value:item):[...documents.cookbook.recipes,value];recipes=recipes.map((item,index)=>({...item,position:index}));atomicJson("cookbook.json",cookbookCatalogSchema.parse({...documents.cookbook,contentVersion:version,recipes}));}
+else if(input.dataset==="activities"){const id=record.id??`activity.maintained.${randomUUID()}`,category=String(record.category),categoryEntry=documents.activities.categories.find((item:any)=>item.id===category),title=String(record.title??"").trim(),startDate=String(record.startDate??""),endDate=String(record.endDate??""),condition=String(record.condition??"").trim();if(!categoryEntry)throw new Error("活动分类无效，请重新选择分类");if(!title)throw new Error("活动标题不能为空");if(!/^\d{4}-\d{2}-\d{2}$/.test(startDate))throw new Error("请选择有效的开始或生效日期");if(endDate&&(!/^\d{4}-\d{2}-\d{2}$/.test(endDate)||endDate<startDate))throw new Error("结束日期不能早于开始日期");if(condition.length>2000)throw new Error("活动更新内容不能超过 2000 字");const value={id,category,categoryName:categoryEntry.name,title,version:String(record.version??"").trim(),condition,floors:record.floors?Number(record.floors):null,startDate,endDate:endDate||undefined,rawStart:startDate,rawEnd:endDate||"待定"};const exists=documents.activities.entries.some((item:any)=>item.id===id);const entries=exists?documents.activities.entries.map((item:any)=>item.id===id?value:item):[...documents.activities.entries,value];atomicJson("activities.json",{...documents.activities,contentVersion:version,entries});}
+else{
+  const previousId=String(record.id??"");
+  const previous=documents.news.entries.find((item:any)=>item.id===previousId);
+  const imageFile=String(record.imageFile??"").trim(),imageUrl=String(record.imageUrl??"").trim();
+  if(!imageFile&&!/^https:\/\//.test(imageUrl))throw new Error("请选择本地长图，或填写 HTTPS 图片地址");
+  if(imageFile){const path=localNewsImagePath(imageFile);if(!existsSync(path))throw new Error("选择的本地长图不存在，请重新选择");inspectImage(readFileSync(path),imageFile);}
+  const id=resolveNewsRecordId({previousId:previous?.id,previousImageFile:String(previous?.imageFile??""),previousImageUrl:String(previous?.imageUrl??""),nextImageFile:imageFile,nextImageUrl:imageUrl,generateId:()=>`news.maintained.${randomUUID()}`});
+  const value={id,publishedDate:String(record.publishedDate??""),title:String(record.title??"").trim(),imageUrl,...(imageFile?{imageFile}:{})};
+  const entries=(previous?documents.news.entries.map((item:any)=>item.id===previous.id?value:item):[...documents.news.entries,value]).sort((a:any,b:any)=>String(b.publishedDate??"").localeCompare(String(a.publishedDate??"")));
+  atomicJson("survivor-news.json",{...documents.news,contentVersion:version,enabled:Boolean(input.newsEnabled),entries});
+}return viewModel();}
+function deleteRecord(input:{dataset:Dataset;id:string}){const documents=loadDocuments();if(input.dataset==="market"){if(documents.market.items.some((item)=>item.recipe.some((entry)=>entry.ingredientId===input.id)))throw new Error("该物品仍被配方引用，不能删除");if(documents.nano.items.some((item)=>item.itemId===input.id))throw new Error("该物品仍有纳米资料，不能删除");atomicJson("market-items.json",marketCatalogSchema.parse({...documents.market,items:documents.market.items.filter((item)=>item.id!==input.id)}));}else if(input.dataset==="nano")atomicJson("nano-items.json",nanoCatalogSchema.parse({...documents.nano,items:documents.nano.items.filter((item)=>item.itemId!==input.id)}));else if(input.dataset==="cookbook")atomicJson("cookbook.json",cookbookCatalogSchema.parse({...documents.cookbook,recipes:documents.cookbook.recipes.filter((item)=>item.id!==input.id).map((item,index)=>({...item,position:index}))}));else if(input.dataset==="activities")atomicJson("activities.json",{...documents.activities,entries:documents.activities.entries.filter((item:any)=>item.id!==input.id)});else atomicJson("survivor-news.json",{...documents.news,entries:documents.news.entries.filter((item:any)=>item.id!==input.id)});return viewModel();}
+function sha(buffer:Buffer){return createHash("sha256").update(buffer).digest("hex");}
+async function prepareRelease(input:any){
+  const documents=loadDocuments(),version=validateVersion(String(input.contentVersion));
+  const repo=String(input.repository),branch=String(input.branch||"main");
+  if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repo)||!/^[A-Za-z0-9._/-]+$/.test(branch))throw new Error("GitHub 仓库或分支格式无效");
+  const rawBase=`https://raw.githubusercontent.com/${repo}/${branch}/releases`;
+  const imageBase=`https://cdn.jsdelivr.net/gh/${repo}@${branch}/releases`;
+  const growth=Object.fromEntries(["progression-legacy.json","belt-legacy.json","reference-legacy.json","gene-legacy.json","static-growth-legacy.json","graph-legacy.json"].map((file)=>[file.replace("-legacy.json",""),readJson(join("growth",file))]));
+  const market=marketCatalogSchema.parse({...documents.market,contentVersion:version}),nano=nanoCatalogSchema.parse({...documents.nano,contentVersion:version}),cookbook=cookbookCatalogSchema.parse({...documents.cookbook,contentVersion:version});
+  const base=baseDataPackageSchema.parse({schemaVersion:1,contentVersion:version,market,nano,cookbook,growth});
+  const activities=activityCatalogSchema.parse({schemaVersion:1,version,entries:documents.activities.entries.filter((entry:any)=>/^\d{4}-\d{2}-\d{2}$/.test(entry.startDate)).map((entry:any)=>({id:entry.id,category:entry.category,title:String(entry.title).slice(0,120),startDate:entry.startDate,...(entry.endDate?{endDate:entry.endDate}:{}),...((entry.version||entry.condition)?{description:[entry.version,entry.condition].filter(Boolean).join(" · ").slice(0,2000)}:{})}))});
+  const files=new Map<string,Buffer>();
+  files.set("base-data.json",Buffer.from(`${JSON.stringify(base,null,2)}\n`));
+  files.set("activities.json",Buffer.from(`${JSON.stringify(activities,null,2)}\n`));
+  if(documents.news.enabled&&input.includeNews){
+    const entries=[];
+    for(const entry of documents.news.entries){
+      let buffer:Buffer,url=String(entry.imageUrl??"");
+      if(entry.imageFile){
+        const localPath=localNewsImagePath(String(entry.imageFile));
+        if(!existsSync(localPath))throw new Error(`找不到快报本地长图：${entry.title}`);
+        buffer=readFileSync(localPath);
+        const extension=[".png",".jpg",".jpeg",".webp"].includes(extname(localPath).toLowerCase())?extname(localPath).toLowerCase():".png";
+        const safeId=String(entry.id).replace(/[^A-Za-z0-9_.-]/g,"-").slice(0,100);
+        const assetName=`news/${safeId}-${version}-${sha(buffer).slice(0,12)}${extension}`;
+        files.set(assetName,buffer);
+        url=`${imageBase}/${assetName}`;
+      }else if(!String(entry.id).startsWith("news.maintained.")){
+        if(!/^https:\/\//.test(url))throw new Error(`历史快报缺少 HTTPS 地址：${entry.title}`);
+        entries.push({id:entry.id,title:entry.title,publishedAt:`${entry.publishedDate}T00:00:00+08:00`,image:{url,sha256:sha(Buffer.from(`legacy-url:${url}`)),sizeBytes:1,width:1,height:1},withdrawn:false});
+        continue;
+      }else{
+        if(!/^https:\/\//.test(url))throw new Error(`快报缺少本地长图或 HTTPS 地址：${entry.title}`);
+        const response=await net.fetch(url,{signal:AbortSignal.timeout(30_000)});
+        if(!response.ok)throw new Error(`快报图片下载失败：${entry.title}`);
+        buffer=Buffer.from(await response.arrayBuffer());
+      }
+      const size=inspectImage(buffer,entry.title);
+      entries.push({id:entry.id,title:entry.title,publishedAt:`${entry.publishedDate}T00:00:00+08:00`,image:{url,sha256:sha(buffer),sizeBytes:buffer.length,width:size.width,height:size.height},withdrawn:false});
+    }
+    entries.sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt));
+    const news=newsCatalogSchema.parse({schemaVersion:1,version,entries});
+    files.set("news.json",Buffer.from(`${JSON.stringify(news,null,2)}\n`));
+  }
+  const packageNames=["base-data.json","activities.json",...(files.has("news.json")?["news.json"]:[])];
+  const packageKind=(name:string)=>name==="base-data.json"?"base-data":name==="activities.json"?"activities":"news";
+  const packages=packageNames.map((name)=>{const buffer=files.get(name)!;return{kind:packageKind(name),version,url:`${rawBase}/${name}`,sha256:sha(buffer),sizeBytes:buffer.length};});
+  const now=new Date().toISOString();
+  const manifest=contentManifestSchema.parse({schemaVersion:1,contentVersion:version,publishedAt:now,minimumClientVersion:String(input.minimumClientVersion||"0.0.0"),clientUpdate:{latestVersion:String(input.latestVersion||"0.0.0"),minimumSupportedVersion:String(input.minimumSupportedVersion||"0.0.0"),updateLevel:input.updateLevel??"optional",message:String(input.updateMessage||"资料更新"),downloadPageUrl:`https://github.com/${repo}/releases`,effectiveAt:now,graceDays:Number(input.graceDays??7)},packages});
+  files.set("content-manifest.json",Buffer.from(`${JSON.stringify(manifest,null,2)}\n`));
+  return files;
+}
+async function githubPut(repository:string,branch:string,token:string,path:string,content:Buffer){await writeGithubContent({repository,branch,token,path,content,fetcher:(url,init)=>net.fetch(url,init)});}
+async function githubContentManifest(repository:string,branch:string,token:string){const endpoint=`https://api.github.com/repos/${repository}/contents/releases/content-manifest.json?ref=${encodeURIComponent(branch)}`;const headers={Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"lifeafter-content-maintainer"};const response=await net.fetch(endpoint,{headers});if(response.status===404)return undefined;if(!response.ok)throw new Error(`读取线上资料版本失败：HTTP ${response.status}`);const body=await response.json() as {content?:string};if(!body.content)throw new Error("线上资料清单缺少内容");return contentManifestSchema.parse(JSON.parse(Buffer.from(body.content.replace(/\s/g,""),"base64").toString("utf8")));}
+function createWindow(){const window=new BrowserWindow({width:1440,height:900,minWidth:1040,minHeight:700,title:"明日之后养成助手资料维护器",backgroundColor:"#0b1220",webPreferences:{preload:join(import.meta.dirname,"../preload/index.cjs"),contextIsolation:true,nodeIntegration:false,sandbox:true}});window.webContents.setWindowOpenHandler(({url})=>{if(url.startsWith("https://github.com/"))void shell.openExternal(url);return{action:"deny"}});if(process.env.ELECTRON_RENDERER_URL)void window.loadURL(process.env.ELECTRON_RENDERER_URL);else void window.loadFile(join(import.meta.dirname,"../renderer/index.html"));}
+app.whenReady().then(()=>{
+  initializeContentDirectory();
+  let publishInProgress=false;
+  ipcMain.handle("content:choose-directory",async(event)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择 content/base 资料目录",properties:["openDirectory"]});if(result.canceled||!result.filePaths[0])return null;contentDirectory=result.filePaths[0];return contentDirectory;});
+  ipcMain.handle("content:choose-news-image",async(event)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择幸存者快报长图",properties:["openFile"],filters:[{name:"图片",extensions:["png","jpg","jpeg","webp"]}]});if(result.canceled||!result.filePaths[0])return null;const source=result.filePaths[0],buffer=readFileSync(source),size=inspectImage(buffer,source),extension=extname(source).toLowerCase();const directory=join(contentDirectory,"news-images"),fileName=`news-${randomUUID()}${extension}`;mkdirSync(directory,{recursive:true});copyFileSync(source,join(directory,fileName));return{imageFile:`news-images/${fileName}`,width:size.width,height:size.height,sizeBytes:buffer.length};});
+  ipcMain.handle("content:load",(event,directory?:string)=>{trusted(event);if(directory)contentDirectory=resolve(directory);return viewModel();});
+  ipcMain.handle("content:save-record",(event,input)=>{trusted(event);return saveRecord(input)});
+  ipcMain.handle("content:delete-record",(event,input)=>{trusted(event);return deleteRecord(input)});
+  ipcMain.handle("credentials:get-token",(event)=>{trusted(event);return loadGithubToken(app.getPath("userData"),safeStorage)});
+  ipcMain.handle("credentials:clear-token",(event)=>{trusted(event);clearGithubToken(app.getPath("userData"));});
+  ipcMain.handle("release:build",async(event,input)=>{trusted(event);const result=await dialog.showOpenDialog({title:"选择发布包输出目录",properties:["openDirectory","createDirectory"]});if(result.canceled||!result.filePaths[0])return{canceled:true};const files=await prepareRelease(input),directory=join(result.filePaths[0],`content-${input.contentVersion}`);mkdirSync(directory,{recursive:true});for(const[name,buffer]of files){const target=join(directory,name);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,buffer);}return{canceled:false,directory,files:[...files.keys()]};});
+  ipcMain.handle("release:publish",async(event,input)=>{
+    trusted(event);
+    if(publishInProgress)throw new Error("已有资料发布任务正在进行，请等待完成后再试");
+    publishInProgress=true;
+    try{
+      const token=String(input.token??"");
+      if(token.length<20)throw new Error("请输入有效的 GitHub Token");
+      const remoteManifest=await githubContentManifest(input.repository,input.branch,token);
+      const contentVersion=resolveReleaseContentVersion(String(input.contentVersion),remoteManifest?.contentVersion);
+      const files=await prepareRelease({...input,contentVersion});
+      const generatedManifest=contentManifestSchema.parse(JSON.parse(files.get("content-manifest.json")!.toString("utf8"))),mergedManifest=retainUnchangedPackages(generatedManifest,remoteManifest);
+      files.set("content-manifest.json",Buffer.from(`${JSON.stringify(mergedManifest,null,2)}\n`));
+      for(const[name,buffer]of files)await githubPut(input.repository,input.branch,token,`releases/${name}`,buffer);
+      let tokenSaved=true,tokenSaveWarning="";
+      try{saveGithubToken(app.getPath("userData"),token,safeStorage)}catch(error){tokenSaved=false;tokenSaveWarning=error instanceof Error?error.message:String(error)}
+      return{published:[...files.keys()],contentVersion,tokenSaved,tokenSaveWarning};
+    }finally{
+      publishInProgress=false;
+    }
+  });
+  createWindow();
+});
+app.on("window-all-closed",()=>{if(process.platform!=="darwin")app.quit()});

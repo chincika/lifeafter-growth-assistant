@@ -1,0 +1,2868 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026.07.11.2",
+  "items": [
+    {
+      "itemId": "item.legacy.4fad23d4ce66a22ef88e",
+      "nano1": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.e9d4ee01fe81e90649f1",
+      "nano1": {
+        "min": 20,
+        "max": 35,
+        "average": 27.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.590d39a561f249ca1447",
+      "nano1": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.96e81d6689a38b743f2b",
+      "nano1": {
+        "min": 24,
+        "max": 41,
+        "average": 32.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.7b71f6eec5a957c9dff2",
+      "nano1": {
+        "min": 11,
+        "max": 19,
+        "average": 15
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.3ca3c3637d8979e06989",
+      "nano1": {
+        "min": 11,
+        "max": 19,
+        "average": 15
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.2bf920eac3503df4067e",
+      "nano1": {
+        "min": 24,
+        "max": 41,
+        "average": 32.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.098c86592808994c927b",
+      "nano1": {
+        "min": 11,
+        "max": 19,
+        "average": 15
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.4e90448e828ef7d1828c",
+      "nano1": {
+        "min": 24,
+        "max": 41,
+        "average": 32.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.dafc7722f03ddd08e23a",
+      "nano1": {
+        "min": 13,
+        "max": 22,
+        "average": 17.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.8f515df8107f53363f3c",
+      "nano1": {
+        "min": 28,
+        "max": 47,
+        "average": 37.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.393782ae360daaa6625e",
+      "nano1": {
+        "min": 15,
+        "max": 25,
+        "average": 20
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.f06d31c8ed4e47a60f0c",
+      "nano1": {
+        "min": 33,
+        "max": 57,
+        "average": 45
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.8e3039eac77018f03462",
+      "nano1": {
+        "min": 13,
+        "max": 22,
+        "average": 17.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.1a5a229eaf85359c7a53",
+      "nano1": {
+        "min": 28,
+        "max": 47,
+        "average": 37.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.c4af127587d4fae7f6c0",
+      "nano1": {
+        "min": 12,
+        "max": 21,
+        "average": 16.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 2,
+        "average": 1
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d3b99ed9af5acb42dfde",
+      "nano1": {
+        "min": 25,
+        "max": 43,
+        "average": 34
+      },
+      "nano2": {
+        "min": 2,
+        "max": 5,
+        "average": 3.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.e4b04678a387d979154a",
+      "nano1": {
+        "min": 11,
+        "max": 20,
+        "average": 15.5
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.36f6fb8a8bb2991ca8b2",
+      "nano1": {
+        "min": 14,
+        "max": 24,
+        "average": 19
+      },
+      "nano2": {
+        "min": 0,
+        "max": 2,
+        "average": 1
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.ba6a80bafb56438696f6",
+      "nano1": {
+        "min": 28,
+        "max": 48,
+        "average": 38
+      },
+      "nano2": {
+        "min": 3,
+        "max": 6,
+        "average": 4.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.ba6170df9b5e7d56eaec",
+      "nano1": {
+        "min": 12,
+        "max": 22,
+        "average": 17
+      },
+      "nano2": {
+        "min": 2,
+        "max": 4,
+        "average": 3
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.b89e4b2d81dea8366dda",
+      "nano1": {
+        "min": 16,
+        "max": 27,
+        "average": 21.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 2,
+        "average": 1
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.09b237313448baac6953",
+      "nano1": {
+        "min": 35,
+        "max": 60,
+        "average": 47.5
+      },
+      "nano2": {
+        "min": 3,
+        "max": 7,
+        "average": 5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.b1774ced36e12accab26",
+      "nano1": {
+        "min": 15,
+        "max": 26,
+        "average": 20.5
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.7c6dbfaf488f0a856701",
+      "nano1": {
+        "min": 14,
+        "max": 24,
+        "average": 19
+      },
+      "nano2": {
+        "min": 0,
+        "max": 2,
+        "average": 1
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.732bb7767d1861c081ca",
+      "nano1": {
+        "min": 30,
+        "max": 51,
+        "average": 40.5
+      },
+      "nano2": {
+        "min": 3,
+        "max": 6,
+        "average": 4.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.4457f8d11bf3c190e174",
+      "nano1": {
+        "min": 13,
+        "max": 23,
+        "average": 18
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6e1ae3646a5aa998cfbb",
+      "nano1": {
+        "min": 13,
+        "max": 23,
+        "average": 18
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.e1628a9b05f9df446773",
+      "nano1": {
+        "min": 39,
+        "max": 67,
+        "average": 53
+      },
+      "nano2": {
+        "min": 7,
+        "max": 12,
+        "average": 9.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.1850770283a80719db68",
+      "nano1": {
+        "min": 15,
+        "max": 26,
+        "average": 20.5
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d64c2cadcc420aafcc06",
+      "nano1": {
+        "min": 47,
+        "max": 80,
+        "average": 63.5
+      },
+      "nano2": {
+        "min": 8,
+        "max": 15,
+        "average": 11.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d406f12561bc9a20b5aa",
+      "nano1": {
+        "min": 16,
+        "max": 29,
+        "average": 22.5
+      },
+      "nano2": {
+        "min": 1,
+        "max": 4,
+        "average": 2.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.34ee98fa394b0fe06f7b",
+      "nano1": {
+        "min": 57,
+        "max": 96,
+        "average": 76.5
+      },
+      "nano2": {
+        "min": 10,
+        "max": 17,
+        "average": 13.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.175a692ef4148b52d46f",
+      "nano1": {
+        "min": 15,
+        "max": 26,
+        "average": 20.5
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.8fa458f81c73fb45ffdd",
+      "nano1": {
+        "min": 33,
+        "max": 56,
+        "average": 44.5
+      },
+      "nano2": {
+        "min": 5,
+        "max": 10,
+        "average": 7.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.646b5a52798ef781603b",
+      "nano1": {
+        "min": 14,
+        "max": 24,
+        "average": 19
+      },
+      "nano2": {
+        "min": 2,
+        "max": 5,
+        "average": 3.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.ac0f6f65d130107cad0e",
+      "nano1": {
+        "min": 54,
+        "max": 91,
+        "average": 72.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.dbd4b5c8b82fb7abc710",
+      "nano1": {
+        "min": 18,
+        "max": 32,
+        "average": 25
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.c7d0ca409df389ed5097",
+      "nano1": {
+        "min": 51,
+        "max": 85,
+        "average": 68
+      },
+      "nano2": {
+        "min": 12,
+        "max": 22,
+        "average": 17
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.29dd83e7a9ad2d27a2bd",
+      "nano1": {
+        "min": 22,
+        "max": 38,
+        "average": 30
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.c24ea9ee609f2604e1ae",
+      "nano1": {
+        "min": 76,
+        "max": 129,
+        "average": 102.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.03845537e0bef47ce0a3",
+      "nano1": {
+        "min": 50,
+        "max": 85,
+        "average": 67.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.ce35ded645d2ea8ab16c",
+      "nano1": {
+        "min": 15,
+        "max": 27,
+        "average": 21
+      },
+      "nano2": {
+        "min": 2,
+        "max": 5,
+        "average": 3.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.b33e88ce95c00dc0421a",
+      "nano1": {
+        "min": 36,
+        "max": 62,
+        "average": 49
+      },
+      "nano2": {
+        "min": 6,
+        "max": 11,
+        "average": 8.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.0fc01d94b3e5506126b3",
+      "nano1": {
+        "min": 15,
+        "max": 26,
+        "average": 20.5
+      },
+      "nano2": {
+        "min": 3,
+        "max": 7,
+        "average": 5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d189f266752e9c0375e5",
+      "nano1": {
+        "min": 45,
+        "max": 76,
+        "average": 60.5
+      },
+      "nano2": {
+        "min": 15,
+        "max": 26,
+        "average": 20.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6b764a13c668c92efb26",
+      "nano1": {
+        "min": 17,
+        "max": 30,
+        "average": 23.5
+      },
+      "nano2": {
+        "min": 4,
+        "max": 8,
+        "average": 6
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.5d7eb4afae5ba1ee1e87",
+      "nano1": {
+        "min": 53,
+        "max": 90,
+        "average": 71.5
+      },
+      "nano2": {
+        "min": 17,
+        "max": 30,
+        "average": 23.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.eae79405ba4f3c03e7af",
+      "nano1": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano2": {
+        "min": 5,
+        "max": 9,
+        "average": 7
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.3bdef6e25aede7ec3b39",
+      "nano1": {
+        "min": 64,
+        "max": 108,
+        "average": 86
+      },
+      "nano2": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.bbb4534e48481f789771",
+      "nano1": {
+        "min": 16,
+        "max": 27,
+        "average": 21.5
+      },
+      "nano2": {
+        "min": 4,
+        "max": 7,
+        "average": 5.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.5a92c6396f8933e13f1a",
+      "nano1": {
+        "min": 37,
+        "max": 62,
+        "average": 49.5
+      },
+      "nano2": {
+        "min": 12,
+        "max": 21,
+        "average": 16.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.4298008506c52a52171e",
+      "nano1": {
+        "min": 15,
+        "max": 27,
+        "average": 21
+      },
+      "nano2": {
+        "min": 5,
+        "max": 9,
+        "average": 7
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.69ebcde9752620cca56e",
+      "nano1": {
+        "min": 46,
+        "max": 78,
+        "average": 62
+      },
+      "nano2": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.a56bd3c1386f4399bdce",
+      "nano1": {
+        "min": 18,
+        "max": 31,
+        "average": 24.5
+      },
+      "nano2": {
+        "min": 6,
+        "max": 11,
+        "average": 8.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.36646559ae36413fbeb9",
+      "nano1": {
+        "min": 55,
+        "max": 92,
+        "average": 73.5
+      },
+      "nano2": {
+        "min": 23,
+        "max": 40,
+        "average": 31.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6277ce1a3200cb8cee03",
+      "nano1": {
+        "min": 20,
+        "max": 35,
+        "average": 27.5
+      },
+      "nano2": {
+        "min": 6,
+        "max": 12,
+        "average": 9
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.a15644446d4b106a5046",
+      "nano1": {
+        "min": 66,
+        "max": 111,
+        "average": 88.5
+      },
+      "nano2": {
+        "min": 28,
+        "max": 48,
+        "average": 38
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.78cce135a5b064e981c2",
+      "nano1": {
+        "min": 18,
+        "max": 31,
+        "average": 24.5
+      },
+      "nano2": {
+        "min": 6,
+        "max": 11,
+        "average": 8.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.a409ea54df6bbc661259",
+      "nano1": {
+        "min": 38,
+        "max": 64,
+        "average": 51
+      },
+      "nano2": {
+        "min": 16,
+        "max": 28,
+        "average": 22
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.bf678909da68b86bb744",
+      "nano1": {
+        "min": 17,
+        "max": 29,
+        "average": 23
+      },
+      "nano2": {
+        "min": 5,
+        "max": 10,
+        "average": 7.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.9b2d62cbfa43b55414d3",
+      "nano1": {
+        "min": 50,
+        "max": 85,
+        "average": 67.5
+      },
+      "nano2": {
+        "min": 21,
+        "max": 37,
+        "average": 29
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.856e28fd0a03ba2c3e29",
+      "nano1": {
+        "min": 19,
+        "max": 33,
+        "average": 26
+      },
+      "nano2": {
+        "min": 6,
+        "max": 11,
+        "average": 8.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.c358e70f5b53e4e0b569",
+      "nano1": {
+        "min": 60,
+        "max": 101,
+        "average": 80.5
+      },
+      "nano2": {
+        "min": 25,
+        "max": 43,
+        "average": 34
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.1d9be96e6df941aa766c",
+      "nano1": {
+        "min": 22,
+        "max": 38,
+        "average": 30
+      },
+      "nano2": {
+        "min": 7,
+        "max": 13,
+        "average": 10
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.cf6bcb60c24b1d6694a2",
+      "nano1": {
+        "min": 72,
+        "max": 121,
+        "average": 96.5
+      },
+      "nano2": {
+        "min": 30,
+        "max": 52,
+        "average": 41
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d0f604897602b579a549",
+      "nano1": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano2": {
+        "min": 6,
+        "max": 12,
+        "average": 9
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.77014484fb8c4e02021f",
+      "nano1": {
+        "min": 41,
+        "max": 70,
+        "average": 55.5
+      },
+      "nano2": {
+        "min": 17,
+        "max": 30,
+        "average": 23.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.f6c0f44a8808f52e3dc5",
+      "nano1": {
+        "min": 18,
+        "max": 32,
+        "average": 25
+      },
+      "nano2": {
+        "min": 6,
+        "max": 11,
+        "average": 8.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.78d08194244f988e862f",
+      "nano1": {
+        "min": 55,
+        "max": 92,
+        "average": 73.5
+      },
+      "nano2": {
+        "min": 23,
+        "max": 40,
+        "average": 31.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.b739c1f3c1d83e0dad89",
+      "nano1": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano2": {
+        "min": 7,
+        "max": 12,
+        "average": 9.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.084f8d1195a929b95153",
+      "nano1": {
+        "min": 65,
+        "max": 109,
+        "average": 87
+      },
+      "nano2": {
+        "min": 28,
+        "max": 47,
+        "average": 37.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.a6dfedde2d0048752ab8",
+      "nano1": {
+        "min": 24,
+        "max": 42,
+        "average": 33
+      },
+      "nano2": {
+        "min": 8,
+        "max": 14,
+        "average": 11
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.099f637cf4d79d011521",
+      "nano1": {
+        "min": 78,
+        "max": 131,
+        "average": 104.5
+      },
+      "nano2": {
+        "min": 33,
+        "max": 56,
+        "average": 44.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.5b4bcfd4847b770b3e2e",
+      "nano1": {
+        "min": 21,
+        "max": 37,
+        "average": 29
+      },
+      "nano2": {
+        "min": 7,
+        "max": 13,
+        "average": 10
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.67fbbfa8bd524df247b8",
+      "nano1": {
+        "min": 44,
+        "max": 75,
+        "average": 59.5
+      },
+      "nano2": {
+        "min": 19,
+        "max": 33,
+        "average": 26
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.e18bfad2c9a590546ceb",
+      "nano1": {
+        "min": 18,
+        "max": 31,
+        "average": 24.5
+      },
+      "nano2": {
+        "min": 7,
+        "max": 13,
+        "average": 10
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.232acabfc89cc036b9a7",
+      "nano1": {
+        "min": 57,
+        "max": 96,
+        "average": 76.5
+      },
+      "nano2": {
+        "min": 24,
+        "max": 41,
+        "average": 32.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.bfa99804307d7e766c53",
+      "nano1": {
+        "min": 20,
+        "max": 35,
+        "average": 27.5
+      },
+      "nano2": {
+        "min": 8,
+        "max": 15,
+        "average": 11.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.890117f655f3692ba983",
+      "nano1": {
+        "min": 67,
+        "max": 113,
+        "average": 90
+      },
+      "nano2": {
+        "min": 29,
+        "max": 49,
+        "average": 39
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d9f0ec42a5bfe5ab6a93",
+      "nano1": {
+        "min": 23,
+        "max": 40,
+        "average": 31.5
+      },
+      "nano2": {
+        "min": 10,
+        "max": 18,
+        "average": 14
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.9bf208bde7a6c83c3cfa",
+      "nano1": {
+        "min": 81,
+        "max": 136,
+        "average": 108.5
+      },
+      "nano2": {
+        "min": 34,
+        "max": 58,
+        "average": 46
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.5bb078cf5ef9d135fd2b",
+      "nano1": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.b50459c7eb181419f508",
+      "nano1": {
+        "min": 46,
+        "max": 78,
+        "average": 62
+      },
+      "nano2": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.eb97193a652030578a3b",
+      "nano1": {
+        "min": 18,
+        "max": 31,
+        "average": 24.5
+      },
+      "nano2": {
+        "min": 7,
+        "max": 14,
+        "average": 10.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.2c641b950665a8ebd11e",
+      "nano1": {
+        "min": 58,
+        "max": 98,
+        "average": 78
+      },
+      "nano2": {
+        "min": 24,
+        "max": 42,
+        "average": 33
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.7c2a619313f61a9acceb",
+      "nano1": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.2cf6f1b7247330819344",
+      "nano1": {
+        "min": 69,
+        "max": 116,
+        "average": 92.5
+      },
+      "nano2": {
+        "min": 29,
+        "max": 50,
+        "average": 39.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.362a4367e4eaf94f341b",
+      "nano1": {
+        "min": 24,
+        "max": 41,
+        "average": 32.5
+      },
+      "nano2": {
+        "min": 10,
+        "max": 18,
+        "average": 14
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.ce1634079087268af72c",
+      "nano1": {
+        "min": 82,
+        "max": 138,
+        "average": 110
+      },
+      "nano2": {
+        "min": 35,
+        "max": 60,
+        "average": 47.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.81db199dd90806fe3a9a",
+      "nano1": {
+        "min": 21,
+        "max": 37,
+        "average": 29
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.daa2ab9e892a1b41a490",
+      "nano1": {
+        "min": 47,
+        "max": 80,
+        "average": 63.5
+      },
+      "nano2": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6948925c471de42966eb",
+      "nano1": {
+        "min": 18,
+        "max": 32,
+        "average": 25
+      },
+      "nano2": {
+        "min": 8,
+        "max": 14,
+        "average": 11
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.f5c627b7d0bffafff264",
+      "nano1": {
+        "min": 59,
+        "max": 99,
+        "average": 79
+      },
+      "nano2": {
+        "min": 25,
+        "max": 43,
+        "average": 34
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.8e983c02db124ac1c489",
+      "nano1": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.c9909e3c9e8223b38fbe",
+      "nano1": {
+        "min": 70,
+        "max": 118,
+        "average": 94
+      },
+      "nano2": {
+        "min": 30,
+        "max": 51,
+        "average": 40.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6afea412a6f784f7d73a",
+      "nano1": {
+        "min": 24,
+        "max": 42,
+        "average": 33
+      },
+      "nano2": {
+        "min": 10,
+        "max": 18,
+        "average": 14
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.676242f2daf6d5d940bc",
+      "nano1": {
+        "min": 84,
+        "max": 141,
+        "average": 112.5
+      },
+      "nano2": {
+        "min": 36,
+        "max": 61,
+        "average": 48.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.0e6ddbf0f0ce3df042e1",
+      "nano1": {
+        "min": 22,
+        "max": 37,
+        "average": 29.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.2cee6eeb80202c913fb4",
+      "nano1": {
+        "min": 48,
+        "max": 81,
+        "average": 64.5
+      },
+      "nano2": {
+        "min": 20,
+        "max": 35,
+        "average": 27.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.fbd902626ab0ec85dba2",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 36,
+        "max": 62,
+        "average": 49
+      }
+    },
+    {
+      "itemId": "item.legacy.a1cd9a7cd44f86b22424",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 41,
+        "max": 70,
+        "average": 55.5
+      }
+    },
+    {
+      "itemId": "item.legacy.df1a091f6dc1f6bdb835",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 81,
+        "max": 136,
+        "average": 108.5
+      }
+    },
+    {
+      "itemId": "item.legacy.e07cdb80c2824ef6ec7c",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 56,
+        "max": 95,
+        "average": 75.5
+      }
+    },
+    {
+      "itemId": "item.legacy.5752a489ba399c163f70",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 137,
+        "max": 229,
+        "average": 183
+      }
+    },
+    {
+      "itemId": "item.legacy.7a4b015c61267ee0a014",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 61,
+        "max": 102,
+        "average": 81.5
+      }
+    },
+    {
+      "itemId": "item.legacy.ad9468e94a7f546d60f5",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 190,
+        "max": 318,
+        "average": 254
+      }
+    },
+    {
+      "itemId": "item.legacy.810ff208760d6809bfdb",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 137,
+        "max": 229,
+        "average": 183
+      }
+    },
+    {
+      "itemId": "item.legacy.794a1c447172b6626c15",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 190,
+        "max": 319,
+        "average": 254.5
+      }
+    },
+    {
+      "itemId": "item.legacy.fe9c21c44178ce3834a8",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 86,
+        "max": 145,
+        "average": 115.5
+      }
+    },
+    {
+      "itemId": "item.legacy.1d54289b6e3a5e7e981a",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 192,
+        "max": 321,
+        "average": 256.5
+      }
+    },
+    {
+      "itemId": "item.legacy.699a6c21e8dd0ad6208c",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 156,
+        "max": 261,
+        "average": 208.5
+      }
+    },
+    {
+      "itemId": "item.legacy.89a23556ebcf3cba8509",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 345,
+        "max": 576,
+        "average": 460.5
+      }
+    },
+    {
+      "itemId": "item.legacy.cc7d8cbb8522f9dfe0f6",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 258,
+        "max": 431,
+        "average": 344.5
+      }
+    },
+    {
+      "itemId": "item.legacy.5bcc811d6d51e52334d3",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 304,
+        "max": 508,
+        "average": 406
+      }
+    },
+    {
+      "itemId": "item.legacy.343b3787b988d4ac9938",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 201,
+        "max": 337,
+        "average": 269
+      }
+    },
+    {
+      "itemId": "item.legacy.3a96b5d47104193f814c",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 307,
+        "max": 513,
+        "average": 410
+      }
+    },
+    {
+      "itemId": "item.legacy.4ae90f838e6bbbf1355c",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 269,
+        "max": 449,
+        "average": 359
+      }
+    },
+    {
+      "itemId": "item.legacy.e698d9165f69cce9f240",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 311,
+        "max": 519,
+        "average": 415
+      }
+    },
+    {
+      "itemId": "item.legacy.ab25d65832a567575992",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 309,
+        "max": 517,
+        "average": 413
+      }
+    },
+    {
+      "itemId": "item.legacy.773033ad1b745041b791",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 311,
+        "max": 519,
+        "average": 415
+      }
+    },
+    {
+      "itemId": "item.legacy.02480f3414916dbe9635",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 309,
+        "max": 517,
+        "average": 413
+      }
+    },
+    {
+      "itemId": "item.legacy.51bb98eef78a31d213a4",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 311,
+        "max": 519,
+        "average": 415
+      }
+    },
+    {
+      "itemId": "item.legacy.485f8d5a6ba7d5dd6af9",
+      "nano1": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 309,
+        "max": 517,
+        "average": 413
+      }
+    },
+    {
+      "itemId": "item.legacy.600ab6d414027cc96d76",
+      "nano1": {
+        "min": 24,
+        "max": 41,
+        "average": 32.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.fc1deccdea8b1348b8ba",
+      "nano1": {
+        "min": 26,
+        "max": 45,
+        "average": 35.5
+      },
+      "nano2": {
+        "min": 1,
+        "max": 3,
+        "average": 2
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6a43a18448314d5232e8",
+      "nano1": {
+        "min": 50,
+        "max": 84,
+        "average": 67
+      },
+      "nano2": {
+        "min": 16,
+        "max": 28,
+        "average": 22
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.2792602e1d0c9577a2aa",
+      "nano1": {
+        "min": 28,
+        "max": 47,
+        "average": 37.5
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.06927d85a95cfbfb8759",
+      "nano1": {
+        "min": 31,
+        "max": 54,
+        "average": 42.5
+      },
+      "nano2": {
+        "min": 5,
+        "max": 10,
+        "average": 7.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.a25468a081be4b7bde75",
+      "nano1": {
+        "min": 59,
+        "max": 99,
+        "average": 79
+      },
+      "nano2": {
+        "min": 19,
+        "max": 33,
+        "average": 26
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.9b240484af8cb6f0cbe5",
+      "nano1": {
+        "min": 33,
+        "max": 57,
+        "average": 45
+      },
+      "nano2": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.63809ec2871518eb8d0c",
+      "nano1": {
+        "min": 70,
+        "max": 119,
+        "average": 94.5
+      },
+      "nano2": {
+        "min": 23,
+        "max": 40,
+        "average": 31.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.5c1eb183f2d809ad135d",
+      "nano1": {
+        "min": 39,
+        "max": 65,
+        "average": 52
+      },
+      "nano2": {
+        "min": 9,
+        "max": 17,
+        "average": 13
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.cc0e95d79e4cd6557cad",
+      "nano1": {
+        "min": 39,
+        "max": 65,
+        "average": 52
+      },
+      "nano2": {
+        "min": 9,
+        "max": 17,
+        "average": 13
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.178cab47f78e464f40c4",
+      "nano1": {
+        "min": 81,
+        "max": 135,
+        "average": 108
+      },
+      "nano2": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.8b13288823839ce19e72",
+      "nano1": {
+        "min": 81,
+        "max": 135,
+        "average": 108
+      },
+      "nano2": {
+        "min": 20,
+        "max": 34,
+        "average": 27
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.7dec35dc4d0366efd55a",
+      "nano1": {
+        "min": 44,
+        "max": 74,
+        "average": 59
+      },
+      "nano2": {
+        "min": 19,
+        "max": 32,
+        "average": 25.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.f91aa9a7ec42245ddd36",
+      "nano1": {
+        "min": 37,
+        "max": 62,
+        "average": 49.5
+      },
+      "nano2": {
+        "min": 15,
+        "max": 27,
+        "average": 21
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.9f0651f1f92ff02156ab",
+      "nano1": {
+        "min": 18,
+        "max": 32,
+        "average": 25
+      },
+      "nano2": {
+        "min": 8,
+        "max": 14,
+        "average": 11
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.a3cf934b6c63ce9564fd",
+      "nano1": {
+        "min": 59,
+        "max": 99,
+        "average": 79
+      },
+      "nano2": {
+        "min": 25,
+        "max": 43,
+        "average": 34
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.1342bef47b1cd42d5468",
+      "nano1": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d4e8bf5d9cc01f72bb57",
+      "nano1": {
+        "min": 70,
+        "max": 118,
+        "average": 94
+      },
+      "nano2": {
+        "min": 30,
+        "max": 51,
+        "average": 40.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.fc85355366e951643d80",
+      "nano1": {
+        "min": 24,
+        "max": 42,
+        "average": 33
+      },
+      "nano2": {
+        "min": 10,
+        "max": 18,
+        "average": 14
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.b77876c37d6bcb803335",
+      "nano1": {
+        "min": 84,
+        "max": 141,
+        "average": 112.5
+      },
+      "nano2": {
+        "min": 36,
+        "max": 61,
+        "average": 48.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.1efb084ac8417708bee8",
+      "nano1": {
+        "min": 22,
+        "max": 37,
+        "average": 29.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.4018d93a7f2d216b857b",
+      "nano1": {
+        "min": 48,
+        "max": 81,
+        "average": 64.5
+      },
+      "nano2": {
+        "min": 20,
+        "max": 35,
+        "average": 27.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.4aaf3de0965c13dcf431",
+      "nano1": {
+        "min": 18,
+        "max": 32,
+        "average": 25
+      },
+      "nano2": {
+        "min": 8,
+        "max": 14,
+        "average": 11
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.0876c31d4ab9c5a340f5",
+      "nano1": {
+        "min": 59,
+        "max": 99,
+        "average": 79
+      },
+      "nano2": {
+        "min": 25,
+        "max": 43,
+        "average": 34
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.185cf7b29406fbc94c2c",
+      "nano1": {
+        "min": 21,
+        "max": 36,
+        "average": 28.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.12f2035b14860442a05b",
+      "nano1": {
+        "min": 70,
+        "max": 118,
+        "average": 94
+      },
+      "nano2": {
+        "min": 30,
+        "max": 51,
+        "average": 40.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d35699f8acee30175e97",
+      "nano1": {
+        "min": 24,
+        "max": 42,
+        "average": 33
+      },
+      "nano2": {
+        "min": 10,
+        "max": 18,
+        "average": 14
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.cd3bc0af2d97a8f59bee",
+      "nano1": {
+        "min": 84,
+        "max": 141,
+        "average": 112.5
+      },
+      "nano2": {
+        "min": 36,
+        "max": 61,
+        "average": 48.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d180589d9c88ca603e97",
+      "nano1": {
+        "min": 22,
+        "max": 37,
+        "average": 29.5
+      },
+      "nano2": {
+        "min": 9,
+        "max": 16,
+        "average": 12.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.910c593b4c46926b3d7d",
+      "nano1": {
+        "min": 48,
+        "max": 81,
+        "average": 64.5
+      },
+      "nano2": {
+        "min": 20,
+        "max": 35,
+        "average": 27.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.94d50c8a84a7d311d356",
+      "nano1": {
+        "min": 119,
+        "max": 197,
+        "average": 158
+      },
+      "nano2": {
+        "min": 30,
+        "max": 49,
+        "average": 39.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.9615d338ab8448f94647",
+      "nano1": {
+        "min": 161,
+        "max": 268,
+        "average": 214.5
+      },
+      "nano2": {
+        "min": 40,
+        "max": 67,
+        "average": 53.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.6bdeb77ea943dcce4796",
+      "nano1": {
+        "min": 161,
+        "max": 268,
+        "average": 214.5
+      },
+      "nano2": {
+        "min": 40,
+        "max": 67,
+        "average": 53.5
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.d9bc2e4c250d8c874120",
+      "nano1": {
+        "min": 87,
+        "max": 144,
+        "average": 115.5
+      },
+      "nano2": {
+        "min": 22,
+        "max": 36,
+        "average": 29
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    },
+    {
+      "itemId": "item.legacy.83c0e14b2c094d967202",
+      "nano1": {
+        "min": 87,
+        "max": 144,
+        "average": 115.5
+      },
+      "nano2": {
+        "min": 22,
+        "max": 36,
+        "average": 29
+      },
+      "nano3": {
+        "min": 0,
+        "max": 0,
+        "average": 0
+      }
+    }
+  ]
+}

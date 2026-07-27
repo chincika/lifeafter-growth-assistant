@@ -1,0 +1,72 @@
+const port = process.argv[2] ?? "9341";
+const probeGithubNetwork = process.env.VERIFY_GITHUB_NETWORK === "1";
+let targets;
+for (let attempt = 0; attempt < 40; attempt += 1) {
+  try { targets = await (await fetch(`http://127.0.0.1:${port}/json`)).json(); break; }
+  catch { await new Promise((resolve) => setTimeout(resolve, 250)); }
+}
+if (!targets) throw new Error("Maintainer debug endpoint did not become ready");
+const page = targets.find((target) => target.type === "page");
+if (!page) throw new Error("Maintainer page not found");
+const socket = new WebSocket(page.webSocketDebuggerUrl);
+let sequence = 0;
+const pending = new Map(), errors = [];
+socket.addEventListener("message", (event) => {
+  const message = JSON.parse(String(event.data));
+  if (message.method === "Runtime.exceptionThrown") errors.push(message.params.exceptionDetails.text);
+  if (!message.id || !pending.has(message.id)) return;
+  const entry = pending.get(message.id); pending.delete(message.id);
+  message.error ? entry.reject(new Error(JSON.stringify(message.error))) : entry.resolve(message.result);
+});
+await new Promise((resolve, reject) => { socket.addEventListener("open", resolve, { once: true }); socket.addEventListener("error", reject, { once: true }); });
+function send(method, params = {}) { const id = ++sequence; socket.send(JSON.stringify({ id, method, params })); return new Promise((resolve, reject) => pending.set(id, { resolve, reject })); }
+await send("Runtime.enable");
+await new Promise((resolve) => setTimeout(resolve, 700));
+const evaluated = await send("Runtime.evaluate", {
+  expression: `(async()=>{
+    const data=await window.maintainerApi.load();
+    const tabs=[...document.querySelectorAll('aside nav button')];
+    const recordBrowserCollapsed=!document.querySelector('.record-list');
+    document.querySelector('.record-browser-toggle')?.click();await new Promise(r=>setTimeout(r,20));
+    const browser=document.querySelector('.record-browser')?.getBoundingClientRect();
+    const content=document.querySelector('.content')?.getBoundingClientRect();
+    const recordBrowserFullWidth=Boolean(browser&&content&&browser.width>=content.width-50);
+    tabs[3]?.click();await new Promise(r=>setTimeout(r,20));
+    const activityCategoryButtons=[...document.querySelectorAll('.activity-category-tabs button')];
+    activityCategoryButtons[1]?.click();await new Promise(r=>setTimeout(r,20));
+    const activityCategoriesSeparated=activityCategoryButtons.length===8&&document.querySelector('.record-browser-toggle')?.textContent?.includes('25')&&document.querySelector('.activity-category-context')?.textContent?.includes('配方合成半价');
+    const categoryPublishButton=[...document.querySelectorAll('.activity-category-context button')].some(button=>button.textContent?.includes('发布本分类更新'));
+    document.querySelector('.toolbar button')?.click();await new Promise(r=>setTimeout(r,20));
+    const activityEditorCategorized=document.querySelector('.editor')?.textContent?.includes('正在维护')&&document.querySelector('.editor')?.textContent?.includes('配方合成半价')&&document.querySelector('.editor')?.textContent?.includes('更新内容（会显示在客户端）');
+    document.querySelector('.editor-back')?.click();await new Promise(r=>setTimeout(r,20));
+    for(const tab of tabs){tab.click();await new Promise(r=>setTimeout(r,10));}
+    tabs[4]?.click();await new Promise(r=>setTimeout(r,20));
+    document.querySelector('.toolbar button')?.click();await new Promise(r=>setTimeout(r,20));
+    const localImagePicker=document.body.innerText.includes('选择电脑上的长图');
+    const automaticNewsPolicy=document.querySelector('.release-policy')?.textContent?.includes('快报自动随通用发布更新')&&!document.querySelector('.release input[type=checkbox]');
+    const setValue=(element,value)=>{const setter=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set;setter.call(element,value);element.dispatchEvent(new Event('input',{bubbles:true}));element.dispatchEvent(new Event('change',{bubbles:true}));};
+    setValue(document.querySelector('.editor input:not([type])'),'E2E 临时快报');
+    setValue(document.querySelector('.editor input[type=date]'),'2026-07-17');
+    setValue(document.querySelector('.editor input[type=url]'),'https://example.com/e2e-news.png');
+    document.querySelector('.editor footer button:last-child')?.click();await new Promise(r=>setTimeout(r,120));
+    const newsSaveSucceeded=document.body.innerText.includes('已校验并保存')&&!document.querySelector('.editor');
+    document.querySelector('.record-browser-toggle')?.click();await new Promise(r=>setTimeout(r,20));
+    const newNewsFirst=document.querySelector('.record-list button strong')?.textContent==='E2E 临时快报';
+    let githubNetworkError='';
+    if(${JSON.stringify(probeGithubNetwork)}){try{await window.maintainerApi.publishRelease({repository:'chincika/lifeafter-growth-assistant',branch:'main',contentVersion:data.contentVersion,latestVersion:'0.1.0',minimumClientVersion:'0.1.0',minimumSupportedVersion:'0.1.0',updateLevel:'optional',updateMessage:'网络探测',graceDays:7,includeNews:false,token:'invalid-token-for-network-test'});}catch(error){githubNetworkError=String(error);}}
+    tabs[2]?.click();await new Promise(r=>setTimeout(r,20));
+    document.querySelector('.record-browser-toggle')?.click();await new Promise(r=>setTimeout(r,20));
+    document.querySelector('.record-list button')?.click();await new Promise(r=>setTimeout(r,20));
+    return{title:document.title,counts:data.counts,tabs:tabs.length,recordBrowserCollapsed,recordBrowserFullWidth,activityCategoriesSeparated,categoryPublishButton,activityEditorCategorized,localImagePicker,automaticNewsPolicy,newsSaveSucceeded,newNewsFirst,githubNetworkError,cookbookEditor:Boolean(document.querySelector('.editor')),releasePanel:Boolean(document.querySelector('.release')),secureTokenCopy:document.querySelector('.release')?.textContent?.includes('Windows 当前账户加密保存'),nodeExposed:typeof window.require!=='undefined'||typeof window.process!=='undefined',text:document.body.innerText.slice(0,500)};
+  })()`,
+  awaitPromise: true,
+  returnByValue: true,
+});
+socket.close();
+if (evaluated.exceptionDetails) throw new Error(JSON.stringify(evaluated.exceptionDetails));
+const result = { ...evaluated.result.value, errors };
+console.log(JSON.stringify(result, null, 2));
+if (result.counts.market !== 458 || result.counts.nano !== 159 || result.counts.cookbook !== 566 || result.counts.activities !== 111 || result.counts.news !== 197) throw new Error("Maintainer content counts changed");
+if (result.tabs !== 5 || !result.recordBrowserCollapsed || !result.recordBrowserFullWidth || !result.activityCategoriesSeparated || !result.categoryPublishButton || !result.activityEditorCategorized || !result.localImagePicker || !result.automaticNewsPolicy || !result.newsSaveSucceeded || !result.newNewsFirst || !result.cookbookEditor || !result.releasePanel || !result.secureTokenCopy) throw new Error("Maintainer UI did not render, persist, group activities, enforce automatic news publishing, or sort news correctly");
+if (probeGithubNetwork && (!/HTTP (401|403)/.test(result.githubNetworkError) || /fetch failed/i.test(result.githubNetworkError))) throw new Error(`Maintainer did not reach GitHub through the system network stack: ${result.githubNetworkError}`);
+if (result.nodeExposed || errors.length) throw new Error("Maintainer security/runtime check failed");

@@ -1,0 +1,3382 @@
+{
+  "schemaVersion": 1,
+  "declarations": {
+    "ne_0": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABAJJREFUWEftlktMXFUYx3/n3jsPBrgDZWYY2trRkJr0ZQNIrRo3uqippiJaQ0xMjDWudOvGnQsTE9fGlUKiO22isTZFE0x5RqU2EPpQyyDvtlMew2uGYc5nZgZogRkY2DQxfMnNvbnnO/////uf75x7FQ851EPmZ1fA/8sB6TvsVEeuLW6nr3bsgAgG/bU1GLoGRTVCDVANhEGaUTTjiTWrwLXZzQTlLUCm334T5TiF6X4SqyCEwy4kfg+W5mFpbvn+wPMKq3Jdlcl7Y0bVzdPZhGQVIP1Vx1GqGjFqULJSmTMNYLrA9ICVugqW7x7w7AW0kJiLsTA9I5FwQvde8iHiAtqsV3kuLwHSGfyKssdOYAcVplnK/EgQnWVZPUEo2B9FWXGJzS7JcC8ycKUil91mAo96g4X14xsckHZ/GOHR1cTyw5MEnwBXoRMjXbIQHVnUQz1OGe4xWdyAmVWDKF501HFpUwHSXn4U0b25qpAjZ9G/fr6dJl/NFeETRz0f5RSQ2kLMRj8jEf8gp4CjZ9EtOxOgLEef8XLimFLIg/jpJZC+Y1/g8Z9gcvBx5qcLcwo4eEp0x9d575xVHJcLw7ZR+w7MI3IRjIuMjXWrZ0euZgS0Bb4HObOVt8lgLfT+tFUaKAPlC0FpBUaJD1yOzDbFGpLpO2PcHfZKZOSyWcd7GQGt/ikUXtLfpjUOrSFbdIcwh/7ILsDtxvCWQWkwQ+4oBkcROLwxFiZn9OgNU2607LnfFPRb9VQqaSs/CbpzA2pRgGRBcDEx0O10FzrSw1IcRPcv92iqStuG4mKMYhtc7kyOZZPUNspyL6hIWEv/bzmX1LQ4pKQ98CEin24QYJjEQ6ejg999aQceKcLrLyApJsm5ObBLcFYEMlNMF9ryIVYpKlX1rU5kqHvrZcocW+8rafNfALIek2P903/OTi1W7av04vFmDsKVEIElO4R18Hnk+i/I4JW8SNeCcF5Jq68LpZ7KNnt8YOb3mYlYbeVxH4a5sfnF3i8yPaUkEt4+eWbGVKYJO/xVJKUBZTSAHFhBuzs02zk/m3g6dKg0O4GnDD0XF4mEt7s1z6Npsl7jh41H8WXfSxg0gGqYGJ3rWkroZwKhYiOrAocbveSMyZ1bmQ7cJBT8q4Umy6JRnUl9sjORU7m0+IuiM7GP7TK3F+GdXNja8Ebl9j92Tm7hAgaNVh3fZsvJyzrpKH+BpH4XlXJmbWizNCLjf/nWvFWMK2g0FI3qFW5u4cxW5t0fl/aKEJI8B3IOSP0AoI2SUbn9d/oZ+DkpNLnq+SZf1LwcyAYmrYG3UkIkLnuT0ciPWtPoep2efIm37IF8gaRrj61OTkTzzV+ft2MHdkq4K2DXgfUO/Ad0iXwOQhOmjAAAAABJRU5ErkJggg==",
+    "ie_0": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAYNJREFUWEftl01OwzAQhV+iXAOpd+AC4QZs2PMnJPbEVlYNbKI66QGQKsGaDSdAtGsOQRdcgayIB7mqUQn5cdRRK6F4FSmTmc/PI8+Lhz0vb8/1MQDUKqCUOgHwxHg8y7Isj+I4XlZz1gJMJpPE87wxgDkTRLgG+JOvFaDpoz5QdjMDwNYKGCldpddaP9qGYzmCLMsuiGjmCkBEN1LKqYlnATCJ0jQNXQGCIHiLouiTFcC1eDWORYE8zw+11nkXBBEtpJS/euV/AHTtvO09iwJ9mzCO458rlwVgYzY4iUFEt7YXWADSNB35vn/qVB2A1npuVWABcC1cF7dTgLrLyvf90Iz2rWdBlwpKqWcAx01xuwB4BRCaBtyEWBsbENGBlPKjlyPqY0iUUisAIcTK5CilHgCYxn0HcCaEWNSpw+aINgHsM4CXsiwv67yghWEHAGCM5wjArCiK6yRJvtr6h9uU2pE9FkLcdTWued9ky68A3LskqMYQ0bmU0py/0xr+jAYFvgHG9a8wkJaS9wAAAABJRU5ErkJggg==",
+    "be_0": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAABWBJREFUWEe1mF+IVFUcx7/n3L9z13Ha1dVc0dk13c01rUgIDaIsiiIhCjSU6qE/BPUW4UtSUA+V9BAUiOBDhJIPQdiDFGZCoFRGf3TX3bHRGVfXXNFtnJ1/98858buzd5zdmdm5I7O/h+Fy75lzPud3fn8PQ4ty/vx4PG/bL3KFPQuJGIOMSbCFNA2DvCnBMmDICE9+a+n6V6tW9aRbWYKFHXx69MJ2LrGTcb6V/iOkgBQSEoCU9AswxkATMs7AGfffSSG+EwwH1g/0HQqzVlMgAlHBX5cMWzzPgycEPE9UIBotQnCKwqFwDkVRwCSOuRD7moHNCTSUSB1gYDuEEHBcDwR0O0JAmqqAcw4JeXBdf+/Ohhtp9GE4kT4DYJ3junAc93Y4av6jaSo0VaX3Q4P98XvqTVqjISmlcvHSVTdXKMG2Hbi3qZVGO1AVBbqu+Z8H++M169e8uHTl2lVD15fcmMwgmyu0RTP1JrEiJjnAD2v7409Wf58BlL48ccIyjU2kFfKcbDY3b1BkT6ahk4t+MTjQ+1YAVQFKjl15f6FlvUdeREYcyHxCkaFrmgZPihcC76sAXboyMaFrenc9m5lPKNKSwvixtQPxx8rBFUBy7PKuhdaCj8itxXSQm33u8wVFIcHQb2nJB7o4fi1p6tqqZh41X1AGaUlRjgyuWfk0Oz2S3Njd1fkbGJthO43cqxrq1BhDepIhdaM8urcLiHdKbFxRTiVhhWITxaiS6/az0fNj+wxde42SUhAfmk1EUHuOljCeYVgQUeChHFcUOJgqeOiJSbyx6ZZjNJuPMwbTNCCAj9nwufQpIcQDxaLt/0/XVERMA4apg4JYPdl7PIdTKRvRqAVd12cMsW0b2Wwe6+6U2H5feCjT1Cm1/M6GE+lznuetLtlOzdqUIA1dBw2OmBoY4ziZtLH/5xxisShUtT6w63rIZLJ4foPAvT3hjo8MW1GUf9jZRGrC8UQ3pYlmQh5x6E+O5A0O01rgD8/niygUiv5zJGLCskz/uZCfQl/MCa0lMhdN4ddIQ0XHdY2wCXTPTwocpqOjw/IXvn79P+zY3Ok/HzwxiUWL7vCfc7k8NGnjnUfDVQjTibfUMtCnxzlsFqloohEQaU6XBbz9SDg7qgC1cmS082/+5khOqjCs6JxHVipMYWCxwHPrqaBrrqXqI2to1PVsimLP4SFe18OC8YGnvbTZwsP9hh/9i8USyJPJeYKSt3r+ilHPdvtmhk3f957kfgyq52mBh8UXK9j9jF/71wiN8QFtx6+5SCpuf2Yk9S7n7INCsdS0Tq6embxt6F8GK6JCyHJBz5lAvuD6MejVhwxEox1h9leBskvOZ4zamqLrpGzHAZG3In+NM4xMMFycLBcNKzsl7l4iK7En2hEJBUW1EaRELmtv8GcaGrlwWEi5tV5wbAWw3tgwUJQR8qVSonf50gEfiFodhfGvCSiMR7QKORcU5TEKuJmbU7tW9y3/pFKgnR1N/+hJsaVYKue0dksjKNKO4zgTy5d1L6U1K0CBltrZ9sze1Gwosh1qJDO53O7VK3s+nAHk29J0Yzgf7U8AF0BxzqBwBVP5/K99K5Y9GHyvaYOCBjE/nTDbfXQ0H0F1dcZQLDmTK3oWd1WvUbeVHk6k/ZqB7Km6A2kHXND+dEQM/HJyqbptG5sRaxr29mcT6e8l8ITjOH5f3w4J2p56DWLDI6teeHg09TkYe7Odlw2zG8PZG23tOoaaSK+cvRu1S8ECQXzh01cybbmOqab3wwJXXoaUT9H7sBdWYOyIJ7wvm90LhTqyenbzx3Byjaaqr3CGx+e80pM46rju/vsH7zrXiv39Dy5xxJWKXJAMAAAAAElFTkSuQmCC",
+    "l_0": [
+      {
+        "name": "明日之后-赚金计算工具教程2",
+        "link": "https://www.bilibili.com/video/BV1zR4y187Ld/"
+      },
+      {
+        "name": "明日之后 基因模拟器",
+        "link": "https://www.bilibili.com/video/BV1Xs4y1K7gS/"
+      },
+      {
+        "name": "明日之后 图谱模拟器",
+        "link": "https://www.bilibili.com/video/BV1KsbyeiE2v/"
+      }
+    ],
+    "qe_0": "data:image/svg+xml,%3c?xml%20version='1.0'%20standalone='no'?%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg%20t='1672633232128'%20class='icon'%20viewBox='0%200%201024%201024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20p-id='2678'%20width='32'%20height='32'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cpath%20d='M512%20128C300.8%20128%20128%20300.8%20128%20512s172.8%20384%20384%20384%20384-172.8%20384-384S723.2%20128%20512%20128zM512%20832c-179.2%200-320-140.8-320-320s140.8-320%20320-320%20320%20140.8%20320%20320S691.2%20832%20512%20832z'%20p-id='2679'%20fill='%23bfbfbf'%3e%3c/path%3e%3cpath%20d='M672%20352c-12.8-12.8-32-12.8-44.8%200L512%20467.2%20396.8%20352C384%20339.2%20364.8%20339.2%20352%20352S339.2%20384%20352%20396.8L467.2%20512%20352%20627.2c-12.8%2012.8-12.8%2032%200%2044.8s32%2012.8%2044.8%200L512%20556.8l115.2%20115.2c12.8%2012.8%2032%2012.8%2044.8%200s12.8-32%200-44.8L556.8%20512l115.2-115.2C684.8%20384%20684.8%20364.8%20672%20352z'%20p-id='2680'%20fill='%23bfbfbf'%3e%3c/path%3e%3c/svg%3e",
+    "Xl_0": [
+      {
+        "level": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 500,
+        "times": 20
+      },
+      {
+        "level": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 500,
+        "times": 20
+      },
+      {
+        "level": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 500,
+        "times": 30
+      },
+      {
+        "level": [
+          1,
+          2,
+          2,
+          2
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 500,
+        "times": 30
+      },
+      {
+        "level": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 1000,
+        "times": 40
+      },
+      {
+        "level": [
+          2,
+          2,
+          2,
+          3
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 1000,
+        "times": 40
+      },
+      {
+        "level": [
+          2,
+          2,
+          3,
+          3
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 1000,
+        "times": 50
+      },
+      {
+        "level": [
+          2,
+          3,
+          3,
+          3
+        ],
+        "molecule": 20,
+        "nano": 0,
+        "goldbar": 1000,
+        "times": 50
+      },
+      {
+        "level": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "molecule": 40,
+        "nano": 300,
+        "goldbar": 1500,
+        "times": 60
+      },
+      {
+        "level": [
+          3,
+          3,
+          3,
+          4
+        ],
+        "molecule": 40,
+        "nano": 300,
+        "goldbar": 1500,
+        "times": 60
+      },
+      {
+        "level": [
+          3,
+          3,
+          4,
+          4
+        ],
+        "molecule": 40,
+        "nano": 300,
+        "goldbar": 1500,
+        "times": 70
+      },
+      {
+        "level": [
+          3,
+          4,
+          4,
+          4
+        ],
+        "molecule": 40,
+        "nano": 300,
+        "goldbar": 1500,
+        "times": 70
+      },
+      {
+        "level": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "molecule": 40,
+        "nano": 400,
+        "goldbar": 2000,
+        "times": 80
+      },
+      {
+        "level": [
+          4,
+          4,
+          4,
+          5
+        ],
+        "molecule": 40,
+        "nano": 400,
+        "goldbar": 2000,
+        "times": 80
+      },
+      {
+        "level": [
+          4,
+          4,
+          5,
+          5
+        ],
+        "molecule": 40,
+        "nano": 400,
+        "goldbar": 2000,
+        "times": 90
+      },
+      {
+        "level": [
+          4,
+          5,
+          5,
+          5
+        ],
+        "molecule": 40,
+        "nano": 400,
+        "goldbar": 2000,
+        "times": 90
+      },
+      {
+        "level": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "molecule": 80,
+        "nano": 500,
+        "goldbar": 2500,
+        "times": 100
+      },
+      {
+        "level": [
+          5,
+          5,
+          5,
+          6
+        ],
+        "molecule": 80,
+        "nano": 500,
+        "goldbar": 2500,
+        "times": 100
+      },
+      {
+        "level": [
+          5,
+          5,
+          6,
+          6
+        ],
+        "molecule": 80,
+        "nano": 500,
+        "goldbar": 2500,
+        "times": 115
+      },
+      {
+        "level": [
+          5,
+          6,
+          6,
+          6
+        ],
+        "molecule": 80,
+        "nano": 500,
+        "goldbar": 2500,
+        "times": 115
+      },
+      {
+        "level": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "molecule": 80,
+        "nano": 600,
+        "goldbar": 3000,
+        "times": 130
+      },
+      {
+        "level": [
+          6,
+          6,
+          6,
+          7
+        ],
+        "molecule": 80,
+        "nano": 600,
+        "goldbar": 3000,
+        "times": 130
+      },
+      {
+        "level": [
+          6,
+          6,
+          7,
+          7
+        ],
+        "molecule": 80,
+        "nano": 600,
+        "goldbar": 3000,
+        "times": 145
+      },
+      {
+        "level": [
+          6,
+          7,
+          7,
+          7
+        ],
+        "molecule": 80,
+        "nano": 600,
+        "goldbar": 3000,
+        "times": 145
+      },
+      {
+        "level": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "molecule": 80,
+        "nano": 700,
+        "goldbar": 3500,
+        "times": 160
+      },
+      {
+        "level": [
+          7,
+          7,
+          7,
+          8
+        ],
+        "molecule": 80,
+        "nano": 700,
+        "goldbar": 3500,
+        "times": 160
+      },
+      {
+        "level": [
+          7,
+          7,
+          8,
+          8
+        ],
+        "molecule": 80,
+        "nano": 700,
+        "goldbar": 3500,
+        "times": 180
+      },
+      {
+        "level": [
+          7,
+          8,
+          8,
+          8
+        ],
+        "molecule": 80,
+        "nano": 700,
+        "goldbar": 3500,
+        "times": 180
+      },
+      {
+        "level": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "molecule": 160,
+        "nano": 800,
+        "goldbar": 4000,
+        "times": 200
+      },
+      {
+        "level": [
+          8,
+          8,
+          8,
+          9
+        ],
+        "molecule": 160,
+        "nano": 800,
+        "goldbar": 4000,
+        "times": 200
+      },
+      {
+        "level": [
+          8,
+          8,
+          9,
+          9
+        ],
+        "molecule": 160,
+        "nano": 800,
+        "goldbar": 4000,
+        "times": 220
+      },
+      {
+        "level": [
+          8,
+          9,
+          9,
+          9
+        ],
+        "molecule": 160,
+        "nano": 800,
+        "goldbar": 4000,
+        "times": 220
+      },
+      {
+        "level": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "molecule": 160,
+        "nano": 900,
+        "goldbar": 4500,
+        "times": 240
+      },
+      {
+        "level": [
+          9,
+          9,
+          9,
+          10
+        ],
+        "molecule": 160,
+        "nano": 900,
+        "goldbar": 4500,
+        "times": 240
+      },
+      {
+        "level": [
+          9,
+          9,
+          10,
+          10
+        ],
+        "molecule": 160,
+        "nano": 900,
+        "goldbar": 4500,
+        "times": 260
+      },
+      {
+        "level": [
+          9,
+          10,
+          10,
+          10
+        ],
+        "molecule": 160,
+        "nano": 900,
+        "goldbar": 4500,
+        "times": 260
+      },
+      {
+        "level": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "molecule": 160,
+        "nano": 1000,
+        "goldbar": 5000,
+        "times": 0
+      }
+    ],
+    "Zl_0": {
+      "cond": [
+        15,
+        15,
+        20,
+        30,
+        48,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "attrs": [
+        {
+          "name": "暴击率",
+          "attr": "暴击率 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "免暴率",
+          "attr": "免暴率 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              2.4,
+              3.4
+            ],
+            [
+              3.2,
+              4.2
+            ],
+            [
+              4.1,
+              5.2
+            ],
+            [
+              5,
+              6.1
+            ],
+            [
+              6,
+              7.2
+            ],
+            [
+              7,
+              8.2
+            ],
+            [
+              8.1,
+              9.4
+            ],
+            [
+              9.2,
+              10.5
+            ],
+            [
+              10.4,
+              11.8
+            ],
+            [
+              11.6,
+              13
+            ]
+          ]
+        },
+        {
+          "name": "背部伤害增加",
+          "attr": "背部伤害增加 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "跳跃压制",
+          "attr": "跳跃压制 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "背部防护",
+          "attr": "背部防护 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "跳跃防护",
+          "attr": "跳跃防护 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "爆炸伤害减免",
+          "attr": "爆炸伤害减免 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "受感染者伤害降低",
+          "attr": "受感染者伤害降低 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              0.9,
+              2
+            ],
+            [
+              1.6,
+              2.9
+            ],
+            [
+              2.4,
+              3.8
+            ],
+            [
+              3.2,
+              4.7
+            ],
+            [
+              4.3,
+              6
+            ],
+            [
+              5,
+              6.5
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.3,
+              7.5
+            ],
+            [
+              6.8,
+              8
+            ],
+            [
+              7.2,
+              8.5
+            ]
+          ]
+        },
+        {
+          "name": "受人型怪伤害降低",
+          "attr": "受人型怪伤害降低 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              0.9,
+              2
+            ],
+            [
+              1.6,
+              2.9
+            ],
+            [
+              2.4,
+              3.8
+            ],
+            [
+              3.2,
+              4.7
+            ],
+            [
+              4.3,
+              6
+            ],
+            [
+              5,
+              6.5
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.3,
+              7.5
+            ],
+            [
+              6.8,
+              8
+            ],
+            [
+              7.2,
+              8.5
+            ]
+          ]
+        },
+        {
+          "name": "受动物伤害降低",
+          "attr": "受动物伤害降低 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.7
+            ],
+            [
+              2.1,
+              3.9
+            ],
+            [
+              3.2,
+              5.1
+            ],
+            [
+              4.2,
+              6.3
+            ],
+            [
+              5.7,
+              8
+            ],
+            [
+              6.7,
+              8.7
+            ],
+            [
+              7.7,
+              9.4
+            ],
+            [
+              8.4,
+              10.1
+            ],
+            [
+              9,
+              10.7
+            ],
+            [
+              9.7,
+              11.4
+            ]
+          ]
+        },
+        {
+          "name": "高度压制",
+          "attr": "高度压制 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              0.9,
+              2.6
+            ],
+            [
+              1.6,
+              3.5
+            ],
+            [
+              2.4,
+              4.5
+            ],
+            [
+              3.2,
+              5.4
+            ],
+            [
+              4.3,
+              6.5
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.3,
+              7.5
+            ],
+            [
+              6.8,
+              8
+            ],
+            [
+              7.2,
+              8.5
+            ]
+          ]
+        }
+      ]
+    },
+    "ea_0": {
+      "cond": [
+        15,
+        15,
+        20,
+        30,
+        48,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "attrs": [
+        {
+          "name": "射速提升",
+          "attr": "射速提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              0.7,
+              1.3
+            ],
+            [
+              1.2,
+              1.8
+            ],
+            [
+              1.7,
+              2.4
+            ],
+            [
+              2.3,
+              2.9
+            ],
+            [
+              2.9,
+              3.6
+            ],
+            [
+              3.5,
+              4.2
+            ],
+            [
+              4.1,
+              4.9
+            ],
+            [
+              4.8,
+              5.6
+            ],
+            [
+              5.5,
+              6.4
+            ],
+            [
+              6.2,
+              7.1
+            ]
+          ]
+        },
+        {
+          "name": "挥砍速度提升",
+          "attr": "挥砍速度提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.1,
+              2
+            ],
+            [
+              1.8,
+              2.7
+            ],
+            [
+              2.6,
+              3.6
+            ],
+            [
+              3.4,
+              4.4
+            ],
+            [
+              4.3,
+              5.4
+            ],
+            [
+              5.2,
+              6.3
+            ],
+            [
+              6.2,
+              7.4
+            ],
+            [
+              7.2,
+              8.4
+            ],
+            [
+              8.3,
+              9.5
+            ],
+            [
+              9.4,
+              10.6
+            ]
+          ]
+        },
+        {
+          "name": "移动速度提升",
+          "attr": "移动速度提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              0.5,
+              1.2
+            ],
+            [
+              1,
+              1.7
+            ],
+            [
+              1.4,
+              2.3
+            ],
+            [
+              1.9,
+              2.8
+            ],
+            [
+              2.6,
+              3.6
+            ],
+            [
+              3,
+              3.9
+            ],
+            [
+              3.5,
+              4.2
+            ],
+            [
+              3.8,
+              4.5
+            ],
+            [
+              4.1,
+              4.8
+            ],
+            [
+              4.4,
+              5.1
+            ]
+          ]
+        },
+        {
+          "name": "受到玩家伤害减免",
+          "attr": "受到玩家伤害减免 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "对玩家伤害提升",
+          "attr": "对玩家伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "对感染者伤害提升",
+          "attr": "对感染者伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "对人型怪伤害提升",
+          "attr": "对人型怪伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "对动物伤害提升",
+          "attr": "对动物伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "药物恢复效果提升",
+          "attr": "药物恢复效果提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "副资源额外产出概率",
+          "attr": "副资源额外产出概率 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        }
+      ]
+    },
+    "ta_0": {
+      "cond": [
+        15,
+        15,
+        20,
+        30,
+        48,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "attrs": [
+        {
+          "name": "近程伤害提升",
+          "attr": "近程伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "近程伤害减免",
+          "attr": "近程伤害减免 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              2.4,
+              3.4
+            ],
+            [
+              3.2,
+              4.2
+            ],
+            [
+              4.1,
+              5.2
+            ],
+            [
+              5,
+              6.1
+            ],
+            [
+              6,
+              7.2
+            ],
+            [
+              7,
+              8.2
+            ],
+            [
+              8.1,
+              9.4
+            ],
+            [
+              9.2,
+              10.5
+            ],
+            [
+              10.4,
+              11.8
+            ],
+            [
+              11.6,
+              13
+            ]
+          ]
+        },
+        {
+          "name": "远程伤害减免",
+          "attr": "远程伤害减免 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              2.4,
+              3.4
+            ],
+            [
+              3.2,
+              4.2
+            ],
+            [
+              4.1,
+              5.2
+            ],
+            [
+              5,
+              6.1
+            ],
+            [
+              6,
+              7.2
+            ],
+            [
+              7,
+              8.2
+            ],
+            [
+              8.1,
+              9.4
+            ],
+            [
+              9.2,
+              10.5
+            ],
+            [
+              10.4,
+              11.8
+            ],
+            [
+              11.6,
+              13
+            ]
+          ]
+        },
+        {
+          "name": "轻型枪械伤害提升",
+          "attr": "轻型枪械伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "重型枪械伤害提升",
+          "attr": "重型枪械伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "投掷物伤害提升",
+          "attr": "投掷物伤害提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "轻型枪械射程提升",
+          "attr": "轻型枪械射程提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "重型枪械射程提升",
+          "attr": "重型枪械射程提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "投掷物爆炸范围提升",
+          "attr": "投掷物爆炸范围提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        },
+        {
+          "name": "冷兵器挥砍范围提升",
+          "attr": "冷兵器挥砍范围提升 <span style=\"color: #bbf;\">{0}% ~ {1}%</span>",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        }
+      ]
+    },
+    "la_0": {
+      "cond": [
+        15,
+        15,
+        20,
+        30,
+        48,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "attrs": [
+        {
+          "name": "动态追踪",
+          "attr": "动态追踪：对移动的目标造成的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "1.2%",
+              "2.2%"
+            ],
+            [
+              "2.0%",
+              "3.0%"
+            ],
+            [
+              "2.9%",
+              "4.0%"
+            ],
+            [
+              "3.8%",
+              "4.9%"
+            ],
+            [
+              "4.8%",
+              "6.0%"
+            ],
+            [
+              "5.8%",
+              "7.0%"
+            ],
+            [
+              "6.9%",
+              "8.2%"
+            ],
+            [
+              "8.0%",
+              "9.3%"
+            ],
+            [
+              "9.2%",
+              "10.6%"
+            ],
+            [
+              "10.4%",
+              "11.8%"
+            ]
+          ]
+        },
+        {
+          "name": "静止识别",
+          "attr": "静止识别：对静止的目标造成的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "3.2%",
+              "4.2%"
+            ],
+            [
+              "5.0%",
+              "6.0%"
+            ],
+            [
+              "6.9%",
+              "8.0%"
+            ],
+            [
+              "8.8%",
+              "9.9%"
+            ],
+            [
+              "10.8%",
+              "12.0%"
+            ],
+            [
+              "12.8%",
+              "14.0%"
+            ],
+            [
+              "14.9%",
+              "16.2%"
+            ],
+            [
+              "16.0%",
+              "17.3%"
+            ],
+            [
+              "17.2%",
+              "18.6%"
+            ],
+            [
+              "18.4%",
+              "19.8%"
+            ]
+          ]
+        },
+        {
+          "name": "组合攻击",
+          "attr": "组合攻击：使用投掷物后 6 秒内造成的远程伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>，冷却时间 10 秒",
+          "values": [
+            [
+              "3.6%",
+              "8.0%"
+            ],
+            [
+              "6.4%",
+              "11.6%"
+            ],
+            [
+              "9.6%",
+              "15.2%"
+            ],
+            [
+              "12.6%",
+              "18.8%"
+            ],
+            [
+              "17.0%",
+              "24.0%"
+            ],
+            [
+              "20.0%",
+              "26.0%"
+            ],
+            [
+              "23.0%",
+              "28.0%"
+            ],
+            [
+              "25.0%",
+              "30.0%"
+            ],
+            [
+              "27.0%",
+              "32.0%"
+            ],
+            [
+              "29.0%",
+              "34.0%"
+            ]
+          ]
+        },
+        {
+          "name": "头部防护",
+          "attr": "头部防护：每损失 10% 的生命值，获得 <span style=\"color: #bbf;\">{0} ~ {1}</span> 的命中头部伤害减免，该效果在角色生命值降低至 50% 时达到最大值",
+          "values": [
+            [
+              "1.7%",
+              "2.3%"
+            ],
+            [
+              "2.2%",
+              "2.8%"
+            ],
+            [
+              "2.7%",
+              "3.4%"
+            ],
+            [
+              "3.3%",
+              "3.9%"
+            ],
+            [
+              "4.1%",
+              "4.8%"
+            ],
+            [
+              "4.6%",
+              "5.3%"
+            ],
+            [
+              "4.9%",
+              "5.7%"
+            ],
+            [
+              "5.4%",
+              "6.2%"
+            ],
+            [
+              "5.9%",
+              "6.8%"
+            ],
+            [
+              "6.4%",
+              "7.3%"
+            ]
+          ]
+        },
+        {
+          "name": "自愈",
+          "attr": "自<text decode=\"{{true}}\">&emsp;&emsp;</text>愈：生命值低于 30% 时，消耗 10 点饥饿值，3 秒内总计回复 <span style=\"color: #bbf;\">{0} ~ {1}</span> 的生命值。60 秒内触发一次",
+          "values": [
+            [
+              "3.6%",
+              "6.6%"
+            ],
+            [
+              "6.0%",
+              "9.0%"
+            ],
+            [
+              "8.7%",
+              "12.0%"
+            ],
+            [
+              "11.4%",
+              "14.7%"
+            ],
+            [
+              "14.4%",
+              "18.0%"
+            ],
+            [
+              "17.4%",
+              "21.0%"
+            ],
+            [
+              "20.7%",
+              "24.6%"
+            ],
+            [
+              "24.0%",
+              "27.9%"
+            ],
+            [
+              "27.6%",
+              "31.8%"
+            ],
+            [
+              "31.2%",
+              "35.4%"
+            ]
+          ]
+        },
+        {
+          "name": "中和",
+          "attr": "中<text decode=\"{{true}}\">&emsp;&emsp;</text>和：敌方玩家的当前生命值高于自己时，受到其伤害降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "1.8%",
+              "3.3%"
+            ],
+            [
+              "3.0%",
+              "4.5%"
+            ],
+            [
+              "4.4%",
+              "6.0%"
+            ],
+            [
+              "5.7%",
+              "7.4%"
+            ],
+            [
+              "7.2%",
+              "9.0%"
+            ],
+            [
+              "8.7%",
+              "10.5%"
+            ],
+            [
+              "10.4%",
+              "12.3%"
+            ],
+            [
+              "12.0%",
+              "14.0%"
+            ],
+            [
+              "13.8%",
+              "15.9%"
+            ],
+            [
+              "15.6%",
+              "17.7%"
+            ]
+          ]
+        },
+        {
+          "name": "节俭",
+          "attr": "节<text decode=\"{{true}}\">&emsp;&emsp;</text>俭：无人机释放技能对耐久的消耗降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "6.0%",
+              "11.0%"
+            ],
+            [
+              "10.0%",
+              "15.0%"
+            ],
+            [
+              "14.5%",
+              "20.0%"
+            ],
+            [
+              "19.0%",
+              "24.5%"
+            ],
+            [
+              "24.0%",
+              "30.0%"
+            ],
+            [
+              "29.0%",
+              "35.0%"
+            ],
+            [
+              "34.5%",
+              "41.0%"
+            ],
+            [
+              "40.0%",
+              "46.5%"
+            ],
+            [
+              "46.0%",
+              "53.0%"
+            ],
+            [
+              "52.0%",
+              "59.0%"
+            ]
+          ]
+        },
+        {
+          "name": "克敌",
+          "attr": "克<text decode=\"{{true}}\">&emsp;&emsp;</text>敌：敌方玩家的当前生命值高于自己时，对其伤害增加 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "1.8%",
+              "3.3%"
+            ],
+            [
+              "3.0%",
+              "4.5%"
+            ],
+            [
+              "4.4%",
+              "6.0%"
+            ],
+            [
+              "5.7%",
+              "7.4%"
+            ],
+            [
+              "7.2%",
+              "9.0%"
+            ],
+            [
+              "8.7%",
+              "10.5%"
+            ],
+            [
+              "10.4%",
+              "12.3%"
+            ],
+            [
+              "12.0%",
+              "14.0%"
+            ],
+            [
+              "13.8%",
+              "15.9%"
+            ],
+            [
+              "15.6%",
+              "17.7%"
+            ]
+          ]
+        },
+        {
+          "name": "健康采集",
+          "attr": "健康采集：每次伐木、挖矿、采集获得副资源时，回复 <span style=\"color: #bbf;\">{0} ~ {1}</span> 点气力值和 <span style=\"color: #bbf;\">{0} ~ {1}</span> 点的健康值",
+          "values": [
+            [
+              1.2,
+              2.2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2.9,
+              4
+            ],
+            [
+              3.8,
+              4.9
+            ],
+            [
+              4.8,
+              6
+            ],
+            [
+              5.8,
+              7
+            ],
+            [
+              6.9,
+              8.2
+            ],
+            [
+              8,
+              9.3
+            ],
+            [
+              9.2,
+              10.6
+            ],
+            [
+              10.4,
+              11.8
+            ]
+          ]
+        }
+      ]
+    },
+    "aa_0": {
+      "cond": [
+        15,
+        15,
+        20,
+        30,
+        48,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "attrs": [
+        {
+          "name": "节约生存",
+          "attr": "节约生存：因恶劣天气导致的昏迷，装备耐久消耗降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "12.0%",
+              "17.0%"
+            ],
+            [
+              "16.0%",
+              "21.0%"
+            ],
+            [
+              "20.5%",
+              "26.0%"
+            ],
+            [
+              "25.0%",
+              "30.5%"
+            ],
+            [
+              "30.0%",
+              "36.0%"
+            ],
+            [
+              "35.0%",
+              "41.0%"
+            ],
+            [
+              "40.5%",
+              "47.0%"
+            ],
+            [
+              "46.0%",
+              "52.5%"
+            ],
+            [
+              "52.0%",
+              "59.0%"
+            ],
+            [
+              "58.0%",
+              "65.0%"
+            ]
+          ]
+        },
+        {
+          "name": "近身搏斗",
+          "attr": "近身搏斗：击败距离自己 50 范围内的敌人后 5 秒内，冷兵器造成的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "3.6%",
+              "6.6%"
+            ],
+            [
+              "6.0%",
+              "9.0%"
+            ],
+            [
+              "8.7%",
+              "12.0%"
+            ],
+            [
+              "11.4%",
+              "14.7%"
+            ],
+            [
+              "14.4%",
+              "18.0%"
+            ],
+            [
+              "17.4%",
+              "21.0%"
+            ],
+            [
+              "20.7%",
+              "24.6%"
+            ],
+            [
+              "24.0%",
+              "27.9%"
+            ],
+            [
+              "27.6%",
+              "31.8%"
+            ],
+            [
+              "31.2%",
+              "35.4%"
+            ]
+          ]
+        },
+        {
+          "name": "精打细算",
+          "attr": "精打细算：弹匣中的最后 10% 的子弹造成的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "3.2%",
+              "7.2%"
+            ],
+            [
+              "5.8%",
+              "10.4%"
+            ],
+            [
+              "8.6%",
+              "13.7%"
+            ],
+            [
+              "11.3%",
+              "16.9%"
+            ],
+            [
+              "15.3%",
+              "21.6%"
+            ],
+            [
+              "18.0%",
+              "23.4%"
+            ],
+            [
+              "20.7%",
+              "25.2%"
+            ],
+            [
+              "22.5%",
+              "27.0%"
+            ],
+            [
+              "24.3%",
+              "28.8%"
+            ],
+            [
+              "26.1%",
+              "30.6%"
+            ]
+          ]
+        },
+        {
+          "name": "装备齐全",
+          "attr": "装备齐全：同时装备了护甲和帽子时，额外获得 <span style=\"color: #bbf;\">{0} ~ {1}</span> 的免暴率",
+          "values": [
+            [
+              "1.2%",
+              "2.2%"
+            ],
+            [
+              "2.0%",
+              "3.0%"
+            ],
+            [
+              "2.9%",
+              "4.0%"
+            ],
+            [
+              "3.8%",
+              "4.9%"
+            ],
+            [
+              "4.8%",
+              "6.0%"
+            ],
+            [
+              "5.8%",
+              "7.0%"
+            ],
+            [
+              "6.9%",
+              "8.2%"
+            ],
+            [
+              "8.0%",
+              "9.3%"
+            ],
+            [
+              "9.2%",
+              "10.6%"
+            ],
+            [
+              "10.4%",
+              "11.8%"
+            ]
+          ]
+        },
+        {
+          "name": "防爆",
+          "attr": "防<text decode=\"{{true}}\">&emsp;&emsp;</text>爆：生命值低于 80% 时，受爆炸伤害降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "3.6%",
+              "6.6%"
+            ],
+            [
+              "6.0%",
+              "9.0%"
+            ],
+            [
+              "8.7%",
+              "12.0%"
+            ],
+            [
+              "11.4%",
+              "14.7%"
+            ],
+            [
+              "14.4%",
+              "18.0%"
+            ],
+            [
+              "17.4%",
+              "21.0%"
+            ],
+            [
+              "20.7%",
+              "24.6%"
+            ],
+            [
+              "24.0%",
+              "27.9%"
+            ],
+            [
+              "27.6%",
+              "31.8%"
+            ],
+            [
+              "31.2%",
+              "35.4%"
+            ]
+          ]
+        },
+        {
+          "name": "报复",
+          "attr": "报<text decode=\"{{true}}\">&emsp;&emsp;</text>复：击落无人机的敌人，在接下来的 5 秒内，受到来自无人机主人的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "5.6%",
+              "8.6%"
+            ],
+            [
+              "8.5%",
+              "11.5%"
+            ],
+            [
+              "11.7%",
+              "15.0%"
+            ],
+            [
+              "14.9%",
+              "18.2%"
+            ],
+            [
+              "18.0%",
+              "21.6%"
+            ],
+            [
+              "20.4%",
+              "24.0%"
+            ],
+            [
+              "23.2%",
+              "27.1%"
+            ],
+            [
+              "26.0%",
+              "29.9%"
+            ],
+            [
+              "29.6%",
+              "33.8%"
+            ],
+            [
+              "33.2%",
+              "37.4%"
+            ]
+          ]
+        },
+        {
+          "name": "协作",
+          "attr": "协<text decode=\"{{true}}\">&emsp;&emsp;</text>作：无人机出战时，无人机和主人受到的爆炸伤害降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "2.9%",
+              "5.3%"
+            ],
+            [
+              "4.8%",
+              "7.2%"
+            ],
+            [
+              "7.0%",
+              "9.6%"
+            ],
+            [
+              "9.1%",
+              "11.8%"
+            ],
+            [
+              "11.5%",
+              "14.4%"
+            ],
+            [
+              "13.9%",
+              "16.8%"
+            ],
+            [
+              "16.6%",
+              "19.7%"
+            ],
+            [
+              "19.2%",
+              "22.3%"
+            ],
+            [
+              "22.1%",
+              "25.4%"
+            ],
+            [
+              "25.0%",
+              "28.3%"
+            ]
+          ]
+        },
+        {
+          "name": "援护",
+          "attr": "援<text decode=\"{{true}}\">&emsp;&emsp;</text>护：无人机出战时，提升主人 <span style=\"color: #bbf;\">{0} ~ {1}</span> 的免暴率",
+          "values": [
+            [
+              "1.4%",
+              "2.6%"
+            ],
+            [
+              "2.4%",
+              "3.6%"
+            ],
+            [
+              "3.5%",
+              "4.8%"
+            ],
+            [
+              "4.6%",
+              "5.9%"
+            ],
+            [
+              "5.8%",
+              "7.2%"
+            ],
+            [
+              "7.0%",
+              "8.4%"
+            ],
+            [
+              "8.3%",
+              "9.8%"
+            ],
+            [
+              "9.6%",
+              "11.2%"
+            ],
+            [
+              "11.0%",
+              "12.7%"
+            ],
+            [
+              "12.5%",
+              "14.2%"
+            ]
+          ]
+        },
+        {
+          "name": "采集节奏",
+          "attr": "采集节奏：每次伐木、挖矿、采集暴击时，接下来的 10 秒内移动速度、伐木、挖矿、采集速度提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "2.4%",
+              "4.4%"
+            ],
+            [
+              "4.0%",
+              "6.0%"
+            ],
+            [
+              "5.8%",
+              "8.0%"
+            ],
+            [
+              "7.6%",
+              "9.8%"
+            ],
+            [
+              "9.6%",
+              "12.0%"
+            ],
+            [
+              "11.6%",
+              "14.0%"
+            ],
+            [
+              "13.8%",
+              "16.4%"
+            ],
+            [
+              "16.0%",
+              "18.6%"
+            ],
+            [
+              "18.4%",
+              "21.2%"
+            ],
+            [
+              "20.8%",
+              "23.6%"
+            ]
+          ]
+        }
+      ]
+    },
+    "sa_0": {
+      "cond": [
+        15,
+        15,
+        20,
+        30,
+        48,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "attrs": [
+        {
+          "name": "连环暴击",
+          "attr": "连环暴击：击倒敌人后，接下来的 4 秒内暴击率提升 <span style=\"color: #bbf;\">{0} ~ {1}</span> ，冷却时间 15 秒",
+          "values": [
+            [
+              "2.9%",
+              "4.9%"
+            ],
+            [
+              "5.0%",
+              "7.0%"
+            ],
+            [
+              "7.3%",
+              "9.5%"
+            ],
+            [
+              "9.6%",
+              "11.8%"
+            ],
+            [
+              "12.1%",
+              "14.5%"
+            ],
+            [
+              "13.6%",
+              "16.0%"
+            ],
+            [
+              "15.8%",
+              "18.4%"
+            ],
+            [
+              "17.5%",
+              "20.1%"
+            ],
+            [
+              "19.9%",
+              "22.7%"
+            ],
+            [
+              "21.8%",
+              "24.6%"
+            ]
+          ]
+        },
+        {
+          "name": "重击",
+          "attr": "重<text decode=\"{{true}}\">&emsp;&emsp;</text>击：命中头部击倒敌人后，接下来的 4 秒内攻击力提升 <span style=\"color: #bbf;\">{0} ~ {1}</span> 点，冷却时间 15 秒",
+          "values": [
+            [
+              1,
+              2.4
+            ],
+            [
+              1,
+              3.4
+            ],
+            [
+              2,
+              4.4
+            ],
+            [
+              3,
+              5.4
+            ],
+            [
+              4,
+              6.3
+            ],
+            [
+              4.8,
+              6.3
+            ],
+            [
+              5,
+              6.2
+            ],
+            [
+              5.2,
+              6.4
+            ],
+            [
+              5.4,
+              6.6
+            ],
+            [
+              5.6,
+              6.8
+            ]
+          ]
+        },
+        {
+          "name": "敏捷",
+          "attr": "敏<text decode=\"{{true}}\">&emsp;&emsp;</text>捷：命中头部击倒敌人后，接下来的 4 秒内射击速度提升 <span style=\"color: #bbf;\">{0} ~ {1}</span> ，冷却时间 15 秒",
+          "values": [
+            [
+              "3.8%",
+              "5.0%"
+            ],
+            [
+              "4.8%",
+              "6.0%"
+            ],
+            [
+              "5.9%",
+              "7.2%"
+            ],
+            [
+              "7.0%",
+              "8.3%"
+            ],
+            [
+              "8.2%",
+              "9.6%"
+            ],
+            [
+              "9.4%",
+              "10.8%"
+            ],
+            [
+              "10.7%",
+              "12.2%"
+            ],
+            [
+              "12.0%",
+              "13.6%"
+            ],
+            [
+              "13.4%",
+              "15.1%"
+            ],
+            [
+              "14.9%",
+              "16.6%"
+            ]
+          ]
+        },
+        {
+          "name": "远程打击",
+          "attr": "远程打击：击中 200 范围外敌人头部时，4 秒内接下来的一发子弹造成的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span> ，冷却时间 10 秒",
+          "values": [
+            [
+              "4.8%",
+              "8.8%"
+            ],
+            [
+              "8.0%",
+              "12.0%"
+            ],
+            [
+              "11.6%",
+              "16.0%"
+            ],
+            [
+              "15.2%",
+              "19.6%"
+            ],
+            [
+              "19.2%",
+              "24.0%"
+            ],
+            [
+              "23.2%",
+              "28.0%"
+            ],
+            [
+              "27.6%",
+              "32.8%"
+            ],
+            [
+              "32.0%",
+              "37.2%"
+            ],
+            [
+              "36.8%",
+              "42.4%"
+            ],
+            [
+              "41.6%",
+              "47.2%"
+            ]
+          ]
+        },
+        {
+          "name": "近身防卫",
+          "attr": "近身防卫：击败距离自己 50 范围内的敌人后 5 秒内，受到的伤害降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "3.6%",
+              "6.6%"
+            ],
+            [
+              "6.0%",
+              "9.0%"
+            ],
+            [
+              "8.7%",
+              "12.0%"
+            ],
+            [
+              "11.4%",
+              "14.7%"
+            ],
+            [
+              "14.4%",
+              "18.0%"
+            ],
+            [
+              "17.4%",
+              "21.0%"
+            ],
+            [
+              "20.7%",
+              "24.6%"
+            ],
+            [
+              "24.0%",
+              "27.9%"
+            ],
+            [
+              "27.6%",
+              "31.8%"
+            ],
+            [
+              "31.2%",
+              "35.4%"
+            ]
+          ]
+        },
+        {
+          "name": "坚韧不屈",
+          "attr": "坚韧不屈：单次受到的伤害大于最大生命值的 20% 时，接下来的 5 秒内受到的伤害降低 <span style=\"color: #bbf;\">{0} ~ {1}</span> 。60 秒内最多触发一次",
+          "values": [
+            [
+              "4.8%",
+              "8.8%"
+            ],
+            [
+              "8.0%",
+              "12.0%"
+            ],
+            [
+              "11.6%",
+              "16.0%"
+            ],
+            [
+              "15.2%",
+              "19.6%"
+            ],
+            [
+              "19.2%",
+              "24.0%"
+            ],
+            [
+              "23.2%",
+              "28.0%"
+            ],
+            [
+              "27.6%",
+              "32.8%"
+            ],
+            [
+              "32.0%",
+              "37.2%"
+            ],
+            [
+              "36.8%",
+              "42.4%"
+            ],
+            [
+              "41.6%",
+              "47.2%"
+            ]
+          ]
+        },
+        {
+          "name": "背水一战",
+          "attr": "背水一战：当前装备武器的弹匣及备用弹药量均为 0 的时候，移速提升 <span style=\"color: #bbf;\">{0} ~ {1}</span> ，受到的伤害降低 <span style=\"color: #bbf;\">{2} ~ {3}</span>",
+          "values": [
+            [
+              "2.2%",
+              "4.8%",
+              "2.9%",
+              "6.4%"
+            ],
+            [
+              "3.8%",
+              "7.0%",
+              "5.1%",
+              "9.3%"
+            ],
+            [
+              "5.8%",
+              "9.1%",
+              "7.7%",
+              "12.2%"
+            ],
+            [
+              "7.6%",
+              "11.3%",
+              "10.1%",
+              "15.0%"
+            ],
+            [
+              "10.2%",
+              "14.4%",
+              "13.6%",
+              "19.2%"
+            ],
+            [
+              "12.0%",
+              "15.6%",
+              "16.0%",
+              "20.8%"
+            ],
+            [
+              "13.8%",
+              "16.8%",
+              "18.4%",
+              "22.4%"
+            ],
+            [
+              "15.0%",
+              "18.0%",
+              "20.0%",
+              "24.0%"
+            ],
+            [
+              "16.2%",
+              "19.2%",
+              "21.6%",
+              "25.6%"
+            ],
+            [
+              "17.4%",
+              "20.4%",
+              "23.2%",
+              "27.2%"
+            ]
+          ]
+        },
+        {
+          "name": "连续作战",
+          "attr": "连续作战：离开战斗状态后 3 秒内再次进入战斗状态，则在 3 秒内受到的伤害降低 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "2.9%",
+              "5.3%"
+            ],
+            [
+              "4.8%",
+              "7.2%"
+            ],
+            [
+              "7.0%",
+              "9.6%"
+            ],
+            [
+              "9.1%",
+              "11.8%"
+            ],
+            [
+              "11.5%",
+              "14.4%"
+            ],
+            [
+              "13.9%",
+              "16.8%"
+            ],
+            [
+              "16.6%",
+              "19.7%"
+            ],
+            [
+              "19.2%",
+              "22.3%"
+            ],
+            [
+              "22.1%",
+              "25.4%"
+            ],
+            [
+              "25.0%",
+              "28.3%"
+            ]
+          ]
+        },
+        {
+          "name": "护卫补给",
+          "attr": "护卫补给：无人机击倒敌人后，主人回复 <span style=\"color: #bbf;\">{0} ~ {1}</span> 生命值（溢出转化为护盾）。60 秒内触发一次",
+          "values": [
+            [
+              "2.4%",
+              "4.4%"
+            ],
+            [
+              "4.0%",
+              "6.0%"
+            ],
+            [
+              "5.8%",
+              "8.0%"
+            ],
+            [
+              "7.6%",
+              "9.8%"
+            ],
+            [
+              "9.6%",
+              "12.0%"
+            ],
+            [
+              "11.6%",
+              "14.0%"
+            ],
+            [
+              "13.8%",
+              "16.4%"
+            ],
+            [
+              "16.0%",
+              "18.6%"
+            ],
+            [
+              "18.4%",
+              "21.2%"
+            ],
+            [
+              "20.8%",
+              "23.6%"
+            ]
+          ]
+        },
+        {
+          "name": "战术配合",
+          "attr": "战术配合：被无人机攻击的敌人在接下来的 2 秒内受到来自无人机主人的伤害提升 <span style=\"color: #bbf;\">{0} ~ {1}</span>",
+          "values": [
+            [
+              "2.4%",
+              "3.9%"
+            ],
+            [
+              "3.6%",
+              "5.1%"
+            ],
+            [
+              "5.0%",
+              "6.6%"
+            ],
+            [
+              "6.3%",
+              "8.0%"
+            ],
+            [
+              "7.8%",
+              "9.6%"
+            ],
+            [
+              "9.3%",
+              "11.1%"
+            ],
+            [
+              "11.0%",
+              "12.9%"
+            ],
+            [
+              "12.6%",
+              "14.6%"
+            ],
+            [
+              "14.4%",
+              "16.5%"
+            ],
+            [
+              "16.2%",
+              "18.3%"
+            ]
+          ]
+        }
+      ]
+    },
+    "l_1": {
+      "styleWidth": [
+        "width: 10%;",
+        "width: 10%;",
+        "width: 32%;",
+        "",
+        ""
+      ],
+      "style": [
+        "",
+        "",
+        "text-align: left; padding-left: 1vmin;",
+        "text-align: left; padding-left: 1vmin;",
+        "text-align: left; padding-left: 1vmin;"
+      ],
+      "header": [
+        "等级",
+        "进度<br/>次数",
+        "每次消耗",
+        "满进度消耗<br/>不含工艺提升",
+        "满进度消耗<br/>含工艺提升"
+      ],
+      "data": []
+    },
+    "Is_0": {
+      "style": {
+        "width": "100%",
+        "display": "flex",
+        "flex-direction": "row",
+        "gap": "0 1em",
+        "align-items": "center",
+        "margin": "0.5em 0 1em 0"
+      }
+    },
+    "tn_0": {
+      "style": {
+        "width": "100%",
+        "display": "flex",
+        "flex-direction": "row",
+        "gap": "0 1em",
+        "align-items": "center",
+        "margin": "0em 0 1em 0"
+      }
+    },
+    "pn_0": {
+      "style": {
+        "background-color": "#ffcd61",
+        "color": "#333",
+        "font-weight": "bold",
+        "padding": "0.1em 0.5em",
+        "border-radius": "0.2em",
+        "margin-left": "2em"
+      }
+    },
+    "bn_0": {
+      "style": {
+        "background-color": "#00ffdd",
+        "color": "#333",
+        "font-weight": "bold",
+        "padding": "0.1em 0.5em",
+        "border-radius": "0.2em",
+        "margin-left": "2em"
+      }
+    },
+    "Nn_0": {
+      "key": 0,
+      "style": {
+        "width": "100%",
+        "display": "grid",
+        "grid-template-columns": "repeat(auto-fill, 7em)",
+        "user-select": "text"
+      }
+    },
+    "ti_0": {
+      "style": {
+        "white-space": "nowrap",
+        "display": "flex",
+        "flex-direction": "row",
+        "gap": "0.3em",
+        "align-items": "center",
+        "user-select": "text"
+      }
+    }
+  }
+}

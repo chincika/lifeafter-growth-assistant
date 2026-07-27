@@ -1,0 +1,29 @@
+{
+  "name": "@lifeafter-assistant/maintainer",
+  "version": "0.1.9",
+  "description": "明日之后养成助手的本地资料维护与发布工具",
+  "author": "LifeAfter Assistant Contributors",
+  "private": true,
+  "type": "module",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "check": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest",
+    "test:run": "vitest run --passWithNoTests",
+    "dist:portable": "pnpm --workspace-root build && electron-builder --win portable --x64"
+  },
+  "dependencies": {
+    "@lifeafter-assistant/data-schema": "workspace:*",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.0",
+    "electron-vite": "^5.0.0",
+    "vite": "^7.3.6",
+    "vue-tsc": "^3.3.0"
+  }
+}
